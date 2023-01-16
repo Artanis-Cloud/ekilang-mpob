@@ -50,7 +50,7 @@ class KilangBuahController extends Controller
 
         // $pelesen = E91Init::get();
         // $pelesen = Pelesen::first();
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->where('e_kat', auth()->user()->category)->first();
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
         if ($pelesen) {
             return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));

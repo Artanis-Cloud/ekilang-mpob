@@ -276,16 +276,26 @@ class DataMigrationController extends Controller
     {
         // $reg_pelesens = RegPelesen::get(); // login
 
-        $biodiesels = DB::select("SELECT * FROM  pelesen_aktif_biodiesel");
+        $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  kilang k, login_mill m
+        where k.e_nl = m.lesen
+        and k.e_status='1'
+        and k.jenis='kilang biodiesel'");
+        // dd($biodiesels);
 
         foreach ($biodiesels as $biodiesel) {
 
             $daerahap = Daerah::where('nama_daerah', $biodiesel->e_apdaerah)->first();
             $daerahas = Daerah::where('nama_daerah', $biodiesel->e_asdaerah)->first();
+            $negeriap = Negeri::where('nama_negeri', $biodiesel->e_apnegeri)->first();
+            $negerias = Negeri::where('nama_negeri', $biodiesel->e_asnegeri)->first();
+            // dd($negerias);
+
+            $password = Hash::make($biodiesel->password);
+            $crypted = Crypt::encryptString($biodiesel->password);
+            // dd($crypted);
 
             $count_user = User::count();
             $count_pelesen = Pelesen::count();
-            // dd($count);
             if($biodiesel->e_asnegeri == '-Negeri-'){
                 $biodiesel->e_asnegeri = null;
             }
@@ -295,66 +305,54 @@ class DataMigrationController extends Controller
             // if($kilang->e_nl == '616115025000'){
             //     dd($kilang);
             // }
-            // $user = User::where('username', $biodiesel->e_nl)->first();
+            $user = User::where('username', $biodiesel->e_nl)->first();
 
-            // if(!$user){
-            //     $user = User::create([
-            //         'id' => $count_user++,
-            //         'name' => $kilang->e_np ?? '-',
-            //         'email' => $kilang->e_email ?? '-',
-            //         'e_ap1' => $kilang->e_ap1 ?? '-',
-            //         'e_ap2' => $kilang->e_ap2 ?? '-',
-            //         'e_ap3' => $kilang->e_ap3 ?? '-',
-            //         'e_as1' => $kilang->e_as1 ?? '-',
-            //         'e_as2' => $kilang->e_as2 ?? '-',
-            //         'e_as3' => $kilang->e_as3 ?? '-',
-            //         'e_notel' =>  $kilang->e_notel ?? '-',
-            //         'e_nofax' =>  $kilang->e_nofax ?? '-',
-            //         'e_email' =>  $kilang->e_email ?? '-',
-            //         'e_npg' =>  $kilang->e_npg ?? '-',
-            //         'e_jpg' =>  $kilang->e_jpg ?? '-',
-            //         'kodpgw' =>  $kilang->kodpgw ?? '-',
-            //         'nosiri' =>  $kilang->nosiri ?? '-',
-            //         'e_npgtg' =>  $kilang->e_npgtg ?? '-',
-            //         'e_jpgtg' =>  $kilang->e_jpgtg ?? '-',
-            //         'e_asnegeri' =>  $negeri->kod_negeri ?? '-',
-            //         'e_asdaerah' =>  $daerah->kod_daerah ?? '-',
-            //         'e_negeri' =>  $negeri->kod_negeri ?? '-',
-            //         'e_daerah' =>  $daerah->kod_daerah ?? '-',
-            //         'e_syktinduk' =>  $kilang->e_sykt_induk ?? '-',
-            //         'e_status' =>  $kilang->e_status ?? '-',
-            //     ]);
-            // }else{
-
-            //         $user->e_nl = $kilang->e_nl ?? '-';
-            //         $user->e_np = $kilang->e_np ?? '-';
-            //         $user->e_ap1 = $kilang->e_ap1 ?? '-';
-            //         $user->e_ap2 = $kilang->e_ap2 ?? '-';
-            //         $user->e_ap3 = $kilang->e_ap3 ?? '-';
-            //         $user->e_as1 = $kilang->e_as1 ?? '-';
-            //         $user->e_as2 = $kilang->e_as2 ?? '-';
-            //         $user->e_as3 = $kilang->e_as3 ?? '-';
-            //         $user->e_notel = $kilang->e_notel ?? '-';
-            //         $user->e_nofax = $kilang->e_nofax ?? '-';
-            //         $user->e_email = $kilang->e_email ?? '-';
-            //         $user->e_npg = $kilang->e_npg ?? '-';
-            //         $user->e_jpg = $kilang->e_jpg ?? '-';
-            //         $user->kodpgw = $kilang->kodpgw ?? '-';
-            //         $user->nosiri = $kilang->nosiri ?? '-';
-            //         $user->e_npgtg = $kilang->e_npgtg ?? '-';
-            //         $user->e_jpgtg = $kilang->e_jpgtg ?? '-';
-            //         $user->e_asnegeri = $negeri->kod_negeri ?? '-';
-            //         $user->e_asdaerah = $daerah->kod_daerah ?? '-';
-            //         $user->e_negeri = $negeri->kod_negeri ?? '-';
-            //         $user->e_daerah = $daerah->kod_daerah ?? '-';
-            //         $user->e_syktinduk = $kilang->e_sykt_induk ?? '-';
-            //         $user->e_status = $kilang->e_status ?? '-';
-
-            //     $user->save();
+            // foreach ($users as $user) {
+            //     // dd($user);
+            //     $kat[$biodiesel->e_nl] = $user->category;
             // }
+            // dd($kat[$biodiesel->e_nl]);
+            if(!$user){
+                $user = User::create([
+                    'id' => $count_user++,
+                    'name' => $biodiesel->e_np ?? '-',
+                    'email' => $biodiesel->e_email ?? '-',
+                    'password' => $password,
+                    'crypted_pass' => $crypted,
+                    'username' => $biodiesel->e_nl ?? '-',
+                    'category' => $biodiesel->e_kat ?? '-',
+                    'sub_cat' => NULL,
+                    'status' =>  '1',
+                    'map_flg' =>  '0',
+                    'map_sdate' =>  NULL,
+                ]);
+            }else{
+
+                if ($user->e_kat == $biodiesel->e_kat) {
+                    $user->e_email = $biodiesel->e_email ?? '-';
+                    $user->password = $password;
+                    $user->crypted_pass = $crypted;
+                    $user->save();
+
+                } else {
+                    $user = User::create([
+                        'id' => $count_user++,
+                        'name' => $biodiesel->e_np ?? '-',
+                        'email' => $biodiesel->e_email ?? '-',
+                        'password' => $password,
+                        'crypted_pass' => $crypted,
+                        'username' => $biodiesel->e_nl ?? '-',
+                        'category' => $biodiesel->e_kat ?? '-',
+                        'sub_cat' => NULL,
+                        'status' =>  '1',
+                        'map_flg' =>  '0',
+                        'map_sdate' =>  NULL,
+                    ]);
+                }
 
 
 
+            }
 
 
             $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->first();
@@ -379,15 +377,15 @@ class DataMigrationController extends Controller
                     'nosiri' =>  $biodiesel->nosiri ?? '-',
                     'e_npgtg' =>  $biodiesel->e_npgtg ?? '-',
                     'e_jpgtg' =>  $biodiesel->e_jpgtg ?? '-',
-                    'e_asnegeri' =>  $biodiesel->e_asnegeri ?? '-',
+                    'e_asnegeri' =>  $negerias->kod_negeri ?? '-',
                     'e_asdaerah' =>  $daerahas->kod_daerah ?? '-',
-                    'e_negeri' =>  $biodiesel->e_apnegeri ?? '-',
+                    'e_negeri' =>  $negeriap->kod_negeri ?? '-',
                     'e_daerah' =>  $daerahap->kod_daerah ?? '-',
                     'e_syktinduk' =>  $biodiesel->e_sykt_induk ?? '-',
                     'e_status' =>  $biodiesel->e_status ?? '-',
                 ]);
             }else{
-
+                if ($user->e_kat == $biodiesel->e_kat) {
                     $pelesen->e_nl = $biodiesel->e_nl ?? '-';
                     $pelesen->e_np = $biodiesel->e_np ?? '-';
                     $pelesen->e_ap1 = $biodiesel->e_ap1 ?? '-';
@@ -405,14 +403,44 @@ class DataMigrationController extends Controller
                     $pelesen->nosiri = $biodiesel->nosiri ?? '-';
                     $pelesen->e_npgtg = $biodiesel->e_npgtg ?? '-';
                     $pelesen->e_jpgtg = $biodiesel->e_jpgtg ?? '-';
-                    $pelesen->e_asnegeri = $biodiesel->e_asnegeri ?? '-';
+                    $pelesen->e_asnegeri = $negerias->kod_negeri ?? '-';
                     $pelesen->e_asdaerah = $daerahas->kod_daerah ?? '-';
-                    $pelesen->e_negeri = $biodiesel->e_apnegeri ?? '-';
+                    $pelesen->e_negeri = $negeriap->kod_negeri ?? '-';
                     $pelesen->e_daerah = $daerahap->kod_daerah ?? '-';
                     $pelesen->e_syktinduk = $biodiesel->e_sykt_induk ?? '-';
                     $pelesen->e_status = $biodiesel->e_status ?? '-';
 
                 $pelesen->save();
+
+                } else {
+                    $pelesen = Pelesen::create([
+                        'e_id' => $count_pelesen++,
+                        'e_nl' => $biodiesel->e_nl ?? '-',
+                        'e_np' => $biodiesel->e_np ?? '-',
+                        'e_ap1' => $biodiesel->e_ap1 ?? '-',
+                        'e_ap2' => $biodiesel->e_ap2 ?? '-',
+                        'e_ap3' => $biodiesel->e_ap3 ?? '-',
+                        'e_as1' => $biodiesel->e_as1 ?? '-',
+                        'e_as2' => $biodiesel->e_as2 ?? '-',
+                        'e_as3' => $biodiesel->e_as3 ?? '-',
+                        'e_notel' =>  $biodiesel->e_notel ?? '-',
+                        'e_nofax' =>  $biodiesel->e_nofax ?? '-',
+                        'e_email' =>  $biodiesel->e_email ?? '-',
+                        'e_npg' =>  $biodiesel->e_npg ?? '-',
+                        'e_jpg' =>  $biodiesel->e_jpg ?? '-',
+                        'kodpgw' =>  $biodiesel->kodpgw ?? '-',
+                        'nosiri' =>  $biodiesel->nosiri ?? '-',
+                        'e_npgtg' =>  $biodiesel->e_npgtg ?? '-',
+                        'e_jpgtg' =>  $biodiesel->e_jpgtg ?? '-',
+                        'e_asnegeri' =>  $negerias->kod_negeri ?? '-',
+                        'e_asdaerah' =>  $daerahas->kod_daerah ?? '-',
+                        'e_negeri' =>  $negeriap->kod_negeri ?? '-',
+                        'e_daerah' =>  $daerahap->kod_daerah ?? '-',
+                        'e_syktinduk' =>  $biodiesel->e_sykt_induk ?? '-',
+                        'e_status' =>  $biodiesel->e_status ?? '-',
+                    ]);
+                }
+
             }
 
         }
@@ -558,34 +586,77 @@ class DataMigrationController extends Controller
     public function transfer_cryptpass()
     {
 
+        $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  kilang k, login_mill m
+        where k.e_nl = m.lesen
+        and k.e_status='1'
+        and k.jenis='kilang biodiesel'");
 
-        $reg_users = RegUser::get();
+        $reg_pelesens = RegPelesen::where('e_status', '2')->get();
 
-        foreach ($reg_users as $reg_user) {
-            $user = User::where('username', $reg_user->e_userid)->where('category', 'admin')->first();
+        // foreach ($reg_pelesens as $rp) {
+        //     // $user = User::where('username', $biodiesel->e_nl)->whereNull('crypted_pass')->first();
+        //     $pelesen = Pelesen::where('e_nl', $rp->e_nl)->first();
+        //     // dd($user);
 
-            // $e_kat = array($reg_user->e_kat);
+        //     if($pelesen){
+        //         // if(!$user->sub_cat){
+        //             $pelesen->e_kat = $rp->e_kat;
+        //             $pelesen->save();
+        //         // }
+        //     }
+        //     // if($user){
+        //     //     // if(!$user->sub_cat){
+        //     //         $user->crypted_pass = Crypt::encryptString($biodiesel->password);
+        //     //         $user->save();
+        //     //     // }
+        //     // }
+        // }
+        foreach ($biodiesels as $biodiesel) {
+            // $user = User::where('username', $biodiesel->e_nl)->whereNull('e_kat')->first();
+            $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->whereNull('e_kat')->first();
+            // dd($pelesen);
 
-            if($user){
+            if($pelesen){
                 // if(!$user->sub_cat){
-                    $user->crypted_pass = Crypt::encryptString($reg_user->e_pwd);
-                    $user->save();
+                    $pelesen->e_kat = $biodiesel->e_kat;
+                    $pelesen->save();
                 // }
             }
+            // if($user){
+            //     // if(!$user->sub_cat){
+            //         $user->crypted_pass = Crypt::encryptString($biodiesel->password);
+            //         $user->save();
+            //     // }
+            // }
         }
-        $reg_pls = RegPelesen::get();
 
-        foreach ($reg_pls as $reg_pl) {
-            $user = User::where('username', $reg_pl->e_nl)->where('category', $reg_pl->e_kat)->first();
+        // $reg_users = RegUser::get();
 
-            // $e_kat = array($reg_user->e_kat);
+        // foreach ($reg_users as $reg_user) {
+        //     $user = User::where('username', $reg_user->e_userid)->where('category', 'admin')->first();
 
-            if($user){
-                // if(!$user->sub_cat){
-                    $user->crypted_pass = Crypt::encryptString($reg_pl->e_pwd);
-                    $user->save();
-                // }
-            }
-        }
+        //     // $e_kat = array($reg_user->e_kat);
+
+        //     if($user){
+        //         // if(!$user->sub_cat){
+        //             $user->crypted_pass = Crypt::encryptString($reg_user->e_pwd);
+        //             $user->save();
+        //         // }
+        //     }
+        // }
+        // $reg_pls = RegPelesen::get();
+
+        // foreach ($reg_pls as $reg_pl) {
+        //     $user = User::where('username', $reg_pl->e_nl)->where('category', $reg_pl->e_kat)->first();
+
+        //     // $e_kat = array($reg_user->e_kat);
+
+        //     if($user){
+        //         // if(!$user->sub_cat){
+        //             $user->crypted_pass = Crypt::encryptString($reg_pl->e_pwd);
+        //             $user->save();
+        //         // }
+        //     }
+        // }
     }
 }
