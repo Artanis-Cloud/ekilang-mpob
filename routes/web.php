@@ -29,6 +29,7 @@ Route::get('/password', [App\Http\Controllers\tryController::class, 'change_pass
 Route::get('/testArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('tryArx');
 Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
 Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
+Route::get('/migrate/data2', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesenbio_to_users'])->name('transfer_pelesen_to_users');
 Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_adminbio_to_users'])->name('transfer_admin_to_users');
 Route::get('plbio', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesenbio_to_users'])->name('transferplbio');
 Route::get('/crypt', [App\Http\Controllers\DataMigrationController::class, 'transfer_cryptpass'])->name('transfer_cryptpass');

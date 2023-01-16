@@ -55,7 +55,7 @@ class KilangOleokimiaController extends Controller
         $layout = 'layouts.koleo';
 
         // $pelesen = E91Init::get();
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->where('e_kat', auth()->user()->category)->first();
 
         if ($pelesen) {
             $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +

@@ -53,15 +53,30 @@ class AjaxController extends Controller
         exit;
     }
 
-    public function fetch_email($username)
-    {
 
-        $email = User::where('username', $username)->get('email');
-        // dd($list_pelesen);
+
+    public function fetch_email($encoded)
+    {
+        // echo $decoded;
+        $decoded = $this->decode($encoded);
+
+        $email = User::where('username', $decoded)->get('email');
+        // dd($email);
 
         return json_decode($email);
         exit;
     }
+
+    function decode($encoded) {
+        $encoded = base64_decode($encoded);
+        $decoded = "";
+        for( $i = 0; $i < strlen($encoded); $i++ ) {
+        $b = ord($encoded[$i]);
+        $a = $b ^ 10; //
+        $decoded .= chr($a);
+        }
+        return base64_decode(base64_decode($decoded));
+        }
 
     public function jumlah_penyata_dashboard()
     {

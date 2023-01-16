@@ -62,7 +62,7 @@ class KilangBiodieselController extends Controller
         $layout = 'layouts.kbio';
 
         // $pelesen = E91Init::get();dasfsds
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->where('e_kat', auth()->user()->category)->first();
         // dd($pelesen);
         if ($pelesen) {
 

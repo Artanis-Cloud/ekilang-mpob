@@ -35,6 +35,17 @@ class tryController extends Controller
     {
         return view('converter');
     }
+
+    public function decode($encoded) {
+        $encoded = base64_decode($encoded);
+        $decoded = "";
+        for( $i = 0; $i < strlen($encoded); $i++ ) {
+        $b = ord($encoded[$i]);
+        $a = $b ^ 10; // $decoded .= chr($a);
+        }
+        return base64_decode(base64_decode($decoded));
+        }
+
     public function testing3()
     {
 
@@ -48,11 +59,20 @@ class tryController extends Controller
         // echo $dt->format('d-m-Y H:i:s');
 
         // $run_at = now($zone)->startOfDay()->addHours(8)->utc()->format('H:i');
-        $run_at = Hash::make('admin123');
-        dd($run_at);
+        $encoded = 'XlxYQG9tNzc=';
+        $encoded = base64_decode($encoded);
+        $decoded = "";
+        for( $i = 0; $i < strlen($encoded); $i++ ) {
+        $b = ord($encoded[$i]);
+        $a = $b ^ 10; //
+        $decoded .= chr($a);
+        }
+        dd(base64_decode(base64_decode($decoded)));
 
+        echo base64_decode(base64_decode($decoded));
 
-
+        // $t = $this->decode("XlxYQG9tNzc=");
+        // echo $t;
 
 
        // echo '0', $dt;
@@ -154,7 +174,7 @@ class tryController extends Controller
 
         // }
         // dd($qrystkcpl);
-        return view('users.users-dashboard');
+        // return view('users.users-dashboard');
     }
 
     public function testdb_pldb()
