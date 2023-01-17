@@ -78,8 +78,16 @@
 
                                 <script>
                                     var dt = new Date();
-                                    document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+                                    var newm = (("0" + (dt.getMonth())).slice(-2));
+                                    // let month = '12';
 
+                                    console.log(newm == 0);
+                                    if (newm == 00) {
+                                        document.getElementById("Bulan").innerHTML = '12';
+                                    } else {
+                                        document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2));
+
+                                    }
                                     var dt = new Date();
                                     document.getElementById("Tahun").innerHTML = (dt.getFullYear());
                                 </script>
