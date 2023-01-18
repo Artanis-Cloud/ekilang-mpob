@@ -10,8 +10,10 @@ img{
 .login {
     height: 100%;
     width: 100%;
-    background: linear-gradient(to top right, #f25939 59%, #ffffff 158%);
+    background:url( {{ asset("theme/images/background/palm5.jpg") }});
     position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 .login_box {
     width: 1000px;
@@ -20,7 +22,7 @@ img{
     top: 55%;
     left: 50%;
     transform: translate(-50%,-60%);
-    background: #fff;
+    /* background: #fff; */
     border-radius: 10px;
     box-shadow: 1px 4px 22px -8px #0004;
     display: flex;
@@ -114,7 +116,9 @@ footer {
     }
 
 .right {
-	background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
+    background: linear-gradient(212.38deg, rgb(190 120 106 / 97%) 0%, #f25939e3 80%);
+
+    /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
 	color: #fff;
 	position: relative;
 }
@@ -181,15 +185,15 @@ footer {
 				<div class="contact">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <h3>&nbsp; &nbsp;  LOG MASUK</h3>
-                        <div class="container">
+                        <h3>&nbsp; &nbsp;  LOG MASUK</h3><br><br>
+                        {{-- <div class="container">
                             <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:100px; width:100px; margin-left:30% " alt="logo">
-                        </div>
+                        </div> --}}
                         <div class="container">
-                            <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:80px; width:70%; margin-left:15%  " alt="logo">
-                        </div>
+                            <img src="{{ asset('theme/images/background/logo4.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:70px; width:110%; margin-left:5%  " alt="logo">
+                        </div><br>
                         <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
                             oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
                             name="username" value="{{ old('username') }}" autocomplete="off" maxlength="12"
@@ -223,7 +227,7 @@ footer {
                     <hr>
                     <p>
                         Sebarang pertanyaan sila hubungi :
-                    </p><br>
+                    </p>
                     <p style="text-align: left; margin-left: 5%"><b>
                         Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
                     </p>

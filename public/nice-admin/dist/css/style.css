@@ -8205,12 +8205,18 @@ sidebar navigation
          Small cap
          ******************/ }
   .sidebar-nav ul .sidebar-item {
-    width: 250px;
+    /* width: 250px; */
+    border-top-style: solid;
+    border-width: thin;
+    border-color: #ffffff33;
+    width: 90%;
+    position: sticky;
+    left: 10px
     /*******************
            First level
            ******************/ }
     .sidebar-nav ul .sidebar-item .sidebar-link {
-      color: #000;
+      color: #fff;
       padding: 12px 15px;
       display: flex;
       white-space: nowrap;
@@ -8256,7 +8262,7 @@ sidebar navigation
 
 .sidebar-nav > #sidebarnav > .sidebar-item > .sidebar-link:hover, .sidebar-nav > #sidebarnav > .sidebar-item.selected > .sidebar-link {
   background: rgba(0, 0, 0, 0.1);
-  border-left: 2px solid #137eff; }
+  border-left: 2px solid #137eff00; }
 
 .sidebar-nav > #sidebarnav > .sidebar-item > .sidebar-link {
   border-left: 2px solid transparent; }
