@@ -70,7 +70,7 @@
                                             No. Lesen</label>
                                         <div class="col-md-6">
                                             <input type="text" id="username" class="form-control" onblur="getVal()"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" autocomplete="OFF"
                                                 oninput="setCustomValidity(''); valid_user()" required
                                                 placeholder=" No. Lesen" name="username">
                                             <p type="hidden" id="err_username" style="color: red; display:none"><i>Sila isi

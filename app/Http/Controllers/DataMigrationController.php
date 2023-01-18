@@ -48,6 +48,7 @@ class DataMigrationController extends Controller
                 'name' => $pelesen->e_np ?? '-',
                 'email' => $pelesen->e_email ?? '-',
                 'password' => $password,
+                'crypted_pass' => Crypt::encryptString($reg_pelesen->e_pwd),
                 'username' => $reg_pelesen->e_nl ?? '-',
                 'category' => $reg_pelesen->e_kat ?? '-',
                 'kod_pegawai' => $reg_pelesen->kodpgw ?? '-',
@@ -74,6 +75,7 @@ class DataMigrationController extends Controller
                 'name' => $reg_user->e_kat ?? '-',
                 'email' => $reg_user->e_email ?? '-',
                 'password' => $password,
+                'crypted_pass' => Crypt::encryptString($reg_user->e_pwd),
                 'username' => $reg_user->e_userid ?? '-',
                 'category' => 'admin',
                 'status' =>  '1',
@@ -586,12 +588,9 @@ class DataMigrationController extends Controller
     public function transfer_cryptpass()
     {
 
-        $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  kilang k, login_mill m
-        where k.e_nl = m.lesen
-        and k.e_status='1'
-        and k.jenis='kilang biodiesel'");
+        $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  login_admin");
 
-        $reg_pelesens = RegPelesen::where('e_status', '2')->get();
+        // $reg_pelesens = RegPelesen::where('e_status', '2')->get();
 
         // foreach ($reg_pelesens as $rp) {
         //     // $user = User::where('username', $biodiesel->e_nl)->whereNull('crypted_pass')->first();
@@ -613,12 +612,12 @@ class DataMigrationController extends Controller
         // }
         foreach ($biodiesels as $biodiesel) {
             // $user = User::where('username', $biodiesel->e_nl)->whereNull('e_kat')->first();
-            $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->whereNull('e_kat')->first();
+            $pelesen = User::where('username', $biodiesel->USERNAME)->first();
             // dd($pelesen);
 
             if($pelesen){
                 // if(!$user->sub_cat){
-                    $pelesen->e_kat = $biodiesel->e_kat;
+                    $pelesen->crypted_pass = Crypt::encryptString($biodiesel->PASSWORD);
                     $pelesen->save();
                 // }
             }

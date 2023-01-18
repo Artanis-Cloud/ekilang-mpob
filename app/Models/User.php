@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'crypted_pass',
         'username',
         'category',
         'sub_category',
