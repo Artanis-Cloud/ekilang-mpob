@@ -10,7 +10,7 @@ img{
 .login {
     height: 100%;
     width: 100%;
-    background:url( {{ asset("theme/images/background/palm5.jpg") }});
+    background:url( {{ asset("theme/images/background/palm6.jpg") }});
     position: relative;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -116,7 +116,7 @@ footer {
     }
 
 .right {
-    background: linear-gradient(212.38deg, rgb(190 120 106 / 97%) 0%, #f25939e3 80%);
+    background: linear-gradient(212.38deg, rgb(190 120 106 / 85%) 0%, #f25939e3 80%);
 
     /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
 	color: #fff;
