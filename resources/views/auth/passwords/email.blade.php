@@ -23,7 +23,7 @@
     .login {
         height: 100%;
         width: 100%;
-        background:url( {{ asset("theme/images/background/palm5.jpg") }});
+        background:url( {{ asset("theme/images/background/palm6.jpg") }});
         position: relative;
         background-size: 100%;
         background-repeat: no-repeat;
@@ -130,7 +130,7 @@
     }
 
     .right {
-        background: linear-gradient(212.38deg, rgb(190 120 106 / 97%) 0%, #f25939e3 80%);
+        background: linear-gradient(212.38deg, rgb(190 120 106 / 85%) 0%, #f25939e3 80%);
 
         /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
         color: #fff;
@@ -201,8 +201,8 @@
                                 style="height:80px; width:70%; margin-left:15% " alt="logo">
                         </div><br> --}}
                         <div class="container">
-                            <img src="{{ asset('theme/images/background/logo4.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:70px; width:110%; margin-left:5%  " alt="logo">
+                            <img src="{{ asset('theme/images/background/logo7.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:70px; width:110%;  " alt="logo">
                         </div><br>
                         {{-- <span> <b>Sistem e-Kilang</b></span>
                         <span><b> Lembaga Minyak Sawit</b></span> --}}
@@ -251,6 +251,11 @@
                     <p style="text-align: left; margin-left: 5%"><b>
                         Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
                     </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">Pn. Nor Syaida : </div>
+                        <div class="col-7">(Emel:
+                            nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)</div>
+                    </div>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">En. Rominizam : </div>
                         <div class="col-7">(Emel:

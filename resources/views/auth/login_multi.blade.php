@@ -73,7 +73,7 @@
     }
 
     form {
-        background-color: white;
+        background-color: #ffffff0f;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -93,7 +93,7 @@
     }
 
     .container {
-        background-color: #fff;
+        /* background-color: #fff; */
         border-radius: 10px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
             0 10px 10px rgba(0, 0, 0, 0.22);
@@ -166,7 +166,7 @@
     }
 
     .overlay {
-        background: white;
+        background: #ffffffc2;
         /* background: -webkit-linear-gradient(to right, white, white);
         background: linear-gradient(to right, white, white); */
         background-repeat: no-repeat;
@@ -258,7 +258,7 @@
     }
 </style>
 
-<body class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
+<body class=""style="background:url({{ asset('theme/images/background/palm6.jpg') }});background-size:cover;background-position:center;">
 
     <div class="container" id="container">
         <div class="overlay-container">
