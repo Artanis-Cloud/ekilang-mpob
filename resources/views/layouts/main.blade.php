@@ -315,7 +315,7 @@
                                     </a>
                                 @elseif (auth()->user()->category == 'admin')
                                     <a href="{{ route('admin.dashboard') }}">
-                                        <img src="{{ asset('logo5.png') }}" alt="homepage" class="light-logo"
+                                        <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
                                             style="padding-top:20px;height:110%; width:90%; margin-left:10%">
                                     </a>
                                 @endif
