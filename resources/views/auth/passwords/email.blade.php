@@ -23,8 +23,10 @@
     .login {
         height: 100%;
         width: 100%;
-        background: linear-gradient(to top right, #f25939 59%, #ffffff 158%);
+        background:url( {{ asset("theme/images/background/palm5.jpg") }});
         position: relative;
+        background-size: 100%;
+        background-repeat: no-repeat;
     }
     .login_box {
         width: 1000px;
@@ -33,7 +35,7 @@
         top: 55%;
         left: 50%;
         transform: translate(-50%,-60%);
-        background: #fff;
+        /* background: #fff; */
         border-radius: 10px;
         box-shadow: 1px 4px 22px -8px #0004;
         display: flex;
@@ -57,7 +59,7 @@
     height: 20px
     }
     .left .contact{
-        display: flex;
+        display: block;
         align-items: center;
         justify-content: center;
         align-self: center;
@@ -82,7 +84,8 @@
         font-size: 14px;
     }
     .left{
-        background: linear-gradient(-45deg, #dcd7e0, #fff);
+        background: rgb(255, 255, 255);
+
     }
     .submit {
         border: none;
@@ -102,32 +105,34 @@
 
 
     footer {
-            background-color: #222;
-            color: #fff;
-            font-size: 14px;
-            bottom: 0;
-            position: fixed;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 999;
-        }
+        background-color: #222;
+        color: #fff;
+        font-size: 14px;
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
 
-        footer p {
-            margin: 15px 0;
-        }
+    footer p {
+        margin: 15px 0;
+    }
 
-        footer i {
-            color: red;
-        }
+    footer i {
+        color: red;
+    }
 
-        footer a {
-            color: #3c97bf;
-            text-decoration: none;
-        }
+    footer a {
+        color: #3c97bf;
+        text-decoration: none;
+    }
 
     .right {
-        background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
+        background: linear-gradient(212.38deg, rgb(190 120 106 / 97%) 0%, #f25939e3 80%);
+
+        /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
         color: #fff;
         position: relative;
     }
@@ -187,13 +192,17 @@
                     <form method="POST" action="{{ route('forget-password.submit') }}">
                         @csrf
                         <h3>Terlupa Kata Laluan</h3>
-                        <div class="social-container">
+                        {{-- <div class="social-container">
                             <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:100px; width:100px; margin-left:35% " alt="logo">
                         </div>
                         <div class="social-container">
                             <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:80px; width:70%; margin-left:15% " alt="logo">
+                        </div><br> --}}
+                        <div class="container">
+                            <img src="{{ asset('theme/images/background/logo4.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:70px; width:110%; margin-left:5%  " alt="logo">
                         </div><br>
                         {{-- <span> <b>Sistem e-Kilang</b></span>
                         <span><b> Lembaga Minyak Sawit</b></span> --}}
@@ -226,7 +235,7 @@
                             </div>
                         @enderror
 
-                        <button class="submit" type="submit" onclick="errorMessage()">Hantar</button>
+                        <button class="submit" type="submit" style="margin-top: 20px" onclick="errorMessage()">Hantar</button>
                         <a style="margin-left:35%" href="{{ route('login') }}">Log Masuk</a>
                     </form>
 				</div>
@@ -238,7 +247,7 @@
                     <hr>
                     <p>
                         Sebarang pertanyaan sila hubungi :
-                    </p><br>
+                    </p>
                     <p style="text-align: left; margin-left: 5%"><b>
                         Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
                     </p>
