@@ -96,9 +96,13 @@
                                         document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2));
 
                                     }
-
                                     var dt = new Date();
-                                    document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+                                    if (newm == 00) {
+                                        document.getElementById("Tahun").innerHTML = (dt.getFullYear())-1;
+                                    } else {
+                                        document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+
+                                    }
                                 </script>
                                 {{-- <p>Maklumat Kilang</p> --}}
                             </div>
