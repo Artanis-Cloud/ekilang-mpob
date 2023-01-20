@@ -218,7 +218,7 @@
 
                                                 <select multiple="multiple" size="10" class="duallistbox-no-filter"
                                                     name="sub_cat[]" id="subkat">
-                                                    @if (auth()->user()->sub_cat)
+                                                    {{-- @if (auth()->user()->sub_cat)
                                                     @foreach (json_decode(auth()->user()->sub_cat) as $cat)
                                                     @if ($cat == 'PL91')
                                                     <option value="PL91">Kilang Buah</option>
@@ -239,13 +239,13 @@
                                                     <option value="PLBIO">Kilang Biodiesel</option>
                                                     @endif
                                                     @endforeach
-                                                    @endif
-                                                    {{-- <option value="PL91">Kilang Buah</option>
+                                                    @endif --}}
+                                                    <option value="PL91">Kilang Buah</option>
                                                     <option value="PL101">Kilang Penapis</option>
                                                     <option value="PL102">Kilang Isirung</option>
                                                     <option value="PL104">Kilang Oleokimia</option>
                                                     <option value="PL111">Pusat Simpanan</option>
-                                                    <option value="PLBIO">Kilang Biodiesel</option> --}}
+                                                    <option value="PLBIO">Kilang Biodiesel</option>
                                                 </select>
 
                                             </div>
