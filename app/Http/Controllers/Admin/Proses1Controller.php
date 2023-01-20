@@ -1537,7 +1537,8 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenbio()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $users = User::with('pelesen')->where('category', 'PLBIO')->WHERE('status', '1')->get();
+        // dd($users);
 
         foreach ($users as $key =>  $res_daerah) {
             $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->pelesen->e_negeri)->where('kod_daerah', $res_daerah->pelesen->e_daerah)->first();
