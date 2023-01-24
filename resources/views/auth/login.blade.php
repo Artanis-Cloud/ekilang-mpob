@@ -80,7 +80,7 @@ img{
     display: block;
     margin: auto;
     margin-top: 10px;
-    background: linear-gradient(to right, #f25939 59%, #ffffff 158%);
+    background: linear-gradient(to right, #4fd2c7 59%, #ffffff 158%);
     color: #fff;
     font-weight: bold;
     -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
@@ -116,8 +116,9 @@ footer {
     }
 
 .right {
-    background: linear-gradient(212.38deg, rgb(190 120 106 / 85%) 0%, #f25939e3 80%);
-
+    /* background: linear-gradient(212.38deg, rgb(190 120 106 / 85%) 0%, #f25939e3 80%); */
+    background: linear-gradient(212.38deg, #00458b 0%, #3fd2c7 80%);
+    opacity: 90%;
     /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
 	color: #fff;
 	position: relative;
