@@ -264,7 +264,7 @@
         <!-- ============================================================== -->
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" style="background: #f25939 ">
+                <div class="navbar-header" style="background: #3fd2c7 ">
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
                         <i class="ti-menu ti-close"></i>
@@ -606,7 +606,7 @@
         </header>
         @if (auth()->user()->category == 'PL91')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                  background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar" data-height="100%" data-init="true">
                     <!-- Sidebar navigation-->
@@ -752,7 +752,7 @@
             </aside>
         @elseif (auth()->user()->category == 'PL101')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                   background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -902,7 +902,7 @@
             </aside>
         @elseif (auth()->user()->category == 'PL102')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                  background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -1047,7 +1047,7 @@
             </aside>
         @elseif (auth()->user()->category == 'PL104')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                   background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -1188,7 +1188,7 @@
             </aside>
         @elseif (auth()->user()->category == 'PL111')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                   background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%);  background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -1299,7 +1299,7 @@
             </aside>
         @elseif (auth()->user()->category == 'PLBIO')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                   background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -1440,7 +1440,7 @@
             </aside>
         @elseif (auth()->user()->category == 'PL101' ?? 'PL104')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                   background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -1713,12 +1713,12 @@
             </aside>
         @elseif (auth()->user()->category == 'admin')
             <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
-                   background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
+                    background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
-                        <ul id="sidebarnav" style="background: #f25939 ">
+                        <ul id="sidebarnav">
                             {{-- <li class="nav-small-cap">
                                 <i class="mdi mdi-dots-horizontal"></i>
                                 <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>
