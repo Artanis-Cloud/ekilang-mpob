@@ -210,6 +210,9 @@ class LoginController extends Controller
                         $this->guard()->logout();
                         return view('auth.login_multi', compact('users'));
                     }
+                } else {
+                    $this->guard()->logout();
+                        return view('auth.login_multi', compact('users'));
                 }
                     //  else {
                     //     $this->guard()->logout();
