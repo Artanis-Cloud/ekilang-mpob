@@ -818,7 +818,7 @@ class Proses5Controller extends Controller
         and p.e_nl = r.username
         and r.category = 'PLBIO'
         and e.ebio_flg = '1'
-        order by p.e_nl");
+        group by p.e_nl");
 
         // $users = EBioInit::with('pelesen')
 
