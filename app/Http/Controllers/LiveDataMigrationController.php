@@ -260,15 +260,15 @@ class LiveDataMigrationController extends Controller
         // $this->h101_init();
         // $this->h102b();
 
-        $this->h102c();
+        // $this->h102c();
 
         // $this->h102_init();
         // $this->h104_b();
         // $this->h104_c();
 
         //brlum
-        $this->h104_d();
-        $this->h104_init();
+        // $this->h104_d();
+        // $this->h104_init();
 
 
 
@@ -392,7 +392,7 @@ class LiveDataMigrationController extends Controller
         // $this->pbcatvld();
         // $this->pelabuhan_luar();
         // $this->pelabuhan_msia();
-        // $this->pelesen();
+        $this->pelesen();
         // $this->pengumuman();
         // $this->pl91_individual();
         // $this->pr();
@@ -5080,12 +5080,16 @@ class LiveDataMigrationController extends Controller
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM pelesen");
 
-        foreach ($selects as $key => $select) {
 
+
+        foreach ($selects as $key => $select) {
+            $e_kat = DB::connection('mysql2')->select("SELECT e_kat FROM reg_pelesen where e_nl='$select->e_nl'");
+            // dd($e_kat[0]->e_kat);
             $insert = Pelesen::create([
                 'e_id' => $select->e_id ?? NULL,
                 'e_nl' => $select->e_nl ?? NULL,
                 'e_np' => $select->e_np ?? NULL,
+                'e_kat' => $e_kat[0]->e_kat ?? NULL,
                 'e_ap1' => $select->e_ap1 ?? NULL,
                 'e_ap2' => $select->e_ap2 ?? NULL,
                 'e_ap3' => $select->e_ap3 ?? NULL,

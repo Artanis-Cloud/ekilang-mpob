@@ -297,7 +297,7 @@ class tryController extends Controller
     public function test_codedb()
     {
 
-        $loginmills = encrypt::make("admin123");
+        $loginmills = Hash::make("admin123");
 
         // $e91b = E91b::where('e91_b2', $regno)->get();
 

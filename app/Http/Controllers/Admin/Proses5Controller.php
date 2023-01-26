@@ -812,11 +812,11 @@ class Proses5Controller extends Controller
     public function admin_5penyatabelumhantarbio()
     {
 
-        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.ebio_flg,  r.nosiri, r.kodpgw, e.ebio_reg
-        FROM pelesen p, e_bio_inits e, reg_pelesen r
+        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.ebio_flg,  r.no_siri, r.kod_pegawai, e.ebio_reg
+        FROM pelesen p, e_bio_inits e, users r
         WHERE   p.e_nl = e.ebio_nl
-        and p.e_nl = r.e_nl
-        and r.e_kat = 'PLBIO'
+        and p.e_nl = r.username
+        and r.category = 'PLBIO'
         and e.ebio_flg = '1'
         order by p.e_nl");
 
