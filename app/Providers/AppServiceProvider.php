@@ -54,48 +54,37 @@ class AppServiceProvider extends ServiceProvider
             if ($bulan == 2) {
                 $sdate = $date->sjan;
                 $edate = $date->ejan;
-            }
-            elseif ($bulan == 3) {
+            } elseif ($bulan == 3) {
                 $sdate = $date->sfeb;
                 $edate = $date->efeb;
-            }
-            elseif ($bulan == 4) {
+            } elseif ($bulan == 4) {
                 $sdate = $date->smac;
                 $edate = $date->emac;
-            }
-            elseif ($bulan == 5) {
+            } elseif ($bulan == 5) {
                 $sdate = $date->sapr;
                 $edate = $date->eapr;
-            }
-            elseif ($bulan == 6) {
+            } elseif ($bulan == 6) {
                 $sdate = $date->smei;
                 $edate = $date->emei;
-            }
-            elseif ($bulan == 7) {
+            } elseif ($bulan == 7) {
                 $sdate = $date->sjun;
                 $edate = $date->ejun;
-            }
-            elseif ($bulan == 8) {
+            } elseif ($bulan == 8) {
                 $sdate = $date->sjul;
                 $edate = $date->ejul;
-            }
-            elseif ($bulan == 9) {
+            } elseif ($bulan == 9) {
                 $sdate = $date->sogos;
                 $edate = $date->eogos;
-            }
-            elseif ($bulan == 10) {
+            } elseif ($bulan == 10) {
                 $sdate = $date->ssept;
                 $edate = $date->esept;
-            }
-            elseif ($bulan == 11) {
+            } elseif ($bulan == 11) {
                 $sdate = $date->sokt;
                 $edate = $date->eokt;
-            }
-            elseif ($bulan == 12) {
+            } elseif ($bulan == 12) {
                 $sdate = $date->snov;
                 $edate = $date->enov;
-            }
-            else {
+            } else {
                 $sdate = $date->sdec;
                 $edate = $date->edec;
             }
@@ -108,39 +97,61 @@ class AppServiceProvider extends ServiceProvider
                     $layoutpenyata = E91Init::where([['e91_nl', auth()->user()->username], ['e91_flg', '2']])->orWhere([['e91_nl', auth()->user()->username], ['e91_flg', '3']])->first();
                     $not_admin = true;
                     $open = E91Init::where('e91_nl', auth()->user()->username)->first();
-                    $res = ($open->e91_ddate <= $current_date);
+                    if ($open) {
 
+                        $res = ($open->e91_ddate <= $current_date);
+                    } else {
+                        $res = true;
+                    }
                 } elseif (auth()->user()->category == 'PL101') {
                     $layoutpenyata = E101Init::where([['e101_nl', auth()->user()->username], ['e101_flg', '2']])->orWhere([['e101_nl', auth()->user()->username], ['e101_flg', '3']])->first();
                     $not_admin = true;
                     $open = E101Init::where('e101_nl', auth()->user()->username)->first();
-                    $res = ($open->e101_ddate <= $current_date);
+                    if ($open) {
 
+                        $res = ($open->e101_ddate <= $current_date);
+                    } else {
+                        $res = true;
+                    }
                 } elseif (auth()->user()->category == 'PL102') {
                     $layoutpenyata = E102Init::where([['e102_nl', auth()->user()->username], ['e102_flg', '2']])->orWhere([['e102_nl', auth()->user()->username], ['e102_flg', '3']])->first();
                     $not_admin = true;
                     $open = E102Init::where('e102_nl', auth()->user()->username)->first();
-                    $res = ($open->e102_ddate <= $current_date);
+                    if ($open) {
 
+                        $res = ($open->e102_ddate <= $current_date);
+                    } else {
+                        $res = true;
+                    }
                 } elseif (auth()->user()->category == 'PL104') {
                     $layoutpenyata = E104Init::where([['e104_nl', auth()->user()->username], ['e104_flg', '2']])->orWhere([['e104_nl', auth()->user()->username], ['e104_flg', '3']])->first();
                     $not_admin = true;
                     $open = E104Init::where('e104_nl', auth()->user()->username)->first();
-                    $res = ($open->e104_ddate <= $current_date);
+                    if ($open) {
 
+                        $res = ($open->e104_ddate <= $current_date);
+                    } else {
+                        $res = true;
+                    }
                 } elseif (auth()->user()->category == 'PL111') {
                     $layoutpenyata = E07Init::where([['e07_nl', auth()->user()->username], ['e07_flg', '2']])->orWhere([['e07_nl', auth()->user()->username], ['e07_flg', '3']])->first();
                     $not_admin = true;
                     $open = E07Init::where('e07_nl', auth()->user()->username)->first();
-                    $res = ($open->e07_ddate <= $current_date);
-                    
+                    if ($open) {
+
+                        $res = ($open->e07_ddate <= $current_date);
+                    } else {
+                        $res = true;
+                    }
                 } elseif (auth()->user()->category == 'PLBIO') {
                     $layoutpenyata = EBioInit::where([['ebio_nl', auth()->user()->username], ['ebio_flg', '2']])->orWhere([['ebio_nl', auth()->user()->username], ['ebio_flg', '3']])->first();
                     $not_admin = true;
                     $open = EBioInit::where('ebio_nl', auth()->user()->username)->first();
-                    $res = ($open->ebio_ddate <= $current_date);
-
-
+                    if ($open) {
+                        $res = ($open->ebio_ddate <= $current_date);
+                    } else {
+                        $res = true;
+                    }
                 }
 
 
@@ -163,19 +174,35 @@ class AppServiceProvider extends ServiceProvider
                 if (\Request::is('*/maklumat-asas-pelesen')) {
                     $map_url = false;
                 }
+
+                if (auth()->user()->category == 'admin') {
+                    $view->with(
+                        [
+                            "layoutpenyata" => $layoutpenyata,
+                            "map_url" => $map_url,
+                            // "edate" => $edate,
+                            // "current_date" => $current_date,
+                            // "res" => $res,
+                            // "map_flg" => $map_flg,
+                            // "map_date_expired" => $map_date_expired,
+                            "not_admin" => $not_admin
+                        ]
+                    );
+                } else {
+                    $view->with(
+                        [
+                            "layoutpenyata" => $layoutpenyata,
+                            "map_url" => $map_url,
+                            // "edate" => $edate,
+                            // "current_date" => $current_date,
+                            "res" => $res,
+                            // "map_flg" => $map_flg,
+                            // "map_date_expired" => $map_date_expired,
+                            "not_admin" => $not_admin
+                        ]
+                    );
+                }
             }
-            $view->with(
-                [
-                    "layoutpenyata" => $layoutpenyata,
-                    "map_url" => $map_url,
-                    // "edate" => $edate,
-                    // "current_date" => $current_date,
-                    "res" => $res,
-                    // "map_flg" => $map_flg,
-                    // "map_date_expired" => $map_date_expired,
-                    "not_admin" => $not_admin
-                ]
-            );
         });
     }
 }
