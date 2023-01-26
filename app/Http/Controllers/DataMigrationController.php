@@ -590,36 +590,18 @@ class DataMigrationController extends Controller
     public function transfer_cryptpass()
     {
 
-        $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  login_admin");
+        // $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  login_admin");
 
-        // $reg_pelesens = RegPelesen::where('e_status', '2')->get();
+        $reg_pelesens = RegPelesen::get();
 
-        // foreach ($reg_pelesens as $rp) {
-        //     // $user = User::where('username', $biodiesel->e_nl)->whereNull('crypted_pass')->first();
-        //     $pelesen = Pelesen::where('e_nl', $rp->e_nl)->first();
-        //     // dd($user);
-
-        //     if($pelesen){
-        //         // if(!$user->sub_cat){
-        //             $pelesen->e_kat = $rp->e_kat;
-        //             $pelesen->save();
-        //         // }
-        //     }
-        //     // if($user){
-        //     //     // if(!$user->sub_cat){
-        //     //         $user->crypted_pass = Crypt::encryptString($biodiesel->password);
-        //     //         $user->save();
-        //     //     // }
-        //     // }
-        // }
-        foreach ($biodiesels as $biodiesel) {
-            // $user = User::where('username', $biodiesel->e_nl)->whereNull('e_kat')->first();
-            $pelesen = User::where('username', $biodiesel->USERNAME)->first();
-            // dd($pelesen);
+        foreach ($reg_pelesens as $rp) {
+            // $user = User::where('username', $biodiesel->e_nl)->whereNull('crypted_pass')->first();
+            $pelesen = Pelesen::where('e_nl', $rp->e_nl)->first();
+            // dd($user);
 
             if($pelesen){
                 // if(!$user->sub_cat){
-                    $pelesen->crypted_pass = Crypt::encryptString($biodiesel->PASSWORD);
+                    $pelesen->e_kat = $rp->e_kat;
                     $pelesen->save();
                 // }
             }
@@ -630,6 +612,24 @@ class DataMigrationController extends Controller
             //     // }
             // }
         }
+        // foreach ($biodiesels as $biodiesel) {
+        //     // $user = User::where('username', $biodiesel->e_nl)->whereNull('e_kat')->first();
+        //     $pelesen = User::where('username', $biodiesel->USERNAME)->first();
+        //     // dd($pelesen);
+
+        //     if($pelesen){
+        //         // if(!$user->sub_cat){
+        //             $pelesen->crypted_pass = Crypt::encryptString($biodiesel->PASSWORD);
+        //             $pelesen->save();
+        //         // }
+        //     }
+        //     // if($user){
+        //     //     // if(!$user->sub_cat){
+        //     //         $user->crypted_pass = Crypt::encryptString($biodiesel->password);
+        //     //         $user->save();
+        //     //     // }
+        //     // }
+        // }
 
         // $reg_users = RegUser::get();
 

@@ -100,7 +100,6 @@ class AppServiceProvider extends ServiceProvider
                 $edate = $date->edec;
             }
 
-                $res = ($edate <= $current_date);
 
             // dd($tahun);
 
@@ -108,21 +107,40 @@ class AppServiceProvider extends ServiceProvider
                 if (auth()->user()->category == 'PL91') {
                     $layoutpenyata = E91Init::where([['e91_nl', auth()->user()->username], ['e91_flg', '2']])->orWhere([['e91_nl', auth()->user()->username], ['e91_flg', '3']])->first();
                     $not_admin = true;
+                    $open = E91Init::where('e91_nl', auth()->user()->username)->first();
+                    $res = ($open->e91_ddate <= $current_date);
+
                 } elseif (auth()->user()->category == 'PL101') {
                     $layoutpenyata = E101Init::where([['e101_nl', auth()->user()->username], ['e101_flg', '2']])->orWhere([['e101_nl', auth()->user()->username], ['e101_flg', '3']])->first();
                     $not_admin = true;
+                    $open = E101Init::where('e101_nl', auth()->user()->username)->first();
+                    $res = ($open->e101_ddate <= $current_date);
+
                 } elseif (auth()->user()->category == 'PL102') {
                     $layoutpenyata = E102Init::where([['e102_nl', auth()->user()->username], ['e102_flg', '2']])->orWhere([['e102_nl', auth()->user()->username], ['e102_flg', '3']])->first();
                     $not_admin = true;
+                    $open = E102Init::where('e102_nl', auth()->user()->username)->first();
+                    $res = ($open->e102_ddate <= $current_date);
+
                 } elseif (auth()->user()->category == 'PL104') {
                     $layoutpenyata = E104Init::where([['e104_nl', auth()->user()->username], ['e104_flg', '2']])->orWhere([['e104_nl', auth()->user()->username], ['e104_flg', '3']])->first();
                     $not_admin = true;
+                    $open = E104Init::where('e104_nl', auth()->user()->username)->first();
+                    $res = ($open->e104_ddate <= $current_date);
+
                 } elseif (auth()->user()->category == 'PL111') {
                     $layoutpenyata = E07Init::where([['e07_nl', auth()->user()->username], ['e07_flg', '2']])->orWhere([['e07_nl', auth()->user()->username], ['e07_flg', '3']])->first();
                     $not_admin = true;
+                    $open = E07Init::where('e07_nl', auth()->user()->username)->first();
+                    $res = ($open->e07_ddate <= $current_date);
+                    
                 } elseif (auth()->user()->category == 'PLBIO') {
                     $layoutpenyata = EBioInit::where([['ebio_nl', auth()->user()->username], ['ebio_flg', '2']])->orWhere([['ebio_nl', auth()->user()->username], ['ebio_flg', '3']])->first();
                     $not_admin = true;
+                    $open = EBioInit::where('ebio_nl', auth()->user()->username)->first();
+                    $res = ($open->ebio_ddate <= $current_date);
+
+
                 }
 
 

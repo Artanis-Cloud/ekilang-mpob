@@ -5083,13 +5083,19 @@ class LiveDataMigrationController extends Controller
 
 
         foreach ($selects as $key => $select) {
-            $e_kat = DB::connection('mysql2')->select("SELECT e_kat FROM reg_pelesen where e_nl='$select->e_nl'");
-            // dd($e_kat[0]->e_kat);
+            $e_kats = DB::connection('mysql2')->select("SELECT e_kat FROM reg_pelesen where e_nl='$select->e_nl'");
+            // $ekat= $e_kat[0]->e_kat;
+            foreach ($e_kats as $e_kat) {
+                $ekat= $e_kat->e_kat;
+                // dd($ekat);
+
+            }
+
             $insert = Pelesen::create([
                 'e_id' => $select->e_id ?? NULL,
                 'e_nl' => $select->e_nl ?? NULL,
                 'e_np' => $select->e_np ?? NULL,
-                'e_kat' => $e_kat[0]->e_kat ?? NULL,
+                'e_kat' => $ekat,
                 'e_ap1' => $select->e_ap1 ?? NULL,
                 'e_ap2' => $select->e_ap2 ?? NULL,
                 'e_ap3' => $select->e_ap3 ?? NULL,
@@ -5158,6 +5164,7 @@ class LiveDataMigrationController extends Controller
                 'bulan' => $select->bulan ?? NULL,
             ]);
         }
+        // dd($e_kat);
     }
 
     public function pengumuman()
