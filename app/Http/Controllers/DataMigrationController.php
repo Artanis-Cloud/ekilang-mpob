@@ -292,8 +292,8 @@ class DataMigrationController extends Controller
             $negerias = Negeri::where('nama_negeri', $biodiesel->e_asnegeri)->first();
             // dd($negerias);
 
-            $password = Hash::make($biodiesel->password);
-            $crypted = Crypt::encryptString($biodiesel->password);
+            $password = Hash::make('12345678');
+            $crypted = Crypt::encryptString('12345678');
             // dd($crypted);
 
             $count_user = User::count();

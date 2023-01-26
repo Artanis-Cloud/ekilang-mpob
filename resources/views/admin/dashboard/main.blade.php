@@ -129,7 +129,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <canvas id="myChart2"></canvas>
+                        <canvas id="myChart291"></canvas>
                     </div>
                     <div class="modal-footer">
                         {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
@@ -706,7 +706,7 @@
     </script>
 
     <script>
-        const ctx2 = document.getElementById('myChart2');
+        const ctx2 = document.getElementById('myChart291');
 
         var days2 = {{ $days }};
         var daysbuah = {{ $sdays }};
@@ -714,9 +714,10 @@
         let labels2 = [];
         let data2 = [];
         var array2 = @json($PL91);
-        // console.log(array2);
+        console.log(array2);
         for (let index2 = daysbuah; index2 <= days2; index2++) {
             const pl91 = array2[index2];
+            // console.log(pl91);
             labels2.push(pl91[0]['days'] + 'hb');
             data2.push(pl91[0]['pelesen']);
         }
