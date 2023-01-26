@@ -19,6 +19,7 @@ class Pelesen extends Model
         'e_id',
         'e_nl',
         'e_np',
+        'e_kat',
         'e_ap1',
         'e_ap2',
         'e_ap3',
