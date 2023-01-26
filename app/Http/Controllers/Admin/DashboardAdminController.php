@@ -121,12 +121,13 @@ class DashboardAdminController extends Controller
             $enddate = $initdate->edec;
 
         }
-        // dd($enddate);
+        $start = date('d', strtotime($strdate));
+        // dd($start);
         //total pelesen hantar penyata setiap hari
         // $PL91_total untuk total keseluruhan 10 hari
         // $PL91[$i][0] mengikut hari
 
-        for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
+        for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e91_sdate as date, count(e.e91_nl) as pelesen, DAY(e.e91_sdate) as days
             from e91_init e, reg_pelesen r
             where e.e91_nl = r.e_nl
@@ -149,11 +150,11 @@ class DashboardAdminController extends Controller
                 $PL91_total += 0;
             }
 
-        // dd($data);
+        // dd($PL91[$i][0]->pelesen);
         }
         // dd($PL91);
 
-        for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
+        for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e101_sdate as date, count(e.e101_nl) as pelesen, DAY(e.e101_sdate) as days
             from e101_init e, reg_pelesen r
             where e.e101_nl = r.e_nl
@@ -179,7 +180,7 @@ class DashboardAdminController extends Controller
         // dd($PL101);
 
 
-        for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
+        for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e102_sdate as date, count(e.e102_nl) as pelesen, DAY(e.e102_sdate) as days
             from e102_init e, reg_pelesen r
             where e.e102_nl = r.e_nl
@@ -207,7 +208,7 @@ class DashboardAdminController extends Controller
 
         // dd($PL102);
 
-        for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
+        for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e104_sdate as date, count(e.e104_nl) as pelesen, DAY(e.e104_sdate) as days
             from e104_init e, reg_pelesen r
             WHERE e.e104_nl = r.e_nl
@@ -231,7 +232,7 @@ class DashboardAdminController extends Controller
             }
         }
 
-        for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
+        for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e07_sdate as date, count(e.e07_nl) as pelesen, DAY(e.e07_sdate) as days
             from e07_init e, reg_pelesen r
             where e.e07_nl = r.e_nl
@@ -254,7 +255,7 @@ class DashboardAdminController extends Controller
             }
         }
 
-        for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
+        for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.ebio_sdate as date, count(e.ebio_nl) as pelesen, DAY(e.ebio_sdate) as days
             from e_bio_inits e, reg_pelesen r
             where e.ebio_nl = r.e_nl
@@ -359,7 +360,7 @@ class DashboardAdminController extends Controller
             }
 
 
-        $sdays = date('d', strtotime($strdate));
+        $sdays = ltrim($start, "0");
         // dd($sdays);
         $days = date('d', strtotime($enddate));
 
