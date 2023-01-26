@@ -62,7 +62,7 @@
                                 <h4 style="color: rgb(39, 80, 71); margin-top:1%">Daftar Akaun Pentadbir</h4>
                             </div>
                             <hr>
-                            <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post" novalidate>
+                            <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post" novalidate id="form">
                                 @csrf
                                 <div class="card-body">
                                     <div class="container center">
@@ -140,7 +140,8 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-control" id="role" name="role"
                                                             oninput="valid_role()" required value={{ old('role') }}>
-                                                            <option selected hidden disabled>Sila Pilih Kategori</option>
+                                                            <option selected hidden disabled value="">Sila Pilih
+                                                                Kategori</option>
                                                             <option value="Superadmin">Superadmin</option>
                                                             <option value="Manager">Manager</option>
                                                             <option value="Supervisor">Supervisor</option>
@@ -159,7 +160,8 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-control" id="role2" name="role"
                                                             oninput="valid_role2()" value={{ old('role') }} required>
-                                                            <option selected hidden disabled>Sila Pilih Kategori</option>
+                                                            <option selected hidden disabled value="">Sila Pilih
+                                                                Kategori</option>
                                                             <option value="Manager">Manager</option>
                                                             <option value="Supervisor">Supervisor</option>
                                                             <option value="Admin">Admin</option>
@@ -177,7 +179,8 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-control" id="role3" name="role"
                                                             oninput="valid_role3()" value={{ old('role') }} required>
-                                                            <option selected hidden disabled>Sila Pilih Kategori</option>
+                                                            <option selected hidden disabled value="">Sila Pilih
+                                                                Kategori</option>
                                                             <option value="Admin">Admin</option>
                                                             <option value="Supervisor">Supervisor</option>
                                                         </select>
@@ -192,12 +195,13 @@
                                                     @enderror
                                                 @elseif (auth()->user()->role == 'Admin' || auth()->user()->role == '')
                                                     <fieldset class="form-group">
-                                                        <select class="form-control" id="role" name="role"
+                                                        <select class="form-control" id="role4" name="role"
                                                             oninput="valid_role()" value={{ old('role') }} required>
-                                                            <option selected hidden disabled>Sila Pilih Kategori</option>
+                                                            <option selected hidden disabled value="">Sila Pilih
+                                                                Kategori</option>
                                                             <option value="Admin">Admin</option>
                                                         </select>
-                                                        <p type="hidden" id="err_role"
+                                                        <p type="hidden" id="err_role4"
                                                             style="color: red; display:none"><i>Sila buat pilihan di
                                                                 bahagian ini!</i></p>
                                                     </fieldset>
@@ -217,36 +221,41 @@
                                             <div class="col-md-6">
 
                                                 <select multiple="multiple" size="10" class="duallistbox-no-filter"
-                                                    name="sub_cat[]" id="subkat">
-                                                    {{-- @if (auth()->user()->sub_cat)
-                                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
-                                                    @if ($cat == 'PL91')
-                                                    <option value="PL91">Kilang Buah</option>
+                                                    name="sub_cat[]" id="subkat" required>
+                                                    @if (auth()->user()->sub_cat)
+                                                        @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                                            @if ($cat == 'PL91')
+                                                                <option value="PL91">Kilang Buah</option>
+                                                            @endif
+                                                            @if ($cat == 'PL101')
+                                                                <option value="PL101">Kilang Penapis</option>
+                                                            @endif
+                                                            @if ($cat == 'PL102')
+                                                                <option value="PL102">Kilang Isirung</option>
+                                                            @endif
+                                                            @if ($cat == 'PL104')
+                                                                <option value="PL104">Kilang Oleokimia</option>
+                                                            @endif
+                                                            @if ($cat == 'PL111')
+                                                                <option value="PL111">Pusat Simpanan</option>
+                                                            @endif
+                                                            @if ($cat == 'PLBIO')
+                                                                <option value="PLBIO">Kilang Biodiesel</option>
+                                                            @endif
+                                                        @endforeach
                                                     @endif
-                                                    @if ($cat == 'PL101')
+                                                    {{-- <option value="PL91">Kilang Buah</option>
                                                     <option value="PL101">Kilang Penapis</option>
-                                                    @endif
-                                                    @if ($cat == 'PL102')
-                                                    <option value="PL102">Kilang Isirung</option>
-                                                    @endif
-                                                    @if ($cat == 'PL104')
-                                                    <option value="PL104">Kilang Oleokimia</option>
-                                                    @endif
-                                                    @if ($cat == 'PL111')
-                                                    <option value="PL111">Pusat Simpanan</option>
-                                                    @endif
-                                                    @if ($cat == 'PLBIO')
-                                                    <option value="PLBIO">Kilang Biodiesel</option>
-                                                    @endif
-                                                    @endforeach
-                                                    @endif --}}
-                                                    <option value="PL91">Kilang Buah</option>
-                                                    <option value="PL101">Kilang Penapis</option>
                                                     <option value="PL102">Kilang Isirung</option>
                                                     <option value="PL104">Kilang Oleokimia</option>
                                                     <option value="PL111">Pusat Simpanan</option>
-                                                    <option value="PLBIO">Kilang Biodiesel</option>
+                                                    <option value="PLBIO">Kilang Biodiesel</option> --}}
                                                 </select>
+                                                @error('sub_cat[]')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror
 
                                             </div>
                                         </div>
@@ -264,20 +273,46 @@
                                                 </select>
                                                 <p type="hidden" id="err_status" style="color: red; display:none">
                                                     <i>Sila buat pilihan di
-                                                        bahagian ini!</i></p>
+                                                        bahagian ini!</i>
+                                                </p>
                                             </div>
                                         </div>
 
 
-
-                                        <div class="row center mt-3">
-                                            <div class="col-md-12 center mb-3">
-                                                <button type="button" class="btn btn-primary center"
-                                                    style="margin-left:45%" data-toggle="modal"
-                                                    data-target="#myModal">Daftar</button>
-                                                {{-- <button type="submit">YA</button> --}}
+                                        @if (auth()->user()->role == 'Superadmin')
+                                            <div class="row center mt-3">
+                                                <div class="col-md-12 center mb-3">
+                                                    <button type="button" class="btn btn-primary center"
+                                                        style="margin-left:45%" onclick="check()">Daftar</button>
+                                                    {{-- <button type="submit">YA</button> --}}
+                                                </div>
                                             </div>
-                                        </div>
+                                        @elseif (auth()->user()->role == 'Manager')
+                                            <div class="row center mt-3">
+                                                <div class="col-md-12 center mb-3">
+                                                    <button type="button" class="btn btn-primary center"
+                                                        style="margin-left:45%" onclick="check2()">Daftar</button>
+                                                    {{-- <button type="submit">YA</button> --}}
+                                                </div>
+                                            </div>
+                                        @elseif (auth()->user()->role == 'Supervisor')
+                                            <div class="row center mt-3">
+                                                <div class="col-md-12 center mb-3">
+                                                    <button type="button" class="btn btn-primary center"
+                                                        style="margin-left:45%" onclick="check3()">Daftar</button>
+                                                    {{-- <button type="submit">YA</button> --}}
+                                                </div>
+                                            </div>
+                                        @elseif (auth()->user()->role == 'Admin' || auth()->user()->role == '')
+                                            <div class="row center mt-3">
+                                                <div class="col-md-12 center mb-3">
+                                                    <button type="button" class="btn btn-primary center"
+                                                        style="margin-left:45%" onclick="check4()">Daftar</button>
+                                                    {{-- <button type="submit">YA</button> --}}
+                                                </div>
+                                            </div>
+                                        @endif
+
 
                                         <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                             aria-labelledby="myModalLabel" aria-hidden="true">
@@ -327,21 +362,33 @@
     @endsection
 
     @section('scripts')
-        <script>
-            function valid_name() {
+        {{-- <script>
+            $(document).ready(function () {
 
-                if ($('#name').val() == '') {
-                    $('#name').css('border-color', 'red');
-                    document.getElementById('err_name').style.display = "block";
+            $("#form").validate({
+                submitHandler: function (form) { // for demo
+            alert('valid form');
+            return false;
+        }
+            });
+            });
+
+            </script> --}}
+            <script>
+                function valid_name() {
+
+                    if ($('#name').val() == '') {
+                        $('#name').css('border-color', 'red');
+                        document.getElementById('err_name').style.display = "block";
 
 
-                } else {
-                    $('#name').css('border-color', '');
-                    document.getElementById('err_name').style.display = "none";
+                    } else {
+                        $('#name').css('border-color', '');
+                        document.getElementById('err_name').style.display = "none";
+
+                    }
 
                 }
-
-            }
         </script>
         {{-- <script>
     function check() {
@@ -369,7 +416,7 @@
         </script>
         <script>
             function valid_email() {
-
+// console.log($('#email').val());
                 if ($('#email').val() == '') {
                     $('#email').css('border-color', 'red');
                     document.getElementById('err_email').style.display = "block";
@@ -401,6 +448,7 @@
         </script>
         <script>
             function valid_subkat() {
+                console.log($('#subkat').val());
 
                 if ($('#subkat').val() == '') {
                     $('#subkat').css('border-color', 'red');
@@ -487,23 +535,154 @@
 
 
                 }
-                // directory
-                // field = document.getElementById("role");
-                // if (!field.checkValidity()) {
-                //     error += "Name must be 2-4 characters directory\r\n";
-                //     $('#role').css('border-color', 'red');
-                //     document.getElementById('err_role').style.display = "block";
+
+                field = document.getElementById("role");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters directory\r\n";
+                    $('#role').css('border-color', 'red');
+                    document.getElementById('err_role').style.display = "block";
 
 
-                // }
-                // field = document.getElementById("role2");
-                // if (!field.checkValidity()) {
-                //     error += "Name must be 2-4 characters directory\r\n";
-                //     $('#role2').css('border-color', 'red');
-                //     document.getElementById('err_role2').style.display = "block";
+                }
+                // console.log(field.value);
+
+                // kod pegawai
+                field = document.getElementById("status");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters kodpgw\r\n";
+                    $('#status').css('border-color', 'red');
+                    document.getElementById('err_status').style.display = "block";
 
 
-                // }
+                }
+
+                // (B4) RESULT
+                if (error == "") {
+                    $('#myModal').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+
+                        })
+                    console.log(error);
+                    return false;
+                }
+
+
+            }
+        </script>
+        <script>
+            function check2() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // kategori
+                field = document.getElementById("name");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_kat\r\n";
+                    $('#name').css('border-color', 'red');
+                    document.getElementById('err_name').style.display = "block";
+
+
+
+                }
+                // status e-kilang
+                field = document.getElementById("email");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_status\r\n";
+                    $('#email').css('border-color', 'red');
+                    document.getElementById('err_email').style.display = "block";
+
+
+
+                }
+                // status e-mingguan
+                field = document.getElementById("username");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_stock\r\n";
+                    $('#username').css('border-color', 'red');
+                    document.getElementById('err_user').style.display = "block";
+
+
+                }
+
+                field = document.getElementById("role2");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters directory\r\n";
+                    $('#role2').css('border-color', 'red');
+                    document.getElementById('err_role2').style.display = "block";
+
+
+                }
+
+                // kod pegawai
+                field = document.getElementById("status");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters kodpgw\r\n";
+                    $('#status').css('border-color', 'red');
+                    document.getElementById('err_status').style.display = "block";
+
+
+                }
+
+                // (B4) RESULT
+                if (error == "") {
+                    $('#myModal').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+
+                        })
+                    console.log(error);
+                    return false;
+                }
+
+
+            }
+        </script>
+        <script>
+            function check3() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // kategori
+                field = document.getElementById("name");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_kat\r\n";
+                    $('#name').css('border-color', 'red');
+                    document.getElementById('err_name').style.display = "block";
+
+
+
+                }
+                // status e-kilang
+                field = document.getElementById("email");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_status\r\n";
+                    $('#email').css('border-color', 'red');
+                    document.getElementById('err_email').style.display = "block";
+
+
+
+                }
+                // status e-mingguan
+                field = document.getElementById("username");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_stock\r\n";
+                    $('#username').css('border-color', 'red');
+                    document.getElementById('err_user').style.display = "block";
+
+
+                }
+
                 field = document.getElementById("role3");
                 if (!field.checkValidity()) {
                     error += "Name must be 2-4 characters directory\r\n";
@@ -512,15 +691,80 @@
 
 
                 }
-                // alamat premis 1
-                // field = document.getElementById("subkat");
-                // if (!field.checkValidity()) {
-                //     error += "Name must be 2-4 characters e_ap1\r\n";
-                //     // $('#subkat').css('border-color', 'red');
-                //     document.getElementById('err_subkat').style.display = "block";
+
+                // kod pegawai
+                field = document.getElementById("status");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters kodpgw\r\n";
+                    $('#status').css('border-color', 'red');
+                    document.getElementById('err_status').style.display = "block";
 
 
-                // }
+                }
+
+                // (B4) RESULT
+                if (error == "") {
+                    $('#myModal').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+
+                        })
+                    console.log(error);
+                    return false;
+                }
+
+
+            }
+        </script>
+        <script>
+            function check4() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // kategori
+                field = document.getElementById("name");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_kat\r\n";
+                    $('#name').css('border-color', 'red');
+                    document.getElementById('err_name').style.display = "block";
+
+
+
+                }
+                // status e-kilang
+                field = document.getElementById("email");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_status\r\n";
+                    $('#email').css('border-color', 'red');
+                    document.getElementById('err_email').style.display = "block";
+
+
+
+                }
+                // status e-mingguan
+                field = document.getElementById("username");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_stock\r\n";
+                    $('#username').css('border-color', 'red');
+                    document.getElementById('err_user').style.display = "block";
+
+
+                }
+
+                field = document.getElementById("role4");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters directory\r\n";
+                    $('#role4').css('border-color', 'red');
+                    document.getElementById('err_role4').style.display = "block";
+
+
+                }
+
                 // kod pegawai
                 field = document.getElementById("status");
                 if (!field.checkValidity()) {

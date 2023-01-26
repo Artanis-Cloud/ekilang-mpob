@@ -54,7 +54,7 @@ class KonfigurasiController extends Controller
         // dd($request->all());
 
 
-        if ($request->role) {
+        if (array_key_exists("sub_cat[]",$request->all())) {
 
         $check_users = User::where('username', $request->username)->first();
         $check_regusers = RegUser::where('e_userid', $request->username)->first();
@@ -152,7 +152,7 @@ class KonfigurasiController extends Controller
             'email' => ['required', 'string'],
             'username' => ['required', 'string'],
             'role' => ['required', 'string'],
-            // 'sub_cat[]' => ['required', 'string'],
+            'sub_cat[]' => ['nullable', 'array', 'min:1'],
             'status' => ['required', 'string'],
 
         ]);
@@ -161,36 +161,68 @@ class KonfigurasiController extends Controller
     protected function store_daftar_pentadbir(array $data)
     {
 
-
+        // dd(array_key_exists("sub_cat[]",$data));
         $pass = 'admin123';
         $password = Hash::make('admin123');
-        $password2 = Crypt::encryptString('admin123');
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => $password,
-            'crypted_pass' => $password2,
-            'username' => $data['username'],
-            'category' => 'admin',
-            'role' => $data['role'],
-            'sub_cat' => json_encode($data['sub_cat']) ?? NULL,
-            'status' => $data['status'],
-            'map_sdate' => now(),
+        $pq = Crypt::encryptString('admin123');
+        // dd($password2);
+        $password2 =  $pq;
+        // dd($password2);
+        if (array_key_exists("sub_cat[]",$data)) {
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => $password,
+                'crypted_pass' => $password2,
+                'username' => $data['username'],
+                'category' => 'admin',
+                'role' => $data['role'],
+                'sub_cat' => json_encode($data['sub_cat']) ,
+                'status' => $data['status'],
+                'map_sdate' => now(),
 
 
-        ]);
+            ]);
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => $password,
+                'crypted_pass' => $password2,
+                'username' => $data['username'],
+                'category' => 'admin',
+                'role' => $data['role'],
+                // 'sub_cat' => json_encode($data['sub_cat']) ,
+                'status' => $data['status'],
+                'map_sdate' => now(),
+
+
+            ]);
+        }
+
     }
 
     protected function store_daftar_pentadbir2(array $data)
     {
         // $password = Hash::make('admin123');
+        if (array_key_exists("sub_cat[]",$data)) {
+
         return RegUser::create([
             // 'name' => $data['name'],
             // 'email' => $data['email'],
             // 'e_pwd' => $password,
             'e_userid' => $data['username'],
-            'e_kat' => json_encode($data['sub_cat']) ?? null,
+            'e_kat' => json_encode($data['sub_cat']),
         ]);
+    } else {
+        return RegUser::create([
+            // 'name' => $data['name'],
+            // 'email' => $data['email'],
+            // 'e_pwd' => $password,
+            'e_userid' => $data['username'],
+            // 'e_kat' => json_encode($data['sub_cat']) ?? null,
+        ]);
+    }
     }
 
     public function admin_senarai_pentadbir()
