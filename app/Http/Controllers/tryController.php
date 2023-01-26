@@ -23,6 +23,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Illuminate\Contracts\Encryption\Encrypter;
+use PhpParser\Node\Scalar\Encapsed;
 
 class tryController extends Controller
 {
@@ -295,7 +297,7 @@ class tryController extends Controller
     public function test_codedb()
     {
 
-        $loginmills = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group from commodity_l");
+        $loginmills = encrypt::make("admin123");
 
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
