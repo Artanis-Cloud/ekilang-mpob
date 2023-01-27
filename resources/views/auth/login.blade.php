@@ -10,7 +10,7 @@ img{
 .login {
     height: 100%;
     width: 100%;
-    background:url( {{ asset("theme/images/background/5431.jpg") }});
+    background:url( {{ asset("theme/images/background/5431.JPG") }});
     position: relative;
     background-size: 100%;
     background-repeat: no-repeat;
