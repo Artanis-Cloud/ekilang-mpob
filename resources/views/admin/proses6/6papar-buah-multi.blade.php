@@ -153,7 +153,7 @@
                                         <p align="center"><b>
                                                 <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                                </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
+                                                </font>PENYATA BULANAN KILANG BUAjhgfdH - MPOB (EL) MF 4<br>
 
                                                 BULAN :&nbsp;&nbsp;
                                                 @if ($bulan == 1)
@@ -178,10 +178,15 @@
                                                     OKTOBER
                                                 @elseif($bulan == 11)
                                                     NOVEMBER
-                                                @elseif($bulan == 12)
+                                                    @elseif($bulan == 12 || $bulan == 0 )
                                                     DISEMBER
                                                 @endif
+
+                                                @if ($bulan == 12 || $bulan == 0 )
+                                                &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun - 1 }}
+                                                @else
                                                 &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                                @endif
                                             </b><br>
 
                                         </p><hr>
