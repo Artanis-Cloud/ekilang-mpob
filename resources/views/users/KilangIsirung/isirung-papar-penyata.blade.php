@@ -103,9 +103,15 @@
                                     @elseif($bulan == 9) SEPTEMBER
                                     @elseif($bulan == 10) OKTOBER
                                     @elseif($bulan == 11) NOVEMBER
-                                    @elseif($bulan == 12) DISEMBER
-                                    @endif
-                                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                    @elseif($bulan == 12 || $bulan == 0 )
+                                    DISEMBER
+                                @endif
+
+                                @if ($bulan == 12 || $bulan == 0 )
+                                &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun - 1 }}
+                                @else
+                                &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                @endif
                                 </b><br>
 
                             </p>

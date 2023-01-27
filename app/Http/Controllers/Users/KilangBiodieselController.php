@@ -200,7 +200,7 @@ class KilangBiodieselController extends Controller
             $kapasiti->dec = $request->kap_proses;
             $kapasiti->save();
         } else {
-            return Kapasiti::create([
+             Kapasiti::create([
                 // 'id' => $count+ 1,
                 'e_nl' => auth()->user()->username,
                 'tahun' => date("Y"),
@@ -1342,6 +1342,7 @@ class KilangBiodieselController extends Controller
         $layout = 'layouts.kbio';
 
         $bulan = date("m") - 1;
+        // dd($bulan);
         $tahun = date("Y");
 
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
@@ -1716,10 +1717,10 @@ class KilangBiodieselController extends Controller
 
     public function bio_penyatadahulu()
     {
-        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
+        $pelesen = User::with('pelesen')->where('username', auth()->user()->username)->first();
+        // dd($pelesen);
 
         $year = $pelesen->pelesen->e_year;
-        // dd($year);
         if($year){
             $tahun = $year;
         }else{
