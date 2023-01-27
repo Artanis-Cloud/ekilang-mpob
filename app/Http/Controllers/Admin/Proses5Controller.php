@@ -947,7 +947,14 @@ class Proses5Controller extends Controller
         $bulan1 = $request->bulan;
 
         $day = date('d');
-        $month = date('m') - 1 ;
+        $bul = date('m') - 1 ;
+        if ($bul == 12 || $bul == 0){
+        $month = '12' ;
+        } else {
+        $month = $bul ;
+
+        }
+
 
         $flg = EBioInit::get();
 
@@ -973,15 +980,15 @@ class Proses5Controller extends Controller
             // if($flg){
         if ($day <= 31 && $month == $bulan1) {
             $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel, e.ebio_thn, e.ebio_bln,
-            k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-            FROM pelesen p, e_bio_inits e, reg_pelesen k
+            k.kod_pegawai, k.no_siri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+            FROM pelesen p, e_bio_inits e, users k
             WHERE p.e_nl = e.ebio_nl
             -- and e.ebio_flg in ('2','3')
-            and p.e_nl = k.e_nl
-            and k.e_kat = 'PLBIO'
+            and p.e_nl = k.username
+            and k.category = 'PLBIO'
             and e.ebio_thn = $tahun1
             and e.ebio_bln = $bulan1
-            order by k.kodpgw, k.nosiri");
+            order by k.kod_pegawai, k.no_siri");
 
             if (!$users) {
                 return redirect()->back()
@@ -999,15 +1006,15 @@ class Proses5Controller extends Controller
 
         else {
             $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_nobatch, p.e_notel, e.ebio_thn, e.ebio_bln,
-            k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-            FROM pelesen p, h_bio_inits e, reg_pelesen k
+            k.kod_pegawai, k.no_siri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+            FROM pelesen p, h_bio_inits e, users k
             WHERE p.e_nl = e.ebio_nl
             -- and e.ebio_flg in ('2','3')
-            and p.e_nl = k.e_nl
-            and k.e_kat = 'PLBIO'
+            and p.e_nl = k.username
+            and k.category = 'PLBIO'
             and e.ebio_thn = $tahun1
             and e.ebio_bln = $bulan1
-            order by k.kodpgw, k.nosiri");
+            order by k.kod_pegawai, k.no_siri");
 
             // dd($users);
 
