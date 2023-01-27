@@ -77,7 +77,7 @@
                                                             <p align=""><b></b></p>
                                                         </td>
                                                         <td width="88%" height="19">
-                                                            <p align="right"><b>MMPOB(EL) PX 4-C </b></p>
+                                                            <p align="right"><b>MPOB(EL) PX 4-C </b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
