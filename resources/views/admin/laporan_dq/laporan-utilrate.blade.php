@@ -433,7 +433,7 @@
 
                                                 @endphp
 
-                                                {{ dd($count) }}
+                                                {{ dd($proses_sm) }}
 
                                                 @foreach ($proses_sm as $key => $data)
                                                     <tr>
