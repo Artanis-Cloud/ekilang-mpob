@@ -416,6 +416,12 @@
                                                     <td>{{ number_format($total_urateall ?? 0, 2) }}</td>
                                                 </tr>
                                             @elseif ($bulan == 'between')
+                                            @for ($i = $start_month; $i <= $end_month; $i++)
+                                            @php
+                                                $count1 = i++;
+                                            @endphp
+                                                @endfor
+                                                {{-- {{  }} --}}
                                                 @php
                                                     $total_kapproses = 0;
                                                     $total_allproses = 0;
@@ -433,7 +439,7 @@
 
                                                 @endphp
 
-                                                {{ dd($proses_sm) }}
+                                                {{ dd($count1) }}
 
                                                 @foreach ($proses_sm as $key => $data)
                                                     <tr>
