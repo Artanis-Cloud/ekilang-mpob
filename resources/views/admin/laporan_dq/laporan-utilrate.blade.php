@@ -477,7 +477,8 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_sm += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / 12) * $count) * 100;
+                                                                $by_pelesen2 = $data->ebio_c6 / (($data->kap_proses / 12) * $count) ;
+                                                                $by_pelesen = $by_pelesen2 * 100;
                                                                 $total_alluratesm += $by_pelesen;
                                                             @endphp
                                                             <td class="text-right">
