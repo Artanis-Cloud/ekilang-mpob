@@ -556,7 +556,9 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_sbh += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
+                                                                $by_pelesen2 = $data->ebio_c6 / (($data->kap_proses / 12) * $count) ;
+                                                                $by_pelesen = $by_pelesen2 * 100;
+                                                                // $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
                                                                 $total_alluratesbh += $by_pelesen;
 
                                                             @endphp
@@ -625,7 +627,9 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_srwk += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
+                                                                $by_pelesen2 = $data->ebio_c6 / (($data->kap_proses / 12) * $count) ;
+                                                                $by_pelesen = $by_pelesen2 * 100;
+                                                                // $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
                                                                 $total_alluratesrwk += $by_pelesen;
 
                                                             @endphp
