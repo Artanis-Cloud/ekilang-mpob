@@ -418,7 +418,7 @@
                                             @elseif ($bulan == 'between')
                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                             @php
-                                                $count1 = ($end_month - $start_month) + 1;
+                                                $count = ($end_month - $start_month) + 1;
                                             @endphp
                                                 @endfor
                                                 {{-- {{  }} --}}
@@ -434,12 +434,12 @@
                                                     $total_alluratesm = 0;
                                                     $total_alluratesbh = 0;
                                                     $total_alluratesrwk = 0;
-                                                    $count = sizeof($proses_sm);
+                                                    // $count = sizeof($proses_sm);
 
 
                                                 @endphp
 
-                                                {{ dd($count1) }}
+                                                {{-- {{ dd($count1) }} --}}
 
                                                 @foreach ($proses_sm as $key => $data)
                                                     <tr>
@@ -486,7 +486,7 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_sm += $data->ebio_c6;
-                                                                $by_pelesen2 = $data->ebio_c6 / (($data->kap_proses / 12) * 2) ;
+                                                                $by_pelesen2 = $data->ebio_c6 / (($data->kap_proses / 12) * $count) ;
                                                                 $by_pelesen = $by_pelesen2 * 100;
                                                                 $total_alluratesm += $by_pelesen;
                                                             @endphp
