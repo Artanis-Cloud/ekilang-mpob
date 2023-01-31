@@ -404,8 +404,8 @@
                                                 @php
                                                     $total_kapall = $total_kapsrwk + $total_kapsbh + $total_kapsm;
                                                     $total_all = $total_srwk + $total_sbh + $total_sm;
-                                                    $by_pelesen2 = $total_all / (($total_kapall / 12) * $count) ;
-                                                    $total_urateall = $by_pelesen2 * 100;
+                                                    $total_urateall = ($total_all / $total_kapall) * 100 ;
+                                                    // $total_urateall = $by_pelesen2 * 100;
                                                     // $total_urateall = $total_alluratesrwk + $total_alluratesbh + $total_alluratesm;
 
                                                 @endphp
