@@ -430,7 +430,10 @@
                                                     $total_alluratesrwk = 0;
                                                     $count = count($proses_sm);
 
+
                                                 @endphp
+
+                                                {{ dd($count) }}
 
                                                 @foreach ($proses_sm as $key => $data)
                                                     <tr>
