@@ -418,7 +418,7 @@
                                             @elseif ($bulan == 'between')
                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                             @php
-                                                $count1 = $i++;
+                                                $count1 = $i;
                                             @endphp
                                                 @endfor
                                                 {{-- {{  }} --}}
