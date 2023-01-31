@@ -439,7 +439,7 @@
 
                                                 @endphp
 
-                                                {{ dd($count1) }}
+                                                {{ dd($start_month, $end_month) }}
 
                                                 @foreach ($proses_sm as $key => $data)
                                                     <tr>
