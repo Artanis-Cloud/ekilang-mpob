@@ -286,7 +286,7 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_sbh += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * 12))) * 100;
+                                                                $by_pelesen = ($data->ebio_c6 / $data->kap_proses) * 100;
                                                                 $total_alluratesbh += $by_pelesen;
                                                             @endphp
                                                             <td style="text-align: right">
@@ -363,7 +363,7 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_srwk += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * 12))) * 100;
+                                                                $by_pelesen = ($data->ebio_c6 / $data->kap_proses) * 100;
                                                                 $total_alluratesrwk += $by_pelesen;
                                                             @endphp
                                                             <td style="text-align: right">
@@ -428,6 +428,7 @@
                                                     $total_alluratesm = 0;
                                                     $total_alluratesbh = 0;
                                                     $total_alluratesrwk = 0;
+                                                    $count = count($proses_sm);
 
                                                 @endphp
 
@@ -476,7 +477,7 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_sm += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $key))) * 100;
+                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
                                                                 $total_alluratesm += $by_pelesen;
                                                             @endphp
                                                             <td class="text-right">
@@ -545,7 +546,7 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_sbh += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $key))) * 100;
+                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
                                                                 $total_alluratesbh += $by_pelesen;
 
                                                             @endphp
@@ -614,7 +615,7 @@
                                                         @if ($data->ebio_c6 != 0)
                                                             @php
                                                                 $total_srwk += $data->ebio_c6;
-                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $key))) * 100;
+                                                                $by_pelesen = ($data->ebio_c6 / ($data->kap_proses / (12 * $count))) * 100;
                                                                 $total_alluratesrwk += $by_pelesen;
 
                                                             @endphp
