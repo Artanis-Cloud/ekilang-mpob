@@ -428,7 +428,7 @@
                                                     $total_alluratesm = 0;
                                                     $total_alluratesbh = 0;
                                                     $total_alluratesrwk = 0;
-                                                    $count = count($proses_sm);
+                                                    $count = sizeof($proses_sm);
 
 
                                                 @endphp
