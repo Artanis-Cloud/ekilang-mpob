@@ -11,6 +11,7 @@ use App\Models\EBioInit;
 use App\Models\Hari;
 use App\Models\Init;
 use App\Models\RegPelesen;
+use App\Models\User;
 use Illuminate\Console\Command;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -114,6 +115,7 @@ class InitializeUpdate extends Command
             $sdate = $date->sdec;
             $edate = $date->edec;
         }
+
 
         if ($sdate == $current_date ) {
             $this->initialize_proses_pl91($edate);
@@ -587,7 +589,7 @@ class InitializeUpdate extends Command
     }
     public function initialize_proses_plbio($e_ddate)
     {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PLBIO')->where('e_status', '1')->get();
+        $reg_pelesen = User::where('category', 'PLBIO')->where('status', '1')->get();
 
         $ebio_init = DB::table('e_bio_inits')->delete();
         $hari = DB::table('haris')->delete();
@@ -602,7 +604,7 @@ class InitializeUpdate extends Command
 
         if ($bulan == 1) {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
-                $e_nl = $reg_pelesens->e_nl;
+                $e_nl = $reg_pelesens->username;
                 $query = EBioInit::create([
                     'ebio_reg' => $key + 1,
                     'ebio_nl' => $e_nl,
@@ -635,7 +637,7 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
-                $e_nl = $reg_pelesens->e_nl;
+                $e_nl = $reg_pelesens->username;
                 $query = EBioInit::create([
                     'ebio_reg' => $key + 1,
                     'ebio_nl' => $e_nl,
