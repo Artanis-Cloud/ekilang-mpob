@@ -87,11 +87,11 @@
 
             <div class="tab" style="margin-right:4%; margin-left:2%">
 
-                <a style="color:black; border-radius:unset; font-size:14.4px;" class="btn btn-work tablinks"
-                    onclick="openInit(event, 'All')" id="defaultOpen">Initialize Semua Pelesen</a>
+                {{-- <a style="color:black; border-radius:unset; font-size:14.4px;" class="btn btn-work tablinks"
+                    onclick="openInit(event, 'All')" id="defaultOpen">Initialize Semua Pelesen</a> --}}
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
-                {{-- <a style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
-                    class="btn btn-work tablinks" onclick="openInit(event, 'One')">Initialize Satu Pelesen</a> --}}
+                <a style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
+                    class="btn btn-work tablinks" onclick="openInit(event, 'One')">Initialize Satu Pelesen</a>
                 {{-- </button> --}}
                 <a style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;" id="defaultOpen"
                 class="btn btn-work tablinks" onclick="openInit(event, 'month')">Initialize Setahun</a>
