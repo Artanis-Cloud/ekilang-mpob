@@ -257,9 +257,9 @@ class DashboardAdminController extends Controller
 
         for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.ebio_sdate as date, count(e.ebio_nl) as pelesen, DAY(e.ebio_sdate) as days
-            from e_bio_inits e, reg_pelesen r
-            where e.ebio_nl = r.e_nl
-            and r.e_kat = 'PLBIO'
+            from e_bio_inits e, users r
+            where e.ebio_nl = r.username
+            and r.category = 'PLBIO'
             and e.ebio_sdate is not null
             and e.ebio_flg in ('2','3')
             and DAY(e.ebio_sdate) = '$i'");
@@ -341,10 +341,10 @@ class DashboardAdminController extends Controller
         Where e_status = '1'
         and e_kat = 'PL111'");
 
-        $PCBIO = DB::select("SELECT count(e_nl) as pelesen
-        From reg_pelesen
-        Where e_status = '1'
-        and e_kat = 'PLBIO'");
+        $PCBIO = DB::select("SELECT count(username) as pelesen
+        From users
+        Where status = '1'
+        and category = 'PLBIO'");
 
 
         // pencentage pelesen sudah hantar penyata setiap sektor
