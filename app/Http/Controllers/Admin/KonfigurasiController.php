@@ -54,95 +54,96 @@ class KonfigurasiController extends Controller
         // dd($request->all());
 
 
-        if (array_key_exists("sub_cat[]",$request->all())) {
+        if (array_key_exists("sub_cat",$request->all())) {
 
-        $check_users = User::where('username', $request->username)->first();
-        $check_regusers = RegUser::where('e_userid', $request->username)->first();
-        // dd($check_users);
+            $check_users = User::where('username', $request->username)->first();
+            $check_regusers = RegUser::where('e_userid', $request->username)->first();
+            // dd($check_users);
 
 
-        if (!$check_users || !$check_regusers) {
+            if (!$check_users || !$check_regusers) {
 
-        $this->validation_daftar_pentadbir($request->all())->validate();
-        $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
-        $this->store_daftar_pentadbir2($request->all());
-        // $custom_pass = $this->store_daftar_pentadbir($request->all());
-        // dd($daripada);
+                $this->validation_daftar_pentadbir($request->all())->validate();
+                $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
+                $this->store_daftar_pentadbir2($request->all());
+                // $custom_pass = $this->store_daftar_pentadbir($request->all());
+                // dd($daripada);
 
-        // dd($daripada);
-        //notification kalau admin, manager dan supervisor daftar admin.
-        //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
-        //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
-        //sama juga untuk manager
-        //notification in system dengan ke email sv, manager and superadmin
-        if ($request->role == 'Admin') {
-            if (auth()->user()->role == 'Supervisor') {
-                $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
-            } //tambah untuk auth()->user()->role lain jugak
-            elseif (auth()->user()->role == 'Manager') {
-                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
-            } else {
-                $kepadas = [];
+                // dd($daripada);
+                //notification kalau admin, manager dan supervisor daftar admin.
+                //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
+                //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
+                //sama juga untuk manager
+                //notification in system dengan ke email sv, manager and superadmin
+                if ($request->role == 'Admin') {
+                    if (auth()->user()->role == 'Supervisor') {
+                        $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+                    } //tambah untuk auth()->user()->role lain jugak
+                    elseif (auth()->user()->role == 'Manager') {
+                        $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+                    } else {
+                        $kepadas = [];
+                    }
+                }
+                elseif ($request->role == 'Supervisor') {
+                    if (auth()->user()->role == 'Supervisor') {
+                        $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+                    } //tambah untuk auth()->user()->role lain jugak
+                    elseif (auth()->user()->role == 'Manager') {
+                        $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+                    } else {
+                        $kepadas = [];
+                    }
+                } elseif ($request->role == 'Manager') {
+                    if (auth()->user()->role == 'Manager') {
+                        $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+                    } else {
+                        $kepadas = [];
+                    } //tambah untuk auth()->user()->role lain jugak
+
+                } elseif ($request->role == 'Superadmin'){
+                    if (auth()->user()->role == 'Superadmin') {
+                        $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+                    } else {
+                        $kepadas = [];
+                    }
+                }
+                else {
+                    return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
+                }
+                // dd($kepadas);
+
+
+                $kepada2 = User::where('username', auth()->user()->username)->first();
+
+
+                foreach ($kepadas as $kepada) {
+                    // if ($kepada->email != '-') {
+                        $kepada->notify((new DaftarPentadbirNotification2($daripada, $daripada)));
+                    // } else {
+                    //     return redirect()->back()
+                    //         ->with('error', 'Alamat Emel Tidak Sah');
+                    // }
+                }
+                $kepada2->notify((new DaftarPentadbirNotification($daripada, $daripada)));
+
+
+                //log audit trail admin
+                Auth::user()->log(" ADD ADMIN {$daripada->username}" );
+
+                return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
+
             }
-        }
-        elseif ($request->role == 'Supervisor') {
-            if (auth()->user()->role == 'Supervisor') {
-                $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
-            } //tambah untuk auth()->user()->role lain jugak
-            elseif (auth()->user()->role == 'Manager') {
-                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
-            } else {
-                $kepadas = [];
+            else {
+                return redirect()->back()
+                        ->with('error', 'Username sudah wujud! ');
             }
-        } elseif ($request->role == 'Manager') {
-            if (auth()->user()->role == 'Manager') {
-                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
-            } else {
-                $kepadas = [];
-            } //tambah untuk auth()->user()->role lain jugak
 
-        } elseif ($request->role == 'Superadmin'){
-            if (auth()->user()->role == 'Superadmin') {
-                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
-            } else {
-                $kepadas = [];
-            }
         }
         else {
-            return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
+                return redirect()->back()
+                        ->with('error', 'Sila pilih sekurang-kurangnya satu sub-kategori ');
         }
-        // dd($kepadas);
-
-
-        $kepada2 = User::where('username', auth()->user()->username)->first();
-
-
-        foreach ($kepadas as $kepada) {
-            // if ($kepada->email != '-') {
-                $kepada->notify((new DaftarPentadbirNotification2($daripada, $daripada)));
-            // } else {
-            //     return redirect()->back()
-            //         ->with('error', 'Alamat Emel Tidak Sah');
-            // }
-        }
-        $kepada2->notify((new DaftarPentadbirNotification($daripada, $daripada)));
-
-
-        //log audit trail admin
-        Auth::user()->log(" ADD ADMIN {$daripada->username}" );
-
-        return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
-
-    }
-    else {
-        return redirect()->back()
-                ->with('error', 'Username sudah wujud! ');
-    }
-    }
-    else {
-            return redirect()->back()
-                    ->with('error', 'Sila pilih sekurang-kurangnya satu sub-kategori ');
-    }
     }
 
     protected function validation_daftar_pentadbir(array $data)
@@ -192,7 +193,7 @@ class KonfigurasiController extends Controller
                 'username' => $data['username'],
                 'category' => 'admin',
                 'role' => $data['role'],
-                // 'sub_cat' => json_encode($data['sub_cat']) ,
+                'sub_cat' => json_encode($data['sub_cat']) ,
                 'status' => $data['status'],
                 'map_sdate' => now(),
 
