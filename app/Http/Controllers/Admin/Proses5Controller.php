@@ -986,6 +986,7 @@ class Proses5Controller extends Controller
             -- and e.ebio_flg in ('2','3')
             and p.e_nl = k.username
             and k.category = 'PLBIO'
+            and p.e_kat = 'PLBIO'
             and e.ebio_thn = $tahun1
             and e.ebio_bln = $bulan1
             order by k.kod_pegawai, k.no_siri");
@@ -1012,6 +1013,7 @@ class Proses5Controller extends Controller
             -- and e.ebio_flg in ('2','3')
             and p.e_nl = k.username
             and k.category = 'PLBIO'
+            and p.e_kat = 'PLBIO'
             and e.ebio_thn = $tahun1
             and e.ebio_bln = $bulan1
             order by k.kod_pegawai, k.no_siri");
