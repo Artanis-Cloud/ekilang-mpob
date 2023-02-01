@@ -444,43 +444,85 @@ class Proses3Controller extends Controller
     }
     public function initialize_proses_plbio($e_ddate)
     {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PLBIO')->where('e_status', '1')->get();
-        // $hariid = Hari::max('id');
+        $reg_pelesen = User::where('category', 'PLBIO')->where('status', '1')->get();
+
         $ebio_init = DB::table('e_bio_inits')->delete();
         $hari = DB::table('haris')->delete();
         $ebio_b = DB::table('e_bio_b_s')->delete();
         $ebio_c = DB::table('e_bio_c_s')->delete();
         $ebio_cc = DB::table('e_bio_cc')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = EBioInit::create([
-                'ebio_reg' => $key + 1,
-                'ebio_nl' => $e_nl,
-                'ebio_bln' => now()->format('m') - 1,
-                'ebio_thn' => now()->year,
-                'ebio_flg' => '1',
-                'ebio_sdate' => NULL,
-                'ebio_ddate' => $e_ddate,
-                'ebio_a5' => $e_ddate,
-                'ebio_a6' => $e_ddate,
-                'ebio_npg' => NULL,
-                'ebio_jpg' => NULL,
-                'ebio_notel' => NULL,
-                'ebio_flagcetak' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ]);
-            $query = Hari::create([
-                'id' => $key + 1,
-                'lesen' => $e_nl,
-                'bulanbhg2' => now()->format('m') - 1,
-                'tahunbhg2' => now()->year,
-                'hari_operasi' => NULL,
-                'kapasiti' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ]);
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
+
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->username;
+                $query = EBioInit::create([
+                    'ebio_reg' => $key + 1,
+                    'ebio_nl' => $e_nl,
+                    'ebio_bln' => '12',
+                    'ebio_thn' => $tahun2,
+                    'ebio_flg' => '1',
+                    'ebio_sdate' => NULL,
+                    'ebio_ddate' => $e_ddate,
+                    'ebio_a5' => $e_ddate,
+                    'ebio_a6' => $e_ddate,
+                    'ebio_npg' => NULL,
+                    'ebio_jpg' => NULL,
+                    'ebio_notel' => NULL,
+                    'ebio_flagcetak' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+
+                $query = Hari::create([
+                    'id' => $key + 1,
+                    'lesen' => $e_nl,
+                    'bulanbhg2' => '12',
+                    'tahunbhg2' => $tahun2,
+                    'hari_operasi' => NULL,
+                    'kapasiti' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->username;
+                $query = EBioInit::create([
+                    'ebio_reg' => $key + 1,
+                    'ebio_nl' => $e_nl,
+                    'ebio_bln' => now()->format('m') - 1,
+                    'ebio_thn' =>$tahun1,
+                    'ebio_flg' => '1',
+                    'ebio_sdate' => NULL,
+                    'ebio_ddate' => $e_ddate,
+                    'ebio_a5' => $e_ddate,
+                    'ebio_a6' => $e_ddate,
+                    'ebio_npg' => NULL,
+                    'ebio_jpg' => NULL,
+                    'ebio_notel' => NULL,
+                    'ebio_flagcetak' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+
+                $query = Hari::create([
+                    'id' => $key + 1,
+                    'lesen' => $e_nl,
+                    'bulanbhg2' => now()->format('m') - 1,
+                    'tahunbhg2' => $tahun1,
+                    'hari_operasi' => NULL,
+                    'kapasiti' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+            }
+
         }
     }
 
