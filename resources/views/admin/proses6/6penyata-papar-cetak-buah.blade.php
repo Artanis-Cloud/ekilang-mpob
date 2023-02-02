@@ -64,7 +64,7 @@
                         <div class="row">
                             <div class="col-1 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
-
+                            </div>
                         </div>
                         <div class="pl-3">
 
