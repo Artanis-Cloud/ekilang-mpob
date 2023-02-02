@@ -272,7 +272,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <div class="navbar-brand">
+                    <div class="navbar-brand" >
                         <a href="javascript:void(0)" class="logo">
                             <!-- Logo icon -->
                             {{-- <b class="logo-icon">
@@ -316,7 +316,7 @@
                                 @elseif (auth()->user()->category == 'admin')
                                     <a href="{{ route('admin.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                            style="padding-top:20px; width:70%; margin-left:10%">
                                     </a>
                                 @endif
                             </span>
@@ -341,7 +341,7 @@
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="background-image:  url({{ asset('theme/images/nav-head-2.png') }}); background-size:cover ">
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
 
@@ -349,7 +349,7 @@
                     <ul class="navbar-nav float-left mr-auto">
                         {{-- <ul class="float-left navbar-nav"> --}}
 
-                        @if (auth()->user()->category == 'PL91')
+                        {{-- @if (auth()->user()->category == 'PL91')
                             <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
                                 style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
                                 <b style="margin-left:10%;">
@@ -447,7 +447,7 @@
                                     <span class="date"></span>
                                 </div>
                             </span>
-                        @endif
+                        @endif --}}
 
                     </ul>
                     <!-- ============================================================== -->
@@ -760,6 +760,13 @@
                         <ul id="sidebarnav">
                             <li class="nav-small-cap">
                                 <span class="hide-menu font-weight-bold"> </span>
+                            </li>
+
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
                             </li>
 
                             <li class="sidebar-item">
@@ -1717,12 +1724,27 @@
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
-                    <nav class="sidebar-nav">
+                    <nav class="sidebar-nav" style="margin-top: -10%">
                         <ul id="sidebarnav">
                             {{-- <li class="nav-small-cap">
                                 <i class="mdi mdi-dots-horizontal"></i>
                                 <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>
                             </li> --}}
+                            <li class="nav-small-cap" style="padding: 5px">
+
+                                <span class="hide-menu font-weight-bold"
+                                    style="color: black; text-align:center; margin-left:10%; ">
+                                    {{ ucfirst(auth()->user()->role) }}
+                                </span>
+
+                            </li>
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
+                            </li>
+
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">

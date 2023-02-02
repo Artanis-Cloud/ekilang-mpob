@@ -23,17 +23,17 @@
     .login {
         height: 100%;
         width: 100%;
-        background:url( {{ asset("theme/images/background/palm6.jpg") }});
+        background:url( {{ asset("theme/images/background/land_1.png") }});
         position: relative;
         background-size: 100%;
         background-repeat: no-repeat;
     }
     .login_box {
-        width: 1000px;
-        height: 555px;
+        width: 900px;
+        height: 490px;
         position: absolute;
-        top: 55%;
-        left: 50%;
+        top: 60%;
+        left: 35%;
         transform: translate(-50%,-60%);
         /* background: #fff; */
         border-radius: 10px;
@@ -89,11 +89,11 @@
     }
     .submit {
         border: none;
-        padding: 15px 70px;
+        padding: 15px 60px;
         border-radius: 8px;
         display: block;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 10px;
         background: linear-gradient(to right, #4fd2c7 59%, #ffffff 158%);
         color: #fff;
         font-weight: bold;
@@ -107,7 +107,7 @@
     footer {
         background-color: #222;
         color: #fff;
-        font-size: 14px;
+        font-size: 7px;
         bottom: 0;
         position: fixed;
         left: 0;
@@ -193,7 +193,7 @@
 
                     <form method="POST" action="{{ route('forget-password.submit2') }}">
                         @csrf
-                        <h3>Terlupa Kata Laluan</h3>
+                        <h3 style="color: #164875; font-size: 22px">Terlupa Kata Laluan</h3>
                         <div class="container">
                             <img src="{{ asset('theme/images/background/logo4.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:70px; width:110%; margin-left:5%  " alt="logo">
@@ -260,73 +260,74 @@
                 </div>
             </div>
             <div class="right">
-                <div class="right-text">
-                    <h2>SELAMAT DATANG KE SISTEM e-Kilang</h2>
-                    <h5>Sistem e-Kilang adalah satu sistem aplikasi MPOB yang dibangunkan oleh MPOB bertujuan bagi membantu pelesen dalam membuat pelaporan 1-7hb setiap sebulan.</h5>
+				<div class="right-text">
+					{{-- <h2>SELAMAT DATANG KE SISTEM e-Kilang</h2> --}}
+					<h5>Sistem e-Kilang adalah satu sistem aplikasi MPOB yang dibangunkan oleh MPOB <br>
+                         bertujuan bagi membantu pelesen dalam membuat pelaporan 1-7hb setiap sebulan.</h5>
                     <hr>
-                    <p>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px">
                         Sebarang pertanyaan sila hubungi :
                     </p>
-                    <p style="text-align: left; margin-left: 5%"><b>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px"><b>
                         Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
                     </p>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">Pn. Nor Syaida : </div>
-                        <div class="col-7">(Emel:
+                        <div class="col-9">(Emel:
                             nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)</div>
                     </div>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">En. Rominizam : </div>
-                        <div class="col-7">(Emel:
+                        <div class="col-9">(Emel:
                             rominizam@mpob.gov.my atau Tel : 03-7802 2918)</div>
                     </div><br>
-                    <p style="text-align: left; margin-left: 5%"><b>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
                         Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b>
                     </p>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">Pn. Aziana : </div>
-                        <div class="col-7">(Emel:
+                        <div class="col-9">(Emel:
                             aziana.misnan@mpob.gov.my atau Tel :
                             03-7802 2955)</div>
                     </div><br>
-                    <p style="text-align: left; margin-left: 5%"><b>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
                         Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b>
                     </p>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">Pn. Aziana : </div>
-                        <div class="col-7">(Emel:
+                        <div class="col-9">(Emel:
                             aziana.misnan@mpob.gov.my atau Tel :
                             03-7802 2955)</div>
                     </div><br>
-                    <p style="text-align: left; margin-left: 5%"><b>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
                         Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b>
                     </p>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">Pn. Nor Baayah : </div>
-                        <div class="col-7">(Emel
+                        <div class="col-9">(Emel
                             abby@mpob.gov.my atau Tel : 03-7802
                             2865)</div>
                     </div><br>
-                    <p style="text-align: left; margin-left: 5%"><b>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
                         Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b>
                     </p>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">Pn. Nor Baayah : </div>
-                        <div class="col-7">(Emel
+                        <div class="col-9">(Emel
                             abby@mpob.gov.my atau Tel : 03-7802
                             2865)</div>
                     </div><br>
-                    <p style="text-align: left; margin-left: 5%"><b>
+                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
                         Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b>
                     </p>
                     <div class="row" style=" margin-left: 5%; font-size:11px" >
                         <div class="col-3">Cik Rohidayati
                             Sukhaila : </div>
-                        <div class="col-7">(Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
+                        <div class="col-9">(Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
                             <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br></div>
-                    </div><br>
+                    </div>
 
-                </div>
+				</div>
                 {{-- <div class="right-inductor"><img src="https://lh3.googleusercontent.com/fife/ABSRlIoGiXn2r0SBm7bjFHea6iCUOyY0N2SrvhNUT-orJfyGNRSMO2vfqar3R-xs5Z4xbeqYwrEMq2FXKGXm-l_H6QAlwCBk9uceKBfG-FjacfftM0WM_aoUC_oxRSXXYspQE3tCMHGvMBlb2K1NAdU6qWv3VAQAPdCo8VwTgdnyWv08CmeZ8hX_6Ty8FzetXYKnfXb0CTEFQOVF4p3R58LksVUd73FU6564OsrJt918LPEwqIPAPQ4dMgiH73sgLXnDndUDCdLSDHMSirr4uUaqbiWQq-X1SNdkh-3jzjhW4keeNt1TgQHSrzW3maYO3ryueQzYoMEhts8MP8HH5gs2NkCar9cr_guunglU7Zqaede4cLFhsCZWBLVHY4cKHgk8SzfH_0Rn3St2AQen9MaiT38L5QXsaq6zFMuGiT8M2Md50eS0JdRTdlWLJApbgAUqI3zltUXce-MaCrDtp_UiI6x3IR4fEZiCo0XDyoAesFjXZg9cIuSsLTiKkSAGzzledJU3crgSHjAIycQN2PH2_dBIa3ibAJLphqq6zLh0qiQn_dHh83ru2y7MgxRU85ithgjdIk3PgplREbW9_PLv5j9juYc1WXFNW9ML80UlTaC9D2rP3i80zESJJY56faKsA5GVCIFiUtc3EewSM_C0bkJSMiobIWiXFz7pMcadgZlweUdjBcjvaepHBe8wou0ZtDM9TKom0hs_nx_AKy0dnXGNWI1qftTjAg=w1920-h979-ft" alt=""></div> --}}
             </div>
         </div>
