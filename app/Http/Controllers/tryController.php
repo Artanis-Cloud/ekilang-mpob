@@ -194,7 +194,7 @@ class tryController extends Controller
            $date = Init::where('tahun', $tahun1)->first();
 
         }
-        dd($date);
+        // dd($date);
 
 
         if ($bulan == 2) {
@@ -247,7 +247,7 @@ class tryController extends Controller
         }
 
 
-
+        // dd($sdate == $current_date);
 
 
 

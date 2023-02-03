@@ -85,7 +85,7 @@
                                         <div class="row">
                                             <div class="col-10">
                                                 <p align="">
-                                                    <b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                    <b>{{ $data->regpelesen->kodpgw }}{{ $data->regpelesen->nosiri }}</b></p>
 
                                             </div>
                                             <div class="col-2" style="padding-left:5%">

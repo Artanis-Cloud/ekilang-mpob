@@ -139,7 +139,7 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e91_reg) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = E91Init::with('pelesen')->find($e91_reg);
+            $penyata[$key] = E91Init::with('pelesen', 'regpelesen')->find($e91_reg);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e91_nl)->first();
 
             // dd($penyata);
@@ -208,7 +208,7 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e101_reg) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = E101Init::with('pelesen')->find($e101_reg);
+            $penyata[$key] = E101Init::with('pelesen','regpelesen')->find($e101_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e101_nl)->first();
 
             $penyatai[$key] = E101B::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->whereHas('produk', function ($query) {
@@ -465,7 +465,7 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e102_reg) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = E102Init::find($e102_reg);
+            $penyata[$key] = E102Init::with('regpelesen')->find($e102_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e102_nl)->first();
 
             $penyatai[$key] = E102Init::where('e102_nl', $penyata[$key]->e102_nl)->first();
@@ -565,7 +565,7 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e104_reg) {
             $pelesens[$e104_reg] = (object)[];
-            $penyata[$e104_reg] = E104Init::find($e104_reg);
+            $penyata[$e104_reg] = E104Init::with('regpelesen')->find($e104_reg);
             $pelesens[$e104_reg] = Pelesen::where('e_nl', $penyata[$e104_reg]->e104_nl)->first();
 
             $penyataia[$e104_reg] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$e104_reg]->e104_reg)->where('e104_b3', '1')->get();
@@ -774,7 +774,7 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e07_reg) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = E07Init::find($e07_reg);
+            $penyata[$key] = E07Init::with('regpelesen')->find($e07_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e07_nl)->first();
 
             $penyatai[$key] = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $penyata[$key]->e07_reg)->whereHas('produk', function ($query) {

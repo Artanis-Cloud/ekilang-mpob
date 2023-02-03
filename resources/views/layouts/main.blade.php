@@ -1246,7 +1246,7 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('pusatsimpan.bahagianb') }}" class="btn sidebar-link">
+                                            <a href="{{ route('pusatsimpan.bahagianb') }}" class=" sidebar-link">
                                                 <i class="far fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian B </span>
                                             </a>

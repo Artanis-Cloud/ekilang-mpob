@@ -71,7 +71,7 @@
                                                     <tr>
                                                         <td width="" height="19">
                                                             <p align="">
-                                                                <b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b>
+                                                                <b>{{ $data->regpelesen->kodpgw }}{{ $data->regpelesen->nosiri }}</b>
                                                             </p>
                                                         </td>
                                                         <td width="88%" height="19">
