@@ -41,4 +41,9 @@ class E104Init extends Model
 
         return $this->hasOne(Pelesen::class, 'e_nl', 'e104_nl');
     }
+    public function regpelesen()
+    {
+
+        return $this->hasOne(RegPelesen::class, 'e_nl', 'e104_nl');
+    }
 }

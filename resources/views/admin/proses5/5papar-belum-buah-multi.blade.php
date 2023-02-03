@@ -89,7 +89,7 @@
                                                 <tbody style=" width:10rem; margin-right: -10px">
                                                     <tr>
                                                         <td width="88%" height="19">
-                                                            <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                            <p align=""><b>{{ $data->regpelesen->kodpgw }}{{ $data->regpelesen->nosiri }}</b></p>
                                                         </td>
                                                         <td width="12%" height="19">
                                                             <p align="left"><b>MPOB(EL) MF 4</b></p>
