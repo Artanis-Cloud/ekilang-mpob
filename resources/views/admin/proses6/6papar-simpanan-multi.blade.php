@@ -92,7 +92,7 @@
                                                 <p align="left"><b>MPOB(EL) KS 4</b></p>
 
                                             </div>
-                                        </div><br>
+                                        </div>
 
 
                                         <p align="center">
@@ -138,23 +138,23 @@
                                                 @else
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                                 @endif
-                                            </b><br>
-
+                                            </b>
                                         </p>
                                         <hr>
 
-                                        <table border="0" width="111%" cellspacing="0">
+                                        <table border="0" width="100%" cellspacing="0">
 
                                             <tbody>
                                                 <tr>
 
-                                                    <td width="25%" height="19">
+                                                    <td width="28%" height="19">
                                                         Nombor Lesen
                                                     </td>
 
-                                                    <td width="88%" height="19"><b>
+                                                    <td width="72%" height="19"><b>
                                                             {{ $data->pelesen->e_nl }}
-                                                        </b></td>
+                                                        </b>
+                                                    </td>
 
                                                 </tr>
 
@@ -166,16 +166,15 @@
 
                                                     <td width="88%" height="19" style="text-transform:uppercase"><b>
                                                             {{ $data->pelesen->e_np }}
-                                                        </b></td>
+                                                        </b>
+                                                    </td>
 
                                                 </tr>
 
                                             </tbody>
                                         </table>
-
                                         <hr>
 
-                                        <p></p>
 
 
                                         <p align="left"><b>

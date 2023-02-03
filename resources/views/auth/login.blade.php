@@ -196,10 +196,40 @@ footer a {
     <section class="">
         <!-- Jumbotron -->
         <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-image:  url({{ asset('theme/images/background/land_1.png') }}); background-size:cover ">
+              {{-- <div class="card" style="border: none; background:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="{{ asset('theme/images/mpob.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:100px;  " alt="logo">
+                            </div>
+                            <div class="col-9">
+                                SELAMAT DATANG KE SISTEM e-KILANG<br>
+                                <p>Lembaga Minyak Sawit Malaysia</p>
+                            </div>
+                        </div>
+
+                      </div>
+                </div> --}}
           <div class="container">
             <div class="row gx-lg-5 align-items-center" style="margin-right:8%; margin-top:5%">
               <div class="col-lg-6 mb-3 mt-5">
-                <h1 class="fw-bold ls-tight" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); font-size: 11px;
+                {{-- <div class="card" style="border: none; background:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{ asset('theme/images/mpob.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:100px;  " alt="logo">
+                            </div>
+                            <div class="col-9">
+                                SELAMAT DATANG KE SISTEM e-KILANG<br>
+                                <p>Lembaga Minyak Sawit Malaysia</p>
+                            </div>
+                        </div>
+
+                      </div>
+                </div> --}}
+                <h1 class="fw-bold ls-tight" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); font-size: 12px;
                     padding:5%; color:white; border-radius:10px">
                     Sistem e-Kilang adalah satu sistem laporan dan pengurusan digital bertujuan
                     mengumpul dan memproses penyata bulananbagi kategori Kilang Buah Kelapa Sawit,
@@ -289,13 +319,13 @@ footer a {
                             oleh Lembaga Minyak Sawit Malaysia (MPOB)
                           </p>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
               </div>
 
               <div class="col-lg-4 mb-1 mb-lg-0" style="    margin-top: -10%;">
-                <div class="card">
+                <div class="card" style=" box-shadow: 1px 4px 22px -8px #0004;">
                   <div class="card-body py-5 px-md-5">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -305,8 +335,8 @@ footer a {
                                 style="height:100px; width:100px; margin-left:30% " alt="logo">
                         </div> --}}
                         <div class="container">
-                            <img src="{{ asset('theme/images/background/logo7.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:60px; width:110%;  " alt="logo">
+                            <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:150px;  " alt="logo">
                         </div><br>
                         <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
                             oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
