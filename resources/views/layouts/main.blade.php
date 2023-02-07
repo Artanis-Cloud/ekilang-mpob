@@ -286,37 +286,37 @@
                                 @if (auth()->user()->category == 'PL91')
                                     <a href="{{ route('buah.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                            style="padding-top:20px; width:80%; margin-left:10%">
                                     </a>
                                 @elseif (auth()->user()->category == 'PL101')
                                     <a href="{{ route('penapis.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                            style="padding-top:20px;height:110%; width:80%; margin-left:10%">
                                     </a>
                                 @elseif (auth()->user()->category == 'PL102')
                                     <a href="{{ route('isirung.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                            style="padding-top:20px;height:110%; width:80%; margin-left:10%">
                                     </a>
                                 @elseif (auth()->user()->category == 'PL104')
                                     <a href="{{ route('oleo.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                            style="padding-top:20px;height:110%; width:80%; margin-left:10%">
                                     </a>
                                 @elseif (auth()->user()->category == 'PL111')
                                     <a href="{{ route('pusatsimpan.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                        style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                        style="padding-top:20px;height:110%; width:80%; margin-left:10%">
                                     </a>
                                 @elseif (auth()->user()->category == 'PLBIO')
                                     <a href="{{ route('bio.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                        style="padding-top:20px;height:110%; width:90%; margin-left:10%">
+                                        style="padding-top:20px;height:110%; width:80%; margin-left:10%">
                                     </a>
                                 @elseif (auth()->user()->category == 'admin')
                                     <a href="{{ route('admin.dashboard') }}">
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px; width:70%; margin-left:10%">
+                                            style="padding-top:20px; width:80%; margin-left:10%">
                                     </a>
                                 @endif
                             </span>
