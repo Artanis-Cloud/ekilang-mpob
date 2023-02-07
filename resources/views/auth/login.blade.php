@@ -107,7 +107,7 @@ img{
 footer {
     background-color: #222;
     color: #fff;
-    font-size: 7px;
+    font-size: 9px;
     bottom: 0;
     position: fixed;
     left: 0;
