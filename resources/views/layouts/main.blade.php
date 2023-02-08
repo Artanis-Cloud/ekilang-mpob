@@ -453,7 +453,7 @@
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav float-right">
+                    <ul class="navbar-nav float-right" style="background: #3fd2c7">
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
@@ -612,9 +612,21 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            {{-- <li class="nav-small-cap">
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li> --}}
+                            <li class="">
+                                <span class=""
+                                    style="color: black; text-align:center; margin-left:12%;">
+                                    <b style="">
+                                        KILANG BUAH
+                                    </b>
+                                </span>
+                            </li>
+
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
                                     aria-expanded="false" >
@@ -684,7 +696,7 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('buah.bahagianvi') }}"class="btn sidebar-link">
+                                            <a href="{{ route('buah.bahagianvi') }}" class="sidebar-link">
 
                                                 <i class="far fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 6 </span>
@@ -840,14 +852,14 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('penapis.bahagianvi') }}" class="btn sidebar-link">
+                                            <a href="{{ route('penapis.bahagianvi') }}" class="sidebar-link">
 
                                                 <i class="fas fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 6 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item ">
-                                            <a href="{{ route('penapis.bahagianvii') }}"class="btn sidebar-link">
+                                            <a href="{{ route('penapis.bahagianvii') }}"class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:#f6f8f9 "> </i>
                                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                                 <span class="hide-menu">Bahagian 7</span>
@@ -983,14 +995,14 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('isirung.bahagianvi') }}" class="btn sidebar-link">
+                                            <a href="{{ route('isirung.bahagianvi') }}" class="sidebar-link">
 
                                                 <i class="fas fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 6 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item ">
-                                            <a href="{{ route('isirung.bahagianvii') }}" class="btn sidebar-link">
+                                            <a href="{{ route('isirung.bahagianvii') }}" class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:#f6f8f9 "> </i>
                                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                                 <span class="hide-menu">Bahagian 7</span>
@@ -1127,13 +1139,13 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('oleo.bahagianiv') }}" class="btn sidebar-link">
+                                            <a href="{{ route('oleo.bahagianiv') }}" class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 4 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('oleo.bahagianv') }}" class="btn sidebar-link">
+                                            <a href="{{ route('oleo.bahagianv') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 5 </span>
                                             </a>
@@ -1380,13 +1392,13 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('bio.bahagianiv') }}" class="btn sidebar-link">
+                                            <a href="{{ route('bio.bahagianiv') }}" class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 4 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('bio.bahagianv') }}" class="btn sidebar-link">
+                                            <a href="{{ route('bio.bahagianv') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:#f6f8f9 "></i>
                                                 <span class="hide-menu"> Bahagian 5 </span>
                                             </a>
@@ -1535,7 +1547,7 @@
                                             </li>
                                             <li class="sidebar-item">
                                                 <a href="{{ route('penapis.bahagianvi') }}"
-                                                    class="btn sidebar-link">
+                                                    class="sidebar-link">
 
                                                     <i class="fas fa-file-alt" style="color:#f6f8f9 "></i>
                                                     <span class="hide-menu"> Bahagian 6 </span>
@@ -1543,7 +1555,7 @@
                                             </li>
                                             <li class="sidebar-item ">
                                                 <a
-                                                    href="{{ route('penapis.bahagianvii') }}"class="btn sidebar-link">
+                                                    href="{{ route('penapis.bahagianvii') }}"class="sidebar-link">
                                                     <i class="far fa-file-alt" style="color:#f6f8f9 "> </i>
                                                     {{-- <i data-feather="file-plus" width="20"></i> --}}
                                                     <span class="hide-menu">Bahagian 7</span>
@@ -1658,13 +1670,13 @@
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('oleo.bahagianiv') }}" class="btn sidebar-link">
+                                                <a href="{{ route('oleo.bahagianiv') }}" class="sidebar-link">
                                                     <i class="far fa-file-alt" style="color:#f6f8f9 "></i>
                                                     <span class="hide-menu"> Bahagian 4 </span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('oleo.bahagianv') }}" class="btn sidebar-link">
+                                                <a href="{{ route('oleo.bahagianv') }}" class="sidebar-link">
                                                     <i class="fas fa-file-alt" style="color:#f6f8f9 "></i>
                                                     <span class="hide-menu"> Bahagian 5 </span>
                                                 </a>
