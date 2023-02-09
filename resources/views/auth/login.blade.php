@@ -195,7 +195,7 @@ footer a {
 <body>
     <section class="">
         <!-- Jumbotron -->
-        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-image:  url({{ asset('theme/images/background/land_1.png') }}); background-size:cover ">
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-image:  url({{ asset('theme/images/background/land_4.png') }}); background-size:cover ">
               {{-- <div class="card" style="border: none; background:none">
                     <div class="card-body">
                         <div class="row">
@@ -211,7 +211,11 @@ footer a {
 
                       </div>
                 </div> --}}
-          <div class="container">
+            <div class="row" style="margin-top: -50px">
+                <img src="{{ asset('theme/images/title-mpob.png') }}"  style=" width:900px;  " >
+
+            </div>
+          <div class="container"  style="margin-top: -100px">
             <div class="row gx-lg-5 align-items-center" style="margin-right:8%; margin-top:5%">
               <div class="col-lg-6 mb-3 mt-5">
                 {{-- <div class="card" style="border: none; background:none">
@@ -232,7 +236,7 @@ footer a {
                 <h1 class="fw-bold ls-tight" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); font-size: 12px;
                     padding:5%; color:white; border-radius:10px">
                     Sistem e-Kilang adalah satu sistem laporan dan pengurusan digital bertujuan
-                    mengumpul dan memproses penyata bulananbagi kategori Kilang Buah Kelapa Sawit,
+                    mengumpul dan memproses penyata bulanan bagi kategori Kilang Buah Kelapa Sawit,
                     Kilang Penapis, Kilang  Pelumat Isirong Sawit, Kilang Oleokimia Sawit, Kilang Biodiesel dan
                     Kemudahan Simpanan Pukal mengikut Akta Lembaga Minyak Sawit Malaysia 1998,
                     Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005.

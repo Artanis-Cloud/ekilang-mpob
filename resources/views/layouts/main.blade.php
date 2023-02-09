@@ -2735,10 +2735,10 @@ $('ul > li> a').on('click', function() {
 
 
 {{-- clock --}}
-<script>
+{{-- <script>
     jQuery.migrateEnablePatches( "self-closed-tags" );
     console. log(jQuery(). jquery);
-    </script>
+    </script> --}}
 <script type="text/javascript">
     function updateTime() {
         var dateInfo = new Date();

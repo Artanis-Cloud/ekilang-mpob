@@ -232,7 +232,7 @@ footer a {
                 <h1 class="fw-bold ls-tight" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); font-size: 12px;
                     padding:5%; color:white; border-radius:10px">
                     Sistem e-Kilang adalah satu sistem laporan dan pengurusan digital bertujuan
-                    mengumpul dan memproses penyata bulananbagi kategori Kilang Buah Kelapa Sawit,
+                    mengumpul dan memproses penyata bulanan bagi kategori Kilang Buah Kelapa Sawit,
                     Kilang Penapis, Kilang  Pelumat Isirong Sawit, Kilang Oleokimia Sawit, Kilang Biodiesel dan
                     Kemudahan Simpanan Pukal mengikut Akta Lembaga Minyak Sawit Malaysia 1998,
                     Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005.

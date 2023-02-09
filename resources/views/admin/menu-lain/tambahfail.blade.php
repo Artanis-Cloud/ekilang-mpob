@@ -114,9 +114,20 @@
                                                 {{ $loop->iteration }}
                                             </td>
                                             <td style="width: 60%">
-                                                {{ $data->file_upload }}
+                                                {{-- {{ $data->file_upload }} --}}
+                                                <a href="{{ asset('storage/'.$data->file_upload) }}">
+                                                    {{ asset('storage/'.$data->file_upload) }}
+
+                                                </a>
                                             </td>
                                             <td  style="text-align:center">
+                                                <button style="border: none; background:none"   class="copy_text"  data-toggle="tooltip" title="Copy to Clipboard" href="{{ asset('storage/'.$data->file_upload) }}" >
+                                                    <i class="fa fa-copy"
+                                                        style="color: #228c1c; font-size:18px; padding: 0rem 0rem;">
+                                                    </i>
+                                            </button>
+                                            </td>
+                                            {{-- <td  style="text-align:center">
                                                 <div class="btn">
                                                     <a
                                                         target='_blank' href="{{ asset('storage/'.$data->file_upload) }}" >
@@ -125,7 +136,7 @@
                                                         </i>
                                                     </a>
                                                 </div>
-                                            </td>
+                                            </td> --}}
 
                                         </tr>
                                         @endforeach
@@ -150,6 +161,56 @@
 
     @section('scripts')
         <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
+
+
+        <script>
+            var uploadField = document.getElementById('file');
+            uploadField.onchange = function() {
+
+
+                var filePath = uploadField.value;
+                var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+                if (!allowedExtensions.exec(filePath)) {
+                    toastr.error(
+                        'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                        'Ralat!', {
+                            "progressBar": true
+                        });
+                        this.value = '';
+                    return false;
+                }
+
+                if (this.files[0].size > 3145728) {
+                    toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
+                        "progressBar": true
+                    });
+
+                    this.value = "";
+                };
+
+
+            };
+
+        </script>
+        <script>
+
+            $('.copy_text').click(function (e) {
+            e.preventDefault();
+            // var copyText = $(this).attr('href');
+            var copyText = $(this).attr('href');
+            copyText = copyText.replace(/ /g, '%20');
+
+            document.addEventListener('copy', function(e) {
+                e.clipboardData.setData('text/plain', copyText);
+                e.preventDefault();
+            }, true);
+
+            document.execCommand('copy');
+            console.log('copied text : ', copyText);
+            alert('copied text: ' + copyText);
+            });
+        </script>
 
         <script>
             var quill = new Quill('#editor', {
