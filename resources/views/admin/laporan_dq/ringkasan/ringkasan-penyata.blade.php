@@ -207,8 +207,8 @@
 
                                                         <option selected value="">Sila Pilih</option>
                                                         @foreach ($users2 as $data)
-                                                            <option value="{{ $data->e_nl }}">
-                                                                {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                            <option value="{{ $data->username }}">
+                                                                {{ $data->username }} - {{ $data->pelesen->e_np }}
                                                             </option>
                                                         @endforeach
                                                     </select>

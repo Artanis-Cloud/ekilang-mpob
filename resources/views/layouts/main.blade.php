@@ -1810,13 +1810,17 @@
                                     </li>
                                 </ul>
                             </li>
+                            {{-- {{ dd(auth()->user()->role != 'Admin') }} --}}
 
                             @if (json_decode(auth()->user()->sub_cat))
+                            @php
+                                $cat = json_decode(auth()->user()->sub_cat);
+                            @endphp
 
-                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                {{-- @foreach (json_decode(auth()->user()->sub_cat) as $cat) --}}
                                 {{-- @if (auth()->user()->role == 'Supervisor' || auth()->user()->role == 'Admin' || auth()->user()->role == 'Manager') --}}
 
-                                    @if ($cat == 'PLBIO' && auth()->user()->role == 'Admin')
+                                    @if (in_array("PLBIO", $cat) && auth()->user()->role == 'Admin')
 
                                         <li class="sidebar-item">
                                             <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -1835,7 +1839,7 @@
 
                                             </ul>
                                         </li>
-                                    @elseif (auth()->user()->role != 'Admin' && $cat == 'PLBIO')
+                                    @elseif (auth()->user()->role != 'Admin')
                                     <li class="sidebar-item">
                                         <a class="sidebar-link has-arrow waves-effect waves-dark"
                                             href="javascript:void(0)" aria-expanded="false">
@@ -1844,12 +1848,15 @@
                                             {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                         </a>
                                         <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            @if (in_array("PLBIO", $cat))
                                             <li class="sidebar-item">
                                                 <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
                                                     <i class="fas fa-boxes" style="color:#f6f8f9 "></i>
                                                     <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib <br> (Biodiesel)</span>
                                                 </a>
                                             </li>
+                                            @endif
+
                                             <li class="sidebar-item">
                                                 <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
                                                     <i class="fas fa-boxes" style="color:#f6f8f9 "></i>
@@ -1876,44 +1883,11 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    @elseif (auth()->user()->role != 'Admin' && $cat != 'PLBIO')
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                            href="javascript:void(0)" aria-expanded="false">
-                                            <i class="fas fa-arrows-alt-h" style="color:#f6f8f9 "></i>
-                                            <span class="hide-menu font-weight-medium"> Pindahan Data </span>
-                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
-                                                    <i class="fas fa-boxes" style="color:#f6f8f9 "></i>
-                                                    <span class="hide-menu"> e-Kilang ke PLEID </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
-                                                    <i class="fas fa-barcode" style="color:#f6f8f9 "></i>
-                                                    <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
-                                                    <i class=" fas fa-book" style="color:#f6f8f9 "></i>
-                                                    <span class="hide-menu"> Stat Admin/Homepage </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
-                                                    <i class="fas fa-folder-open" style="color:#f6f8f9 "></i>
-                                                    <span class="hide-menu"> Dynamic Query </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    {{-- @break --}}
+
                                     @endif
 
-                                    @if ($cat == 'PLBIO')
+                                    @if (in_array("PLBIO", $cat))
                                         <li class="sidebar-item">
                                             <a class="sidebar-link has-arrow waves-effect waves-dark"
                                                 href="javascript:void(0)" aria-expanded="false">
@@ -2042,13 +2016,14 @@
                                         </li> --}}
                                             </ul>
                                         </li>
+                                        {{-- @break --}}
                                     @endif
 
 
-                                    @if (auth()->user()->role != 'Admin')
+                                    {{-- @if (auth()->user()->role != 'Admin')
                                     @break
-                                    @endif
-                                @endforeach
+                                    @endif --}}
+                                {{-- @endforeach --}}
                             @else
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark"
