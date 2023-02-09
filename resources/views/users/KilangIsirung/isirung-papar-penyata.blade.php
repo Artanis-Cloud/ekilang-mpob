@@ -117,7 +117,7 @@
                             </p>
                             <hr>
 
-                        <div class="table-responsive">
+                        <div class="">
                             <table border="0" width="111%" cellspacing="0">
 
                                 <tbody>
@@ -141,7 +141,8 @@
                                             </b></td>
                                     </tr>
                                 </tbody>
-                            </table></div>
+                            </table>
+                        </div>
                             <hr>
                             <p></p>
 

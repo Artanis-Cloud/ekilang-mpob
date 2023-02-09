@@ -324,7 +324,7 @@ footer a {
 
               </div>
 
-              <div class="col-lg-4 mb-1 mb-lg-0" style="    margin-top: -10%;">
+              <div class="col-lg-4 mb-1 mb-lg-0">
                 <div class="card" style=" box-shadow: 1px 4px 22px -8px #0004;">
                   <div class="card-body py-5 px-md-5">
                     <form method="POST" action="{{ route('login') }}">
@@ -363,6 +363,9 @@ footer a {
                         <button class="submit" type="submit" onclick="errorMessage()">Log Masuk</button>
                     </form>
                   </div>
+                </div>
+                <div class="card" style="padding: 90px; background:none; border:none">
+
                 </div>
               </div>
             </div>
