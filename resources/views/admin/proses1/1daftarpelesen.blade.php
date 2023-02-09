@@ -112,7 +112,7 @@
                                                                 <option value="PL102">KILANG ISIRUNG</option>
                                                                 <option value="PL104">KILANG OLEOKIMIA</option>
                                                                 <option value="PL111">PUSAT SIMPANAN</option>
-                                                                <option value="PL102">KILANG BIODIESEL</option>
+                                                                <option value="PLBIO">KILANG BIODIESEL</option>
                                                             @endif
                                                         @endforeach
                                                     @else
@@ -121,7 +121,7 @@
                                                     <option value="PL102">KILANG ISIRUNG</option>
                                                     <option value="PL104">KILANG OLEOKIMIA</option>
                                                     <option value="PL111">PUSAT SIMPANAN</option>
-                                                    <option value="PL102">KILANG BIODIESEL</option>
+                                                    <option value="PLBIO">KILANG BIODIESEL</option>
                                                     @endif
 
                                                 </select>

@@ -83,7 +83,7 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $users2 = User::with('pelesen')->where('category', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = KumpProduk::get();
         $produk = Produk::get();
