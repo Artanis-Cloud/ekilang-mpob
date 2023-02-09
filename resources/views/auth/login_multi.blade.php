@@ -1,279 +1,339 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-    * {
-        box-sizing: border-box;
-    }
+img{
+	width: 100%;
+}
+.login {
+    height: 100%;
+    width: 100%;
+    background:url( {{ asset("theme/images/background/land_1.png") }});
+    position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.login_box {
+    width: 700px;
+    height: 390px;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    /* transform: translate(-50%,-60%); */
+    /* background: #fff; */
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_boxs {
+    width: 700px;
+    height: 100px;
+    position: absolute;
+    top: 78%;
+    left: 15%;
+    /* transform: translate(-50%,-60%); */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_box .left{
+  width: 40%;
+  height: 100%;
+  padding: 25px 25px;
 
-    body {
-        background: #f6f5f7;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-family: 'Montserrat', sans-serif;
-        height: 100vh;
-        margin: -20px 0 50px;
-    }
+}
+.login_box .right{
+  width: 70%;
+  height: 100%
+}
+.left .top_link a {
+    color: #452A5A;
+    font-weight: 400;
+}
+.left .top_link{
+  height: 20px
+}
+.left .contact{
+	display: block;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
+    margin: auto;
+}
+.left h3{
+  text-align: center;
+  font-size: 19px;
+}
+.card-body input {
+    border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 12px;
+}
+.left{
+	background: rgb(255, 255, 255);
+}
+.submit {
+    border: none;
+    font-size: 13px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    background: linear-gradient(to right, #4fd2c7 59%, #ffffff 158%);
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
 
-    h1 {
-        font-weight: bold;
-        margin: 0;
-    }
 
-    h2 {
-        text-align: center;
-    }
 
-    p {
-        font-size: 14px;
-        font-weight: 100;
-        line-height: 20px;
-        letter-spacing: 0.5px;
-        margin: 20px 0 30px;
-    }
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 9px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
 
-    span {
-        font-size: 12px;
-    }
+footer p {
+    margin: 15px 0;
+}
 
-    a {
-        color: #333;
-        font-size: 14px;
-        text-decoration: none;
-        margin: 15px 0;
-    }
+footer i {
+    color: red;
+}
 
-    button {
-        border-radius: 20px;
-        border: 1px solid rgba(89, 194, 154, 0.801);
-        background-color: rgba(89, 194, 154, 0.801);
-        color: #FFFFFF;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 12px 45px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: transform 80ms ease-in;
-    }
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
 
-    button:active {
-        transform: scale(0.95);
-    }
+.right {
+    /* background: linear-gradient(212.38deg, rgb(190 120 106 / 85%) 0%, #f25939e3 80%); */
+    background: linear-gradient(212.38deg, #00458b 0%, #3fd2c7 80%);
+    opacity: 90%;
+    /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
+	color: #fff;
+	position: relative;
+}
 
-    button:focus {
-        outline: none;
-    }
+.right .right-text{
+  height: 100%;
+  position: relative;
+  transform: translate(0%, 5%);
+}
+.right-text h2{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+.right-text h5{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+}
 
-    button.ghost {
-        background-color: transparent;
-        border-color: #FFFFFF;
-    }
+.right .right-inductor{
+  position: absolute;
+  width: 70px;
+  height: 7px;
+  background: #fff0;
+  left: 50%;
+  bottom: 70px;
+  transform: translate(-50%, 0%);
+}
+.top_link img {
+    width: 28px;
+    padding-right: 7px;
+    margin-top: -3px;
+}
 
-    form {
-        background-color: #ffffff0f;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        /* padding: 0 50px; */
-        height: 100%;
-        text-align: center;
-        width: -webkit-fill-available;
-    }
+.right-text p {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    height: 5px;
+}
 
-    input {
-        background-color: #eee;
-        border: none;
-        padding: 12px 15px;
-        margin: 8px 0;
-        width: 100%;
-    }
 
-    .container {
-        /* background-color: #fff; */
-        border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-            0 10px 10px rgba(0, 0, 0, 0.22);
-        position: relative;
-        overflow: hidden;
-        width: 900px;
-        max-width: 100%;
-        min-height: 550px;
-    }
 
-    .form-container {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        transition: all 0.6s ease-in-out;
-    }
 
-    .sign-in-container {
-        left: 0;
-        width: 50%;
-        z-index: 2;
-    }
 
-    .container.right-panel-active .sign-in-container {
-        transform: translateX(100%);
-    }
-
-    .sign-up-container {
-        left: 0;
-        width: 50%;
-        opacity: 0;
-        z-index: 1;
-    }
-
-    .container.right-panel-active .sign-up-container {
-        transform: translateX(100%);
-        opacity: 1;
-        z-index: 5;
-        animation: show 0.6s;
-    }
-
-    @keyframes show {
-
-        0%,
-        49.99% {
-            opacity: 0;
-            z-index: 1;
-        }
-
-        50%,
-        100% {
-            opacity: 1;
-            z-index: 5;
-        }
-    }
-
-    .overlay-container {
-        position: absolute;
-        top: 0;
-        /* left: 100%; */
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        transition: transform 0.6s ease-in-out;
-        z-index: 100;
-    }
-
-    .container.right-panel-active .overlay-container {
-        transform: translateX(-100%);
-    }
-
-    .overlay {
-        background: #ffffffc2;
-        /* background: -webkit-linear-gradient(to right, white, white);
-        background: linear-gradient(to right, white, white); */
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0 0;
-        color: #FFFFFF;
-        position: relative;
-        left: -100%;
-        height: 100%;
-        width: 200%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
-
-    .container.right-panel-active .overlay {
-        transform: translateX(50%);
-    }
-
-    .overlay-panel {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        text-align: center;
-        top: 0;
-        height: 100%;
-        width: 50%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
-
-    .overlay-left {
-        transform: translateX(-20%);
-    }
-
-    .container.right-panel-active .overlay-left {
-        transform: translateX(0);
-    }
-
-    .overlay-right {
-        right: 0;
-        transform: translateX(0);
-    }
-
-    .container.right-panel-active .overlay-right {
-        transform: translateX(20%);
-    }
-
-    .social-container {
-        margin: 20px 0;
-    }
-
-    .social-container a {
-        border: 1px solid #DDDDDD;
-        border-radius: 50%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 5px;
-        height: 40px;
-        width: 40px;
-    }
-
-    footer {
-        background-color: #222;
-        color: #fff;
-        font-size: 14px;
-        bottom: 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 999;
-    }
-
-    footer p {
-        margin: 15px 0;
-    }
-
-    footer i {
-        color: red;
-    }
-
-    footer a {
-        color: #3c97bf;
-        text-decoration: none;
-    }
 </style>
 
-<body class=""style="background:url({{ asset('theme/images/background/palm6.jpg') }});background-size:cover;background-position:center;">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <div class="container" id="container">
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
+
+<body>
+    <section class="">
+        <!-- Jumbotron -->
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-image:  url({{ asset('theme/images/background/land_1.png') }}); background-size:cover ">
+              {{-- <div class="card" style="border: none; background:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="{{ asset('theme/images/mpob.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:100px;  " alt="logo">
+                            </div>
+                            <div class="col-9">
+                                SELAMAT DATANG KE SISTEM e-KILANG<br>
+                                <p>Lembaga Minyak Sawit Malaysia</p>
+                            </div>
+                        </div>
+
+                      </div>
+                </div> --}}
+          <div class="container">
+            <div class="row gx-lg-5 align-items-center" style="margin-right:8%; margin-top:5%">
+              <div class="col-lg-6 mb-3 mt-5">
+                {{-- <div class="card" style="border: none; background:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{ asset('theme/images/mpob.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:100px;  " alt="logo">
+                            </div>
+                            <div class="col-9">
+                                SELAMAT DATANG KE SISTEM e-KILANG<br>
+                                <p>Lembaga Minyak Sawit Malaysia</p>
+                            </div>
+                        </div>
+
+                      </div>
+                </div> --}}
+                <h1 class="fw-bold ls-tight" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); font-size: 12px;
+                    padding:5%; color:white; border-radius:10px">
+                    Sistem e-Kilang adalah satu sistem laporan dan pengurusan digital bertujuan
+                    mengumpul dan memproses penyata bulananbagi kategori Kilang Buah Kelapa Sawit,
+                    Kilang Penapis, Kilang  Pelumat Isirong Sawit, Kilang Oleokimia Sawit, Kilang Biodiesel dan
+                    Kemudahan Simpanan Pukal mengikut Akta Lembaga Minyak Sawit Malaysia 1998,
+                    Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005.
+                </h1><hr>
+                <p style="text-align: left; margin-left: 5%; font-size:12px; margin-bottom:0%; margin-top:-2% ">
+                    Sebarang pertanyaan sila hubungi :
+                </p>
+                <div class="" style="font-size: 11px">
+
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0%"><b>
+                        Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Nor Syaida : </div>
+                        <div class="col-9">(Emel:
+                            nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)</div>
+                    </div>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">En. Rominizam : </div>
+                        <div class="col-9">(Emel:
+                            rominizam@mpob.gov.my atau Tel : 03-7802 2918)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Aziana : </div>
+                        <div class="col-9">(Emel:
+                            aziana.misnan@mpob.gov.my atau Tel :
+                            03-7802 2955)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Aziana : </div>
+                        <div class="col-9">(Emel:
+                            aziana.misnan@mpob.gov.my atau Tel :
+                            03-7802 2955)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Nor Baayah : </div>
+                        <div class="col-9">(Emel
+                            abby@mpob.gov.my atau Tel : 03-7802
+                            2865)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Nor Baayah : </div>
+                        <div class="col-9">(Emel
+                            abby@mpob.gov.my atau Tel : 03-7802
+                            2865)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Cik Rohidayati
+                            Sukhaila : </div>
+                        <div class="col-9">(Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
+                            <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br></div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Adalah menjadi kesalahan dibawah syarat-syarat dan sekatan lesen yang terkandung di bawah
+                        Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit Malaysia(Pelesenan) 2005,
+                        jika gagal/lewat menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan berikutnya
+                        dan apabila disabitkan boleh dikenakan denda.
+                    </b>
+                    </p><br>
+                    <div class="card" style=" border-radius:10px">
+                        <div class="card-header" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); color:white" >
+                          PENAFIAN
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text" style="font-size: 10px">Kerajaan Malaysia dan Lembaga Minyak Sawit Malaysia (MPOB) adalah
+                            tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang disebabkan oleh
+                            penggunaan mana-mana maklumat yang diperoleh dari laman web ini. Syarikat-syarikat yang dirujuk
+                            di laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun syarikat yang disyorkan
+                            oleh Lembaga Minyak Sawit Malaysia (MPOB)
+                          </p>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 mb-1 mb-lg-0">
+                <div class="card" style=" box-shadow: 1px 4px 22px -8px #0004;">
+                  <div class="card-body py-5 px-md-5">
+
                     <form method="POST" action="{{ route('multiLogin2.process') }}">
                         @csrf
-                        <div class="social-container">
-                            <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:100px; width:100px; margin-right:2% " alt="logo">
-                        </div>
-                        <div class="social-container">
+                        <div class="container">
                             <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:80px; width:70%; margin-right:2% " alt="logo">
-                        </div>
+                                style="height:60px; width:150px;  " alt="logo">
+                        </div><br>
                         <span style="color:black"><b> Sila Pilih Sektor</b></span><br>
                         @foreach ($users as $user)
                             <input id="e_nl" type="hidden"
@@ -323,10 +383,17 @@
                             @endif
                         @endforeach
                     </form>
+                  </div>
                 </div>
+                <div class="card" style="padding: 90px; background:none; border:none">
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+        <!-- Jumbotron -->
+      </section>
 </body>
 
 <footer>
