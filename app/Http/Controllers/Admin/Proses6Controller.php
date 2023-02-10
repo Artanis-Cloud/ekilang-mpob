@@ -906,6 +906,8 @@ class Proses6Controller extends Controller
         WHERE p.e_nl = e.ebio_nl
         and e.ebio_flg in ('2','3')
         and p.e_nl = k.username
+        and e.ebio_nl = k.username
+        and k.category = p.e_kat
         and k.category = 'PLBIO'
         order by k.kod_pegawai, k.no_siri");
 
