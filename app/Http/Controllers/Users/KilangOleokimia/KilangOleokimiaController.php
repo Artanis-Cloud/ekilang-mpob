@@ -159,7 +159,7 @@ class KilangOleokimiaController extends Controller
 
         $penyata->save();
 
-        $map = User::where('username', $penyata->e_nl)->first();
+        $map = User::where('username', $penyata->e_nl)->where('category', $penyata->e_kat)->first();
         $map->email = $request->e_email;
         $map->map_flg = '1';
         $map->map_sdate = now();
