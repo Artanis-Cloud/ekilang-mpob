@@ -69,7 +69,7 @@
                                         </label>
                                         <div class="col-md-12">
                                             <div class="form-file">
-                                                <input style="margin-left:40%" type="file" class="form-file-input" id="file" name="file_upload" ><br><br>
+                                                <input style="margin-left:40%" type="file" class="form-file-input" id="file" name="file_upload" required title="Pilih Fail"><br><br>
                                                 <label class="form-file-label" for="file">
                                                     <label class="form-file-label" for="file">
                                                         <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
@@ -102,7 +102,7 @@
                                         <tr>
                                             <th style="text-align:center">Bil</th>
                                             <th style="text-align:center">Fail<br></th>
-                                            <th style="text-align:center">Tarikh<br></th>
+                                            <th style="text-align:center">Pautan<br></th>
 
 
                                         </tr>

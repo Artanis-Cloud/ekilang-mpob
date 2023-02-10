@@ -124,7 +124,7 @@ class Proses4Controller extends Controller
         $this->porting_pelesen();
         $this->admin_portbio2();
         // $this->porting_pl91($request->all());
-        $this->porting_pl101($request->all());
+        // $this->porting_pl101($request->all());
         // $this->porting_pl102($request->all());
         // $this->porting_pl104($request->all());
         // $this->porting_pl111($request->all());
