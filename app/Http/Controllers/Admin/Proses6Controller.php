@@ -901,13 +901,13 @@ class Proses6Controller extends Controller
         // order by k.kodpgw, k.nosiri");
 
         $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel,
-        k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-        FROM pelesen p, e_bio_inits e, reg_pelesen k
+        k.kod_pegawai, k.no_siri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e_bio_inits e, users k
         WHERE p.e_nl = e.ebio_nl
         and e.ebio_flg in ('2','3')
-        and p.e_nl = k.e_nl
-        and k.e_kat = 'PLBIO'
-        order by k.kodpgw, k.nosiri");
+        and p.e_nl = k.username
+        and k.category = 'PLBIO'
+        order by k.kod_pegawai, k.no_siri");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
