@@ -1775,13 +1775,19 @@ class MenuLainController extends Controller
             'kembali'     => $kembali,
         ];
         // where sub_group_rspo ='' and sub_group_mspo =''
-        $produk = Produk::with('kump_produk')->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodid')->get();
+        $produk = Produk::where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodid')->get();
         // $produk = Produk::whereNotNull('sub_group_rspo')->first();
-        
-        // dd($produk);
+
+        // $kump =  DB::select("SELECT *
+        // FROM produk p, kump_produk k
+        // WHERE p.prodcat = k.kumpulan
+        // AND p.sub_group_rspo = ''
+        // AND p.sub_group_mspo = ''");
+
+        // dd($kump);
         $layout = 'layouts.main';
 
-        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout',  'produk'));
     }
 
     public function admin_kod_produk_file($produk, $file_type)
