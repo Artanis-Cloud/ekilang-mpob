@@ -99,7 +99,7 @@ class AppServiceProvider extends ServiceProvider
                     $open = E91Init::where('e91_nl', auth()->user()->username)->first();
                     if ($open) {
 
-                        $res = ($open->e91_ddate <= $current_date);
+                        $res = ($open->e91_ddate < $current_date);
                     } else {
                         $res = true;
                     }
@@ -109,7 +109,7 @@ class AppServiceProvider extends ServiceProvider
                     $open = E101Init::where('e101_nl', auth()->user()->username)->first();
                     if ($open) {
 
-                        $res = ($open->e101_ddate <= $current_date);
+                        $res = ($open->e101_ddate < $current_date);
                     } else {
                         $res = true;
                     }
@@ -119,7 +119,7 @@ class AppServiceProvider extends ServiceProvider
                     $open = E102Init::where('e102_nl', auth()->user()->username)->first();
                     if ($open) {
 
-                        $res = ($open->e102_ddate <= $current_date);
+                        $res = ($open->e102_ddate < $current_date);
                     } else {
                         $res = true;
                     }
@@ -129,7 +129,7 @@ class AppServiceProvider extends ServiceProvider
                     $open = E104Init::where('e104_nl', auth()->user()->username)->first();
                     if ($open) {
 
-                        $res = ($open->e104_ddate <= $current_date);
+                        $res = ($open->e104_ddate < $current_date);
                     } else {
                         $res = true;
                     }
@@ -139,7 +139,7 @@ class AppServiceProvider extends ServiceProvider
                     $open = E07Init::where('e07_nl', auth()->user()->username)->first();
                     if ($open) {
 
-                        $res = ($open->e07_ddate <= $current_date);
+                        $res = ($open->e07_ddate < $current_date);
                     } else {
                         $res = true;
                     }
@@ -148,7 +148,7 @@ class AppServiceProvider extends ServiceProvider
                     $not_admin = true;
                     $open = EBioInit::where('ebio_nl', auth()->user()->username)->first();
                     if ($open) {
-                        $res = ($open->ebio_ddate <= $current_date);
+                        $res = ($open->ebio_ddate < $current_date);
                     } else {
                         $res = true;
                     }
