@@ -185,12 +185,144 @@
 
 
 <body>
-	<section class="login">
-		<div class="login_box">
-			<div class="left">
-				{{-- <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div> --}}
-				<div class="contact">
+    <section class="">
+        <!-- Jumbotron -->
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-image:  url({{ asset('theme/images/background/land_4.png') }}); background-size:cover ">
+              {{-- <div class="card" style="border: none; background:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="{{ asset('theme/images/mpob.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:100px;  " alt="logo">
+                            </div>
+                            <div class="col-9">
+                                SELAMAT DATANG KE SISTEM e-KILANG<br>
+                                <p>Lembaga Minyak Sawit Malaysia</p>
+                            </div>
+                        </div>
 
+                      </div>
+                </div> --}}
+            <div class="row" style="margin-top: -50px">
+                <img src="{{ asset('theme/images/title-mpob.png') }}"  style=" width:900px;  " >
+
+            </div>
+          <div class="container"  style="margin-top: -100px">
+            <div class="row gx-lg-5 align-items-center" style="margin-right:8%; margin-top:5%">
+              <div class="col-lg-6 mb-3 mt-5">
+                {{-- <div class="card" style="border: none; background:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{ asset('theme/images/mpob.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:100px;  " alt="logo">
+                            </div>
+                            <div class="col-9">
+                                SELAMAT DATANG KE SISTEM e-KILANG<br>
+                                <p>Lembaga Minyak Sawit Malaysia</p>
+                            </div>
+                        </div>
+
+                      </div>
+                </div> --}}
+                <h1 class="fw-bold ls-tight" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); font-size: 12px;
+                    padding:5%; color:white; border-radius:10px">
+                    Sistem e-Kilang adalah satu sistem laporan dan pengurusan digital bertujuan
+                    mengumpul dan memproses penyata bulanan bagi kategori Kilang Buah Kelapa Sawit,
+                    Kilang Penapis, Kilang  Pelumat Isirong Sawit, Kilang Oleokimia Sawit, Kilang Biodiesel dan
+                    Kemudahan Simpanan Pukal mengikut Akta Lembaga Minyak Sawit Malaysia 1998,
+                    Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005.
+                </h1><hr>
+                <p style="text-align: left; margin-left: 5%; font-size:12px; margin-bottom:0%; margin-top:-2% ">
+                    Sebarang pertanyaan sila hubungi :
+                </p>
+                <div class="" style="font-size: 11px">
+
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0%"><b>
+                        Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Nor Syaida : </div>
+                        <div class="col-9">(Emel:
+                            nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)</div>
+                    </div>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">En. Rominizam : </div>
+                        <div class="col-9">(Emel:
+                            rominizam@mpob.gov.my atau Tel : 03-7802 2918)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Aziana : </div>
+                        <div class="col-9">(Emel:
+                            aziana.misnan@mpob.gov.my atau Tel :
+                            03-7802 2955)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Aziana : </div>
+                        <div class="col-9">(Emel:
+                            aziana.misnan@mpob.gov.my atau Tel :
+                            03-7802 2955)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Nor Baayah : </div>
+                        <div class="col-9">(Emel
+                            abby@mpob.gov.my atau Tel : 03-7802
+                            2865)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Pn. Nor Baayah : </div>
+                        <div class="col-9">(Emel
+                            abby@mpob.gov.my atau Tel : 03-7802
+                            2865)</div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b>
+                    </p>
+                    <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
+                        <div class="col-3">Cik Rohidayati
+                            Sukhaila : </div>
+                        <div class="col-9">(Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
+                            <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br></div>
+                    </div>
+                    <p style="text-align: left; margin-left: 5%; margin-bottom: 0% "><b>
+                        Adalah menjadi kesalahan dibawah syarat-syarat dan sekatan lesen yang terkandung di bawah
+                        Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit Malaysia(Pelesenan) 2005,
+                        jika gagal/lewat menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan berikutnya
+                        dan apabila disabitkan boleh dikenakan denda.
+                    </b>
+                    </p><br>
+                    <div class="card" style=" border-radius:10px">
+                        <div class="card-header" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); color:white" >
+                          PENAFIAN
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text" style="font-size: 10px">Kerajaan Malaysia dan Lembaga Minyak Sawit Malaysia (MPOB) adalah
+                            tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang disebabkan oleh
+                            penggunaan mana-mana maklumat yang diperoleh dari laman web ini. Syarikat-syarikat yang dirujuk
+                            di laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun syarikat yang disyorkan
+                            oleh Lembaga Minyak Sawit Malaysia (MPOB)
+                          </p>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 mb-1 mb-lg-0">
+                <div class="card" style=" box-shadow: 1px 4px 22px -8px #0004;">
+                  <div class="card-body py-5 px-md-5">
                     <form method="POST" action="{{ route('forget-password.submit2') }}">
                         @csrf
                         <h3 style="color: #164875; font-size: 22px">Terlupa Kata Laluan</h3>
@@ -257,81 +389,17 @@
                         <button class="submit" type="submit" style="margin-top: 20px" onclick="errorMessage()">Hantar</button>
                         <a style="margin-left:35%" href="{{ route('login') }}">Log Masuk</a>
                     </form>
+                  </div>
                 </div>
-            </div>
-            <div class="right">
-				<div class="right-text">
-					{{-- <h2>SELAMAT DATANG KE SISTEM e-Kilang</h2> --}}
-					<h5>Sistem e-Kilang adalah satu sistem aplikasi MPOB yang dibangunkan oleh MPOB <br>
-                         bertujuan bagi membantu pelesen dalam membuat pelaporan 1-7hb setiap sebulan.</h5>
-                    <hr>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px">
-                        Sebarang pertanyaan sila hubungi :
-                    </p>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px"><b>
-                        Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
-                    </p>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">Pn. Nor Syaida : </div>
-                        <div class="col-9">(Emel:
-                            nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)</div>
-                    </div>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">En. Rominizam : </div>
-                        <div class="col-9">(Emel:
-                            rominizam@mpob.gov.my atau Tel : 03-7802 2918)</div>
-                    </div><br>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
-                        Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b>
-                    </p>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">Pn. Aziana : </div>
-                        <div class="col-9">(Emel:
-                            aziana.misnan@mpob.gov.my atau Tel :
-                            03-7802 2955)</div>
-                    </div><br>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
-                        Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b>
-                    </p>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">Pn. Aziana : </div>
-                        <div class="col-9">(Emel:
-                            aziana.misnan@mpob.gov.my atau Tel :
-                            03-7802 2955)</div>
-                    </div><br>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
-                        Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b>
-                    </p>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">Pn. Nor Baayah : </div>
-                        <div class="col-9">(Emel
-                            abby@mpob.gov.my atau Tel : 03-7802
-                            2865)</div>
-                    </div><br>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
-                        Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b>
-                    </p>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">Pn. Nor Baayah : </div>
-                        <div class="col-9">(Emel
-                            abby@mpob.gov.my atau Tel : 03-7802
-                            2865)</div>
-                    </div><br>
-                    <p style="text-align: left; margin-left: 5%; font-size:12px; margin-top: -2%;"><b>
-                        Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b>
-                    </p>
-                    <div class="row" style=" margin-left: 5%; font-size:11px" >
-                        <div class="col-3">Cik Rohidayati
-                            Sukhaila : </div>
-                        <div class="col-9">(Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
-                            <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br></div>
-                    </div>
+                <div class="card" style="padding: 90px; background:none; border:none">
 
-				</div>
-                {{-- <div class="right-inductor"><img src="https://lh3.googleusercontent.com/fife/ABSRlIoGiXn2r0SBm7bjFHea6iCUOyY0N2SrvhNUT-orJfyGNRSMO2vfqar3R-xs5Z4xbeqYwrEMq2FXKGXm-l_H6QAlwCBk9uceKBfG-FjacfftM0WM_aoUC_oxRSXXYspQE3tCMHGvMBlb2K1NAdU6qWv3VAQAPdCo8VwTgdnyWv08CmeZ8hX_6Ty8FzetXYKnfXb0CTEFQOVF4p3R58LksVUd73FU6564OsrJt918LPEwqIPAPQ4dMgiH73sgLXnDndUDCdLSDHMSirr4uUaqbiWQq-X1SNdkh-3jzjhW4keeNt1TgQHSrzW3maYO3ryueQzYoMEhts8MP8HH5gs2NkCar9cr_guunglU7Zqaede4cLFhsCZWBLVHY4cKHgk8SzfH_0Rn3St2AQen9MaiT38L5QXsaq6zFMuGiT8M2Md50eS0JdRTdlWLJApbgAUqI3zltUXce-MaCrDtp_UiI6x3IR4fEZiCo0XDyoAesFjXZg9cIuSsLTiKkSAGzzledJU3crgSHjAIycQN2PH2_dBIa3ibAJLphqq6zLh0qiQn_dHh83ru2y7MgxRU85ithgjdIk3PgplREbW9_PLv5j9juYc1WXFNW9ML80UlTaC9D2rP3i80zESJJY56faKsA5GVCIFiUtc3EewSM_C0bkJSMiobIWiXFz7pMcadgZlweUdjBcjvaepHBe8wou0ZtDM9TKom0hs_nx_AKy0dnXGNWI1qftTjAg=w1920-h979-ft" alt=""></div> --}}
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+        <!-- Jumbotron -->
+      </section>
 </body>
 
 

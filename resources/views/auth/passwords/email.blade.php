@@ -352,8 +352,8 @@ footer a {
                             oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
                             oninput="this.setCustomValidity('')">
                             <option selected hidden disabled value="">Sila Pilih</option>
-                            <option value="admin">Pegawai MPOB</option>
-                            <option value="pelesen">Pemegang Lesen</option>
+                            <option value="admin">Pemegang Lesen</option>
+                            <option value="pelesen">Pegawai MPOB</option>
 
 
                         </select>
