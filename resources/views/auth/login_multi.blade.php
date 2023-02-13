@@ -334,7 +334,7 @@ footer a {
                             <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:60px; width:150px;  " alt="logo">
                         </div><br>
-                        <span style="color:black"><b> Sila Pilih Sektor</b></span><br>
+                        <span style="color:#164875"> Sila Pilih Sektor</span><br>
                         @foreach ($users as $user)
                             <input id="e_nl" type="hidden"
                                 class="form-control @error('username') is-invalid @enderror"
@@ -351,35 +351,31 @@ footer a {
                             <input type="hidden" name="multilogin" value="true">
                             <input type="hidden" name="category" value="{{ $user->category }}">
                             @if ($user->category == 'PL91')
-                                <button
-                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                <button class="submit"
                                     type="submit">
-                                    Kilang Buah</button><br>
+                                    Kilang Buah</button>
                             @elseif ($user->category == 'PL101')
-                                <button
-                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                <button class="submit"
+
                                     type="submit">
-                                    Kilang Penapis</button><br>
+                                    Kilang Penapis</button>
                             @elseif ($user->category == 'PL102')
-                                <button
-                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                <button class="submit"
                                     type="submit">
-                                    Kilang Isirung</button><br>
+                                    Kilang Isirung</button>
                             @elseif ($user->category == 'PL104')
-                                <button
-                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                <button class="submit"
                                     type="submit">
-                                    Kilang Oleokimia</button><br>
+                                    Kilang Oleokimia</button><
                             @elseif ($user->category == 'PL111')
-                                <button
-                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                <button class="submit"
                                     type="submit">
-                                    Pusat Simpanan</button><br>
+                                    Pusat Simpanan</button>
                             @elseif ($user->category == 'PLBIO')
-                                <button
-                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                <button class="submit"
+
                                     type="submit">
-                                    Kilang Biodiesel</button><br>
+                                    Kilang Biodiesel</button>
                             @endif
                         @endforeach
                     </form>
@@ -396,12 +392,12 @@ footer a {
       </section>
 </body>
 
+
 <footer>
     <p>
-        <b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
-            MINGGUAN) melalui sistem
-            ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
-            (ISNIN).</b><br>
+        Hak Cipta Terpelihara 2022 © eKilang Malaysian Palm Oil Board<br>
+        Paparan terbaik dalam Internet Explorer 11.0+,
+        Google Chrome 6+, Mozilla Firefox 4+, Safari 3+, dan Opera 9+.
     </p>
 </footer>
 

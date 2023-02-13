@@ -1,187 +1,193 @@
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"> --}}
-{{-- <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet"> --}}
-{{-- <link rel="preconnect" href="https://fonts.gstatic.com"> --}}
-{{-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"> --}}
-{{-- <style> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+img{
+	width: 100%;
+}
+.login {
+    height: 100%;
+    width: 100%;
+    background:url( {{ asset("theme/images/background/land_1.png") }});
+    position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.login_box {
+    width: 700px;
+    height: 390px;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    /* transform: translate(-50%,-60%); */
+    /* background: #fff; */
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_boxs {
+    width: 700px;
+    height: 100px;
+    position: absolute;
+    top: 78%;
+    left: 15%;
+    /* transform: translate(-50%,-60%); */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_box .left{
+  width: 40%;
+  height: 100%;
+  padding: 25px 25px;
+
+}
+.login_box .right{
+  width: 70%;
+  height: 100%
+}
+.left .top_link a {
+    color: #452A5A;
+    font-weight: 400;
+}
+.left .top_link{
+  height: 20px
+}
+.left .contact{
+	display: block;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
+    margin: auto;
+}
+.left h3{
+  text-align: center;
+  font-size: 19px;
+}
+.card-body input {
+    border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 12px;
+}
+.left{
+	background: rgb(255, 255, 255);
+}
+.submit {
+    border: none;
+    font-size: 13px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    background: linear-gradient(to right, #4fd2c7 59%, #ffffff 158%);
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
 
 
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 9px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 15px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+
+.right {
+    /* background: linear-gradient(212.38deg, rgb(190 120 106 / 85%) 0%, #f25939e3 80%); */
+    background: linear-gradient(212.38deg, #00458b 0%, #3fd2c7 80%);
+    opacity: 90%;
+    /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
+	color: #fff;
+	position: relative;
+}
+
+.right .right-text{
+  height: 100%;
+  position: relative;
+  transform: translate(0%, 5%);
+}
+.right-text h2{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+.right-text h5{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.right .right-inductor{
+  position: absolute;
+  width: 70px;
+  height: 7px;
+  background: #fff0;
+  left: 50%;
+  bottom: 70px;
+  transform: translate(-50%, 0%);
+}
+.top_link img {
+    width: 28px;
+    padding-right: 7px;
+    margin-top: -3px;
+}
+
+.right-text p {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    height: 5px;
+}
+
+
+</style>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-</head>
-<style>
-
-    img{
-        width: 100%;
-    }
-    .login {
-        height: 100%;
-        width: 100%;
-        background:url( {{ asset("theme/images/background/land_1.png") }});
-        position: relative;
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-    .login_box {
-        width: 900px;
-        height: 490px;
-        position: absolute;
-        top: 60%;
-        left: 35%;
-        transform: translate(-50%,-60%);
-        /* background: #fff; */
-        border-radius: 10px;
-        box-shadow: 1px 4px 22px -8px #0004;
-        display: flex;
-        overflow: hidden;
-    }
-    .login_box .left{
-    width: 40%;
-    height: 100%;
-    padding: 25px 25px;
-
-    }
-    .login_box .right{
-    width: 70%;
-    height: 100%
-    }
-    .left .top_link a {
-        color: #452A5A;
-        font-weight: 400;
-    }
-    .left .top_link{
-    height: 20px
-    }
-    .left .contact{
-        display: block;
-        align-items: center;
-        justify-content: center;
-        align-self: center;
-        height: 100%;
-        width: 73%;
-        margin: auto;
-    }
-    .left h3{
-    text-align: center;
-    margin-bottom: 40px;
-    }
-    .left input {
-        border: none;
-        width: 80%;
-        margin: 15px 0px;
-        border-bottom: 1px solid #4f30677d;
-        padding: 7px 9px;
-        width: 100%;
-        overflow: hidden;
-        background: transparent;
-        font-weight: 600;
-        font-size: 14px;
-    }
-    .left{
-        background: rgb(255, 255, 255);
-
-    }
-    .submit {
-        border: none;
-        padding: 15px 60px;
-        border-radius: 8px;
-        display: block;
-        margin: auto;
-        margin-top: 10px;
-        background: linear-gradient(to right, #4fd2c7 59%, #ffffff 158%);
-        color: #fff;
-        font-weight: bold;
-        -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-        -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-        box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-    }
-
-
-
-    footer {
-        background-color: #222;
-        color: #fff;
-        font-size: 7px;
-        bottom: 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 999;
-    }
-
-    footer p {
-        margin: 15px 0;
-    }
-
-    footer i {
-        color: red;
-    }
-
-    footer a {
-        color: #3c97bf;
-        text-decoration: none;
-    }
-
-    .right {
-        background: linear-gradient(212.38deg, #00458b 0%, #3fd2c7 80%);
-        opacity: 90%;
-        /* background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }}); */
-        color: #fff;
-        position: relative;
-    }
-
-    .right .right-text{
-    /* height: 100%; */
-    position: relative;
-    transform: translate(0%, 5%);
-    }
-    .right-text h2{
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-    }
-    .right-text h5{
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
-    }
-
-    .right .right-inductor{
-    position: absolute;
-    width: 70px;
-    height: 7px;
-    background: #fff0;
-    left: 50%;
-    bottom: 70px;
-    transform: translate(-50%, 0%);
-    }
-    .top_link img {
-        width: 28px;
-        padding-right: 7px;
-        margin-top: -3px;
-    }
-
-    .right-text p {
-        display: block;
-        width: 100%;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 500;
-        height: 5px;
-    }
-
-</style>
 
 
 <body>
@@ -387,7 +393,7 @@
                         </div>
 
                         <button class="submit" type="submit" style="margin-top: 20px" onclick="errorMessage()">Hantar</button>
-                        <a style="margin-left:35%" href="{{ route('login') }}">Log Masuk</a>
+                        <a href="{{ route('login') }}">Log Masuk</a>
                     </form>
                   </div>
                 </div>
