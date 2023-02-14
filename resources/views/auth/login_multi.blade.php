@@ -192,10 +192,10 @@ footer a {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
-<body>
+<body style="background-image:  url({{ asset('theme/images/background/land_1.png') }}); background-size:cover ">
     <section class="">
         <!-- Jumbotron -->
-        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-image:  url({{ asset('theme/images/background/land_1.png') }}); background-size:cover ">
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start">
               {{-- <div class="card" style="border: none; background:none">
                     <div class="card-body">
                         <div class="row">
