@@ -1114,65 +1114,67 @@
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370">
-                                                        <td class="headerColor" width="14%" align="center">
-                                                            <font size="2.7"><b>Produk</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="7%" align="center">
-                                                            <font size="2.7"><b>Kod Produk</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="15%" align="center">
-                                                            <font size="2.7"><b>Nombor Borang Kastam 2</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="12%" align="center">
-                                                            <font size="2.7"><b>Tarikh Eksport</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="10%" align="center">
-                                                            <font size="2.7"><b>Kuantiti<br> (Tan Metrik)</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="11%" align="center">
-                                                            <font size="2.7"><b>Nilai (RM)</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="6%" align="center">
-                                                            <font size="2.7"><b>Kod Negara</b></font>
-                                                        </td>
-                                                        <td class="headerColor" width="15%" align="center">
-                                                            <font size="2.7"><b>Destinasi Negara</b></font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr >
-                                                        <td width="14%" align="center">
-                                                            <font size="2.7"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td width="7%" align="center">
-                                                            <font size="2.7"><b>-</b></font>
-                                                        </td>
-                                                        <td width="15%" align="center">
-                                                            <font size="2.7"><b>-</b></font>
-                                                        </td>
-                                                        <td width="12%" align="center">
-                                                            <font size="2.7"><b>-</b></font>
-                                                        </td>
-                                                        <td width="10%" align="right">
-                                                            <font size="2.7"><b>0.00</b></font>
-                                                        </td>
-                                                        <td width="11%" align="right">
-                                                            <font size="2.7"><b>0.00</b></font>
-                                                        </td>
-                                                        <td width="6%" align="center">
-                                                            <font size="2.7"><b>-</b></font>
-                                                        </td>
-                                                        <td width="15%" align="center">
-                                                            <font size="2.7"><b>-</b></font>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <div class="table-responsive">
 
+                                                <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                    class="table table-bordered">
+                                                    <tbody>
+                                                        <tr style="background-color: #d3d3d370">
+                                                            <td class="headerColor" width="14%" align="center">
+                                                                <font size="2.7"><b>Produk</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="7%" align="center">
+                                                                <font size="2.7"><b>Kod Produk</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="15%" align="center">
+                                                                <font size="2.7"><b>Nombor Borang Kastam 2</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="12%" align="center">
+                                                                <font size="2.7"><b>Tarikh Eksport</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="10%" align="center">
+                                                                <font size="2.7"><b>Kuantiti<br> (Tan Metrik)</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="11%" align="center">
+                                                                <font size="2.7"><b>Nilai (RM)</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="6%" align="center">
+                                                                <font size="2.7"><b>Kod Negara</b></font>
+                                                            </td>
+                                                            <td class="headerColor" width="15%" align="center">
+                                                                <font size="2.7"><b>Destinasi Negara</b></font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr >
+                                                            <td width="14%" align="center">
+                                                                <font size="2.7"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td width="7%" align="center">
+                                                                <font size="2.7"><b>-</b></font>
+                                                            </td>
+                                                            <td width="15%" align="center">
+                                                                <font size="2.7"><b>-</b></font>
+                                                            </td>
+                                                            <td width="12%" align="center">
+                                                                <font size="2.7"><b>-</b></font>
+                                                            </td>
+                                                            <td width="10%" align="right">
+                                                                <font size="2.7"><b>0.00</b></font>
+                                                            </td>
+                                                            <td width="11%" align="right">
+                                                                <font size="2.7"><b>0.00</b></font>
+                                                            </td>
+                                                            <td width="6%" align="center">
+                                                                <font size="2.7"><b>-</b></font>
+                                                            </td>
+                                                            <td width="15%" align="center">
+                                                                <font size="2.7"><b>-</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
 
+                                            </div>
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 

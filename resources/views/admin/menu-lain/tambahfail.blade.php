@@ -68,8 +68,8 @@
                                             class="text-right col-sm-1 control-label col-form-label align-items-center">
                                         </label>
                                         <div class="col-md-12">
-                                            <div class="form-file">
-                                                <input style="margin-left:40%" type="file" class="form-file-input" id="file" name="file_upload" required title="Pilih Fail"><br><br>
+                                            <div class="form-file text-center">
+                                                <input style="text-center" type="file" class="form-file-input" id="file" name="file_upload" required title="Pilih Fail"><br><br>
                                                 <label class="form-file-label" for="file">
                                                     <label class="form-file-label" for="file">
                                                         <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                     <div class="row center mt-3">
-                                        <div class="col-md-12 center mb-3" style="margin-left: 44%">
+                                        <div class="col-md-12 text-center mb-3" style="">
                                             <button type="submit" class="btn btn-primary"  id="checkBtn"
                                         >Tambah Fail</button>
                                             {{-- <button type="submit">YA</button> --}}

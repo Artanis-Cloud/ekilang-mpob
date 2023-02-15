@@ -66,7 +66,7 @@
 
                                     <div class="row" style="margin-top:-2%">
                                         <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                            class=" col-sm-4 control-label col-form-label required align-items-center">
                                             No. Lesen</label>
                                         <div class="col-md-6">
                                             <input type="text" id="username" class="form-control" onblur="getVal()"
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="row" style="margin-top:1%">
                                         <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                            class=" col-sm-4 control-label col-form-label required align-items-center">
                                             Alamat Emel Kilang</label>
                                         <div class="col-md-6">
                                             <select class="form-control" name="email" id="email" disabled>
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                     <div class="text-right col-md-6 mb-4 mt-4">
-                                        <button type="button" class="btn btn-primary" style="margin-left:90%"
+                                        <button type="button" class="btn btn-primary" style=""
                                             onclick="check()">Tukar Kata Laluan</button>
                                     </div>
                                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog"

@@ -1326,15 +1326,14 @@
 
                             </div>
 
+                            <div class="button-group text-center" style="margin-top: 2%;">
+                                <button type="button" class="btn btn-primary" id="checkBtn"
+                                    onclick="check();">Simpan
+                                </button>
 
-                            <div class="row form-group" style="margin-top: 2%">
-                                <div class="text-right col-md-5">
-                                    <button type="button" class="btn btn-primary" id="checkBtn"
-                                        onclick="check();">Simpan</button>
-                                </div>
                                 <a href="{{ route('admin.cetak.surat', $reg_pelesen->e_id) }}"
-                                    class="btn btn-primary">Cetak Surat</a>
-
+                                    class="btn btn-primary">Cetak Surat
+                                </a>
                             </div>
 
                             <!-- Vertically Centered modal Modal -->
