@@ -31,35 +31,6 @@ class MenuLainController extends Controller
     {
         $negeri = Negeri::get();
 
-        // $statelist = DB::select("SELECT kod_negeri, nama_negeri
-        // FROM negeri");
-
-        // if ($negeri == 'All') {
-        //     $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
-        // e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
-        // e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
-        // r.e_status
-        // FROM pelesen e, reg_pelesen r, negeri n
-        // WHERE e.e_nl = r.e_nl
-        // and e.e_negeri = n.kod_negeri
-        // and r.e_kat = 'pl91'
-        // and (e.e_negeri is not null || e.e_negeri<>'')
-        // and r.e_status = '1'
-        // and r.directory='Y'
-        // order by e.e_np,n.nama_negeri");
-        // } else
-        //     $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
-        // e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
-        // e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
-        // r.e_status
-        // FROM pelesen e, reg_pelesen r
-        // WHERE e.e_nl = r.e_nl
-        // and r.e_kat = 'PL91'
-        // and e.e_negeri='$negeri'
-        // and  r.e_status = '1'
-        // and r.directory='Y'
-        // order by e.e_np,e.e_negeri");
-
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -91,12 +62,8 @@ class MenuLainController extends Controller
 
         $this->validation_direktori($request->all())->validate();
 
-
-        // dd($request->all());
         $negeri = Negeri::where('kod_negeri', $request->nama_negeri)->first('nama_negeri');
-        // dd( $negeri);
-        // $statelist = DB::select("SELECT kod_negeri, nama_negeri
-        // FROM negeri");
+
         $negeri2 = $request->nama_negeri;
         if ($request->e_kat == 'PL91') {
             if ($request->nama_negeri == 'All') {
@@ -1285,7 +1252,7 @@ class MenuLainController extends Controller
                 and r.directory='Y'
                 order by e.e_np,e.e_negeri");
             }
-            // dd($query);
+
         }
         else{
             return redirect()->back()->with('error', 'Data Tidak Wujud');
@@ -1311,7 +1278,6 @@ class MenuLainController extends Controller
             $array = [
                 'negeri' => $negeri,
                 'negeri2' => $negeri2,
-                // 'query' => $query,
                 'johor' => $johor,
                 'kedah' => $kedah,
                 'kelantan' => $kelantan,
@@ -1402,7 +1368,7 @@ class MenuLainController extends Controller
 
     public function admin_tambah_pengumuman_proses(Request $request)
     {
-        // dd($request->all());
+
         $this->validation_tambah_pengumuman($request->all())->validate();
         $this->store_tambah_pengumuman($request->all());
 
@@ -1413,7 +1379,7 @@ class MenuLainController extends Controller
     protected function validation_tambah_pengumuman(array $data)
     {
         return Validator::make($data, [
-            // 'Id' => ['required', 'string'],
+
             'Message' => ['required', 'string'],
             'Start_date' => ['required', 'string'],
             'End_date' => ['required', 'string'],
@@ -1424,7 +1390,7 @@ class MenuLainController extends Controller
     protected function store_tambah_pengumuman(array $data)
     {
         return Pengumuman::create([
-            // 'Id' => $data['Id'],
+
             'Message' => $data['Message'],
             'Start_date' => $data['Start_date'],
             'End_date' => $data['End_date'],
@@ -1452,14 +1418,13 @@ class MenuLainController extends Controller
         ];
         $layout = 'layouts.admin';
         $pengumuman = Pengumuman::find($id);
-        // $pengumuman = \DB::table('pengumuman')->get();
 
         return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
 
     public function admin_updatepengumuman(Request $request, $id)
     {
-        // dd($request->all());
+
         $pengumuman = Pengumuman::findOrFail($id);
         $pengumuman->Message = $request->Message;
         $pengumuman->Start_date = $request->Start_date;
@@ -1485,15 +1450,15 @@ class MenuLainController extends Controller
 
         $kembali = route('admin.tambahpengumuman');
 
-        // $files = Storage::disk('public')->files();
+
         $files = FailLain::get();
-        // dd($files);
+
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-        // $pengumuman = \DB::table('pengumuman')->get();
+
 
         return view('admin.menu-lain.tambahfail', compact('returnArr', 'layout', 'files'));
     }
@@ -1502,13 +1467,13 @@ class MenuLainController extends Controller
     public function admin_tambah_fail_process(Request $request)
     {
         $emel = $request->TypeOfEmail;
-        // dd($request->all());
+
 
        if ($request->file_upload) {
 
         $file = $request->file('file_upload');
         $originalname = $file->getClientOriginalName();
-        // $this->store_send_email($request->all());
+
         $pelesen = $this->store_send_email($request->all(), $originalname);
 
        }
@@ -1521,30 +1486,16 @@ class MenuLainController extends Controller
         //store file
         if ($data['file_upload']) {
             $file = $data['file_upload']->storeAs('pengumuman/fail', $originalname, 'public');
-            // $file = $data['file_upload']->storeAs('isirung', $originalname);
+
         }
 
 
         return FailLain::create([
-            // 'Id' => $data['Id'],
-
             'file_upload' => $file,
 
         ]);
     }
 
-    // public function admin_tambah_fail_process(Request $request)
-    // {
-
-    //     if($request->hasFile('file_upload'))
-    //     {
-    //         $file = $request->file('file_upload');
-    //         $originalname = $file->getClientOriginalName();
-    //         $path = $file->storeAs('public/', $originalname);
-    //         $path = $file->storeAs('isirung/storage', $originalname);
-    //     }
-    //     return redirect()->back()->with('success', 'Fail sudah ditambah');
-    // }
 
 
     public function admin_jadualpenerimaanPL()
@@ -1676,7 +1627,7 @@ class MenuLainController extends Controller
 
     public function graph_dashboard_default()
     {
-        // dd($request->all());
+
 
         $query_now = DB::select("SELECT date_format(e.e101_sdate,'%d-%m-%Y'), count(p.e_nl),
         FROM pelesen p, e101_init e, reg_pelesen r
@@ -1686,27 +1637,9 @@ class MenuLainController extends Controller
         order by e.e101_sdate");
 
 
-
-        // $shuttle_type = '3';
-        // $query_now = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
-        // FROM form_a_s
-        // INNER JOIN shuttles
-        // ON form_a_s.shuttle_id = shuttles.id
-        // WHERE shuttles.shuttle_type = $shuttle_type
-        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())
-        // GROUP BY shuttles.negeri_id");
-
-        // $query_past = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
-        // FROM form_a_s
-        // INNER JOIN shuttles
-        // ON form_a_s.shuttle_id = shuttles.id
-        // WHERE shuttles.shuttle_type = $shuttle_type
-        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())-1
-        // GROUP BY shuttles.negeri_id");
-
         $returnArr = [
             'query_now' => $query_now,
-            // 'query_past' => $query_past
+
         ];
 
         return response($returnArr, 200);
@@ -1716,7 +1649,6 @@ class MenuLainController extends Controller
 
     public function graph_dashboard(Request $request)
     {
-        // dd($request->all());
 
         $query_now = DB::select("SELECT date_format(e.e101_sdate,'%d-%m-%Y'), count(p.e_nl),
         FROM pelesen p, e101_init e, reg_pelesen r
@@ -1724,26 +1656,10 @@ class MenuLainController extends Controller
         and e.e101_sdate is not null
         group by e.e101_sdate
         order by e.e101_sdate");
-        // $shuttle_type = $request->shuttle_type ?? '3';
-        // $query_now = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
-        // FROM form_a_s
-        // INNER JOIN shuttles
-        // ON form_a_s.shuttle_id = shuttles.id
-        // WHERE shuttles.shuttle_type = $shuttle_type
-        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())
-        // GROUP BY shuttles.negeri_id");
 
-        // $query_past = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
-        // FROM form_a_s
-        // INNER JOIN shuttles
-        // ON form_a_s.shuttle_id = shuttles.id
-        // WHERE shuttles.shuttle_type = $shuttle_type
-        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())-1
-        // GROUP BY shuttles.negeri_id");
 
         $returnArr = [
             'query_now' => $query_now,
-            // 'query_past' => $query_past
         ];
 
         return response($returnArr, 200);
@@ -1752,7 +1668,6 @@ class MenuLainController extends Controller
     public function fetch_daerah($kod_negeri)
     {
 
-        // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
 
         $list_daerah = Daerah::where('kod_negeri', $kod_negeri)->distinct()->orderBy('nama_daerah')->get('nama_daerah');
 
@@ -1774,17 +1689,9 @@ class MenuLainController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        // where sub_group_rspo ='' and sub_group_mspo =''
+
         $produk = Produk::where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodid')->get();
-        // $produk = Produk::whereNotNull('sub_group_rspo')->first();
 
-        // $kump =  DB::select("SELECT *
-        // FROM produk p, kump_produk k
-        // WHERE p.prodcat = k.kumpulan
-        // AND p.sub_group_rspo = ''
-        // AND p.sub_group_mspo = ''");
-
-        // dd($kump);
         $layout = 'layouts.main';
 
         return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout',  'produk'));
@@ -1805,7 +1712,6 @@ class MenuLainController extends Controller
 
         ];
 
-        // dd($datas);
 
         $title_laporan = "Senarai Kod dan Nama Produk Sawit";
 
@@ -1827,7 +1733,7 @@ class MenuLainController extends Controller
                 return $pdf->stream($pdf_name);
             }
             return $pdf->download($pdf_name);
-            // return $pdf->stream($pdf_name);
+
         } else {
             return Exce::download(new LaporansExport($returnArr),  $title_laporan . ' Bagi Tahun ' . $tahun  . '.xlsx');
         }
@@ -1870,25 +1776,18 @@ class MenuLainController extends Controller
             'kembali'     => $kembali,
         ];
 
-        // $admin = User::where('category','Admin')->get();
-        // $log = ScLog::get();
+
         $layout = 'layouts.main';
 
         $log = AuditTrail::orderBy('id','DESC')->get();
         foreach ($log as $key => $logged){
-            // $dt[$key] = $logged->created_at;
-            // $dt->format('dd-mm-yyyy H:i:s');
+
             $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $log[$key]->created_at);
             $formatteddate[$key] = $myDateTime->format('d-m-Y / H:i:s');
 
 
         }
-        // dd($formatteddate);
-        // $dt = date('H:i:s');
-        // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
 
-        // $dt->setTimezone($tz);
-        // echo $dt->format('dd-mm-yyyy H:i:s');
 
         return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'log', 'formatteddate', 'myDateTime'));
     }
@@ -1921,7 +1820,7 @@ class MenuLainController extends Controller
 
     public function admin_tambah_pembeli_proses(Request $request)
     {
-        // dd($request->all());
+
         $this->validation_tambah_pembeli($request->all())->validate();
         $this->store_tambah_pembeli($request->all());
 
@@ -1932,7 +1831,6 @@ class MenuLainController extends Controller
     protected function validation_tambah_pembeli(array $data)
     {
         return Validator::make($data, [
-            // 'Id' => ['required', 'string'],
             'pembeli' => ['required', 'string'],
         ]);
     }
@@ -1940,7 +1838,6 @@ class MenuLainController extends Controller
     protected function store_tambah_pembeli(array $data)
     {
         return SyarikatPembeli::create([
-            // 'Id' => $data['Id'],
             'pembeli' => $data['pembeli'],
 
         ]);
@@ -1949,7 +1846,6 @@ class MenuLainController extends Controller
 
     public function admin_editpembeli(Request $request, $id)
     {
-        // $hebahan = DB::connection('mysql2')->select("SELECT $id FROM hebahan_proses");
 
         $pembeli = $request->input('pembeli');
         DB::connection('mysql')->select("UPDATE syarikat_pembeli SET pembeli = '$pembeli'

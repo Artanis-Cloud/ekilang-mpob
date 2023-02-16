@@ -50,17 +50,10 @@ class PortingBiodieselController extends Controller
 
     public function admin_port_stok_akhir_process($id)
     {
-        // $stokakhir = HebahanStokAkhir::find($id);
+   
         $stokakhirs = DB::select("SELECT * from hebahan_stok_akhir where id = $id");
 
-        // for
-        // $tahun = $stokakhir['tahun'];
-        // foreach ($stokakhirs as $stk) {
-        //     $tahun = $stk->tahun;
-        //     $bulan = $stk->bulan;
-        // }
-        // dd($stokakhirs[0]->tahun);
-        // dd($stokakhir->tahun);
+
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -83,7 +76,7 @@ class PortingBiodieselController extends Controller
             'returnArr',
             'layout',
             'stokakhirs',
-            // 'tahun',
+
 
 
         ));
@@ -91,9 +84,6 @@ class PortingBiodieselController extends Controller
 
     public function porting_stokakhir(Request $request)
     {
-
-        // dd($request->all());
-
 
 
         $bulan = $request->bulan;
@@ -182,7 +172,7 @@ class PortingBiodieselController extends Controller
 
                 $qinsCPO = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir_detail (no_lesen, nama, negeri, tahun,bulan,produk, stok_akhir)
                 values ('$lesen','$kilang', '$negeri', $tahun,$bulan,'CPO',$totstokakhir_cpo)");
-                //$rinsCPO = odbc_exec($conn_odbc,$qinsCPO);
+
 
             }
         }
@@ -209,7 +199,7 @@ class PortingBiodieselController extends Controller
 
                 $qinsPPO = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir_detail (no_lesen, nama, negeri, tahun,bulan,produk, stok_akhir)
                 values ('$lesen','$kilang', '$negeri', $tahun,$bulan,'PPO' ,$totstokakhir_ppo)");
-                //$rinsCPO = odbc_exec($conn_odbc,$qinsCPO);
+
 
             }
         }
@@ -236,7 +226,7 @@ class PortingBiodieselController extends Controller
 
                 $qinsCPKO = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir_detail (no_lesen, nama, negeri, tahun,bulan,produk, stok_akhir)
                 values ('$lesen','$kilang', '$negeri', $tahun,$bulan,'CPKO' ,$totstokakhir_cpko)");
-                //$rinsCPO = odbc_exec($conn_odbc,$qinsCPO);
+
 
             }
         }
@@ -263,27 +253,12 @@ class PortingBiodieselController extends Controller
 
                 $qinsPPKO = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir_detail (no_lesen, nama, negeri, tahun,bulan,produk, stok_akhir)
                 values ('$lesen','$kilang', '$negeri', $tahun,$bulan,'PPKO' ,$totstokakhir_ppko)");
-                //$rinsCPO = odbc_exec($conn_odbc,$qinsCPO);
+
 
             }
         }
 
         $this->admin_portbio($tahun, $bulan);
-
-        // $querycpo1 = " SELECT lesen,tahun,bulan,menu,penyata,penyata.kod_produk as nama_produk,produk.kod_produk as kod_produk,kuantiti,id_penyata,pembekal,noborang,tarikh,nilai,namapengeksport,negara.kod_negara as negara,kilang.e_apnegeri as kod_negeri
-        //        FROM
-        //            kilang ,
-        //            produk,
-        //            penyata
-        //            left  JOIN negara ON penyata.negara = negara.negara
-        //            WHERE
-        //            `penyata`.`tahun` =  '$tahun' AND
-        //            `penyata`.`bulan` =  '$bulan' AND
-        //            penyata.lesen = kilang.e_nl AND
-        //            penyata.kod_produk = produk.nama_produk AND
-        //             penyata.menu IS NOT NULL AND
-        //             penyata.penyata IS NOT NULL AND
-        //             kilang.jenis <> 'dummy' ";
 
 
         return redirect()->route('admin.stok.akhir')->with('success', 'Maklumat Stok Akhir telah berjaya diport');
@@ -293,9 +268,9 @@ class PortingBiodieselController extends Controller
 
     public function admin_portbio($tahun, $bulan)
     {
-        //data from ebio_init
+
         $ebioinit = HBioInit::where('ebio_thn', $tahun)->where('ebio_bln', $bulan)->get();
-        // dd($ebioinit);
+
 
         $qdelplbio = DB::connection('mysql4')->delete("DELETE from h_bio_inits where ebio_bln = '$bulan' and ebio_thn = '$tahun'");
 
@@ -303,7 +278,7 @@ class PortingBiodieselController extends Controller
         $totalplbio = 0;
 
         foreach ($ebioinit as $key => $selects) {
-            // dd($selects);
+
 
             $nobatch = $selects->ebio_nobatch ;
             $nolesen = $selects->ebio_nl ;
@@ -325,20 +300,15 @@ class PortingBiodieselController extends Controller
                 $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
                 ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
 
-                // $insertplbio2 = DB::connection('mysql3')->insert("INSERT into h_bio_inits values
-                // ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
-
 
                     $ebiob = HBioB::where('ebio_nobatch', $nobatch)->get();
-                    // dd($rowebio_b);
-                    // $jum91b = 0;
 
                     $qdelplbiob = DB::connection('mysql4')->delete("DELETE from h_bio_b_s where ebio_nobatch = '$nobatch'");
 
 
                     foreach ($ebiob as $rowebio_b)
                     {
-                        // dd($rowebio_b);
+
                         $b3 = $rowebio_b->ebio_b3 ;
                         $b4 = $rowebio_b->ebio_b4 ;
                         $b5 = (float) $rowebio_b->ebio_b5 ;
@@ -348,44 +318,27 @@ class PortingBiodieselController extends Controller
                         $b9 = (float) $rowebio_b->ebio_b9 ;
                         $b10 = (float) $rowebio_b->ebio_b10 ;
                         $b11 = (float) $rowebio_b->ebio_b11 ;
-                        // $b12 = (float) $rowebio_b ->ebio_b12 ;
                         $b13 = (float) $rowebio_b->ebio_b13 ;
 
-                        // insert into mysqli history e91b
-                        //calculate total row
-                        // $jum91b = $jum91b + 1;
-
-
                         $idmaxbiob = DB::connection('mysql4')->select("SELECT MAX(ebio_b1) as idmaxbiob from h_bio_b_s");
-                        // $idmaxbiob2 = DB::connection('mysql3')->select("SELECT MAX(ebio_b1) as idmaxbiob2 from h_bio_b_s");
-                        // HBioB::max('ebio_b1');
-                        // dd($idmaxbiob[0]);
+
 
                         if ($idmaxbiob[0]->idmaxbiob)
                         {
                             $idno = $idmaxbiob[0]->idmaxbiob + 1;
-                            // dd($idno);
+
                         } else {
                             $idno = 1;
                         }
 
-                        // if ($idmaxbiob2[0]->idmaxbiob2)
-                        // {
-                        //     $idno2 = $idmaxbiob2[0]->idmaxbiob2 + 1;
-                        //     // dd($idno);
-                        // } else {
-                        //     $idno2 = 1;
-                        // }
-
                         $insertplbiob = DB::connection('mysql4')->insert("INSERT into h_bio_b_s
                         values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
 
-                        // $insertplbiob2 = DB::connection('mysql3')->insert("INSERT into h_bio_b_s
-                        // values ($idno2,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+
                     }
 
                     $ebioc = HBioC::where('ebio_nobatch', $nobatch)->get();
-                    // dd($ebioc);
+
                     $qdelplbioc = DB::connection('mysql4')->delete("DELETE from h_bio_c_s where ebio_nobatch = '$nobatch'");
 
 
@@ -403,38 +356,26 @@ class PortingBiodieselController extends Controller
 
 
                         $idmaxbioc =  DB::connection('mysql4')->select("SELECT MAX(ebio_c1) as idmaxbioc from h_bio_c_s");
-                        // $idmaxbioc2 =  DB::connection('mysql3')->select("SELECT MAX(ebio_c1) as idmaxbioc2 from h_bio_c_s");
-                        // HBioC::max('ebio_c1');
-                        // dd($idmax);
+
 
                         if ($idmaxbioc[0]->idmaxbioc)
                         {
                             $idno = $idmaxbioc[0]->idmaxbioc + 1;
-                            // dd($idno);
+
                         } else {
                             $idno = 1;
                         }
 
-                        // if ($idmaxbioc2[0]->idmaxbioc2)
-                        // {
-                        //     $idno2 = $idmaxbioc2[0]->idmaxbioc2 + 1;
-                        //     // dd($idno);
-                        // } else {
-                        //     $idno2 = 1;
-                        // }
 
                         $insertplbioc = DB::connection('mysql4')->insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
                         '$c3',$c4,
                          $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
 
-                        // $insertplbioc2 = DB::connection('mysql3')->insert("INSERT into h_bio_c_s values ($idno2,'$nobatch',
-                        // '$c3',$c4,
-                        //  $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
 
                     }
 
                     $ebiocc = HBioCC::where('ebio_nobatch', $nobatch)->get();
-                    // dd($ebiocc);
+
                     $qdelplbiocc = DB::connection('mysql4')->delete("DELETE from h_bio_cc where ebio_nobatch = '$nobatch'");
 
 
@@ -445,78 +386,51 @@ class PortingBiodieselController extends Controller
                         $cc4 = $ebioccs->ebio_cc4 ;
 
                         $idmaxbiod = DB::connection('mysql4')->select("SELECT MAX(ebio_cc1) as idmaxbiod from h_bio_cc");
-                        // $idmaxbiod2 = DB::connection('mysql3')->select("SELECT MAX(ebio_cc1) as idmaxbiod2 from h_bio_cc");
-                        // HBioCC::max('ebio_cc1');
-                        // dd($idmax);
 
                         if ($idmaxbiod[0]->idmaxbiod)
                         {
                             $idno = $idmaxbiod[0]->idmaxbiod + 1;
-                            // dd($idno);
                         } else {
                             $idno = 1;
                         }
 
-                        // if ($idmaxbiod2[0]->idmaxbiod2)
-                        // {
-                        //     $idno2 = $idmaxbiod2[0]->idmaxbiod2 + 1;
-                        //     // dd($idno);
-                        // } else {
-                        //     $idno2 = 1;
-                        // }
-
                         $insertplbiocc = DB::connection('mysql4')->insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
                         '$cc3','$cc4')");
 
-                        // $insertplbiocc2 = DB::connection('mysql3')->insert("INSERT into h_bio_cc values ($idno2,'$nobatch','$cc2',
-                        // '$cc3','$cc4')");
                     }
 
                     $hari = HHari::where('lesen', $nolesen)->where('tahunbhg2', $tahun)->where('bulanbhg2', $bulan)->get();
-                    // dd($hari);
+                    /
                     $qdelplbiohari = DB::connection('mysql4')->delete("DELETE from h_hari where lesen = '$nolesen' and tahunbhg2 = '$tahun' and bulanbhg2 = '$bulan'");
 
 
                     foreach ($hari as $haris)
                     {
-                        // dd($haris);
+
                         $tahun = $haris->tahunbhg2 ;
                         $bulan = $haris->bulanbhg2 ;
                         $hari_operasi = $haris->hari_operasi ;
                         $kapasiti = $haris->kapasiti ;
 
                         $idmaxhari = DB::connection('mysql4')->select("SELECT MAX(id) as idmaxhari from h_hari");
-                        // $idmaxhari2 = DB::connection('mysql3')->select("SELECT MAX(id) as idmaxhari2 from h_hari");
-                        // HHari::max('id');
-                        // dd($idmax);
+
 
                         if ($idmaxhari[0]->idmaxhari)
                         {
                             $idno = $idmaxhari[0]->idmaxhari + 1;
-                            // dd($idno);
+
                         } else {
                             $idno = 1;
                         }
 
-                        // if ($idmaxhari2[0]->idmaxhari2)
-                        // {
-                        //     $idno2 = $idmaxhari2[0]->idmaxhari2 + 1;
-                        //     // dd($idno);
-                        // } else {
-                        //     $idno2 = 1;
-                        // }
-
                         $insertplbiohari = DB::connection('mysql4')->insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
                         '$bulan','$hari_operasi','$kapasiti',null,null)");
 
-                        // $insertplbiohari2 = DB::connection('mysql3')->insert("INSERT into h_hari values ($idno2,'$nolesen','$tahun',
-                        // '$bulan','$hari_operasi','$kapasiti',null,null)");
 
                     }
 
                 }
 
-                //log audit trail admin
 
 
     }
@@ -524,10 +438,8 @@ class PortingBiodieselController extends Controller
 
     public function admin_port_minyak_sawit_process($id)
     {
-        // dd($id);
-        // $minyaksawit = HebahanProses::find($id);
+
         $minyaksawits = DB::select("SELECT * from hebahan_proses where id = $id");
-        // dd($minyaksawits);
 
 
         $breadcrumbs    = [
@@ -578,10 +490,6 @@ class PortingBiodieselController extends Controller
 
         $qins = DB::connection('mysql4')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
         values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
-
-        // $qdelsemuaproduk =  DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir_detail where bulan=$bulan and tahun = $tahun");
-
-        // $qdel2 =  DB::connection('mysql4')->delete("DELETE from penyata_biodiesel where bulan=$bulan and tahun = $tahun");
 
         $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
 

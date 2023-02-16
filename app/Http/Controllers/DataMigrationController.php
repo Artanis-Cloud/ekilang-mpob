@@ -307,54 +307,55 @@ class DataMigrationController extends Controller
             // if($kilang->e_nl == '616115025000'){
             //     dd($kilang);
             // }
-            $user = User::where('username', $biodiesel->e_nl)->first();
+            $user = User::where('username', $biodiesel->e_nl)->where('category', $biodiesel->e_kat)->first();
+            // dd($users);
 
             // foreach ($users as $user) {
             //     // dd($user);
             //     $kat[$biodiesel->e_nl] = $user->category;
             // }
             // dd($kat[$biodiesel->e_nl]);
-            // if(!$user){
-            //     $user = User::create([
-            //         'id' => $count_user++,
-            //         'name' => $biodiesel->e_np ?? '-',
-            //         'email' => $biodiesel->e_email ?? '-',
-            //         'password' => $password,
-            //         'crypted_pass' => $crypted,
-            //         'username' => $biodiesel->e_nl ?? '-',
-            //         'category' => $biodiesel->e_kat ?? '-',
-            //         'sub_cat' => NULL,
-            //         'status' =>  '1',
-            //         'map_flg' =>  '0',
-            //         'map_sdate' =>  NULL,
-            //     ]);
-            // }else{
+            if(!$user){
+                $user = User::create([
+                    'id' => $count_user++,
+                    'name' => $biodiesel->e_np ?? '-',
+                    'email' => $biodiesel->e_email ?? '-',
+                    'password' => $password,
+                    'crypted_pass' => $crypted,
+                    'username' => $biodiesel->e_nl ?? '-',
+                    'category' => $biodiesel->e_kat ?? '-',
+                    'sub_cat' => NULL,
+                    'status' =>  '1',
+                    'map_flg' =>  '0',
+                    'map_sdate' =>  NULL,
+                ]);
+            }else{
 
-            //     if ($user->e_kat == $biodiesel->e_kat) {
-            //         $user->e_email = $biodiesel->e_email ?? '-';
-            //         $user->password = $password;
-            //         $user->crypted_pass = $crypted;
-            //         $user->save();
+                if ($user->e_kat == $biodiesel->e_kat) {
+                    $user->e_email = $biodiesel->e_email ?? '-';
+                    $user->password = $password;
+                    $user->crypted_pass = $crypted;
+                    $user->save();
 
-            //     } else {
-            //         $user = User::create([
-            //             'id' => $count_user++,
-            //             'name' => $biodiesel->e_np ?? '-',
-            //             'email' => $biodiesel->e_email ?? '-',
-            //             'password' => $password,
-            //             'crypted_pass' => $crypted,
-            //             'username' => $biodiesel->e_nl ?? '-',
-            //             'category' => $biodiesel->e_kat ?? '-',
-            //             'sub_cat' => NULL,
-            //             'status' =>  '1',
-            //             'map_flg' =>  '0',
-            //             'map_sdate' =>  NULL,
-            //         ]);
-            //     }
+                } else {
+                    $user = User::create([
+                        'id' => $count_user++,
+                        'name' => $biodiesel->e_np ?? '-',
+                        'email' => $biodiesel->e_email ?? '-',
+                        'password' => $password,
+                        'crypted_pass' => $crypted,
+                        'username' => $biodiesel->e_nl ?? '-',
+                        'category' => $biodiesel->e_kat ?? '-',
+                        'sub_cat' => NULL,
+                        'status' =>  '1',
+                        'map_flg' =>  '0',
+                        'map_sdate' =>  NULL,
+                    ]);
+                }
 
 
 
-            // }
+            }
 
 
             $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->first();
@@ -421,6 +422,7 @@ class DataMigrationController extends Controller
                         'e_id' => $count_pelesen++,
                         'e_nl' => $biodiesel->e_nl ?? '-',
                         'e_np' => $biodiesel->e_np ?? '-',
+                        'e_kat' => $biodiesel->e_kat ?? '-',
                         'e_ap1' => $biodiesel->e_ap1 ?? '-',
                         'e_ap2' => $biodiesel->e_ap2 ?? '-',
                         'e_ap3' => $biodiesel->e_ap3 ?? '-',

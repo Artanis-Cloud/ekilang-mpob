@@ -160,6 +160,7 @@ class LoginController extends Controller
                     $category[$key] = $cat->category;
                     $password[$key] = $cat->password;
                     $crypted[$key] = $cat->crypted_pass;
+                    $stat[$key] = $cat->stat;
                 }
 
                 $check0 = Crypt::decryptString($crypted[0]);
@@ -211,15 +212,57 @@ class LoginController extends Controller
                         return view('auth.login_multi', compact('users'));
                     }
                 } else {
-                    $this->guard()->logout();
-                        return view('auth.login_multi', compact('users'));
+                    if ($check0 != $check1) {
+                    foreach ($stat as $keypass => $status) {
+
+
+                    if ($status == 1){
+                        if (Hash::check($request->password, $password[$keypass])) {
+                            // dd('h');
+                            $user = User::where('username', auth()->user()->username)->where('category', $category[$keypass])->first();
+
+                            Auth::loginUsingId($user->id);
+
+                            if ($category[$keypass] == 'PL91') {
+                                return redirect()->route('buah.dashboard');
+                            }
+
+                            if ($category[$keypass] == 'PL101') {
+                                return redirect()->route('penapis.dashboard');
+                            }
+
+                            if ($category[$keypass] == 'PL102') {
+                                return redirect()->route('isirung.dashboard');
+                            }
+
+                            if ($category[$keypass] == 'PL104') {
+                                return redirect()->route('oleo.dashboard');
+                            }
+
+                            if ($category[$keypass] == 'PL111') {
+                                return redirect()->route('pusatsimpan.dashboard');
+                            }
+
+                            if ($category[$keypass] == 'PLBIO') {
+                                return redirect()->route('bio.dashboard');
+                            }
+                        }
+                        else {
+                            continue;
+                        }
+
+                    } else {
+                        $this->guard()->logout();
+
+                    }
                 }
                     //  else {
                     //     $this->guard()->logout();
                     //     return view('auth.login_multi', compact('users'));
                     // }
-
-
+                    $this->guard()->logout();
+                    }
+                    }
             }
         }
     }
