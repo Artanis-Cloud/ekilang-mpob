@@ -34,9 +34,9 @@ class DashboardAdminController extends Controller
 
         $tahun1 = date('Y');
         $tahun2 = date('Y') - 1;
-        // $bulan = date('m');
+        
         $bulan = date('m') - 1;
-        // dd($bulan);
+
 
         $current_date = date('Y-m-d');
         if ($bulan == 0 || $bulan == 12) {
@@ -46,9 +46,7 @@ class DashboardAdminController extends Controller
            $initdate = Init::where('tahun', $tahun1)->first();
 
         }
-        // dd($initdate);
-        // $tahun = date('Y');
-        // $initdate = Init::where('tahun', $tahun)->first();
+
 
         if($bulan == 1){
             $strdate = $initdate->sjan;
@@ -122,7 +120,7 @@ class DashboardAdminController extends Controller
 
         }
         $start = date('d', strtotime($strdate));
-        // dd($start);
+
         //total pelesen hantar penyata setiap hari
         // $PL91_total untuk total keseluruhan 10 hari
         // $PL91[$i][0] mengikut hari
@@ -135,9 +133,7 @@ class DashboardAdminController extends Controller
             and e.e91_sdate is not null
             and e.e91_flg in ('2','3')
             and DAY(e.e91_sdate) = '$i'");
-            // group by e.e91_sdate
-            // order by e.e91_sdate
-            // dd($data);
+
 
             if ($data[0]->date != null) {
                 $PL91[$i] = $data;
@@ -150,9 +146,9 @@ class DashboardAdminController extends Controller
                 $PL91_total += 0;
             }
 
-        // dd($PL91[$i][0]->pelesen);
+
         }
-        // dd($PL91);
+
 
         for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e101_sdate as date, count(e.e101_nl) as pelesen, DAY(e.e101_sdate) as days
@@ -162,8 +158,7 @@ class DashboardAdminController extends Controller
             and e.e101_sdate is not null
             and e.e101_flg in ('2','3')
             and DAY(e.e101_sdate) = $i");
-            // -- group by e.e101_sdate
-            // order by e.e101_sdate
+
 
             if ($data[0]->date != null) {
                 $PL101[$i] = $data;
@@ -177,7 +172,7 @@ class DashboardAdminController extends Controller
                 $PL101_total += 0;
             }
         }
-        // dd($PL101);
+
 
 
         for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
@@ -188,13 +183,12 @@ class DashboardAdminController extends Controller
             and e.e102_sdate is not null
             and e.e102_flg in ('2','3')
             and DAY(e.e102_sdate) = '$i'");
-            // group by e.e102_sdate
-            // order by e.e102_sdate
+
 
             if ($data[0]->date != null) {
                 $PL102[$i] = $data;
                 $PL102_total += $data[0]->pelesen;
-                // dd($PL102);
+
 
             } else {
                 $PL102[$i][0] = (object)[];
@@ -206,7 +200,6 @@ class DashboardAdminController extends Controller
 
         }
 
-        // dd($PL102);
 
         for ($i = ltrim($start, "0"); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e104_sdate as date, count(e.e104_nl) as pelesen, DAY(e.e104_sdate) as days
@@ -216,9 +209,7 @@ class DashboardAdminController extends Controller
             and e.e104_sdate is not null
             and e.e104_flg in ('2','3')
             and DAY(e.e104_sdate) = '$i'");
-            // group by e.e104_sdate
-            // order by e.e104_sdate
-            // dd($data);
+
 
             if ($data[0]->date != null) {
                 $PL104[$i] = $data;
@@ -240,8 +231,7 @@ class DashboardAdminController extends Controller
             and e.e07_sdate is not null
             and e.e07_flg in ('2','3')
             and DAY(e.e07_sdate) = '$i'");
-            // group by e.e07_sdate
-            // order by e.e07_sdate
+
 
             if ($data[0]->date != null) {
                 $PL111[$i] = $data;
@@ -263,8 +253,7 @@ class DashboardAdminController extends Controller
             and e.ebio_sdate is not null
             and e.ebio_flg in ('2','3')
             and DAY(e.ebio_sdate) = '$i'");
-            // group by e.ebio_sdate
-            // order by e.ebio_sdate
+
 
             if ($data[0]->date != null) {
                 $PLBIO[$i] = $data;
@@ -279,17 +268,7 @@ class DashboardAdminController extends Controller
 
 
         }
-        // $days_bio =
-        // dd($PLBIO[$i]);
 
-
-        //total pelesen yang sudah hantar penyata setiap sektor
-        // $total91 = E91Init::where('e91_flg', '!=' , '1')->count();
-        // $total101 = E101Init::where('e101_flg', '!=' ,'1')->count();
-        // $total102 = E102Init::where('e102_flg', '!=' , '1')->count();
-        // $total104 = E104Init::where('e104_flg', '!=' , '1')->count();
-        // $total111 = E07Init::where('e07_flg', '!=' , '1')->count();
-        // $totalBIO = EBioInit::where('ebio_flg', '!=' , '1')->count();
         $total91 = E91Init::where('e91_flg', '!=' , '1')->where('e91_sdate', '<=' , $enddate)->where('e91_sdate', '>=' , $strdate)->count();
         $total101 = E101Init::where('e101_flg', '!=' ,'1')->where('e101_sdate', '<=' , $enddate )->where('e101_sdate', '>=' , $strdate)->count();
         $total102 = E102Init::where('e102_flg', '!=' , '1')->where('e102_sdate', '<=' , $enddate )->where('e102_sdate', '>=' , $strdate)->count();
@@ -299,7 +278,7 @@ class DashboardAdminController extends Controller
 
 
         $total_overall = ($total91 + $total101 + $total102 + $total104 + $total111 + $totalBIO);
-        // dd($totalBIO);
+
 
 
         //total pelesen yang belum hantar penyata setiap sektor
@@ -313,7 +292,7 @@ class DashboardAdminController extends Controller
 
         $total_overall_1 = ($total91_1 + $total101_1 + $total102_1 + $total104_1 + $total111_1 + $totalBIO_1);
 
-        // dd($totalBIO_1);
+
 
         // total pelesen aktif setiap sektor
         $PC91 = DB::select("SELECT count(e_nl) as pelesen
@@ -361,11 +340,9 @@ class DashboardAdminController extends Controller
 
 
         $sdays = ltrim($start, "0");
-        // dd($sdays);
+
         $days = date('d', strtotime($enddate));
 
-        // $day2 = $days - $sdays;
-        // dd($day2);
 
         $array = [
             'PL91_total' => $PL91_total,
@@ -408,23 +385,11 @@ class DashboardAdminController extends Controller
             'sdays' => $sdays
         ];
 
-        // dd($PCBIO);
+
         return view('admin.dashboard.main', $array);
     }
 
 
-
-    public function jumlah_penyata_all_kilang()
-    {
-        $PL91 = DB::select("select date_format(e.e101_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
-        from pelesen p, e101_init e, reg_pelesen r
-        where p.e_nl = e.e101_nl and p.e_nl = r.e_nl and r.e_kat = 'PL91'
-        and e.e101_sdate is not null
-        group by e.e101_sdate
-        order by e.e101_sdate");
-
-        dd($PL91);
-    }
 
     /**
      * Show the form for creating a new resource.

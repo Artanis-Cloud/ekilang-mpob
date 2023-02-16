@@ -44,21 +44,19 @@ class KonfigurasiController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        // $user = User::find($id);
 
         return view('admin.konfigurasi.pengurusan-pentadbir', compact('returnArr', 'layout'));
     }
 
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
-        // dd($request->all());
 
 
         if (array_key_exists("sub_cat",$request->all())) {
 
             $check_users = User::where('username', $request->username)->first();
             $check_regusers = RegUser::where('e_userid', $request->username)->first();
-            // dd($check_users);
+
 
 
             if (!$check_users || !$check_regusers) {
@@ -66,10 +64,8 @@ class KonfigurasiController extends Controller
                 $this->validation_daftar_pentadbir($request->all())->validate();
                 $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
                 $this->store_daftar_pentadbir2($request->all());
-                // $custom_pass = $this->store_daftar_pentadbir($request->all());
-                // dd($daripada);
 
-                // dd($daripada);
+
                 //notification kalau admin, manager dan supervisor daftar admin.
                 //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
                 //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
@@ -111,19 +107,16 @@ class KonfigurasiController extends Controller
                 else {
                     return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
                 }
-                // dd($kepadas);
+
 
 
                 $kepada2 = User::where('username', auth()->user()->username)->first();
 
 
                 foreach ($kepadas as $kepada) {
-                    // if ($kepada->email != '-') {
+
                         $kepada->notify((new DaftarPentadbirNotification2($daripada, $daripada)));
-                    // } else {
-                    //     return redirect()->back()
-                    //         ->with('error', 'Alamat Emel Tidak Sah');
-                    // }
+
                 }
                 $kepada2->notify((new DaftarPentadbirNotification($daripada, $daripada)));
 
@@ -162,13 +155,13 @@ class KonfigurasiController extends Controller
     protected function store_daftar_pentadbir(array $data)
     {
 
-        // dd(array_key_exists("sub_cat[]",$data));
+
         $pass = 'admin123';
         $password = Hash::make('admin123');
         $pq = Crypt::encryptString('admin123');
-        // dd($password2);
+
         $password2 =  $pq;
-        // dd($password2);
+
         if (array_key_exists("sub_cat[]",$data)) {
             return User::create([
                 'name' => $data['name'],
@@ -205,23 +198,17 @@ class KonfigurasiController extends Controller
 
     protected function store_daftar_pentadbir2(array $data)
     {
-        // $password = Hash::make('admin123');
+
         if (array_key_exists("sub_cat[]",$data)) {
 
         return RegUser::create([
-            // 'name' => $data['name'],
-            // 'email' => $data['email'],
-            // 'e_pwd' => $password,
             'e_userid' => $data['username'],
             'e_kat' => json_encode($data['sub_cat']),
         ]);
     } else {
         return RegUser::create([
-            // 'name' => $data['name'],
-            // 'email' => $data['email'],
-            // 'e_pwd' => $password,
             'e_userid' => $data['username'],
-            // 'e_kat' => json_encode($data['sub_cat']) ?? null,
+
         ]);
     }
     }
@@ -243,13 +230,7 @@ class KonfigurasiController extends Controller
         $layout = 'layouts.admin';
 
         $admin = User::where('category', 'Admin')->get();
-        // $admin = User::findOrFail('1686');
 
-        // dd(json_decode($admin[0]->sub_cat));
-
-        // foreach (json_decode($admin->sub_cat) as $cat) {
-        //     dd($cat); //cara keluarkan category
-        // }
 
         return view('admin.konfigurasi.senarai-admin', compact('returnArr', 'layout', 'admin'));
     }
@@ -258,7 +239,6 @@ class KonfigurasiController extends Controller
     {
 
 
-        // dd($request->all());
         $penyata = User::findOrFail($id);
         $penyata->name = $request->name;
         $penyata->email = $request->email;
@@ -276,12 +256,6 @@ class KonfigurasiController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
-
-    //notification kalau admin, manager dan supervisor kemaskini data admin.
-    //kalau admin yg kemaskini untuk admin, notification akan masuk ke supervisor ke atas
-    //kalau supervisor kemaskini utk sv dan admin, noti masuk manager ke atas
-    //sama juga untuk manager
-    //notification in system dengan ke email sv, manager and superadmin
 
 
 
@@ -302,7 +276,7 @@ class KonfigurasiController extends Controller
         if ($notification) {
             $notification->markAsRead();
 
-            // dd($notification->data['route']);
+            
             if ($notification->data['route']){
             return redirect($notification->data['route']);
 

@@ -373,7 +373,7 @@
                                             </div>
                                             <div class="form-group">
                                                 {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                                <input type="text" id="345677777777" class="form-control" maxlength="60"
+                                                <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                                     oninput="setCustomValidity(''); invokeFunc6(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Premis 3" name="e_ap3"
