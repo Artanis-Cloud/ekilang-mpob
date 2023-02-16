@@ -50,7 +50,7 @@ class PortingBiodieselController extends Controller
 
     public function admin_port_stok_akhir_process($id)
     {
-   
+
         $stokakhirs = DB::select("SELECT * from hebahan_stok_akhir where id = $id");
 
 
@@ -400,7 +400,7 @@ class PortingBiodieselController extends Controller
                     }
 
                     $hari = HHari::where('lesen', $nolesen)->where('tahunbhg2', $tahun)->where('bulanbhg2', $bulan)->get();
-                    /
+                    
                     $qdelplbiohari = DB::connection('mysql4')->delete("DELETE from h_hari where lesen = '$nolesen' and tahunbhg2 = '$tahun' and bulanbhg2 = '$bulan'");
 
 
