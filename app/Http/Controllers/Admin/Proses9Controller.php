@@ -1913,7 +1913,6 @@ class Proses9Controller extends Controller
 
             }
         }
-        // dd($data_pelesen);
 
         if ($data_pelesen) {
 
@@ -1935,13 +1934,8 @@ class Proses9Controller extends Controller
                     $pelesens[$e104_nobatch] = (object)[];
                     $bln = ltrim($bulan, "0");
 
-                    // $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
-                    // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
-
                     $users[$e104_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F104A2, '%d-%m-%Y') tkhsubmit
                             from pl104ap1 e where e.F104A4 = '$e104_nobatch'");
-
-
 
                     $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
@@ -2246,7 +2240,126 @@ class Proses9Controller extends Controller
                     'bhga', 'totala5', 'totala6', 'totala7', 'totala8', 'totala9', 'totala10', 'totala11',
                     'bhgb', 'totalb5', 'totalb6', 'totalb7', 'totalb8', 'totalb10', 'totalb11',
                 ));
-    } elseif ($tahun > 2022) {}
+    } elseif ($tahun > 2022) {
+        $check = H07Init::with('h_pelesen')->where('e07_nl', $nolesen)->where('e07_thn', $tahun)->where('e07_bln', $bulan)->first();
+        // dd($check);
+
+        foreach($check->h_pelesen as $pelesen) {
+            if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
+                $data_pelesen = $pelesen;
+            } else {
+                $data_pelesen = '';
+
+            }
+        }
+        if ($data_pelesen) {
+
+                    if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
+
+
+                    $breadcrumbs    = [
+                        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+                        ['link' => route('admin.6penyatapaparcetaksimpanan'), 'name' => "Papar & Cetak Penyata Bulanan Pusat Simpanan"],
+                    ];
+
+                    $kembali = route('admin.9penyataterdahulusimpanan');
+                    $returnArr = [
+                        'breadcrumbs' => $breadcrumbs,
+                        'kembali'     => $kembali,
+                    ];
+
+                    // dd($bulan);
+                    foreach ($nolesen as $key => $e07_nl) {
+                        $pelesens[$key] = (object)[];
+
+                        $users[$e07_nl] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
+                        from mpb_insp3a e, licensedb.license p where e.INS_IA = '$e07_nl' AND  e.INS_IC = '$tahun' and e.INS_IB = '$bulan' and
+                        e.INS_IA = p.F201A");
+
+                        $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+                        p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                        FROM  h_pelesen p
+                        WHERE p.e_nl = '$e07_nl'
+                        AND p.e_kat = 'PL111'
+                        AND p.e_thn = '$tahun'
+                        AND p.e_bln = '$bulan'");
+                        // dd($query);
+
+                        // if ($query[$e07_nl]) {
+                            $bhga[$e07_nl] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
+                            e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
+                            e.INS_KJ
+                            from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and
+                                e.INS_KB = '$bulan' and
+                                e.INS_KC = '$tahun' and
+                                e.INS_KD = p.comm_code_l");
+
+                            $totala5[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KE) as total5 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                            $totala6[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KF) as total6 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                            $totala7[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KG) as total7 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                            $totala8[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KH) as total8 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                            $totala9[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KI) as total9 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                            $totala10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KE - e.INS_KJ) as total10 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                            $totala11[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KJ) as total11 from mpb_insp3b e, codedb.commodity_l p
+                            where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+
+                            $bhgb[$e07_nl] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
+                            e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
+                            e.INS_TI
+                            from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and
+                                e.INS_TB = '$bulan' and
+                                e.INS_TC = '$tahun' and
+                                e.INS_TD = p.comm_code_l");
+
+                            $totalb5[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TE) as total5 from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                            $totalb6[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TF) as total6 from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                            $totalb7[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TG) as total7 from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                            $totalb8[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TH) as total8 from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                            $totalb10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TE - e.INS_TI) as total10 from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                            $totalb11[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TI) as total11 from mpb_insp3c e, codedb.commodity_l p
+                            where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+
+
+                        // } else {
+                        //     return redirect()->back()->with('error', "Maklumat Pelesen {$e07_nl} Tidak Wujud");
+                        // }
+
+
+                    }
+                    $layout = 'layouts.main';
+
+                    // dd($users);                // $data = DB::table('pelesen')->get();
+                    return view('admin.proses9.9papar-pleid-simpanan-multi', compact(
+                        'returnArr', 'bulan', 'tahun',
+                        'layout', 'nolesen',
+                        'pelesens',
+                        'query', 'users',
+                        'bhga', 'totala5', 'totala6', 'totala7', 'totala8', 'totala9', 'totala10', 'totala11',
+                        'bhgb', 'totalb5', 'totalb6', 'totalb7', 'totalb8', 'totalb10', 'totalb11',
+                    ));
+        }
+            else {
+                return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+            }
+    }
+    } else {
+        return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+
+    }
     }
 
     public function process_admin_9penyataterdahulu_bio_form($nobatch, $tahun, $bulan)
