@@ -1079,10 +1079,14 @@ class Proses9Controller extends Controller
             } elseif ($tahun > 2022) {
                 $check = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
 
-                    dd($check);
-                    // dd($check->h_pelesen->e_bln >= 1 && $check->h_pelesen->e_bln < 10);
-                // foreach ($checks as $check) {
-                        # code...
+                    foreach($check->h_pelesen as $pelesen) {
+                        if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
+                            $data_pelesen = $pelesen;
+                        }
+                    }
+                    dd($data_pelesen);
+
+
                     if ($check->h_pelesen->e_bln >= 1 &&  $check->h_pelesen->e_bln < 10)
 
                     if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
