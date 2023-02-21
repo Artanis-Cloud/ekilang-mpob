@@ -1112,7 +1112,7 @@ class Proses9Controller extends Controller
                             AND e.e101_thn = '$tahun'
                             AND p.e_kat = 'PL101'
                             AND p.e_thn = '$tahun'
-                            AND p.e_bln = '$bulan'
+                            AND p.e_bln = '1'
                             AND e.e101_bln = '$bulan'");
 
                             // H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
