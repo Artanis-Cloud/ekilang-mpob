@@ -47,7 +47,7 @@ class H101Init extends Model
     public function h_pelesen()
     {
 
-        return $this->hasOne(HPelesen::class, 'e_nl', 'e101_nl');
+        return $this->hasMany(HPelesen::class, 'e_nl', 'e101_nl');
     }
 
 }
