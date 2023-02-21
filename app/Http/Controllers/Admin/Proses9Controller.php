@@ -1386,13 +1386,16 @@ class Proses9Controller extends Controller
 
             ));
     } elseif ($tahun > 2022) {
-        $checks = H102Init::with('h_pelesen')->where('e102_nobatch', $nobatch)->where('e102_thn', $tahun)->where('e102_bln', $bulan)->get();
+        $check = H102Init::with('h_pelesen')->where('e102_nobatch', $nobatch)->where('e102_thn', $tahun)->where('e102_bln', $bulan)->first();
 
-            // dd($checks);
-        foreach ($checks as $check) {
-                # code...
+        foreach($check->h_pelesen as $pelesen) {
+            if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
+                $data_pelesen = $pelesen;
+            }
+        }
 
-            if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
+        if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
+
 
                     $breadcrumbs    = [
                         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1407,19 +1410,20 @@ class Proses9Controller extends Controller
                     ];
 
                     foreach ($nobatch as $key => $e102_nobatch) {
-                        // $pelesens[$key] = (object)[];
-                        // $penyata[$key] = H102Init::with('h_pelesen')->find($e102_nobatch);
-                        // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
+
                         $pelesens[$e102_nobatch] = (object)[];
+                        $bln = ltrim($bulan, "0");
+
 
                         $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                             FROM h_pelesen p
                             WHERE p.e_nl = '$nolesen'
+                            AND p.e_kat = 'PL102'
                             AND p.e_thn = '$tahun'
-                            AND p.e_bln = '$bulan'");
+                            AND p.e_bln = '$bln'");
 
-                            // dd($nolesen);
+                            dd($query);
 
                         $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
                         from pl1021p3 e where e.F1021B = '$e102_nobatch'");
