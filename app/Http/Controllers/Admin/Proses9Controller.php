@@ -2242,7 +2242,7 @@ class Proses9Controller extends Controller
                 ));
     } elseif ($tahun > 2022) {
         $check = H07Init::with('h_pelesen')->where('e07_nl', $nolesen)->where('e07_thn', $tahun)->where('e07_bln', $bulan)->first();
-        // dd($check);
+        dd($check);
 
         foreach($check->h_pelesen as $pelesen) {
             if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
