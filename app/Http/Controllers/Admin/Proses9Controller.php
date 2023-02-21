@@ -1387,6 +1387,7 @@ class Proses9Controller extends Controller
             ));
     } elseif ($tahun > 2022) {
         $check = H102Init::with('h_pelesen')->where('e102_nobatch', $nobatch)->where('e102_thn', $tahun)->where('e102_bln', $bulan)->first();
+        dd($check);
 
         foreach($check->h_pelesen as $pelesen) {
             if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
@@ -1423,7 +1424,7 @@ class Proses9Controller extends Controller
                             AND p.e_thn = '$tahun'
                             AND p.e_bln = '$bln'");
 
-                            dd($query);
+                            // dd($query);
 
                         $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
                         from pl1021p3 e where e.F1021B = '$e102_nobatch'");
@@ -1485,7 +1486,7 @@ class Proses9Controller extends Controller
                     return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
                 }
         }
-   
+
 
     }
 
