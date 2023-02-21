@@ -1102,7 +1102,7 @@ class Proses9Controller extends Controller
                         foreach ($nobatch as $key => $nobatch1) {
                             // dd($nobatch1);
                             $pelesens[$nobatch1] = (object)[];
-
+                            $bln = ltrim($bulan, "0");
 
                             $query[$nobatch1] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_kat, p.e_ap1, p.e_ap2, e.e101_nobatch,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
@@ -1112,7 +1112,7 @@ class Proses9Controller extends Controller
                             AND e.e101_thn = '$tahun'
                             AND p.e_kat = 'PL101'
                             AND p.e_thn = '$tahun'
-                            AND p.e_bln = '1'
+                            AND p.e_bln = '$bln'
                             AND e.e101_bln = '$bulan'");
 
                             // H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
