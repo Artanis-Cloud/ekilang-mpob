@@ -1913,7 +1913,7 @@ class Proses9Controller extends Controller
 
             }
         }
-        dd($data_pelesen);
+        // dd($data_pelesen);
 
         if ($data_pelesen) {
 
@@ -1953,6 +1953,7 @@ class Proses9Controller extends Controller
                     AND p.e_thn = '$tahun'
                     AND p.e_bln = '$bln'
                     AND e.e104_bln = '$bulan'");
+                    dd($query);
 
                     $bhg1a[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
                     e.F104B10, e.F104B11, e.F104B12, e.F104B13
