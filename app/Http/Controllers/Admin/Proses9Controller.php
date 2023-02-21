@@ -1395,7 +1395,8 @@ class Proses9Controller extends Controller
             }
         }
 
-        if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
+        if ($data_pelesen) {
+          if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
 
 
                     $breadcrumbs    = [
@@ -1482,6 +1483,9 @@ class Proses9Controller extends Controller
 
                     ));
             }
+        }
+
+
                 else {
                     return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
                 }
