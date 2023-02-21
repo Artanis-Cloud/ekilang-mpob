@@ -640,14 +640,22 @@ class Proses9Controller extends Controller
 
             foreach ($nobatch as $no){
                 // dd($no);
-                 $checks = H91Init::with('h_pelesen')->where('e91_nobatch', $no)->where('e91_thn', $tahun)->where('e91_bln', $bulan)->get();
-            // dd($checks);
+                 $check = H91Init::with('h_pelesen')->where('e91_nobatch', $no)->where('e91_thn', $tahun)->where('e91_bln', $bulan)->first();
+            // dd($check);
+
+        foreach($check->h_pelesen as $pelesen) {
+            if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
+                $data_pelesen = $pelesen;
+            } else {
+                $data_pelesen = '';
+
             }
+        }
+        // dd($data_pelesen);
+        if ($data_pelesen) {
 
-            if ($checks) {
+            if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
 
-                foreach($checks as $check){
-                    if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
                         $breadcrumbs    = [
                             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
@@ -662,6 +670,8 @@ class Proses9Controller extends Controller
 
                         foreach ($nobatch as $key => $e91_nobatch) {
                             $pelesens[$e91_nobatch] = (object)[];
+                            $bln = ltrim($bulan, "0");
+
 
                             $query[$e91_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
@@ -671,7 +681,7 @@ class Proses9Controller extends Controller
                             AND e.e91_thn = '$tahun'
                             AND p.e_kat = 'PL91'
                             AND p.e_thn = '$tahun'
-                            AND p.e_bln = '$bulan'
+                            AND p.e_bln = '$bln'
                             AND e.e91_bln = '$bulan'");
 
                             $penyata[$e91_nobatch] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
@@ -2376,7 +2386,7 @@ class Proses9Controller extends Controller
                 ->with('error', 'Sila Pilih Pelesen');
         }
 
-        if ($tahun <= 2022 && $bulan <= 10) {
+        if ($tahun <= 2022 ) {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2463,7 +2473,7 @@ class Proses9Controller extends Controller
         ));
 
 
-    } elseif ($tahun > 2022 || ($tahun == 2022 && $bulan >= 10)) {
+    } elseif ($tahun > 2022) {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
