@@ -707,17 +707,16 @@ class Proses9Controller extends Controller
                         // $data = DB::table('pelesen')->get();
                         return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns','checks'));
                     }
-                }
+
             }
             else {
                     return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
             }
         }
-        else {
-            return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
-
         }
-    }
+        }
+
+
 
 
 
