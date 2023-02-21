@@ -1485,10 +1485,7 @@ class Proses9Controller extends Controller
                     return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
                 }
         }
-    } else {
-        return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
-
-    }
+   
 
     }
 
