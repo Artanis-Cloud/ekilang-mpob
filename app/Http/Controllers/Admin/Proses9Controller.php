@@ -1085,7 +1085,7 @@ class Proses9Controller extends Controller
                         }
                     }
 
-                    if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
+                    if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
 
                             $breadcrumbs    = [
                                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
