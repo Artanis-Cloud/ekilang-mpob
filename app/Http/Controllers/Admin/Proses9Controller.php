@@ -2252,7 +2252,7 @@ class Proses9Controller extends Controller
 
             }
         }
-        dd($data_pelesen);
+        // dd($data_pelesen);
         if ($data_pelesen) {
 
                     if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
@@ -2273,6 +2273,8 @@ class Proses9Controller extends Controller
                     // dd($bulan);
                     foreach ($nolesen as $key => $e07_nl) {
                         $pelesens[$key] = (object)[];
+                        $bln = ltrim($bulan, "0");
+
 
                         $users[$e07_nl] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
                         from mpb_insp3a e, licensedb.license p where e.INS_IA = '$e07_nl' AND  e.INS_IC = '$tahun' and e.INS_IB = '$bulan' and
@@ -2284,7 +2286,7 @@ class Proses9Controller extends Controller
                         WHERE p.e_nl = '$e07_nl'
                         AND p.e_kat = 'PL111'
                         AND p.e_thn = '$tahun'
-                        AND p.e_bln = '$bulan'");
+                        AND p.e_bln = '$bln'");
                         // dd($query);
 
                         // if ($query[$e07_nl]) {
