@@ -1084,10 +1084,6 @@ class Proses9Controller extends Controller
                             $data_pelesen = $pelesen;
                         }
                     }
-                   dd($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan);
-
-
-                    if ($check->h_pelesen->e_bln >= 1 &&  $check->h_pelesen->e_bln < 10)
 
                     if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
 
