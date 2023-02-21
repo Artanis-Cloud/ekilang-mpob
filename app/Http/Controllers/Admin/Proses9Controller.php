@@ -1082,8 +1082,13 @@ class Proses9Controller extends Controller
                     foreach($check->h_pelesen as $pelesen) {
                         if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
                             $data_pelesen = $pelesen;
+                        } else {
+                            $data_pelesen = '';
+
                         }
                     }
+
+        if ($data_pelesen) {
 
                     if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
 
@@ -1282,14 +1287,11 @@ class Proses9Controller extends Controller
                             'users',
                         ));
                     }
-                        else {
+
+                }else {
                             return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
                         }
-                }
-
-
-
-
+    }
     }
 
 
@@ -1900,13 +1902,20 @@ class Proses9Controller extends Controller
 
         ));
     } elseif ($tahun > 2022) {
-        $checks = H104Init::with('h_pelesen')->where('e104_nobatch', $nobatch)->where('e104_thn', $tahun)->where('e104_bln', $bulan)->get();
+        $check = H104Init::with('h_pelesen')->where('e104_nobatch', $nobatch)->where('e104_thn', $tahun)->where('e104_bln', $bulan)->first();
 
-        // dd($checks);
-    foreach ($checks as $check) {
-            # code...
+                    foreach($check->h_pelesen as $pelesen) {
+                        if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
+                            $data_pelesen = $pelesen;
+                        } else {
+                            $data_pelesen = '';
 
-        if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
+                        }
+                    }
+
+        if ($data_pelesen) {
+
+                    if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
 
                 $breadcrumbs    = [
                     ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1922,6 +1931,8 @@ class Proses9Controller extends Controller
 
                 foreach ($nobatch as $key => $e104_nobatch) {
                     $pelesens[$e104_nobatch] = (object)[];
+                    $bln = ltrim($bulan, "0");
+
                     // $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
                     // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
@@ -1936,8 +1947,9 @@ class Proses9Controller extends Controller
                     WHERE p.e_nl = e.e104_nl
                     AND e.e104_nobatch = '$e104_nobatch'
                     AND e.e104_thn = '$tahun'
+                    AND p.e_kat = ''PL104'
                     AND p.e_thn = '$tahun'
-                    AND p.e_bln = '$bulan'
+                    AND p.e_bln = '$bln'
                     AND e.e104_bln = '$bulan'");
 
                     $bhg1a[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
