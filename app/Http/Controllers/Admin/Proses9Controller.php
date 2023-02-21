@@ -1903,7 +1903,7 @@ class Proses9Controller extends Controller
         ));
     } elseif ($tahun > 2022) {
         $check = H104Init::with('h_pelesen')->where('e104_nobatch', $nobatch)->where('e104_thn', $tahun)->where('e104_bln', $bulan)->first();
-        dd($check);
+        // dd($check);
 
         foreach($check->h_pelesen as $pelesen) {
             if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
@@ -1913,6 +1913,7 @@ class Proses9Controller extends Controller
 
             }
         }
+        dd($data_pelesen);
 
         if ($data_pelesen) {
 
