@@ -1110,7 +1110,6 @@ class Proses9Controller extends Controller
                             WHERE p.e_nl = e.e101_nl
                             AND e.e101_nobatch = '$nobatch1'
                             AND e.e101_thn = '$tahun'
-                            AND p.e_kat = 'PL101'
                             AND p.e_thn = '$tahun'
                             AND p.e_bln = '$bulan'
                             AND e.e101_bln = '$bulan'");
