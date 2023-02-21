@@ -380,7 +380,7 @@ footer a {
 <footer>
     <p>
         Hak Cipta Terpelihara 2022 © eKilang Malaysian Palm Oil Board &nbsp;
-        Paparan terbaik dalam Internet Explorer 11.0+,
+        Paparan terbaik dalam Microsoft Edge 110+,
         Google Chrome 6+, Mozilla Firefox 4+, Safari 3+, dan Opera 9+.
     </p>
 </footer>

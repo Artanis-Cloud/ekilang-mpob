@@ -18,6 +18,7 @@ class HPelesen extends Model
     protected $fillable = [
         'e_id',
         'e_nl',
+        'e_kat',
         'e_nlkppk',
         'e_thn',
         'e_bln',
