@@ -514,6 +514,8 @@ class Proses9Controller extends Controller
                             FROM h91_init e, h_pelesen p
                             WHERE p.e_nl = e.e91_nl
                             AND e.e91_nobatch = '$e91_nobatch'
+                            AND e.e91_thn = '$tahun'
+                            AND e.e91_bln = '$bulan'
                             AND p.e_kat = 'PL91'
                             AND p.e_thn = '2022'
                             AND p.e_bln = '10'");
@@ -550,6 +552,8 @@ class Proses9Controller extends Controller
         FROM h91_init e, h_pelesen p
         WHERE p.e_nl = e.e91_nl
         AND e.e91_nobatch = '$e91_nobatch'
+        AND e.e91_thn = '$tahun'
+        AND e.e91_bln = '$bulan'
         AND p.e_kat = 'PL91'
         AND p.e_thn = '$tahun'
         AND p.e_bln = '$bln'");
@@ -748,17 +752,28 @@ class Proses9Controller extends Controller
             'kembali'     => $kembali,
         ];
 
+        if ($tahun <= 2022) {
 
-        $tahun = H101Init::where('e101_thn', $tahun);
-        $bulan = H101Init::where('e101_bln', $bulan);
-        // dd($bulan);
+
         foreach ($nobatch as $key => $e101_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata[$key]  = H101Init::with('h_pelesen')->find($e101_nobatch);
 
-            // $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key] ->e101_nl)->first();
-            // dd($penyata);
-            if($penyata[$key]->h_pelesen){
+            $query[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
+                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                            FROM h101_init e, h_pelesen p
+                            WHERE p.e_nl = e.e101_nl
+                            AND e.e101_nobatch = '$e101_nobatch'
+                            AND e.e101_thn = '$tahun'
+                            AND e.e101_bln = '$bulan'
+                            AND p.e_kat = 'PL101'
+                            AND p.e_thn = '2022'
+                            AND p.e_bln = '10'");
+
+
+
+
+            if($penyata[$key]){
 
                 $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->whereHas('produk', function ($query) {
                     return $query->where('prodcat', '=', '01');
@@ -823,11 +838,12 @@ class Proses9Controller extends Controller
 
             else{
                 return redirect()->back()
-                ->with('error', 'Data Tidak Wujud!');
+                ->with('error', 'Maklumat Pelesen tidak wujud. Sila port data!');
             }
 
 
         }
+        // dd($query);
         $layout = 'layouts.main';
 
         // dd($pelesens);
@@ -841,6 +857,7 @@ class Proses9Controller extends Controller
             'bulan',
             'pelesens',
             'penyata',
+            'query',
             'i',
             'ii',
             'iva',
@@ -885,6 +902,156 @@ class Proses9Controller extends Controller
             'totalib14',
             'totaliib14'
         ));
+    } elseif ($tahun > 2022) {
+        foreach ($nobatch as $key => $e101_nobatch) {
+            $pelesens[$key] = (object)[];
+            $bln = ltrim($bulan, "0");
+
+            $penyata[$key]  = H101Init::with('h_pelesen')->find($e101_nobatch);
+
+            $query[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
+                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                            FROM h101_init e, h_pelesen p
+                            WHERE p.e_nl = e.e101_nl
+                            AND e.e101_nobatch = '$e101_nobatch'
+                            AND e.e101_thn = '$tahun'
+                            AND e.e101_bln = '$bulan'
+                            AND p.e_kat = 'PL101'
+                            AND p.e_thn = '$tahun'
+                            AND p.e_bln = '$bln'");
+
+
+            // dd($query);
+
+            if($penyata[$key]){
+
+                $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->whereHas('produk', function ($query) {
+                    return $query->where('prodcat', '=', '01');
+                })->get();
+                $totalib5 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b5');
+                $totalib6 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b6');
+                $totalib7 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b7');
+                $totalib8 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b8');
+                $totalib9 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b9');
+                $totalib10 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b10');
+                $totalib11 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b11');
+                $totalib12 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b12');
+                $totalib13 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b13');
+                $totalib14 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '1')->sum('e101_b14');
+
+                $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->whereHas('produk', function ($query) {
+                    return $query->where('prodcat', '=', '02');
+                })->get();
+                $totaliib5 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b5');
+                $totaliib6 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b6');
+                $totaliib7 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b7');
+                $totaliib8 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b8');
+                $totaliib9 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b9');
+                $totaliib10 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b10');
+                $totaliib11 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b11');
+                $totaliib12 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b12');
+                $totaliib13 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b13');
+                $totaliib14 = DB::table("h101_b")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_b3', '2')->sum('e101_b14');
+
+                $iva = H101C::with('h101init', 'produk')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->get();
+                $totalivac5 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->sum('e101_c5');
+                $totalivac6 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->sum('e101_c6');
+                $totalivac7 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->sum('e101_c7');
+                $totalivac8 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->sum('e101_c8');
+                $totalivac9 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->sum('e101_c9');
+                $totalivac10 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '1')->sum('e101_c10');
+
+                $ivb = H101C::with('h101init', 'produk')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->get();
+                $totalivbc5 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->sum('e101_c5');
+                $totalivbc6 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->sum('e101_c6');
+                $totalivbc7 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->sum('e101_c7');
+                $totalivbc8 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->sum('e101_c8');
+                $totalivbc9 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->sum('e101_c9');
+                $totalivbc10 = DB::table("h101_c")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_c3', '2')->sum('e101_c10');
+
+                $va = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '1')->get();
+                $totalvad5 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '1')->sum('e101_d5');
+                $totalvad6 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '1')->sum('e101_d6');
+                $totalvad7 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '1')->sum('e101_d7');
+                $totalvad8 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '1')->sum('e101_d8');
+
+                $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '2')->get();
+                $totalvbd5 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '2')->sum('e101_d5');
+                $totalvbd6 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '2')->sum('e101_d6');
+                $totalvbd7 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '2')->sum('e101_d7');
+                $totalvbd8 = DB::table("h101_d")->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->where('e101_d3', '2')->sum('e101_d8');
+
+                $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key] ->e101_sdate);
+                $formatteddate = $myDateTime->format('d-m-Y');
+
+            }
+
+            else{
+                return redirect()->back()
+                ->with('error', 'Maklumat Pelesen tidak wujud. Sila port data!');
+            }
+
+
+        }
+        $layout = 'layouts.main';
+
+        // dd($pelesens);
+        // dd($penyata);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-terdahulu-penapis-multi', compact(
+            'returnArr',
+            'layout',
+            'formatteddate',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'query',
+            'i',
+            'ii',
+            'iva',
+            'ivb',
+            'va',
+            'vb',
+            'totalib5',
+            'totaliib5',
+            'totalivac5',
+            'totalvad5',
+            'totalvbd5',
+            'totalib6',
+            'totaliib6',
+            'totalivac6',
+            'totalivbc6',
+            'totalvbd6',
+            'totalib7',
+            'totaliib7',
+            'totalivac7',
+            'totalivbc7',
+            'totalvad7',
+            'totalvbd7',
+            'totalib8',
+            'totaliib8',
+            'totalivac8',
+            'totalivbc8',
+            'totalvad8',
+            'totalvbd8',
+            'totalib9',
+            'totaliib9',
+            'totalivac9',
+            'totalivbc9',
+            'totalib10',
+            'totaliib10',
+            'totalivac10',
+            'totalivbc10',
+            'totalib11',
+            'totaliib11',
+            'totaliib12',
+            'totalib13',
+            'totaliib13',
+            'totalib14',
+            'totaliib14'
+        ));
+    }
     }
 
     public function process_admin_pleid_penapis_form($nobatch, $tahun, $bulan)
