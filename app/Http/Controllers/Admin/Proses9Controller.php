@@ -477,47 +477,12 @@ class Proses9Controller extends Controller
         }
     }
 
-    // public function admin_9penyataterdahulu_process(Request $request)
-    // {
-    //     //dd($request->all());
-    //     $sektor = $request->sektor;
-
-
-    //     $tahun = H91Init::where('e91_thn', $request->tahun);
-    //     $bulan = H91Init::where('e91_bln', $request->bulan);
-
-
-    //         $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
-    //                     FROM pelesen p, h07_init e, reg_pelesen k
-    //                     WHERE e.e07_thn = '$request->tahun'
-    //                     and e.e07_bln = '$request->bulan'
-    //                     and p.e_nl = e.e07_nl
-    //                     and e.e07_flg = '3'
-    //                     and p.e_nl = k.e_nl
-    //                     and k.e_kat = 'PL111'
-    //                     order by k.kodpgw, k.nosiri");
-
-
-    //     $breadcrumbs    = [
-    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-    //         ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-    //         ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
-    //     ];
-
-    //     $kembali = route('admin.9penyataterdahulu');
-
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.admin';
-
-    //     return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'tahun', 'bulan', 'users', 'sektor'));
-    // }
 
     public function process_admin_9penyataterdahulu_buah_form($nobatch, $tahun, $bulan)
     {
-        // dd($request->all());
+
+        // dd($nobatch);
+
         if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
@@ -533,22 +498,28 @@ class Proses9Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        // $sektor = $request->sektor;
 
 
-        $tahun = H91Init::where('e91_thn', $tahun);
-        $bulan = H91Init::where('e91_bln', $tahun);
-        // dd($bulan);
+        if ($tahun <= '2022') {
 
         foreach ($nobatch as $key => $e91_nobatch) {
-            // dd($e91_nobatch);
 
             $pelesens[$key] = (object)[];
 
             $penyata[$key]  = H91Init::with('h_pelesen')->find($e91_nobatch);
-            // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
-            // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
-            if($penyata[$key]->h_pelesen){
+
+
+            $query[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
+                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                            FROM h91_init e, h_pelesen p
+                            WHERE p.e_nl = e.e91_nl
+                            AND e.e91_nobatch = '$e91_nobatch'
+                            AND p.e_kat = 'PL91'
+                            AND p.e_thn = '2022'
+                            AND p.e_bln = '10'");
+
+
+            if ($query[$key]){
 
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
                     $formatteddate = $myDateTime->format('d-m-Y');
@@ -556,17 +527,54 @@ class Proses9Controller extends Controller
             }
             else{
                 return redirect()->back()
-                ->with('error', 'Data Tidak Wujud!');
+                ->with('error', 'Maklumat Pelesen tidak wujud. Sila port data!');
             }
         }
-//   dd($pelesens);
-        // dd($kembali);
+        // dd($query);
+
 
         $layout = 'layouts.main';
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr','query', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'myDateTime', 'formatteddate'));
 
-        // dd($penyata);
-        // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'myDateTime', 'formatteddate'));
+    } elseif ($tahun > '2022') {
+        foreach ($nobatch as $key => $e91_nobatch) {
+
+        $pelesens[$key] = (object)[];
+        $bln = ltrim($bulan, "0");
+
+
+        $penyata[$key]  = H91Init::with('h_pelesen')->find($e91_nobatch);
+            // dd($penyata);
+        $query[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
+        p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+        FROM h91_init e, h_pelesen p
+        WHERE p.e_nl = e.e91_nl
+        AND e.e91_nobatch = '$e91_nobatch'
+        AND p.e_kat = 'PL91'
+        AND p.e_thn = '$tahun'
+        AND p.e_bln = '$bln'");
+        // dd($query);
+
+        if ($query[$key]) {
+
+        $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
+        $formatteddate = $myDateTime->format('d-m-Y');
+
+
+    } else {
+        return redirect()->back()->with('error', 'Maklumat Pelesen tidak wujud. Sila port data!');
+
+    }
+}
+
+        $layout = 'layouts.main';
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr','query', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'myDateTime', 'formatteddate'));
+
+    } else {
+        return redirect()->back()->with('error', 'Maklumat Pelesen tidak wujud. Sila port data!');
+
+    }
+
     }
 
     public function process_admin_pleid_buah_form($nobatch, $tahun, $bulan)
@@ -587,53 +595,53 @@ class Proses9Controller extends Controller
 
         if ($tahun <= 2022) {
 
-                        $breadcrumbs    = [
-                            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-                            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
-                        ];
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+                ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+            ];
 
-                        $kembali = route('admin.9penyataterdahulu.process');
-                        $returnArr = [
-                            'breadcrumbs' => $breadcrumbs,
-                            'kembali'     => $kembali,
-                        ];
+            $kembali = route('admin.9penyataterdahulu.process');
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
 
-                        foreach ($nobatch as $key => $e91_nobatch) {
-                            $pelesens[$e91_nobatch] = (object)[];
+            foreach ($nobatch as $key => $e91_nobatch) {
+                $pelesens[$e91_nobatch] = (object)[];
 
-                            $query[$e91_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
-                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                            FROM h91_init e, h_pelesen p
-                            WHERE p.e_nl = e.e91_nl
-                            AND e.e91_nobatch = '$e91_nobatch'
-                            AND e.e91_thn = '$tahun'
-                            AND p.e_thn = '2022'
-                            AND p.e_bln = '10'
-                            AND e.e91_bln = '$bulan'");
+                $query[$e91_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
+                p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                FROM h91_init e, h_pelesen p
+                WHERE p.e_nl = e.e91_nl
+                AND e.e91_nobatch = '$e91_nobatch'
+                AND e.e91_thn = '$tahun'
+                AND p.e_thn = '2022'
+                AND p.e_bln = '10'
+                AND e.e91_bln = '$bulan'");
 
-                            $penyata[$e91_nobatch] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
-                                    DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
-                                    F911G1, F911G2, F911G3, F911G4, F911H1, F911H2,
-                                    F911H3, F911H4, F911I, F911J1, F911J2,
-                                    F911J3, F911K1, F911K2, F911K3, F911K4,
-                                    F911L1, F911L2, F911L3, F911N1, F911N2, F911N3, F911N4,
-                                    F911O, F911P, F911Q,
-                                    F911R,
-                                    F911S1, F911S2, F911S3, F911S4, F911S5, F911S6,
-                                    F911T1, F911T2, F911T3, F911T4, F911T5, F911T6, F911T7, F911T8,
-                                    F911U1, F911U2, F911U3
-                            from PL911P3 e, licensedb.license p
-                            where
-                                    e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
+                $penyata[$e91_nobatch] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
+                        DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
+                        F911G1, F911G2, F911G3, F911G4, F911H1, F911H2,
+                        F911H3, F911H4, F911I, F911J1, F911J2,
+                        F911J3, F911K1, F911K2, F911K3, F911K4,
+                        F911L1, F911L2, F911L3, F911N1, F911N2, F911N3, F911N4,
+                        F911O, F911P, F911Q,
+                        F911R,
+                        F911S1, F911S2, F911S3, F911S4, F911S5, F911S6,
+                        F911T1, F911T2, F911T3, F911T4, F911T5, F911T6, F911T7, F911T8,
+                        F911U1, F911U2, F911U3
+                from PL911P3 e, licensedb.license p
+                where
+                        e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
 
-                        }
+            }
 
-                        $layout = 'layouts.main';
+            $layout = 'layouts.main';
 
-                        // dd($penyata);
-                        // $data = DB::table('pelesen')->get();
-                        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns'));
+            // dd($penyata);
+            // $data = DB::table('pelesen')->get();
+            return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns'));
 
 
         } elseif ($tahun > 2022) {
@@ -2377,8 +2385,6 @@ class Proses9Controller extends Controller
     public function process_admin_9penyataterdahulu_bio_form($nobatch, $tahun, $bulan)
     {
 
-        // $this->admin_9penyataterdahulu_process($tahun1);
-        // dd($bulan);
 
         if (!$nobatch) {
             return redirect()->back()
@@ -2400,14 +2406,9 @@ class Proses9Controller extends Controller
         ];
 
 
-        // $tahun = HBioInit::where('ebio_thn', $tahun);
-        // $bulan = HBioInit::where('ebio_bln', $bulan);
-        // dd($bulan);
         foreach ($nobatch as $key => $ebio_nobatch) {
-            // dd($ebio_nobatch);
+
             $pelesens[$ebio_nobatch] = (object)[];
-            // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
-            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
             $penyata[$ebio_nobatch] = DB::select("SELECT *, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate
 
@@ -2415,12 +2416,10 @@ class Proses9Controller extends Controller
                             WHERE p.e_nl = e.ebio_nl
                             AND e.ebio_nobatch = '$ebio_nobatch'
                             AND e.ebio_thn = '$tahun'
-                            -- AND p.e_thn = '2022'
-                            -- AND p.e_bln = '10'
+                            AND p.e_thn = '2022'
+                            AND p.e_bln = '10'
                             AND e.ebio_bln = '$bulan'");
 
-            // dd($penyata);
-            // if($penyata[$key]->h_pelesen){
 
                 $ia[$ebio_nobatch] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
@@ -2438,27 +2437,14 @@ class Proses9Controller extends Controller
                 $iii[$ebio_nobatch]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->get();
 
 
-                // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$ebio_nobatch][$key]->ebio_sdate);
-                // $formatteddate = $myDateTime->format('d-m-Y');
-
-            // }
-
-            // else{
-                // return redirect()->back()
-                // ->with('error', 'Data Tidak Wujud!');
-            // }
-
         }
-        // dd($penyata);
 
 
         $layout = 'layouts.main';
 
-        // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-terdahulu-bio-multi', compact(
             'returnArr',
             'layout',
-            // 'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -2474,6 +2460,22 @@ class Proses9Controller extends Controller
 
     } elseif ($tahun > 2022) {
 
+        $check = HBioInit::with('h_pelesen')->where('ebio_nobatch', $nobatch)->where('ebio_thn', $tahun)->where('ebio_bln', $bulan)->first();
+        // dd($check);
+
+        foreach($check->h_pelesen as $pelesen) {
+            if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
+                $data_pelesen = $pelesen;
+            } else {
+                $data_pelesen = '';
+
+            }
+        }
+        // dd($data_pelesen);
+        if ($data_pelesen) {
+
+        if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
@@ -2487,13 +2489,10 @@ class Proses9Controller extends Controller
         ];
 
 
-        // $tahun = HBioInit::where('ebio_thn', $tahun);
-        // $bulan = HBioInit::where('ebio_bln', $bulan);
-        // dd($bulan);
         foreach ($nobatch as $key => $ebio_nobatch) {
             $pelesens[$key] = (object)[];
-            // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
-            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
+            $bln = ltrim($bulan, "0");
+
 
             $penyata[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, e.ebio_notel, e.ebio_npg, e.ebio_jpg, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
@@ -2501,12 +2500,11 @@ class Proses9Controller extends Controller
                             WHERE p.e_nl = e.ebio_nl
                             AND e.ebio_nobatch = '$ebio_nobatch'
                             AND e.ebio_thn = '$tahun'
+                            AND p.e_kat = 'PLBIO'
                             AND p.e_thn = '$tahun'
-                            AND p.e_bln = '$bulan'
+                            AND p.e_bln = '$bln'
                             AND e.ebio_bln = '$bulan'");
 
-            // dd($penyata[$key][0]);
-            // if($penyata[$key]->h_pelesen){
 
                 $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key][0]->ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
@@ -2524,27 +2522,14 @@ class Proses9Controller extends Controller
                 $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key][0]->ebio_nobatch)->get();
 
 
-                // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
-                // $formatteddate = $myDateTime->format('d-m-Y');
-
-            // }
-
-            // else{
-                // return redirect()->back()
-                // ->with('error', 'Data Tidak Wujud!');
-            // }
-
         }
-        // dd($ib);
 
 
         $layout = 'layouts.main';
 
-        // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-terdahulu-bio-multi', compact(
             'returnArr',
             'layout',
-            // 'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -2556,6 +2541,15 @@ class Proses9Controller extends Controller
             'iii',
 
         ));
+    }
+    else {
+        return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+    }
+
+    } else {
+    return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+
+    }
     }
 }
 }
