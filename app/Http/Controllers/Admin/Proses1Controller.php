@@ -226,6 +226,71 @@ class Proses1Controller extends Controller
 
         ]);
     }
+    protected function store_pelesen(Request $request)
+    {
+        // dd($request->all());
+
+        $count = Pelesen::max('e_id');
+
+        //
+        // $pelesen = Pelesen::where('e_nl', $request->e_nl)->where('e_kat', $request->e_kat)->first();
+        // if ($pelesen) {
+
+        // } else {
+
+
+     Pelesen::create([
+            'e_id' => $count + 1,
+            'e_nl' => $request->e_nl,
+            'e_np' => $request->e_np,
+            'e_kat' => $request->e_kat,
+            'e_ap1' => $request->e_ap1,
+            'e_ap2' => $request->e_ap2 ?? NULL,
+            'e_ap3' => $request->e_ap3 ?? NULL,
+            'e_as1' => $request->e_as1,
+            'e_as2' => $request->e_as2 ?? NULL,
+            'e_as3' => $request->e_as3 ?? NULL,
+            'e_notel' => $request->e_notel ?? NULL,
+            'e_nofax' => $request->e_nofax ?? NULL,
+            'e_email' => $request->e_email ?? NULL,
+            'e_npg' => $request->e_npg ?? NULL,
+            'e_jpg' => $request->e_jpg ?? NULL,
+            'e_notel_pg' => $request->e_notel_pg ?? NULL,
+            'e_email_pg' => $request->e_email_pg ?? NULL,
+            'kodpgw' => $request->kodpgw ?? NULL,
+            'nosiri' => $request->nosiri ?? NULL,
+            'e_npgtg' => $request->e_npgtg ?? NULL,
+            'e_jpgtg' => $request->e_jpgtg ?? NULL,
+            'e_negeri' => $request->e_negeri ?? NULL,
+            'e_daerah' => $request->e_daerah ?? NULL,
+            'e_kawasan' => $request->e_kawasan ?? NULL,
+            'e_syktinduk' => $request->e_syktinduk ?? NULL,
+            'e_group' => $request->e_group ?? NULL,
+            'e_poma' =>  $request->e_poma ?? NULL,
+            'e_biogas' =>  $request->e_biogas ?? NULL,
+            'e_status_biogas' =>  $request->e_status_biogas ?? NULL,
+            'e_year' => $request->e_year ?? NULL,
+            'e_email_pengurus' => $request->e_email_pengurus ?? NULL,
+            'kap_proses' => $request->kap_proses ?? NULL,
+            'tahun' => date("Y"),
+            'bulan' => date("m"),
+            'bil_tangki_cpo' => $request->bil_tangki_cpo ?? NULL,
+            'bil_tangki_ppo' => $request->bil_tangki_ppo ?? NULL,
+            'bil_tangki_cpko' => $request->bil_tangki_cpko ?? NULL,
+            'bil_tangki_ppko' => $request->bil_tangki_ppko ?? NULL,
+            'bil_tangki_others' => $request->bil_tangki_others ?? NULL,
+            'kap_tangki_cpo' => $request->kap_tangki_cpo ?? NULL,
+            'kap_tangki_ppo' => $request->kap_tangki_ppo ?? NULL,
+            'kap_tangki_cpko' => $request->kap_tangki_cpko ?? NULL,
+            'kap_tangki_ppko' => $request->kap_tangki_ppko ?? NULL,
+            'kap_tangki_others' => $request->kap_tangki_others ?? NULL,
+
+        ]);
+    // }
+
+        return redirect()->back()
+            ->with('success', 'Maklumat telah dikemaskini');
+    }
 
     protected function store_kapasiti(array $data)
     {
@@ -282,10 +347,10 @@ class Proses1Controller extends Controller
         $reg_pelesen = RegPelesen::find($e_id);
         // $reg_pelesen = RegPelesen::where('e_nl', );
         // dd($reg_pelesen);
-        $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->first();
-        $pelesen2 = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs', 'daerah.kod_daerah', $pelesen->e_daerah)->first();
+        $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->where('e_kat',  $reg_pelesen->e_kat)->first();
+        // $pelesen2 = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs', 'daerah.kod_daerah', $pelesen->e_daerah)->first();
 
-        // dd($pelesen2);
+        // dd($pelesen);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
             ($pelesen->bil_tangki_ppo ?? 0) +
             ($pelesen->bil_tangki_cpko ?? 0) +
@@ -388,7 +453,7 @@ class Proses1Controller extends Controller
             'returnArr',
             'layout',
             'pelesen',
-            'pelesen2',
+            // 'pelesen2',
             'negeri',
             'reg_pelesen',
             'jumlah',
