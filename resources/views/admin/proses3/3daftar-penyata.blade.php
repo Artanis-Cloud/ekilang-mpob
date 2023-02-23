@@ -195,7 +195,7 @@
 
                 {{-- tab for one pelesen --}}
                 <div id="One" class="tabcontent">
-                    <form action="{{ route('admin.initialize.satu') }}">
+                    <form action="{{ route('admin.initialize.satu') }}" >
 
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:2%">Initialize Pelesen</h3>
@@ -240,8 +240,11 @@
                                     </label>
 
                                     <div class="col-md-6">
-                                        <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
+                                        <input type="date" id="datefield2" class="form-control" placeholder="Bulan" required  oninput="valid_date()"
                                             name="e_ddate">
+                                            <p type="hidden" id="err_date" style="color: red; display:none"><i>Sila buat pilihan
+                                                di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 1%">
@@ -251,8 +254,11 @@
                                     </label>
 
                                     <div class="col-md-6">
-                                        <input type="text" id="company-column" class="form-control" placeholder="No Lesen" onblur="getCat(this)"
+                                        <input type="text" id="company-column" class="form-control" placeholder="No Lesen" onblur="getCat(this)"  oninput="valid_lesen()"
                                             name="e_initlesen" maxlength="12">
+                                            <p type="hidden" id="err_lesen" style="color: red; display:none"><i>Sila buat pilihan
+                                                di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 1%">
@@ -275,8 +281,8 @@
                                 <br>
                                 <div class="row center">
                                     <div class="col-md-12 center">
-                                        <button type="button" class="btn btn-primary center" style="margin-left:45%"
-                                            data-toggle="modal" data-target="#myModal2">Initialize</button>
+                                        <button type="button" class="btn btn-primary center" style="margin-left:45%" onclick="check();"   id="checkBtn"
+                                           >Initialize</button>
                                         {{-- <button type="submit">YA</button> --}}
                                     </div>
                                 </div>
@@ -531,6 +537,80 @@
 @endsection
 
 @section('scripts')
+
+
+<script>
+    function valid_date() {
+
+        if ($('#datefield2').val() == '') {
+            $('#datefield2').css('border', '1px solid red');
+            document.getElementById('err_date').style.display = "block";
+
+
+        } else {
+            $('#datefield2').css('border', '');
+            document.getElementById('err_date').style.display = "none";
+
+        }
+
+    }
+</script>
+
+<script>
+    function valid_lesen() {
+
+        if ($('#company-column').val() == '') {
+            $('#company-column').css('border', '1px solid red');
+            document.getElementById('err_lesen').style.display = "block";
+
+
+        } else {
+            $('#company-column').css('border', '');
+            document.getElementById('err_lesen').style.display = "none";
+
+        }
+
+    }
+</script>
+
+<script>
+    function check() {
+        // (B1) INIT
+        var error = "",
+            field = "";
+
+        // kod produk
+        field = document.getElementById("datefield2");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#datefield2').css('border', '1px solid red');
+            document.getElementById('err_date').style.display = "block";
+            console.log('masuk');
+        }
+
+        field = document.getElementById("company-column");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#company-column').css('border', '1px solid red');
+            document.getElementById('err_lesen').style.display = "block";
+            console.log('masuk');
+        }
+
+
+        if (error == "") {
+            $('#myModal2').modal('show');
+            return true;
+        } else {
+            toastr.error(
+                'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                'Ralat!', {
+                    "progressBar": true
+                })
+            return false;
+        }
+
+    }
+</script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable({

@@ -533,6 +533,7 @@ class Proses3Controller extends Controller
         // dd($reg_pelesen);
         // $count = RegPelesen::count();
         $e91_init = E91Init::where('e91_nl', $request->e_initlesen)->first();
+        // $e91_exist = E91Init::where('e91_nl', $request->e_initlesen)->first();
         $e101_init = E101Init::where('e101_nl', $request->e_initlesen)->first();
         $e102_init = E102Init::where('e102_nl', $request->e_initlesen)->first();
         $e104_init = E104Init::where('e104_nl', $request->e_initlesen)->first();
@@ -545,11 +546,16 @@ class Proses3Controller extends Controller
         $bulan = date('m');
 
 
-        if ($reg_pelesen->status == '1') {
+        if (!$reg_pelesen) {
+            return redirect()->back()->with('error', 'Pelesen ini tidak wujud');
+
+        }
+        elseif ($reg_pelesen->status == '1') {
             if ($reg_pelesen->category == 'PL91') {
             if ($e91_init) {
                 return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-            }   else{
+            }
+            else{
 
                 $e_nl = $reg_pelesen->e_nl;
                 $count = E91Init::max('e91_reg');
