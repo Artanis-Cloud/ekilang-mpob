@@ -528,8 +528,8 @@ class Proses3Controller extends Controller
 
     public function admin_initialize_satu(Request $request)
     {
-        // dd($request->e_tahun);
-        $reg_pelesen = User::where('username', $request->e_initlesen)->first();
+        // dd($request->all());
+        $reg_pelesen = User::where('username', $request->e_initlesen)->where('category', $request->e_kat)->first();
         // dd($reg_pelesen);
         // $count = RegPelesen::count();
         $e91_init = E91Init::where('e91_nl', $request->e_initlesen)->first();

@@ -18,6 +18,7 @@ use DB;
 class AjaxController extends Controller
 {
 
+
     public function fetch_daerah($kod_negeri)
     {
 
@@ -47,6 +48,17 @@ class AjaxController extends Controller
         // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
 
         $list_pelesen = User::where('id', $id)->get('name');
+        // dd($list_pelesen);
+
+        return json_decode($list_pelesen);
+        exit;
+    }
+    public function fetch_cat($id)
+    {
+
+        // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
+
+        $list_pelesen = User::where('username', $id)->get('category');
         // dd($list_pelesen);
 
         return json_decode($list_pelesen);
