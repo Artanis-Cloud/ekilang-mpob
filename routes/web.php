@@ -90,6 +90,7 @@ Route::middleware('auth')->group(function () {
         Route::post('admin/1-daftarpelesen/proses', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_1daftarpelesen_proses'])->name('admin.1daftarpelesen.proses');
 
         Route::get('admin/papar-maklumat/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_papar_maklumat'])->name('admin.papar.maklumat');
+        Route::post('admin/simpan-maklumat', [App\Http\Controllers\Admin\Proses1Controller::class, 'store_pelesen'])->name('admin.daftar.maklumat');
         Route::get('admin/cetak_surat/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_cetak_surat'])->name('admin.cetak.surat');
         Route::get('admin/prestasi-oer/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_prestasi_oer'])->name('admin.prestasi.oer');
         Route::get('admin/papar-oer/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_papar_prestasi_oer'])->name('admin.papar.prestasi.oer');

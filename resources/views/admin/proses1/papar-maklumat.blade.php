@@ -62,16 +62,24 @@
                             </h5>
                         </div>
                         <hr>
-                        <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post"
-                            onsubmit="return check()" novalidate class="sub-form">
-                            @csrf
-                            <div class="container">
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Jenis Kilang </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
+                        @if ($pelesen)
+                            <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
+                                method="post" onsubmit="return check()" novalidate class="sub-form">
+                                @csrf
+                            @else
+                                <form action="{{ route('admin.daftar.maklumat') }}" method="post" onsubmit="return check()"
+                                    novalidate class="sub-form">
+                                    @csrf
+                        @endif
+
+                        <div class="container">
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Jenis Kilang </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        @if ($pelesen)
                                             <select class="form-control" name="e_kat" id="e_kat"
                                                 style="text-transform:uppercase" disabled>
 
@@ -88,71 +96,127 @@
                                                 <option {{ $reg_pelesen->e_kat == 'PLBIO' ? 'selected' : '' }}
                                                     value="PLBIO">KILANG BIODIESEL</option>
                                             </select>
-                                        </fieldset>
+                                        @else
+                                            <select class="form-control" name="e_kat" id="e_kat"
+                                                style="text-transform:uppercase" >
+                                            @if ($reg_pelesen->e_kat == 'PL91')
+                                            <option value="PL91">KILANG BUAH</option>
+                                            @elseif ($reg_pelesen->e_kat == 'PL101')
+                                            <option value="PL101">KILANG PENAPIS</option>
+                                            @elseif ($reg_pelesen->e_kat == 'PL102')
+                                            <option value="PL102">KILANG ISIRUNG</option>
 
-                                    </div>
+                                            @elseif ($reg_pelesen->e_kat == 'PL104')
+                                            <option value="PL104">KILANG OLEOKIMIA</option>
+
+                                            @elseif ($reg_pelesen->e_kat == 'PL111')
+                                            <option value="PL111">PUSAT SIMPANAN</option>
+
+                                            @else
+                                            <option value="PLBIO">KILANG BIODIESEL</option>
+
+
+                                            @endif
+                                            </select>
+                                        @endif
+
+                                    </fieldset>
+
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Status e-Kilang </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" name="e_status" id="e_status"
-                                                style="text-transform:uppercase" required>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Status e-Kilang </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" name="e_status" id="e_status"
+                                            style="text-transform:uppercase" required>
+                                            <option selected hidden value="">Sila Pilih</option>
 
+                                            @if ($pelesen)
                                                 <option {{ $reg_pelesen->e_status == '1' ? 'selected' : '' }}
-                                                    value="1">AKTIF</option>
+                                                    value="1">
+                                                    AKTIF</option>
                                                 <option {{ $reg_pelesen->e_status == '2' ? 'selected' : '' }}
-                                                    value="2">TIDAK AKTIF</option>
-                                            </select>
-                                        </fieldset>
+                                                    value="2">
+                                                    TIDAK AKTIF</option>
+                                            @else
+                                                <option value="1"> AKTIF</option>
+                                                <option value="2">TIDAK AKTIF</option>
+                                            @endif
 
-                                    </div>
+                                        </select>
+                                    </fieldset>
+
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Status e-Mingguan </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" name="e_stock" id="e_stock"
-                                                style="text-transform:uppercase" required>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Status e-Mingguan </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" name="e_stock" id="e_stock"
+                                            style="text-transform:uppercase" required>
+                                            <option selected hidden value="">Sila Pilih</option>
+
+                                            @if ($pelesen)
                                                 <option {{ $reg_pelesen->e_stock == '1' ? 'selected' : '' }}
-                                                    value="1">AKTIF</option>
+                                                    value="1">
+                                                    AKTIF</option>
                                                 <option {{ $reg_pelesen->e_stock == '2' ? 'selected' : '' }}
-                                                    value="2">TIDAK AKTIF</option>
-                                            </select>
-                                        </fieldset>
+                                                    value="2">
+                                                    TIDAK AKTIF</option>
+                                            @else
+                                                <option value="1"> AKTIF</option>
+                                                <option value="2">TIDAK AKTIF</option>
+                                            @endif
 
-                                    </div>
+                                        </select>
+                                    </fieldset>
+
                                 </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Status Direktori </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" name="directory" id="directory"
+                                            style="text-transform:uppercase" required>
+                                            <option selected hidden value="">Sila Pilih</option>
+
+                                            @if ($pelesen)
+                                                <option {{ $reg_pelesen->directory == 'Y' ? 'selected' : '' }}
+                                                    value="Y">
+                                                    YA</option>
+                                                <option {{ $reg_pelesen->directory == 'N' ? 'selected' : '' }}
+                                                    value="N">
+                                                    TIDAK</option>
+                                            @else
+                                                <option value="Y">YA</option>
+                                                <option value="N">TIDAK</option>
+                                            @endif
+
+                                        </select>
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                            @if ($reg_pelesen->e_kat != 'PLBIO')
                                 <div class="row">
                                     <label for="fname"
                                         class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Status Direktori </label>
+                                        Kod Negeri </label>
                                     <div class="col-md">
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="directory" id="directory"
+                                            <select class="form-control" name="kodpgw" id="kodpgw"
                                                 style="text-transform:uppercase" required>
-                                                <option {{ $reg_pelesen->directory == 'Y' ? 'selected' : '' }}
-                                                    value="Y">YA</option>
-                                                <option {{ $reg_pelesen->directory == 'N' ? 'selected' : '' }}
-                                                    value="N">TIDAK</option>
-                                            </select>
-                                        </fieldset>
+                                                <option selected hidden value="">Sila Pilih</option>
 
-                                    </div>
-                                </div>
-                                @if ($reg_pelesen->e_kat != 'PLBIO')
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                            Kod Negeri </label>
-                                        <div class="col-md">
-                                            <fieldset class="form-group">
-                                                <select class="form-control" name="kodpgw" id="kodpgw"
-                                                    style="text-transform:uppercase" required>
+                                                @if ($pelesen)
                                                     @if ($reg_pelesen->e_kat == 'PL101')
                                                         <option
                                                             {{ ($pelesen->kodpgw == 'FA' or $pelesen->kodpgw == 'DD') ? 'selected' : '' }}
@@ -241,44 +305,56 @@
                                                         <option {{ $pelesen->kodpgw == 'WP' ? 'selected' : '' }}
                                                             value="WP">WP</option>
                                                     @endif
+                                                @else
+                                                    @if ($reg_pelesen->e_kat == 'PL101')
+                                                        <option value="FA">FA</option>
+                                                        <option value="FB">FB</option>
+                                                        <option value="FC">FC</option>
+                                                        <option value="FD">FD</option>
+                                                        <option value="FJ">FJ</option>
+                                                        <option value="FP">FP</option>
+                                                        <option value="FQ">FQ</option>
+                                                        <option value="FS">FS</option>
+                                                    @elseif ($reg_pelesen->e_kat == 'PL104')
+                                                        <option value="CA">CA</option>
+                                                        <option value="CC">CC</option>
+                                                        <option value="CJ">CJ</option>
+                                                        <option value="CP">CP</option>
+                                                        <option value="CS">CS</option>
+                                                    @elseif ($reg_pelesen->e_kat == 'PL111')
+                                                        <option value="BB">BB</option>
+                                                        <option value="BC">BC</option>
+                                                        <option value="BJ">BJ</option>
+                                                        <option value="BP">BP</option>
+                                                        <option value="BQ">BQ</option>
+                                                        <option value="BS">BS</option>
+                                                    @elseif ($reg_pelesen->e_kat == 'PL102')
+                                                        <option value="JJ">JJ</option>
+                                                        <option value="NS">NS</option>
+                                                        <option value="PH">PH</option>
+                                                        <option value="PK">PK</option>
+                                                        <option value="PP">BQ</option>
+                                                        <option value="SA">SA</option>
+                                                        <option value="SS">SS</option>
+                                                        <option value="SW">SW</option>
+                                                        <option value="WP">WP</option>
+                                                    @else
+                                                        <option value="JJ">JJ</option>
+                                                        <option value="KB">KB</option>
+                                                        <option value="KK">KK</option>
+                                                        <option value="MM">MM</option>
+                                                        <option value="NS">NS</option>
+                                                        <option value="PH">PH</option>
+                                                        <option value="PK">PK</option>
+                                                        <option value="PP">PP</option>
+                                                        <option value="SA">SA</option>
+                                                        <option value="SS">SS</option>
+                                                        <option value="WP">WP</option>
+                                                    @endif
+                                                @endif
 
-                                                </select>
-                                            </fieldset>
 
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                            Nombor Siri </label>
-                                        <div class="col-md">
-                                            <fieldset class="form-group">
-                                                <input type="text" id="nosiri" class="form-control" required
-                                                    style="text-transform:uppercase" placeholder="Nombor Siri"
-                                                    name="nosiri" maxlength="4" minlength="4"
-                                                    value="{{ $pelesen->nosiri ?? '' }}" oninput="valid_siri()"
-                                                    onkeypress="return isNumberKey(event)">
-                                                <p type="hidden" id="err_nosiri" style="color: red; display:none">
-                                                    <i>Sila isi butiran di bahagian ini!</i>
-                                                </p>
-                                            </fieldset>
-
-
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Nombor Lesen </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
-                                            <input type="text" id="e_nl" readonly class="form-control" required
-                                                minlength="12" maxlength="12" style="text-transform:uppercase"
-                                                placeholder="Nombor Lesen" name="e_nl"
-                                                value="{{ $pelesen->e_nl ?? '-' }}">
-
+                                            </select>
                                         </fieldset>
 
                                     </div>
@@ -286,287 +362,319 @@
                                 <div class="row">
                                     <label for="fname"
                                         class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Nama Premis </label>
+                                        Nombor Siri </label>
                                     <div class="col-md">
                                         <fieldset class="form-group">
-                                            <input type="text" id="e_np" class="form-control" required
-                                                maxlength="60" style="text-transform:uppercase"
-                                                oninput=" this.value = this.value.toUpperCase(); valid_np()"
-                                                placeholder="Nama Premis" name="e_np"
-                                                value="{{ $pelesen->e_np ?? '-' }}">
-                                            <p type="hidden" id="err_np" style="color: red; display:none">
+                                            <input type="text" id="nosiri" class="form-control" required
+                                                style="text-transform:uppercase" placeholder="Nombor Siri" name="nosiri"
+                                                maxlength="4" minlength="4" value="{{ $pelesen->nosiri ?? '' }}"
+                                                oninput="valid_siri()" onkeypress="return isNumberKey(event)">
+                                            <p type="hidden" id="err_nosiri" style="color: red; display:none">
                                                 <i>Sila isi butiran di bahagian ini!</i>
                                             </p>
                                         </fieldset>
 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label required col-form-label align-items-center">
-                                        Alamat Premis Berlesen</label>
-                                    <div class="col-md-8">
-                                        <input type="text" id="e_ap1" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase(); valid_ap()"
-                                            placeholder="Alamat Premis Berlesen 1" name="e_ap1"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_ap1 }}" required>
-                                        <p type="hidden" id="err_ap" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                        @error('e_ap1')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <label for="fname"
-                                        class="text-left col-sm-4">
-                                        </label>
-                                    <div class="col-md-8" style="padding-top: 10px;">
-                                        <input type="text" id="e_ap2" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Alamat Premis Berlesen 2" name="e_ap2"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_ap2 }}">
-                                        @error('e_ap2')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <label for="fname"
-                                        class="text-left col-sm-4">
-                                        </label>
-                                    <div class="col-md-8" style="padding-top: 10px;">
-                                        <input type="text" id="e_ap3" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Alamat Premis Berlesen 3" name="e_ap3"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_ap3 }}">
-                                        @error('e_ap3')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Alamat Surat Menyurat</label>
-                                    <div class="col-md-8" style="padding-top: 10px;">
-                                        <input type="text" id="e_as1" class="form-control" required
-                                            maxlength="60" oninput=" this.value = this.value.toUpperCase(); valid_as()"
-                                            placeholder="Alamat Surat Menyurat 1" name="e_as1"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_as1 }}">
-                                        <p type="hidden" id="err_as" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                        @error('e_as1')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <label for="fname"
-                                        class="text-left col-sm-4">
-                                        </label>
-                                    <div class="col-md-8" style="padding-top: 10px;">
-                                        <input type="text" id="e_as2" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Alamat Surat Menyurat 2" name="e_as2"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_as2 }}">
-                                        @error('e_as2')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <label for="fname"
-                                        class="text-left col-sm-4">
-                                        </label>
-                                    <div class="col-md-8" style="padding-top: 10px;">
-                                        <input type="text" id="e_as3" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Alamat Surat Menyurat 3" name="e_as3"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_as3 }}">
-                                        @error('e_as3')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        No. Telefon (Pejabat / Kilang)</label>
-                                    <div class="col-md-8" style="padding-top: 10px;">
-                                        <input type="text" id="e_notel" class="form-control" maxlength="40"
-                                            oninput="valid_notel()" placeholder="No. Telefon Pejabat / Kilang"
-                                            name="e_notel" style="text-transform:uppercase"
-                                            value="{{ $pelesen->e_notel }}" required>
-                                        <p type="hidden" id="err_notel" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                        @error('e_notel')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label align-items-center">
-                                        No. Faks</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="text" id="e_nofax" class="form-control" maxlength="40"
-                                            placeholder="No. Faks" name="e_nofax" style="text-transform:uppercase"
-                                            value="{{ $pelesen->e_nofax }}">
-                                        @error('e_nofax')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Alamat Emel Kilang</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="email" id="e_email" class="form-control"
-                                            placeholder="ALAMAT EMEL KILANG" name="e_email" required maxlength="40"
-                                            value="{{ $pelesen->e_email }}" oninput="valid_email(); ValidateEmail()">
-
-                                        <p type="hidden" id="err_email" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                        <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila
-                                                masukkan
-                                                alamat emel yang betul!</i></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Nama Pegawai Melapor</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="text" id="e_npg" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Nama Pegawai Melapor" name="e_npg"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_npg }}"
-                                            oninput="valid_npg()">
-
-                                        <p type="hidden" id="err_npg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Jawatan Pegawai Melapor</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="text" id="e_jpg" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Jawatan Pegawai Melapor" name="e_jpg"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_jpg }}"
-                                            oninput="valid_jpg()">
-
-                                        <p type="hidden" id="err_jpg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        No. Telefon Pegawai Melapor</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="text" id="e_notel_pg" class="form-control"
-                                            placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
-                                            name="e_notel_pg" maxlength="40" value="{{ $pelesen->e_notel_pg }}"
-                                            oninput="valid_notel_pg()">
-
-                                        <p type="hidden" id="err_notel_pg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Alamat Emel Pegawai Melapor</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="email" id="e_email_pg" class="form-control"
-                                            placeholder="ALAMAT EMEL PEGAWAI MELAPOR" maxlength="40" name="e_email_pg"
-                                            value="{{ $pelesen->e_email_pg }}" oninput="valid_email_pg()">
-
-                                        <p type="hidden" id="err_email_pg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Nama Pegawai Bertanggungjawab</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="text" id="e_npgtg" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_npgtg }}"
-                                            oninput="valid_npgtg()">
-
-                                        <p type="hidden" id="err_npgtg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
-                                    {{-- </div> --}}
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Jawatan Pegawai
-                                        Bertanggungjawab</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
-                                            oninput=" this.value = this.value.toUpperCase()"
-                                            placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_jpgtg }}"
-                                            oninput="valid_jpgtg()">
-
-                                        <p type="hidden" id="err_jpgtg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
 
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                        Alamat Emel Pengurus</label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <input type="email" id="e_email_pengurus" class="form-control" maxlength="40"
-                                            placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
-                                            value="{{ $pelesen->e_email_pengurus }}" oninput="valid_email_pengurus()">
+                            @endif
 
-                                        <p type="hidden" id="err_email_pengurus" style="color: red; display:none">
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Nombor Lesen </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        <input type="text" id="e_nl" readonly class="form-control" required
+                                            minlength="12" maxlength="12" style="text-transform:uppercase"
+                                            placeholder="Nombor Lesen" name="e_nl"
+                                            value="{{ $reg_pelesen->e_nl }}">
+
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Nama Premis </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        <input type="text" id="e_np" class="form-control" required
+                                            maxlength="60" style="text-transform:uppercase"
+                                            oninput=" this.value = this.value.toUpperCase(); valid_np()"
+                                            placeholder="Nama Premis" name="e_np" value="{{ $pelesen->e_np ?? '' }}">
+                                        <p type="hidden" id="err_np" style="color: red; display:none">
                                             <i>Sila isi butiran di bahagian ini!</i>
                                         </p>
-                                    </div>
+                                    </fieldset>
+
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Negeri </label>
-                                    <div class="col-md" style="padding-top: 10px;">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" id="negeri_id" name='e_negeri' required
-                                                style="text-transform:uppercase"
-                                                onchange="ajax_daerah(this);ajax_kawasan(this)">
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label required col-form-label align-items-center">
+                                    Alamat Premis Berlesen</label>
+                                <div class="col-md-8">
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase(); valid_ap()"
+                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_ap1 ?? '' }}" required>
+                                    <p type="hidden" id="err_ap" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                    @error('e_ap1')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <label for="fname" class="text-left col-sm-4">
+                                </label>
+                                <div class="col-md-8" style="padding-top: 10px;">
+                                    <input type="text" id="e_ap2" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_ap2 ?? '' }}">
+                                    @error('e_ap2')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <label for="fname" class="text-left col-sm-4">
+                                </label>
+                                <div class="col-md-8" style="padding-top: 10px;">
+                                    <input type="text" id="e_ap3" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_ap3 ?? '' }}">
+                                    @error('e_ap3')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Alamat Surat Menyurat</label>
+                                <div class="col-md-8" style="padding-top: 10px;">
+                                    <input type="text" id="e_as1" class="form-control" required maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase(); valid_as()"
+                                        placeholder="Alamat Surat Menyurat 1" name="e_as1"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_as1 ?? '' }}">
+                                    <p type="hidden" id="err_as" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                    @error('e_as1')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <label for="fname" class="text-left col-sm-4">
+                                </label>
+                                <div class="col-md-8" style="padding-top: 10px;">
+                                    <input type="text" id="e_as2" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Surat Menyurat 2" name="e_as2"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_as2 ?? '' }}">
+                                    @error('e_as2')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <label for="fname" class="text-left col-sm-4">
+                                </label>
+                                <div class="col-md-8" style="padding-top: 10px;">
+                                    <input type="text" id="e_as3" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_as3 ?? '' }}">
+                                    @error('e_as3')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    No. Telefon (Pejabat / Kilang)</label>
+                                <div class="col-md-8" style="padding-top: 10px;">
+                                    <input type="text" id="e_notel" class="form-control" maxlength="40"
+                                        oninput="valid_notel()" placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_notel ?? '' }}" required>
+                                    <p type="hidden" id="err_notel" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                    @error('e_notel')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label align-items-center">
+                                    No. Faks</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="text" id="e_nofax" class="form-control" maxlength="40"
+                                        placeholder="No. Faks" name="e_nofax" style="text-transform:uppercase"
+                                        value="{{ $pelesen->e_nofax ?? '' }}">
+                                    @error('e_nofax')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Alamat Emel Kilang</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="email" id="e_email" class="form-control"
+                                        placeholder="ALAMAT EMEL KILANG" name="e_email" required maxlength="40"
+                                        value="{{ $pelesen->e_email ?? '' }}" oninput="valid_email(); ValidateEmail()">
+
+                                    <p type="hidden" id="err_email" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                    <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila
+                                            masukkan
+                                            alamat emel yang betul!</i></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Nama Pegawai Melapor</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="text" id="e_npg" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Nama Pegawai Melapor" name="e_npg"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_npg ?? '' }}"
+                                        oninput="valid_npg()">
+
+                                    <p type="hidden" id="err_npg" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Jawatan Pegawai Melapor</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="text" id="e_jpg" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_jpg ?? '' }}"
+                                        oninput="valid_jpg()">
+
+                                    <p type="hidden" id="err_jpg" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    No. Telefon Pegawai Melapor</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="text" id="e_notel_pg" class="form-control"
+                                        placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
+                                        name="e_notel_pg" maxlength="40" value="{{ $pelesen->e_notel_pg ?? '' }}"
+                                        oninput="valid_notel_pg()">
+
+                                    <p type="hidden" id="err_notel_pg" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Alamat Emel Pegawai Melapor</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="email" id="e_email_pg" class="form-control"
+                                        placeholder="ALAMAT EMEL PEGAWAI MELAPOR" maxlength="40" name="e_email_pg"
+                                        value="{{ $pelesen->e_email_pg ?? '' }}" oninput="valid_email_pg()">
+
+                                    <p type="hidden" id="err_email_pg" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Nama Pegawai Bertanggungjawab</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="text" id="e_npgtg" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_npgtg ?? '' }}"
+                                        oninput="valid_npgtg()">
+
+                                    <p type="hidden" id="err_npgtg" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                                {{-- </div> --}}
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Jawatan Pegawai
+                                    Bertanggungjawab</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
+                                        oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
+                                        style="text-transform:uppercase" value="{{ $pelesen->e_jpgtg ?? '' }}"
+                                        oninput="valid_jpgtg()">
+
+                                    <p type="hidden" id="err_jpgtg" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                    Alamat Emel Pengurus</label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <input type="email" id="e_email_pengurus" class="form-control" maxlength="40"
+                                        placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
+                                        value="{{ $pelesen->e_email_pengurus ?? '' }}" oninput="valid_email_pengurus()">
+
+                                    <p type="hidden" id="err_email_pengurus" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Negeri </label>
+                                <div class="col-md" style="padding-top: 10px;">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" id="negeri_id" name='e_negeri' required
+                                            style="text-transform:uppercase"
+                                            onchange="ajax_daerah(this);ajax_kawasan(this)">
+                                            <option selected hidden disabled value="">Sila Pilih</option>
+
+                                            @if ($pelesen)
                                                 @if ($pelesen->negeri)
                                                     @foreach ($negeri as $data)
                                                         <option value="{{ $data->kod_negeri }}"
@@ -582,18 +690,29 @@
                                                         </option>
                                                     @endforeach
                                                 @endif
+                                            @else
+                                                @foreach ($negeri as $data)
+                                                    <option value="{{ $data->kod_negeri }}">
+                                                        {{ $data->nama_negeri }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
 
-                                            </select>
-                                        </fieldset>
 
-                                    </div>
+                                        </select>
+                                    </fieldset>
+
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Daerah </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Daerah </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+
+
+                                        @if ($pelesen)
                                             <select class="form-control" id="daerah_id" name='e_daerah' required
                                                 style="text-transform:uppercase" placeholder="Daerah">
                                                 @if ($pelesen->negeri)
@@ -606,151 +725,191 @@
                                                 @else
                                                     <option selected hidden disabled> Sila Pilih Daerah</option>
                                                 @endif
+                                            </select>
+                                        @else
+                                            <select class="form-control" id="daerah_id" name='e_daerah' required
+                                                placeholder="Daerah" style="text-transform:uppercase"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity(''); invokeFunc21(); valid_daerah()">
+                                                <option selected hidden disabled value="">Sila Pilih Negeri Terlebih
+                                                    Dahulu
+                                                </option>
+                                            </select>
+                                        @endif
 
-                                                {{-- <option selected hidden disabled value="">POMA</option>
+                                        {{-- <option selected hidden disabled value="">POMA</option>
                                             <option {{ $pelesen->e_daerah == 'Ya' ? 'selected' : '' }} value="Ya">
                                                 Ya</option>
                                             <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
                                                 Tidak</option> --}}
-                                            </select>
-                                        </fieldset>
-                                    </div>
+                                    </fieldset>
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Kawasan </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" id="kawasan_id" style="text-transform:uppercase"
-                                                name='e_kawasan' required>
-                                                @if ($pelesen->negeri)
-                                                    <option value="{{ $pelesen->negeri->kod_region }}" selected hidden
-                                                        disabled>
-                                                        {{ $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu' }}
-                                                    </option>
-                                                @else
-                                                    <option selected hidden disabled> Sila Pilih Kawasan</option>
-                                                @endif
-                                            </select>
-                                        </fieldset>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Kawasan </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        @if ($pelesen)
+                                        <select class="form-control" id="kawasan_id" style="text-transform:uppercase"
+                                        name='e_kawasan' required>
+                                        @if ($pelesen->negeri)
+                                            <option value="{{ $pelesen->negeri->kod_region }}" selected hidden
+                                                disabled>
+                                                {{ $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu' }}
+                                            </option>
+                                        @else
+                                            <option selected hidden disabled> Sila Pilih Kawasan</option>
+                                        @endif
+                                    </select>
+                                    @else
+                                    <select class="form-control" id="kawasan_id" name='e_kawasan' required style="text-transform:uppercase"
+                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                    oninput="setCustomValidity(''); invokeFunc22(); valid_kawasan()">
+                                    <option value="" selected hidden disabled>Sila Pilih
+                                        Daerah Terlebih Dahulu</option>
+                                </select>
+                                    @endif
 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Syarikat Induk</label>
-                                    <div class="col-md">
-                                        <input type="text" id="e_syktinduk" class="form-control" required
-                                            maxlength="60" placeholder="Syarikat Induk" name="e_syktinduk"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_syktinduk }}"
-                                            oninput="valid_syktinduk(); this.value = this.value.toUpperCase()"">
+                                    </fieldset>
 
-                                        <p type="hidden" id="err_syktinduk" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Tahun Mula Beroperasi</label>
-                                    <div class="col-md">
-                                        <input type="text" id="e_year" class="form-control" required
-                                            onkeypress="return isNumberKey(event)" placeholder="Tahun Mula Beroperasi"
-                                            name="e_year" maxlength="4" minlength="4"
-                                            style="text-transform:uppercase" value="{{ $pelesen->e_year ?? '' }}"
-                                            oninput="valid_year()">
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Syarikat Induk</label>
+                                <div class="col-md">
+                                    <input type="text" id="e_syktinduk" class="form-control" required maxlength="60"
+                                        placeholder="Syarikat Induk" name="e_syktinduk" style="text-transform:uppercase"
+                                        value="{{ $pelesen->e_syktinduk ?? '' }}"
+                                        oninput="valid_syktinduk(); this.value = this.value.toUpperCase()"">
 
-                                        <p type="hidden" id="err_year" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i>
-                                        </p>
-                                    </div>
+                                    <p type="hidden" id="err_syktinduk" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                        Kumpulan </label>
-                                    <div class="col-md">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" id="e_group" name="e_group"
-                                                style="text-transform:uppercase" required oninput="valid_group()">
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Tahun Mula Beroperasi</label>
+                                <div class="col-md">
+                                    <input type="text" id="e_year" class="form-control" required
+                                        onkeypress="return isNumberKey(event)" placeholder="Tahun Mula Beroperasi"
+                                        name="e_year" maxlength="4" minlength="4" style="text-transform:uppercase"
+                                        value="{{ $pelesen->e_year ?? '' }}" oninput="valid_year()">
+
+                                    <p type="hidden" id="err_year" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                    Kumpulan </label>
+                                <div class="col-md">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" id="e_group" name="e_group"
+                                            style="text-transform:uppercase" required oninput="valid_group()">
+                                            @if ($pelesen)
                                                 <option selected hidden value="">Sila Pilih Kumpulan</option>
 
                                                 <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
                                                     KERAJAAN</option>
                                                 <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
                                                     SWASTA</option>
-                                            </select>
+                                            @else
+                                                <option selected hidden value="">Sila Pilih Kumpulan</option>
 
-                                            <p type="hidden" id="err_group" style="color: red; display:none">
-                                                <i>Sila isi butiran di bahagian ini!</i>
-                                            </p>
+                                                <option value="GOV"> KERAJAAN</option>
+                                                <option value="IND">SWASTA</option>
+                                            @endif
 
-                                        </fieldset>
+                                        </select>
 
-                                    </div>
+                                        <p type="hidden" id="err_group" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+
+                                    </fieldset>
+
                                 </div>
-                                @if ($reg_pelesen->e_kat == 'PL91')
-                                    <div class="row">
+                            </div>
+                            @if ($reg_pelesen->e_kat == 'PL91')
+                                <div class="row">
 
-                                        <label for="fname"
-                                            class="text-left col-sm-4 control-label col-form-label required align-items-center">
-                                            POMA </label>
-                                        <div class="col-md">
-                                            <fieldset class="form-group">
-                                                <select class="form-control" id="e_poma"
-                                                    style="text-transform:uppercase" name="e_poma" required>
+                                    <label for="fname"
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
+                                        POMA </label>
+                                    <div class="col-md">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="e_poma" style="text-transform:uppercase"
+                                                name="e_poma" required>
+                                                @if ($pelesen)
                                                     <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }}
                                                         value="Ya">
                                                         YA</option>
                                                     <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }}
                                                         value="Tidak">
                                                         TIDAK</option>
-                                                </select>
-                                            </fieldset>
+                                                @else
+                                                    <option value="Ya">YA</option>
+                                                    <option value="Tidak">TIDAK</option>
+                                                @endif
 
-                                        </div>
+                                            </select>
+                                        </fieldset>
 
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 form-group">
-                                            <label for="fname" class=" control-label col-form-label required">
-                                                Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
-                                        </div>
-                                        <div class="col-md">
-                                            <fieldset class="form-group">
-                                                <select class="form-control" id="e_biogas" name="e_biogas" required
-                                                    oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                                    <option selected hidden value="">SILA PILIH</option>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 form-group">
+                                        <label for="fname" class=" control-label col-form-label required">
+                                            Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
+                                    </div>
+                                    <div class="col-md">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="e_biogas" name="e_biogas" required
+                                                oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                <option selected hidden value="">SILA PILIH</option>
+                                                @if ($pelesen)
                                                     <option {{ $pelesen->e_biogas == '1' ? 'selected' : '' }}
                                                         value="1">
                                                         YA</option>
                                                     <option {{ $pelesen->e_biogas == '2' ? 'selected' : '' }}
                                                         value="2">
                                                         TIDAK</option>
-                                                </select>
-                                                <p type="hidden" id="err_biogas" style="color: red; display:none">
-                                                    <i>Sila buat
-                                                        pilihan di bahagian ini!</i></p>
-                                            </fieldset>
-                                        </div>
+                                                @else
+                                                    <option value="1">YA</option>
+                                                    <option value="2">TIDAK</option>
+                                                @endif
+
+                                            </select>
+                                            <p type="hidden" id="err_biogas" style="color: red; display:none">
+                                                <i>Sila buat
+                                                    pilihan di bahagian ini!</i>
+                                            </p>
+                                        </fieldset>
                                     </div>
-                                    <div id="biogas" style="display: none">
-                                        <div class="row">
-                                            <div class="col-sm-4 form-group">
-                                                <label for="fname" class=" control-label col-form-label required">
-                                                    Apakah status loji biogas tersebut? </label>
-                                            </div>
-                                            <div class="col-md">
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" id="e_status_biogas"
-                                                        name="e_status_biogas"
-                                                        oninput="setCustomValidity(''); valid_statusbiogas()"
-                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                                        <option selected hidden value="">SILA PILIH</option>
+                                </div>
+                                <div id="biogas" style="display: none">
+                                    <div class="row">
+                                        <div class="col-sm-4 form-group">
+                                            <label for="fname" class=" control-label col-form-label required">
+                                                Apakah status loji biogas tersebut? </label>
+                                        </div>
+                                        <div class="col-md">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="e_status_biogas" name="e_status_biogas"
+                                                    oninput="setCustomValidity(''); valid_statusbiogas()"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                    <option selected hidden value="">SILA PILIH</option>
+                                                    @if ($pelesen)
                                                         <option {{ $pelesen->e_status_biogas == '3' ? 'selected' : '' }}
                                                             value="3">
                                                             TELAH SIAP</option>
@@ -760,616 +919,620 @@
                                                         <option {{ $pelesen->e_status_biogas == '1' ? 'selected' : '' }}
                                                             value="1">
                                                             DALAM PERANCANGAN</option>
-                                                    </select>
-                                                    <p type="hidden" id="err_biogas2" style="color: red; display:none">
-                                                        <i>Sila buat
-                                                            pilihan di bahagian ini!</i></p>
-                                                </fieldset>
-                                            </div>
+                                                    @else
+                                                        <option value="3">TELAH SIAP</option>
+                                                        <option value="2">DALAM PEMBINAAN</option>
+                                                        <option value="1">DALAM PERANCANGAN</option>
+                                                    @endif
+
+                                                </select>
+                                                <p type="hidden" id="err_biogas2" style="color: red; display:none">
+                                                    <i>Sila buat
+                                                        pilihan di bahagian ini!</i>
+                                                </p>
+                                            </fieldset>
                                         </div>
                                     </div>
-                                @endif
-                                @if ($reg_pelesen->e_kat != 'PL111')
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                            Kapasiti Pemprosesan / Tahun</label>
-                                        <div class="col-md">
-                                            <input type="text" id="kap_proses" class="form-control" maxlength="10"
-                                                placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                                style="text-transform:uppercase" onkeypress="return point(event)"
-                                                value="{{ number_format($pelesen->kap_proses) }}"
-                                                oninput=" FormatCurrency(this)">
+                                </div>
+                            @endif
+                            @if ($reg_pelesen->e_kat != 'PL111')
+                                <div class="row">
+                                    <label for="fname"
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                        Kapasiti Pemprosesan / Tahun</label>
+                                    <div class="col-md">
+                                        <input type="text" id="kap_proses" class="form-control" maxlength="10"
+                                            placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                            style="text-transform:uppercase" onkeypress="return point(event)"
+                                            value="{{ number_format($pelesen->kap_proses ?? 0) }}"
+                                            oninput=" FormatCurrency(this)">
 
-                                            <p type="hidden" id="err_proses" style="color: red; display:none">
-                                                <i>Sila isi butiran di bahagian ini!</i>
-                                            </p>
-                                        </div>
+                                        <p type="hidden" id="err_proses" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
                                     </div>
-                                @else
-                                    <div class="row noScreen">
-                                        <label for="fname"
-                                            class="text-left col-sm-4 control-label col-form-label  align-items-center">
-                                            Kapasiti Pemprosesan / Tahun</label>
-                                        <div class="col-md">
-                                            <input type="text" id="kap_proses" class="form-control" maxlength="10"
-                                                placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                                style="text-transform:uppercase" value="0">
+                                </div>
+                            @else
+                                <div class="row noScreen">
+                                    <label for="fname"
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
+                                        Kapasiti Pemprosesan / Tahun</label>
+                                    <div class="col-md">
+                                        <input type="text" id="kap_proses" class="form-control" maxlength="10"
+                                            placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                            style="text-transform:uppercase" value="0">
 
-                                        </div>
                                     </div>
-                                @endif
+                                </div>
+                            @endif
 
-                                <div class="col-12">
-                                    @if ($reg_pelesen->e_kat == 'PL91')
-                                        <div style="margin-left:-2%">
+                            <div class="col-12">
+                                @if ($reg_pelesen->e_kat == 'PL91')
+                                    <div style="margin-left:-2%">
 
-                                            <div class="row mr-auto" style="margin:20px 0px">
-                                                <div class="col-sm-4 form-group" style="margin: 0px">
-                                                    <span></span>
-                                                </div>
-                                                <div class="col-md" style="text-align: centerS">
-                                                    <span>CPO</span>
-                                                </div>
+                                        <div class="row mr-auto" style="margin:20px 0px">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                                <span></span>
                                             </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-4 form-group" style="margin: 0px">
-                                                    <label for="fname" class="control-label col-form-label ">
-                                                        Bilangan Tangki</label>
-                                                </div>
-
-                                                <div class="col-md">
-                                                    <input type="text" class="form-control" name='bil_tangki_cpo'
-                                                        style="width:50%" id="bil_tangki_cpo91"
-                                                        title="Sila isikan butiran ini."
-                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                        onkeypress="return point(event)"
-                                                        value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
-                                                        onClick="this.select();">
-
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-4 form-group" style="margin: 0px">
-                                                    <label for="fname" class="control-label col-form-label">
-                                                        Kapasiti Tangki Simpanan (Tan)</label>
-                                                </div>
-                                                <div class="col-md">
-                                                    <input type="text" class="form-control" name='kap_tangki_cpo'
-                                                        style="width:50%" id="kap_tangki_cpo91"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                        title="Sila isikan butiran ini." onkeypress="return point(event)"
-                                                        value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
-                                                        onClick="this.select();">
-                                                    <p type="hidden" id="err_kcpko" style="color: red; display:none">
-                                                        <i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-
-                                                </div>
+                                            <div class="col-md" style="text-align: centerS">
+                                                <span>CPO</span>
                                             </div>
                                         </div>
 
-                                        <div class="row mx-3" style="margin-left:14%">
-                                            <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
-                                                khusus untuk sesuatu produk. Sila campurkan kesemua
-                                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                            </i>
-                                        </div>
-                                    @elseif ($reg_pelesen->e_kat == 'PL101')
-                                        <br>
-
-                                        <div class="row mr-auto" style="margin-left:-2%">
-                                            <div class="col-sm-3 form-group" style="margin: 0px">
-                                                <span><br></span><label for="fname"
-                                                    class="control-label col-form-label ">
-                                                    Bilangan Tangki</label><br>
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label for="fname" class="control-label col-form-label ">
-                                                    Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                                    Bilangan Tangki</label>
                                             </div>
-                                            <div class="col-md-7">
-                                                <table style="width:100%; text-align: center; font-size: 10px">
-                                                    <tr>
-                                                        <th>CPO</th>
-                                                        <th>PPO</th>
-                                                        <th>CPKO</th>
-                                                        <th>PPKO</th>
-                                                        <th>OTHERS</th>
-                                                        <th>JUMLAH</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="text" class="form-control"
-                                                                name='bil_tangki_cpo' min="0"
-                                                                onClick="this.select();" style="width:100%"
-                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                                size="15" id="bil_tangki_cpo101"
-                                                                onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
-                                                                onchange="validation_jumlah()">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control"
-                                                                name='bil_tangki_ppo' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                                size="15" id="bil_tangki_ppo101"
-                                                                onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
-                                                                onchange="validation_jumlah()">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control"
-                                                                name='bil_tangki_cpko' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                                size="15" id="bil_tangki_cpko101"
-                                                                onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
-                                                                onchange="validation_jumlah()">
-                                                        </td>
-                                                        <td> <input type="text" class="form-control"
-                                                                name='bil_tangki_ppko' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                                size="15" id="bil_tangki_ppko101"
-                                                                onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
-                                                                onchange="validation_jumlah()">
-                                                        </td>
-                                                        <td><input type="text" class="form-control"
-                                                                name='bil_tangki_others' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                                size="15" id="bil_tangki_others101"
-                                                                onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}"
-                                                                onchange="validation_jumlah()">
-                                                        </td>
-                                                        <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
-                                                            <b><span
-                                                                    id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="vertical-align: top">
-                                                        <td><input type="text" class="form-control"
-                                                                name='kap_tangki_cpo' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput=" validate_two_decimal(this);FormatCurrency(this)"
-                                                                id="kap_tangki_cpo101" onkeypress="return point(event)"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->kap_tangki_cpo) }}"
-                                                                onchange="validation_jumlah2()">
-                                                            <p type="hidden" id="err_kcpo"
-                                                                style="color: red; display:none"><i>Sila isi
-                                                                    butiran di
-                                                                    bahagian ini!</i></p>
-                                                        </td>
-                                                        <td> <input type="text" class="form-control"
-                                                                name='kap_tangki_ppo' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                                id="kap_tangki_ppo101" onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}"
-                                                                onchange="validation_jumlah2()">
-                                                            <p type="hidden" id="err_kppo"
-                                                                style="color: red; display:none"><i>Sila isi
-                                                                    butiran di
-                                                                    bahagian ini!</i></p>
-                                                        </td>
-                                                        <td> <input type="text" class="form-control"
-                                                                name='kap_tangki_cpko' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                                id="kap_tangki_cpko101" onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}"
-                                                                onchange="validation_jumlah2()">
-                                                            <p type="hidden" id="err_kcpko"
-                                                                style="color: red; display:none"><i>Sila isi
-                                                                    butiran di
-                                                                    bahagian ini!</i></p>
-                                                        </td>
-                                                        <td> <input type="text" class="form-control"
-                                                                name='kap_tangki_ppko' onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                                id="kap_tangki_ppko101" onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}"
-                                                                onchange="validation_jumlah2()">
-                                                            <p type="hidden" id="err_kppko"
-                                                                style="color: red; display:none"><i>Sila isi
-                                                                    butiran di
-                                                                    bahagian ini!</i></p>
-                                                        </td>
-                                                        <td> <input type="text" class="form-control"
-                                                                name='kap_tangki_others' min=0 onClick="this.select();"
-                                                                style="width:100%"
-                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                                id="kap_tangki_others" onkeypress="return point(event)"
-                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                title="Sila isikan butiran ini."
-                                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}"
-                                                                onchange="validation_jumlah2()">
-                                                            <p type="hidden" id="err_others"
-                                                                style="color: red; display:none"><i>Sila isi
-                                                                    butiran di
-                                                                    bahagian ini!</i></p>
-                                                        </td>
-                                                        <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
-                                                            <b><span id="kap_tangki_jumlah">
-                                                                    {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
-                                                                </span>
-                                                            </b>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+
+                                            <div class="col-md">
+                                                <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                    style="width:50%" id="bil_tangki_cpo91"
+                                                    title="Sila isikan butiran ini."
+                                                    oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                    onkeypress="return point(event)"
+                                                    value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
+                                                    onClick="this.select();">
+
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                                <label for="fname" class="control-label col-form-label">
+                                                    Kapasiti Tangki Simpanan (Tan)</label>
+                                            </div>
+                                            <div class="col-md">
+                                                <input type="text" class="form-control" name='kap_tangki_cpo'
+                                                    style="width:50%" id="kap_tangki_cpo91"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                    title="Sila isikan butiran ini." onkeypress="return point(event)"
+                                                    value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
+                                                    onClick="this.select();">
+                                                <p type="hidden" id="err_kcpko" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
 
-                                        <br><br>
-                                        <div class="row ">
-                                            <i style="margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
-                                                tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
-                                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                            </i>
-                                        </div>
-
-                                </div>
-                            @elseif ($reg_pelesen->e_kat == 'PL102')
-                                <div style="margin-left:-2%">
-
-                                    <div class="row mr-auto" style="margin:20px 0px">
-                                        <div class="col-sm-3 form-group" style="margin: 0px">
-                                            <span></span>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <span>CPKO</span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="row mr-auto" style="margin:20px 0px">
+                                    <div class="row mx-3" style="margin-left:14%">
+                                        <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                                            khusus untuk sesuatu produk. Sila campurkan kesemua
+                                            bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                        </i>
+                                    </div>
+                                @elseif ($reg_pelesen->e_kat == 'PL101')
+                                    <br>
+
+                                    <div class="row mr-auto" style="margin-left:-2%">
                                         <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <span><br></span><label for="fname" class="control-label col-form-label ">
+                                                Bilangan Tangki</label><br>
                                             <label for="fname" class="control-label col-form-label ">
-                                                Bilangan Tangki</label>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control" name='bil_tangki_cpko'
-                                                style="width:20%" onClick="this.select();" id="bil_tangki_cpko102"
-                                                title="Sila isikan butiran ini."
-                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                onkeypress="return point(event)"
-                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}">
-                                            @error('bil_tangki_cpko')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="row mr-auto" style="margin:20px 0px">
-                                        <div class="col-sm-3 form-group" style="margin: 0px">
-                                            <label for="fname" class="control-label col-form-label">
-                                                Kapasiti Tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                                Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
                                         </div>
                                         <div class="col-md-7">
-                                            <input type="text" class="form-control" name='kap_tangki_cpko'
-                                                style="width:20%" id="kap_tangki_cpko102"
-                                                oninput="this.setCustomValidity(''); validate_two_decimal(this);  FormatCurrency(this)"
-                                                onClick="this.select();" title="Sila isikan butiran ini."
-                                                onkeypress="return point(event)"
-                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}" reuired>
-                                            <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
-                                                    butiran di
-                                                    bahagian ini!</i></p>
-                                            @error('kap_tangki_cpko')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
+                                            <table style="width:100%; text-align: center; font-size: 10px">
+                                                <tr>
+                                                    <th>CPO</th>
+                                                    <th>PPO</th>
+                                                    <th>CPKO</th>
+                                                    <th>PPKO</th>
+                                                    <th>OTHERS</th>
+                                                    <th>JUMLAH</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                            min="0" onClick="this.select();" style="width:100%"
+                                                            oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                            size="15" id="bil_tangki_cpo101"
+                                                            onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
+                                                            onchange="validation_jumlah()">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name='bil_tangki_ppo'
+                                                            onClick="this.select();" style="width:100%"
+                                                            oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                            size="15" id="bil_tangki_ppo101"
+                                                            onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
+                                                            onchange="validation_jumlah()">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name='bil_tangki_cpko'
+                                                            onClick="this.select();" style="width:100%"
+                                                            oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                            size="15" id="bil_tangki_cpko101"
+                                                            onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
+                                                            onchange="validation_jumlah()">
+                                                    </td>
+                                                    <td> <input type="text" class="form-control"
+                                                            name='bil_tangki_ppko' onClick="this.select();"
+                                                            style="width:100%"
+                                                            oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                            size="15" id="bil_tangki_ppko101"
+                                                            onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
+                                                            onchange="validation_jumlah()">
+                                                    </td>
+                                                    <td><input type="text" class="form-control"
+                                                            name='bil_tangki_others' onClick="this.select();"
+                                                            style="width:100%"
+                                                            oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                            size="15" id="bil_tangki_others101"
+                                                            onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}"
+                                                            onchange="validation_jumlah()">
+                                                    </td>
+                                                    <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
+                                                        <b><span
+                                                                id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
+                                                    </td>
+                                                </tr>
+                                                <tr style="vertical-align: top">
+                                                    <td><input type="text" class="form-control" name='kap_tangki_cpo'
+                                                            onClick="this.select();" style="width:100%"
+                                                            oninput=" validate_two_decimal(this);FormatCurrency(this)"
+                                                            id="kap_tangki_cpo101" onkeypress="return point(event)"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
+                                                            onchange="validation_jumlah2()">
+                                                        <p type="hidden" id="err_kcpo"
+                                                            style="color: red; display:none"><i>Sila isi
+                                                                butiran di
+                                                                bahagian ini!</i></p>
+                                                    </td>
+                                                    <td> <input type="text" class="form-control" name='kap_tangki_ppo'
+                                                            onClick="this.select();" style="width:100%"
+                                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                            id="kap_tangki_ppo101" onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}"
+                                                            onchange="validation_jumlah2()">
+                                                        <p type="hidden" id="err_kppo"
+                                                            style="color: red; display:none"><i>Sila isi
+                                                                butiran di
+                                                                bahagian ini!</i></p>
+                                                    </td>
+                                                    <td> <input type="text" class="form-control"
+                                                            name='kap_tangki_cpko' onClick="this.select();"
+                                                            style="width:100%"
+                                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                            id="kap_tangki_cpko101" onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}"
+                                                            onchange="validation_jumlah2()">
+                                                        <p type="hidden" id="err_kcpko"
+                                                            style="color: red; display:none"><i>Sila isi
+                                                                butiran di
+                                                                bahagian ini!</i></p>
+                                                    </td>
+                                                    <td> <input type="text" class="form-control"
+                                                            name='kap_tangki_ppko' onClick="this.select();"
+                                                            style="width:100%"
+                                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                            id="kap_tangki_ppko101" onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}"
+                                                            onchange="validation_jumlah2()">
+                                                        <p type="hidden" id="err_kppko"
+                                                            style="color: red; display:none"><i>Sila isi
+                                                                butiran di
+                                                                bahagian ini!</i></p>
+                                                    </td>
+                                                    <td> <input type="text" class="form-control"
+                                                            name='kap_tangki_others' min=0 onClick="this.select();"
+                                                            style="width:100%"
+                                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                            id="kap_tangki_others" onkeypress="return point(event)"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            title="Sila isikan butiran ini."
+                                                            value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}"
+                                                            onchange="validation_jumlah2()">
+                                                        <p type="hidden" id="err_others"
+                                                            style="color: red; display:none"><i>Sila isi
+                                                                butiran di
+                                                                bahagian ini!</i></p>
+                                                    </td>
+                                                    <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
+                                                        <b><span id="kap_tangki_jumlah">
+                                                                {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
+                                                            </span>
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row mx-3" style="margin-left:14%">
-                                    <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
-                                        khusus untuk sesuatu produk. Sila campurkan kesemua
-                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                    </i>
-                                </div>
-                                {{-- </div> --}}
-                            @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')
-                                <br>
-                                <div class="row mr-auto" style="margin-left:-2%">
+                                    <br><br>
+                                    <div class="row ">
+                                        <i style="margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                            tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                            bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                        </i>
+                                    </div>
+
+                            </div>
+                        @elseif ($reg_pelesen->e_kat == 'PL102')
+                            <div style="margin-left:-2%">
+
+                                <div class="row mr-auto" style="margin:20px 0px">
                                     <div class="col-sm-3 form-group" style="margin: 0px">
-                                        <span><br></span><label for="fname" class="control-label col-form-label ">
-                                            Bilangan Tangki</label><br>
-                                        <label for="fname" class="control-label col-form-label">
-                                            Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                        <span></span>
                                     </div>
                                     <div class="col-md-7">
-                                        <table style="width:100%; text-align: center; font-size: 10px">
-                                            <tr>
-                                                <th>CPO</th>
-                                                <th>PPO</th>
-                                                <th>CPKO</th>
-                                                <th>PPKO</th>
-                                                <th>OLEO</th>
-                                                <th>OTHERS</th>
-                                                <th>JUMLAH</th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="form-control" name='bil_tangki_cpo'
-                                                        style="width:100%" size="15" id="bil_tangki_cpo111"
-                                                        title="Sila isikan butiran ini." onkeypress="return point(event)"
-                                                        onClick="this.select();"
-                                                        value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
-                                                        onchange="validation_jumlah3()"
-                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)">
-                                                    @error('bil_tangki_cpo')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control" name='bil_tangki_ppo'
-                                                        size="15" onkeypress="return point(event)"
-                                                        style="width:100%" id="bil_tangki_ppo111"
-                                                        title="Sila isikan butiran ini." onClick="this.select();"
-                                                        value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
-                                                        onchange="validation_jumlah3()"
-                                                        oninput="this.setCustomValidity('');  FormatCurrency(this)">
-                                                    @error('bil_tangki_ppo')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="form-control" name='bil_tangki_cpko'
-                                                        size="15" onkeypress="return point(event)"
-                                                        style="width:100%" id="bil_tangki_cpko111"
-                                                        title="Sila isikan butiran ini." onClick="this.select();"
-                                                        value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
-                                                        onchange="validation_jumlah3()"
-                                                        oninput="this.setCustomValidity('');FormatCurrency(this)">
-                                                    @error('bil_tangki_cpko')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td> <input type="text" class="form-control" name='bil_tangki_ppko'
-                                                        size="15" onkeypress="return point(event)"
-                                                        style="width:100%" id="bil_tangki_ppko111"
-                                                        title="Sila isikan butiran ini." onClick="this.select();"
-                                                        value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
-                                                        onchange="validation_jumlah3()"
-                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)">
-                                                    @error('bil_tangki_ppko')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td><input type="text" class="form-control" name='bil_tangki_oleo'
-                                                        size="15" onkeypress="return point(event)"
-                                                        style="width:100%" id="bil_tangki_oleo111"
-                                                        title="Sila isikan butiran ini." onClick="this.select();"
-                                                        value="{{ number_format($pelesen->bil_tangki_oleo ?? 0) }}"
-                                                        onchange="validation_jumlah3()"
-                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)">
-                                                    @error('bil_tangki_oleo')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td><input type="text" class="form-control" name='bil_tangki_others'
-                                                        size="15" onkeypress="return point(event)"
-                                                        style="width:100%" id="bil_tangki_others111"
-                                                        title="Sila isikan butiran ini." onClick="this.select();"
-                                                        value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}"
-                                                        onchange="validation_jumlah3()"
-                                                        oninput="this.setCustomValidity('');FormatCurrency(this)">
-                                                    @error('bil_tangki_others')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
-                                                    <b>
-                                                        <span id="bil_tangki_jumlah"
-                                                            style="font-size: 10pt">{{ old('bil_tangki_jumlah') ?? number_format($jumlah3) }}</span>
-                                                    </b>
-                                                </td>
-                                            </tr>
-                                            <tr style="vertical-align: top">
-                                                <td><input type="text" class="form-control" name='kap_tangki_cpo'
-                                                        onkeypress="return point(event)" style="width:100%"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                        onClick="this.select();" id="kap_tangki_cpo111"
-                                                        onchange="validation_jumlah4()" title="Sila isikan butiran ini."
-                                                        value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}">
-                                                    <p type="hidden" id="err_kcpo" style="color: red; display:none">
-                                                        <i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-                                                    @error('kap_tangki_cpo')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td> <input type="text" class="form-control" name='kap_tangki_ppo'
-                                                        onkeypress="return point(event)"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                        style="width:100%" id="kap_tangki_ppo111"
-                                                        onchange="validation_jumlah4()" onClick="this.select();"
-                                                        title="Sila isikan butiran ini."
-                                                        value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}">
-                                                    <p type="hidden" id="err_kppo" style="color: red; display:none">
-                                                        <i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-                                                    @error('kap_tangki_ppo')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td> <input type="text" class="form-control" name='kap_tangki_cpko'
-                                                        onkeypress="return point(event)" style="width:100%"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
-                                                        onClick="this.select();" id="kap_tangki_cpko111"
-                                                        onchange="validation_jumlah4()" title="Sila isikan butiran ini."
-                                                        value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}">
-                                                    <p type="hidden" id="err_kcpko" style="color: red; display:none">
-                                                        <i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-                                                    @error('kap_tangki_cpko')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td> <input type="text" class="form-control" name='kap_tangki_ppko'
-                                                        onkeypress="return point(event)" style="width:100%"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
-                                                        id="kap_tangki_ppko111" onchange="validation_jumlah4()"
-                                                        onClick="this.select();" title="Sila isikan butiran ini."
-                                                        value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}">
-                                                    <p type="hidden" id="err_kppko" style="color: red; display:none">
-                                                        <i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-                                                    @error('kap_tangki_ppko')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td> <input type="text" class="form-control" name='kap_tangki_oleo'
-                                                        onkeypress="return point(event)" style="width:100%"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                        id="kap_tangki_oleo111" onchange="validation_jumlah4()"
-                                                        onClick="this.select();" title="Sila isikan butiran ini."
-                                                        value="{{ number_format($pelesen->kap_tangki_oleo ?? 0) }}">
-                                                    <p type="hidden" id="err_koleo" style="color: red; display:none">
-                                                        <i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-                                                    @error('kap_tangki_oleo')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td><input type="text" class="form-control"
-                                                        name='kap_tangki_others' onkeypress="return point(event)"
-                                                        style="width:100%"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                        id="kap_tangki_others111" onchange="validation_jumlah4()"
-                                                        onClick="this.select();" title="Sila isikan butiran ini."
-                                                        value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}">
-                                                    <p type="hidden" id="err_others"
-                                                        style="color: red; display:none"><i>Sila isi
-                                                            butiran di
-                                                            bahagian ini!</i></p>
-                                                    @error('kap_tangki_others')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi butiran ini</strong>
-                                                        </div>
-                                                    @enderror
-                                                </td>
-                                                <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px"> <b><span
-                                                            id="kap_tangki_jumlah">
-                                                            {{ old('kap_tangki_jumlah') ?? number_format($jumlah4) }}
-                                                        </span>
-                                                    </b>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <span>CPKO</span>
                                     </div>
                                 </div>
-                                <br><br>
-                                <div class="row ">
-                                    <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
-                                        tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
-                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                    </i>
+
+                                <div class="row mr-auto" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname" class="control-label col-form-label ">
+                                            Bilangan Tangki</label>
+                                    </div>
+
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" name='bil_tangki_cpko'
+                                            style="width:20%" onClick="this.select();" id="bil_tangki_cpko102"
+                                            title="Sila isikan butiran ini."
+                                            oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                            onkeypress="return point(event)"
+                                            value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}">
+                                        @error('bil_tangki_cpko')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                @endif
-
-
-
-                            </div>
-
-                            <div class="button-group text-center" style="margin-top: 2%;">
-                                <button type="button" class="btn btn-primary" id="checkBtn"
-                                    onclick="check();">Simpan
-                                </button>
-
-                                <a href="{{ route('admin.cetak.surat', $reg_pelesen->e_id) }}"
-                                    class="btn btn-primary">Cetak Surat
-                                </a>
-                            </div>
-
-                            <!-- Vertically Centered modal Modal -->
-                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                    role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                PENGESAHAN</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>
-                                                Anda pasti mahu menyimpan maklumat ini?
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary"
-                                                data-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Ya</span>
-                                            </button>
-                                        </div>
+                                <div class="row mr-auto" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname" class="control-label col-form-label">
+                                            Kapasiti Tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" name='kap_tangki_cpko'
+                                            style="width:20%" id="kap_tangki_cpko102"
+                                            oninput="this.setCustomValidity(''); validate_two_decimal(this);  FormatCurrency(this)"
+                                            onClick="this.select();" title="Sila isikan butiran ini."
+                                            onkeypress="return point(event)"
+                                            value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}" reuired>
+                                        <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
+                                        @error('kap_tangki_cpko')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row mx-3" style="margin-left:14%">
+                                <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                                    khusus untuk sesuatu produk. Sila campurkan kesemua
+                                    bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                </i>
+                            </div>
+                            {{-- </div> --}}
+                        @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')
+                            <br>
+                            <div class="row mr-auto" style="margin-left:-2%">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <span><br></span><label for="fname" class="control-label col-form-label ">
+                                        Bilangan Tangki</label><br>
+                                    <label for="fname" class="control-label col-form-label">
+                                        Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                </div>
+                                <div class="col-md-7">
+                                    <table style="width:100%; text-align: center; font-size: 10px">
+                                        <tr>
+                                            <th>CPO</th>
+                                            <th>PPO</th>
+                                            <th>CPKO</th>
+                                            <th>PPKO</th>
+                                            <th>OLEO</th>
+                                            <th>OTHERS</th>
+                                            <th>JUMLAH</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                    style="width:100%" size="15" id="bil_tangki_cpo111"
+                                                    title="Sila isikan butiran ini." onkeypress="return point(event)"
+                                                    onClick="this.select();"
+                                                    value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
+                                                    onchange="validation_jumlah3()"
+                                                    oninput="this.setCustomValidity(''); FormatCurrency(this)">
+                                                @error('bil_tangki_cpo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name='bil_tangki_ppo'
+                                                    size="15" onkeypress="return point(event)" style="width:100%"
+                                                    id="bil_tangki_ppo111" title="Sila isikan butiran ini."
+                                                    onClick="this.select();"
+                                                    value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
+                                                    onchange="validation_jumlah3()"
+                                                    oninput="this.setCustomValidity('');  FormatCurrency(this)">
+                                                @error('bil_tangki_ppo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name='bil_tangki_cpko'
+                                                    size="15" onkeypress="return point(event)" style="width:100%"
+                                                    id="bil_tangki_cpko111" title="Sila isikan butiran ini."
+                                                    onClick="this.select();"
+                                                    value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
+                                                    onchange="validation_jumlah3()"
+                                                    oninput="this.setCustomValidity('');FormatCurrency(this)">
+                                                @error('bil_tangki_cpko')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td> <input type="text" class="form-control" name='bil_tangki_ppko'
+                                                    size="15" onkeypress="return point(event)" style="width:100%"
+                                                    id="bil_tangki_ppko111" title="Sila isikan butiran ini."
+                                                    onClick="this.select();"
+                                                    value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
+                                                    onchange="validation_jumlah3()"
+                                                    oninput="this.setCustomValidity(''); FormatCurrency(this)">
+                                                @error('bil_tangki_ppko')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td><input type="text" class="form-control" name='bil_tangki_oleo'
+                                                    size="15" onkeypress="return point(event)" style="width:100%"
+                                                    id="bil_tangki_oleo111" title="Sila isikan butiran ini."
+                                                    onClick="this.select();"
+                                                    value="{{ number_format($pelesen->bil_tangki_oleo ?? 0) }}"
+                                                    onchange="validation_jumlah3()"
+                                                    oninput="this.setCustomValidity(''); FormatCurrency(this)">
+                                                @error('bil_tangki_oleo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td><input type="text" class="form-control" name='bil_tangki_others'
+                                                    size="15" onkeypress="return point(event)" style="width:100%"
+                                                    id="bil_tangki_others111" title="Sila isikan butiran ini."
+                                                    onClick="this.select();"
+                                                    value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}"
+                                                    onchange="validation_jumlah3()"
+                                                    oninput="this.setCustomValidity('');FormatCurrency(this)">
+                                                @error('bil_tangki_others')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
+                                                <b>
+                                                    <span id="bil_tangki_jumlah"
+                                                        style="font-size: 10pt">{{ old('bil_tangki_jumlah') ?? number_format($jumlah3) }}</span>
+                                                </b>
+                                            </td>
+                                        </tr>
+                                        <tr style="vertical-align: top">
+                                            <td><input type="text" class="form-control" name='kap_tangki_cpo'
+                                                    onkeypress="return point(event)" style="width:100%"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                    onClick="this.select();" id="kap_tangki_cpo111"
+                                                    onchange="validation_jumlah4()" title="Sila isikan butiran ini."
+                                                    value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}">
+                                                <p type="hidden" id="err_kcpo" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
+                                                @error('kap_tangki_cpo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td> <input type="text" class="form-control" name='kap_tangki_ppo'
+                                                    onkeypress="return point(event)"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                    style="width:100%" id="kap_tangki_ppo111"
+                                                    onchange="validation_jumlah4()" onClick="this.select();"
+                                                    title="Sila isikan butiran ini."
+                                                    value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}">
+                                                <p type="hidden" id="err_kppo" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
+                                                @error('kap_tangki_ppo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td> <input type="text" class="form-control" name='kap_tangki_cpko'
+                                                    onkeypress="return point(event)" style="width:100%"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
+                                                    onClick="this.select();" id="kap_tangki_cpko111"
+                                                    onchange="validation_jumlah4()" title="Sila isikan butiran ini."
+                                                    value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}">
+                                                <p type="hidden" id="err_kcpko" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
+                                                @error('kap_tangki_cpko')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td> <input type="text" class="form-control" name='kap_tangki_ppko'
+                                                    onkeypress="return point(event)" style="width:100%"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
+                                                    id="kap_tangki_ppko111" onchange="validation_jumlah4()"
+                                                    onClick="this.select();" title="Sila isikan butiran ini."
+                                                    value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}">
+                                                <p type="hidden" id="err_kppko" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
+                                                @error('kap_tangki_ppko')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td> <input type="text" class="form-control" name='kap_tangki_oleo'
+                                                    onkeypress="return point(event)" style="width:100%"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                    id="kap_tangki_oleo111" onchange="validation_jumlah4()"
+                                                    onClick="this.select();" title="Sila isikan butiran ini."
+                                                    value="{{ number_format($pelesen->kap_tangki_oleo ?? 0) }}">
+                                                <p type="hidden" id="err_koleo" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
+                                                @error('kap_tangki_oleo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td><input type="text" class="form-control" name='kap_tangki_others'
+                                                    onkeypress="return point(event)" style="width:100%"
+                                                    oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                    id="kap_tangki_others111" onchange="validation_jumlah4()"
+                                                    onClick="this.select();" title="Sila isikan butiran ini."
+                                                    value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}">
+                                                <p type="hidden" id="err_others" style="color: red; display:none">
+                                                    <i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i>
+                                                </p>
+                                                @error('kap_tangki_others')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila isi butiran ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </td>
+                                            <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px"> <b><span
+                                                        id="kap_tangki_jumlah">
+                                                        {{ old('kap_tangki_jumlah') ?? number_format($jumlah4) }}
+                                                    </span>
+                                                </b>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="row ">
+                                <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                    tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                    bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                </i>
+                            </div>
+                            @endif
+
+
+
+                        </div>
+
+                        <div class="button-group text-center" style="margin-top: 2%;">
+                            <button type="button" class="btn btn-primary" id="checkBtn" onclick="check();">Simpan
+                            </button>
+
+                            <a href="{{ route('admin.cetak.surat', $reg_pelesen->e_id) }}"
+                                class="btn btn-primary">Cetak Surat
+                            </a>
+                        </div>
+
+                        <!-- Vertically Centered modal Modal -->
+                        <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                            PENGESAHAN</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Anda pasti mahu menyimpan maklumat ini?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Ya</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>
@@ -2628,132 +2791,131 @@
             });
         </script>
     @elseif ($reg_pelesen->e_kat == 'PL101')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#checkBtn').click(function() {
-                b5 = $('#kap_proses').val();
-                bcpo101 = $('#bil_tangki_cpo101').val();
-                kcpo101 = $('#kap_tangki_cpo101').val();
-                bppo101 = $('#bil_tangki_ppo101').val();
-                kppo101 = $('#kap_tangki_ppo101').val();
-                bcpko101 = $('#bil_tangki_cpko101').val();
-                kcpko101 = $('#kap_tangki_cpko101').val();
-                bcpko101 = $('#bil_tangki_ppko101').val();
-                kcpko101 = $('#kap_tangki_ppko101').val();
-                bothers101 = $('#bil_tangki_others101').val();
-                kothers101 = $('#kap_tangki_others101').val();
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    b5 = $('#kap_proses').val();
+                    bcpo101 = $('#bil_tangki_cpo101').val();
+                    kcpo101 = $('#kap_tangki_cpo101').val();
+                    bppo101 = $('#bil_tangki_ppo101').val();
+                    kppo101 = $('#kap_tangki_ppo101').val();
+                    bcpko101 = $('#bil_tangki_cpko101').val();
+                    kcpko101 = $('#kap_tangki_cpko101').val();
+                    bcpko101 = $('#bil_tangki_ppko101').val();
+                    kcpko101 = $('#kap_tangki_ppko101').val();
+                    bothers101 = $('#bil_tangki_others101').val();
+                    kothers101 = $('#kap_tangki_others101').val();
 
 
-                let x5 = b5;
-                if (x5 == '') {
-                    x5 = x5 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
+                    let x5 = b5;
+                    if (x5 == '') {
+                        x5 = x5 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
-                let xbcpo101 = bcpo101;
-                if (xbcpo101 == '') {
-                    xbcpo101 = xbcpo101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xkcpo101 = kcpo101;
-                if (xkcpo101 == '') {
-                    xkcpo101 = xkcpo101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xbppo101 = bppo101;
-                if (xbppo101 == '') {
-                    xbppo101 = xbppo101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xkppo101 = kppo101;
-                if (xkppo101 == '') {
-                    xkppo101 = xkppo101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
+                    let xbcpo101 = bcpo101;
+                    if (xbcpo101 == '') {
+                        xbcpo101 = xbcpo101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkcpo101 = kcpo101;
+                    if (xkcpo101 == '') {
+                        xkcpo101 = xkcpo101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbppo101 = bppo101;
+                    if (xbppo101 == '') {
+                        xbppo101 = xbppo101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkppo101 = kppo101;
+                    if (xkppo101 == '') {
+                        xkppo101 = xkppo101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
-                let xbcpko101 = bcpko101;
-                if (xbcpko101 == '') {
-                    xbcpko101 = xbcpko101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xkcpko101 = kcpko101;
-                if (xkcpko101 == '') {
-                    xkcpko101 = xkcpko101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xbppko101 = bppko101;
-                if (xbppko101 == '') {
-                    xbppko101 = xbppko101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xkppko101 = kppko101;
-                if (xkppko101 == '') {
-                    xkppko101 = xkppko101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xbothers101 = bothers101;
-                if (xbothers101 == '') {
-                    xbothers101 = xbothers101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let xkothers101 = kothers101;
-                if (xkothers101 == '') {
-                    xkothers101 = xkothers101 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
+                    let xbcpko101 = bcpko101;
+                    if (xbcpko101 == '') {
+                        xbcpko101 = xbcpko101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkcpko101 = kcpko101;
+                    if (xkcpko101 == '') {
+                        xkcpko101 = xkcpko101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbppko101 = bppko101;
+                    if (xbppko101 == '') {
+                        xbppko101 = xbppko101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkppko101 = kppko101;
+                    if (xkppko101 == '') {
+                        xkppko101 = xkppko101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbothers101 = bothers101;
+                    if (xbothers101 == '') {
+                        xbothers101 = xbothers101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkothers101 = kothers101;
+                    if (xkothers101 == '') {
+                        xkothers101 = xkothers101 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
 
-                document.getElementById("kap_proses").value = x5;
-                document.getElementById("bil_tangki_cpo101").value = xbcpo101;
-                document.getElementById("kap_tangki_cpo101").value = xkcpo101;
-                document.getElementById("bil_tangki_ppo101").value = xbppo101;
-                document.getElementById("kap_tangki_ppo101").value = xkppo101;
-                document.getElementById("bil_tangki_cpko101").value = xbcpko101;
-                document.getElementById("kap_tangki_cpko101").value = xkcpko101;
-                document.getElementById("bil_tangki_ppko101").value = xbppko101;
-                document.getElementById("kap_tangki_ppko101").value = xkppko101;
-                document.getElementById("bil_tangki_others101").value = xbothers101;
-                document.getElementById("kap_tangki_others101").value = xkothers101;
+                    document.getElementById("kap_proses").value = x5;
+                    document.getElementById("bil_tangki_cpo101").value = xbcpo101;
+                    document.getElementById("kap_tangki_cpo101").value = xkcpo101;
+                    document.getElementById("bil_tangki_ppo101").value = xbppo101;
+                    document.getElementById("kap_tangki_ppo101").value = xkppo101;
+                    document.getElementById("bil_tangki_cpko101").value = xbcpko101;
+                    document.getElementById("kap_tangki_cpko101").value = xkcpko101;
+                    document.getElementById("bil_tangki_ppko101").value = xbppko101;
+                    document.getElementById("kap_tangki_ppko101").value = xkppko101;
+                    document.getElementById("bil_tangki_others101").value = xbothers101;
+                    document.getElementById("kap_tangki_others101").value = xkothers101;
 
+                });
             });
-        });
-    </script>
-
+        </script>
     @elseif ($reg_pelesen->e_kat == 'PL91')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#checkBtn').click(function() {
-                b5 = $('#kap_proses').val();
-                b6 = $('#kap_tangki_cpo91').val();
-                b7 = $('#bil_tangki_cpo91').val();
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    b5 = $('#kap_proses').val();
+                    b6 = $('#kap_tangki_cpo91').val();
+                    b7 = $('#bil_tangki_cpo91').val();
 
 
-                let x5 = b5;
-                if (x5 == '') {
-                    x5 = x5 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let x6 = b6;
-                if (x6 == '') {
-                    x6 = x6 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
-                let x7 = b7;
-                if (x7 == '') {
-                    x7 = x7 || 0;
-                    // document.getElementById("ebio_b5").value = x;
-                }
+                    let x5 = b5;
+                    if (x5 == '') {
+                        x5 = x5 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x6 = b6;
+                    if (x6 == '') {
+                        x6 = x6 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x7 = b7;
+                    if (x7 == '') {
+                        x7 = x7 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
 
 
-                document.getElementById("kap_proses").value = x5;
-                document.getElementById("kap_tangki_cpo91").value = x6;
-                document.getElementById("bil_tangki_cpo91").value = x7;
+                    document.getElementById("kap_proses").value = x5;
+                    document.getElementById("kap_tangki_cpo91").value = x6;
+                    document.getElementById("bil_tangki_cpo91").value = x7;
 
 
+                });
             });
-        });
-    </script>
+        </script>
     @endif
     {{-- <script type="text/javascript">
     $(document).ready(function() {
