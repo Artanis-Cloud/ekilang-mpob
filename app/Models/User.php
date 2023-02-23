@@ -68,7 +68,7 @@ class User extends Authenticatable
     public function pelesen()
     {
 
-        return $this->hasOne(Pelesen::class, 'e_nl', 'username');
+        return $this->hasMany(Pelesen::class, 'e_nl', 'username');
     }
 
     public function audit_trail()
