@@ -251,8 +251,22 @@
                                     </label>
 
                                     <div class="col-md-6">
-                                        <input type="text" id="company-column" class="form-control" placeholder="No Lesen"
+                                        <input type="text" id="company-column" class="form-control" placeholder="No Lesen" onblur="getCat(this)"
                                             name="e_initlesen" maxlength="12">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 1%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                        Sektor Pelesen
+                                    </label>
+
+                                    <div class="col-md-6">
+                                        <select class="form-control" name="e_kat" id="e_kat" >
+                                            <option selected hidden> Sila Pilih Sektor</option>
+                                        </select>
+                                        {{-- <input type="text" id="company-column" class="form-control" placeholder="No Lesen"
+                                            name="e_kat" maxlength="12"> --}}
                                     </div>
                                 </div>
 
@@ -538,6 +552,52 @@
             });
         });
     </script>
+        <script>
+            function getCat(lesen) {
+                user = lesen.value;
+                // console.log(user);
+                //clear jenis_data selection
+                $("#e_kat").empty();
+                //initialize selection
+                $("#e_kat").append('<option value="" selected hidden>Sila Pilih Sektor</option>');
+
+                $.ajax({
+                    type: "get",
+                    url: "/ajax/fetch-cat/" + user, //penting
+
+                    success: function(respond) {
+                        //fetch data (id) from DB Senarai Harga
+                        // console.log(respond);
+                        //loop for data
+                        var x = 0;
+                        respond.forEach(function() { //penting
+
+                            console.log(respond[x]);
+                            // $("#daerah_id").append('<option value="' + respond[x].kod_daerah + '">' +
+                            //     respond[x]
+                            //     .nama_daerah + '</option>');
+                            if (respond[x].category == 'PL91')
+                                $("#e_kat").append('<option value="' + respond[x].category + '">KILANG BUAH</option>');
+                            if (respond[x].category == 'PL101')
+                                $("#e_kat").append('<option value="' + respond[x].category + '">KILANG PENAPIS</option>');
+                            if (respond[x].category == 'PL102')
+                                $("#e_kat").append('<option value="' + respond[x].category + '">KILANG ISIRUNG</option>');
+                            if (respond[x].category == 'PL104')
+                                $("#e_kat").append('<option value="' + respond[x].category + '">KILANG OLEOKIMIA</option>');
+                            if (respond[x].category == 'PL111')
+                                $("#e_kat").append('<option value="' + respond[x].category + '">PUSAT SIMPANAN</option>');
+                            if (respond[x].category == 'PLBIO')
+                                $("#e_kat").append('<option value="' + respond[x].category + '">KILANG BIODIESEL</option>');
+                            x++;
+                        });
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log("Status: " + textStatus);
+                        console.log("Error: " + errorThrown);
+                    }
+                });
+            }
+        </script>
     <script>
         function openInit(evt, cityName) {
             var i, tabcontent, tablinks;
