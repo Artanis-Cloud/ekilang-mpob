@@ -49,6 +49,7 @@ use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -138,89 +139,84 @@ class Proses4Controller extends Controller
 
     public function porting_pelesen()
     {
-        //data from e91_init
+       
+        $user = User::with('pelesen')->get();
 
-        // $regpelesen = RegPelesen::with('pelesen')->get();
-        $regpelesen = RegPelesen::with('pelesen')->where('e_status', '1')->get();
-        // dd($e91init);
-
-        // $totalpl91 = 0;
-
-        foreach ($regpelesen as $selects) {
-            // dd($check);
-
-            if ($selects->pelesen) {
-
-                $e_nl = $selects->pelesen->e_nl;
-                $e_nlkppk = $selects->pelesen->e_nlkppk;
+        foreach($user as $selects){
+           foreach ($selects->pelesen as $key => $pelesen) {
+            // dd($pelesen);
+            if ($pelesen->e_kat == $selects->category) {
+                $e_nl = $pelesen->e_nl;
+                $e_kat = $pelesen->e_kat;
+                $e_nlkppk = $pelesen->e_nlkppk;
                 $e_thn = date('Y');
-                $e_bln = date('m') - 1;
-                $e_np = $selects->pelesen->e_np;
-                $e_ap1 = $selects->pelesen->e_ap1;
-                $e_ap2 = $selects->pelesen->e_ap2;
-                $e_ap3 = $selects->pelesen->e_ap3;
-                $e_as1 = $selects->pelesen->e_as1;
-                $e_as2 = $selects->pelesen->e_as2;
-                $e_as3 = $selects->pelesen->e_as3;
-                $e_notel = $selects->pelesen->e_notel;
-                $e_nofax = $selects->pelesen->e_nofax;
-                $e_email = $selects->pelesen->e_email;
-                $e_npg = $selects->pelesen->e_npg;
-                $e_jpg = $selects->pelesen->e_jpg ;
-                $e_notel_pg = $selects->pelesen->e_notel_pg ;
-                $e_email_pg = $selects->pelesen->e_email_pg ;
-                $kodpgw = $selects->pelesen->kodpgw ;
-                $nosiri = $selects->pelesen->nosiri ;
-                $e_npgtg = $selects->pelesen->e_npgtg ;
-                $e_jpgtg = $selects->pelesen->e_jpgtg ;
-                $eqc_npg = $selects->pelesen->eqc_npg ;
-                $eqc_jpg = $selects->pelesen->eqc_jpg ;
-                $eqc_email = $selects->pelesen->eqc_email ;
-                $e_asnegeri = $selects->pelesen->e_asnegeri ;
-                $e_asdaerah = $selects->pelesen->e_asdaerah ;
-                $e_negeri = $selects->pelesen->e_negeri ;
-                $e_daerah = $selects->pelesen->e_daerah ;
-                $e_kawasan = $selects->pelesen->e_kawasan ;
-                $e_syktinduk = $selects->pelesen->e_syktinduk ;
-                $stk_npg = $selects->pelesen->stk_npg ;
-                $stk_notel = $selects->pelesen->stk_notel ;
-                $stk_nofax = $selects->pelesen->stk_nofax  ;
-                $stk_email = $selects->pelesen->stk_email  ;
-                $stk_syktinduk = $selects->pelesen->stk_syktinduk ;
-                $stk_cpo_kap =  (float)  $selects->pelesen->stk_cpo_kap ;
-                $stk_rbdpo_kap = (float) $selects->pelesen->stk_rbdpo_kap ;
-                $stk_rbdpl_kap = (float)   $selects->pelesen->stk_rbdpl_kap ;
-                $stk_rbdps_kap = (float)   $selects->pelesen->stk_rbdps_kap ;
-                $stk_lainppo_kap =  (float)  $selects->pelesen->stk_lainppo_kap ;
-                $stk_ppo_kap =  (float)  $selects->pelesen->stk_ppo_kap ;
-                $stk_po_kap =  (float)  $selects->pelesen->stk_po_kap ;
-                $stk_pfad_kap =  (float)  $selects->pelesen->stk_pfad_kap ;
-                $e_group =  $selects->pelesen->e_group ;
-                $e_subgroup =  $selects->pelesen->e_subgroup ;
-                $e_poma =  $selects->pelesen->e_poma ;
-                $e_biogas =  $selects->pelesen->e_biogas ;
-                $e_status_biogas =  $selects->pelesen->e_status_biogas ;
-                $e_year =  $selects->pelesen->e_year ?? 0;
-                $e_cluster =  $selects->pelesen->e_cluster ;
-                $e_katkilang =  $selects->pelesen->e_katkilang ;
-                $e_status =  $selects->pelesen->e_status ;
-                $e_email_pengurus =  $selects->pelesen->e_email_pengurus ;
-                $kap_proses =  $selects->pelesen->kap_proses ;
-                $kap_tangki =  $selects->pelesen->kap_tangki  ;
-                $bil_tangki_cpo =  $selects->pelesen->bil_tangki_cpo ;
-                $bil_tangki_ppo =  $selects->pelesen->bil_tangki_ppo  ;
-                $bil_tangki_cpko =  $selects->pelesen->bil_tangki_cpko ;
-                $bil_tangki_ppko =  $selects->pelesen->bil_tangki_ppko ;
-                $bil_tangki_oleo =  $selects->pelesen->bil_tangki_oleo  ;
-                $bil_tangki_oleo =  $selects->pelesen->bil_tangki_others ;
-                $bil_tangki_jumlah =  $selects->pelesen->bil_tangki_jumlah ;
-                $kap_tangki_cpo =  $selects->pelesen->kap_tangki_cpo ;
-                $kap_tangki_ppo =  $selects->pelesen->kap_tangki_ppo ;
-                $kap_tangki_cpko =  $selects->pelesen->kap_tangki_cpko  ;
-                $kap_tangki_ppko =  $selects->pelesen->kap_tangki_ppko  ;
-                $kap_tangki_oleo =  $selects->pelesen->kap_tangki_oleo  ;
-                $kap_tangki_others =  $selects->pelesen->kap_tangki_others ;
-                $kap_tangki_jumlah =  $selects->pelesen->kap_tangki_jumlah  ;
+                $e_bln = date('m', strtotime('last month'));
+                $e_np = $pelesen->e_np;
+                $e_ap1 = $pelesen->e_ap1;
+                $e_ap2 = $pelesen->e_ap2;
+                $e_ap3 = $pelesen->e_ap3;
+                $e_as1 = $pelesen->e_as1;
+                $e_as2 = $pelesen->e_as2;
+                $e_as3 = $pelesen->e_as3;
+                $e_notel = $pelesen->e_notel;
+                $e_nofax = $pelesen->e_nofax;
+                $e_email = $pelesen->e_email;
+                $e_npg = $pelesen->e_npg;
+                $e_jpg = $pelesen->e_jpg ;
+                $e_notel_pg = $pelesen->e_notel_pg ;
+                $e_email_pg = $pelesen->e_email_pg ;
+                $kodpgw = $pelesen->kodpgw ;
+                $nosiri = $pelesen->nosiri ;
+                $e_npgtg = $pelesen->e_npgtg ;
+                $e_jpgtg = $pelesen->e_jpgtg ;
+                $eqc_npg = $pelesen->eqc_npg ;
+                $eqc_jpg = $pelesen->eqc_jpg ;
+                $eqc_email = $pelesen->eqc_email ;
+                $e_asnegeri = $pelesen->e_asnegeri ;
+                $e_asdaerah = $pelesen->e_asdaerah ;
+                $e_negeri = $pelesen->e_negeri ;
+                $e_daerah = $pelesen->e_daerah ;
+                $e_kawasan = $pelesen->e_kawasan ;
+                $e_syktinduk = $pelesen->e_syktinduk ;
+                $stk_npg = $pelesen->stk_npg ;
+                $stk_notel = $pelesen->stk_notel ;
+                $stk_nofax = $pelesen->stk_nofax  ;
+                $stk_email = $pelesen->stk_email  ;
+                $stk_syktinduk = $pelesen->stk_syktinduk ;
+                $stk_cpo_kap =  (float)  $pelesen->stk_cpo_kap ;
+                $stk_rbdpo_kap = (float) $pelesen->stk_rbdpo_kap ;
+                $stk_rbdpl_kap = (float)   $pelesen->stk_rbdpl_kap ;
+                $stk_rbdps_kap = (float)   $pelesen->stk_rbdps_kap ;
+                $stk_lainppo_kap =  (float)  $pelesen->stk_lainppo_kap ;
+                $stk_ppo_kap =  (float)  $pelesen->stk_ppo_kap ;
+                $stk_po_kap =  (float)  $pelesen->stk_po_kap ;
+                $stk_pfad_kap =  (float)  $pelesen->stk_pfad_kap ;
+                $e_group =  $pelesen->e_group ;
+                $e_subgroup =  $pelesen->e_subgroup ;
+                $e_poma =  $pelesen->e_poma ;
+                $e_biogas =  $pelesen->e_biogas ;
+                $e_status_biogas =  $pelesen->e_status_biogas ;
+                $e_year =  $pelesen->e_year ?? 0;
+                $e_cluster =  $pelesen->e_cluster ;
+                $e_katkilang =  $pelesen->e_katkilang ;
+                $e_status =  $pelesen->e_status ;
+                $e_email_pengurus =  $pelesen->e_email_pengurus ;
+                $kap_proses =  $pelesen->kap_proses ;
+                $kap_tangki =  $pelesen->kap_tangki  ;
+                $bil_tangki_cpo =  $pelesen->bil_tangki_cpo ;
+                $bil_tangki_ppo =  $pelesen->bil_tangki_ppo  ;
+                $bil_tangki_cpko =  $pelesen->bil_tangki_cpko ;
+                $bil_tangki_ppko =  $pelesen->bil_tangki_ppko ;
+                $bil_tangki_oleo =  $pelesen->bil_tangki_oleo  ;
+                $bil_tangki_oleo =  $pelesen->bil_tangki_others ;
+                $bil_tangki_jumlah =  $pelesen->bil_tangki_jumlah ;
+                $kap_tangki_cpo =  $pelesen->kap_tangki_cpo ;
+                $kap_tangki_ppo =  $pelesen->kap_tangki_ppo ;
+                $kap_tangki_cpko =  $pelesen->kap_tangki_cpko  ;
+                $kap_tangki_ppko =  $pelesen->kap_tangki_ppko  ;
+                $kap_tangki_oleo =  $pelesen->kap_tangki_oleo  ;
+                $kap_tangki_others =  $pelesen->kap_tangki_others ;
+                $kap_tangki_jumlah =  $pelesen->kap_tangki_jumlah  ;
 
                 $str="'";
                 $np = str_replace($str, "\'", $e_np);
@@ -240,16 +236,19 @@ class Proses4Controller extends Controller
                 {
                     $idno = $idmax + 1;
                     // dd($idno);
+                } else {
+                    $idno = 1;
+
                 }
 
-                $check = HPelesen::where('e_nl', $e_nl)->where('e_thn', $e_thn)->where('e_bln', $e_bln)->first();
+                $check = HPelesen::where('e_nl', $e_nl)->where('e_kat', $e_kat)->where('e_thn', $e_thn)->where('e_bln', $e_bln)->first();
 
                 if ($check) {
                     $check->delete();
                     // $del_rp = DB::DELETE("DELETE FROM h_pelesen where e_thn = '$e_thn' and e_bln='$e_bln' and e_nl= '$e_nl'");
 
                     //insert data to hpelesen
-                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl',
+                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl', '$e_kat',
                     $e_thn,$e_bln,'$e_nlkppk','$np','$ap1','$ap2',
                     '$ap3',
                     '$as1',
@@ -282,7 +281,7 @@ class Proses4Controller extends Controller
 
 
                 } else {
-                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl',
+                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl','$e_kat',
                     $e_thn,$e_bln,'$e_nlkppk','$np','$ap1','$ap2',
                     '$ap3',
                     '$as1',
@@ -314,14 +313,10 @@ class Proses4Controller extends Controller
                     '$kap_tangki','$bil_tangki_cpo','$bil_tangki_ppo','$bil_tangki_cpko','$bil_tangki_ppko','$bil_tangki_oleo','$bil_tangki_oleo','$bil_tangki_jumlah','$kap_tangki_cpo','$kap_tangki_ppo','$kap_tangki_cpko','$kap_tangki_ppko','$kap_tangki_oleo','$kap_tangki_others','$kap_tangki_jumlah')");
 
                 }
-
-
-
-
-
-
-
             }
+
+        }
+
 
         }
     }
@@ -1211,7 +1206,7 @@ class Proses4Controller extends Controller
             $notel = $selects->ebio_notel ;
 
 
-            $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
+            $regpelesenbio = User::where('username', $nolesen)->where('category', 'PLBIO')->get();
             // dd($regpelesenbio);
 
             foreach ($regpelesenbio as $row)
