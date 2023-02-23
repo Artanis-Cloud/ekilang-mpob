@@ -1603,12 +1603,24 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenbio()
     {
-        $users = User::with('pelesen')->where('category', 'PLBIO')->WHERE('status', '1')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->WHERE('e_status', '1')->get();
         // dd($users);
 
-        foreach ($users as $key =>  $res_daerah) {
-            $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->pelesen->e_negeri)->where('kod_daerah', $res_daerah->pelesen->e_daerah)->first();
+
+        foreach ($users as $key => $data) {
+            foreach ($data->pelesen as $res_daerah) {
+            // dd($res_daerah);
+            // $data[$key] = $res_daerah->pelesen;
+            // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                if($res_daerah->e_kat == 'PLBIO'){
+                // $users = $res_daerah;
+                $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                }
+            // }
         }
+        }
+        // dd($user);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

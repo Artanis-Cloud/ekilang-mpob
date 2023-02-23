@@ -39,7 +39,7 @@ class RegPelesen extends Authenticatable
     public function pelesen()
     {
 
-        return $this->hasOne(Pelesen::class, 'e_nl', 'e_nl');
+        return $this->hasMany(Pelesen::class, 'e_nl', 'e_nl');
     }
 
     public static function getPelesenBuah()
