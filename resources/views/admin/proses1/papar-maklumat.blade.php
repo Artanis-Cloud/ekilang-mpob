@@ -987,7 +987,7 @@
 
                                             <div class="col-md">
                                                 <input type="text" class="form-control" name='bil_tangki_cpo'
-                                                    style="width:50%" id="bil_tangki_cpo91"
+                                                    style="width:20%" id="bil_tangki_cpo91"
                                                     title="Sila isikan butiran ini."
                                                     oninput="this.setCustomValidity(''); FormatCurrency(this)"
                                                     onkeypress="return point(event)"
@@ -1003,7 +1003,7 @@
                                             </div>
                                             <div class="col-md">
                                                 <input type="text" class="form-control" name='kap_tangki_cpo'
-                                                    style="width:50%" id="kap_tangki_cpo91"
+                                                    style="width:20%" id="kap_tangki_cpo91"
                                                     oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
                                                     title="Sila isikan butiran ini." onkeypress="return point(event)"
                                                     value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
@@ -1028,7 +1028,7 @@
                                     <br>
 
                                     <div class="row mr-auto" style="margin-left:-2%">
-                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <div class="col-sm-4 form-group" style="margin: 0px">
                                             <span><br></span><label for="fname" class="control-label col-form-label ">
                                                 Bilangan Tangki</label><br>
                                             <label for="fname" class="control-label col-form-label ">
@@ -1197,7 +1197,7 @@
                             <div style="margin-left:-2%">
 
                                 <div class="row mr-auto" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <div class="col-sm-4 form-group" style="margin: 0px">
                                         <span></span>
                                     </div>
                                     <div class="col-md-7">
@@ -1206,7 +1206,7 @@
                                 </div>
 
                                 <div class="row mr-auto" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <div class="col-sm-4 form-group" style="margin: 0px">
                                         <label for="fname" class="control-label col-form-label ">
                                             Bilangan Tangki</label>
                                     </div>
@@ -1226,7 +1226,7 @@
                                     </div>
                                 </div>
                                 <div class="row mr-auto" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <div class="col-sm-4 form-group" style="margin: 0px">
                                         <label for="fname" class="control-label col-form-label">
                                             Kapasiti Tangki Simpanan (Tan)<span style="color:red">*</span></label>
                                     </div>
@@ -1259,7 +1259,7 @@
                         @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')
                             <br>
                             <div class="row mr-auto" style="margin-left:-2%">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                <div class="col-sm-4 form-group" style="margin: 0px">
                                     <span><br></span><label for="fname" class="control-label col-form-label ">
                                         Bilangan Tangki</label><br>
                                     <label for="fname" class="control-label col-form-label">

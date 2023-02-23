@@ -770,8 +770,13 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                <span class="hide-menu font-weight-bold"> </span>
+                            <li class="">
+                                <span class=""
+                                    style="color: black; text-align:center; margin-left:12%;">
+                                    <b style="">
+                                        KILANG PENAPIS
+                                    </b>
+                                </span>
                             </li>
 
                             <li class="" style="padding: 5px; margin-left:10%; ">
@@ -927,9 +932,21 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            {{-- <li class="nav-small-cap">
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li> --}}
+                            <li class="">
+                                <span class=""
+                                    style="color: black; text-align:center; margin-left:12%;">
+                                    <b style="">
+                                        KILANG ISIRUNG
+                                    </b>
+                                </span>
+                            </li>
+
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -1072,9 +1089,21 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            {{-- <li class="nav-small-cap">
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li> --}}
+                            <li class="">
+                                <span class=""
+                                    style="color: black; text-align:center; margin-left:12%;">
+                                    <b style="">
+                                        KILANG OLEOKIMIA
+                                    </b>
+                                </span>
+                            </li>
+
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" >
@@ -1213,9 +1242,21 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            {{-- <li class="nav-small-cap">
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li> --}}
+                            <li class="">
+                                <span class=""
+                                    style="color: black; text-align:center; margin-left:12%;">
+                                    <b style="">
+                                        PUSAT SIMPANAN
+                                    </b>
+                                </span>
+                            </li>
+
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -1324,9 +1365,21 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            {{-- <li class="nav-small-cap">
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li> --}}
+                            <li class="">
+                                <span class=""
+                                    style="color: black; text-align:center; margin-left:12%;">
+                                    <b style="">
+                                        KILANG BIODIESEL
+                                    </b>
+                                </span>
+                            </li>
+
+                            <li class="" style="padding: 5px; margin-left:10%; ">
+                                <span class="date"></span><br>
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" >
