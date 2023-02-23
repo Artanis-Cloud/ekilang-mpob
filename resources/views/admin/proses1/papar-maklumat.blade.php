@@ -1032,7 +1032,7 @@
                                             <span><br></span><label for="fname" class="control-label col-form-label ">
                                                 Bilangan Tangki</label><br>
                                             <label for="fname" class="control-label col-form-label ">
-                                                Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                                Kapasiti Tangki Simpanan (Tan)</label>
                                         </div>
                                         <div class="col-md-7">
                                             <table style="width:100%; text-align: center; font-size: 10px">
@@ -1228,7 +1228,7 @@
                                 <div class="row mr-auto" style="margin:20px 0px">
                                     <div class="col-sm-3 form-group" style="margin: 0px">
                                         <label for="fname" class="control-label col-form-label">
-                                            Kapasiti Tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                            Kapasiti Tangki Simpanan (Tan)</label>
                                     </div>
                                     <div class="col-md-7">
                                         <input type="text" class="form-control" name='kap_tangki_cpko'
@@ -1263,7 +1263,7 @@
                                     <span><br></span><label for="fname" class="control-label col-form-label ">
                                         Bilangan Tangki</label><br>
                                     <label for="fname" class="control-label col-form-label">
-                                        Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                        Kapasiti Tangki Simpanan (Tan)</label>
                                 </div>
                                 <div class="col-md-7">
                                     <table style="width:100%; text-align: center; font-size: 10px">
@@ -2465,61 +2465,7 @@
                 document.getElementById('err_email').style.display = "block";
             }
 
-            // // nama pegawai melapor
-            // field = document.getElementById("e_npg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_npg\r\n";
-            //     $('#e_npg').css('border-color', 'red');
-            //     document.getElementById('err_npg').style.display = "block";
-            // }
 
-            // // jawatan pegawai melapor
-            // field = document.getElementById("e_jpg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_jpg\r\n";
-            //     $('#e_jpg').css('border-color', 'red');
-            //     document.getElementById('err_jpg').style.display = "block";
-            // }
-
-            // // no tel pegawai melapor
-            // field = document.getElementById("e_notel_pg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_notel_pg\r\n";
-            //     $('#e_notel_pg').css('border-color', 'red');
-            //     document.getElementById('err_notel_pg').style.display = "block";
-            // }
-
-            // // email pegawai melapor
-            // field = document.getElementById("e_email_pg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters\r\n";
-            //     $('#e_email_pg').css('border-color', 'red');
-            //     document.getElementById('err_email_pg').style.display = "block";
-            // }
-
-            // // nama pegawai bertanggungjawab
-            // field = document.getElementById("e_npgtg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_npgtg\r\n";
-            //     $('#e_npgtg').css('border-color', 'red');
-            //     document.getElementById('err_npgtg').style.display = "block";
-            // }
-
-            // jawatan pegawai bertanggungjawab
-            // field = document.getElementById("e_jpgtg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_jpgtg\r\n";
-            //     $('#e_jpgtg').css('border-color', 'red');
-            //     document.getElementById('err_jpgtg').style.display = "block";
-            // }
-
-            // // emel pengurus
-            // field = document.getElementById("e_email_pengurus");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_email_pengurus\r\n";
-            //     $('#e_email_pengurus').css('border-color', 'red');
-            //     document.getElementById('err_email_pengurus').style.display = "block";
-            // }
 
             // enegeri
             field = document.getElementById("negeri_id");
@@ -2561,19 +2507,7 @@
                 $('#e_group').css('border-color', 'red');
                 document.getElementById('err_group').style.display = "block";
             }
-            // field = document.getElementById("e_group");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters e_group\r\n";
-            //     $('#e_group').css('border-color', 'red');
-            //     document.getElementById('err_group').style.display = "block";
-            // }
-            // kap proses
-            // field = document.getElementById("kap_proses");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters kap_proses\r\n";
-            //     $('#kap_proses').css('border-color', 'red');
-            //     document.getElementById('err_proses').style.display = "block";
-            // }
+
 
             @if ($reg_pelesen->e_kat == 'PL91')
                 //    POMA

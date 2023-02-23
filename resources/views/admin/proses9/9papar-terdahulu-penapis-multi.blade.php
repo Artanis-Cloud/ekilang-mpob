@@ -61,8 +61,10 @@
                     <form method="get" action="" id="myfrm">
 
                         @foreach ($penyata as $key =>  $data)
-                            @foreach ($query as $qr)
-                        {{-- {{ dd($qr[0]->e_nl) }} --}}
+                        {{-- {{ dd($query) }} --}}
+
+                            @foreach ($query as $key2 => $qr)
+
 
                             <div class="card-body">
                                 <div class="row">
