@@ -90,55 +90,55 @@
                                         </label>
                                         <div class="col-md-4">
                                             <select class="form-control" name="bulan" id="bulan1">
-                                                @if ($minyaksawit->bulan == '01')
-                                                <option {{ $minyaksawit->bulan == '01' ? 'selected' : '' }}
-                                                    value="01">
+                                                @if ($minyaksawit->bulan == '1')
+                                                <option {{ $minyaksawit->bulan == '1' ? 'selected' : '' }}
+                                                    value="1">
                                                     JANUARI</option>
-                                            @elseif ($minyaksawit->bulan == '02')
-                                                <option {{ $minyaksawit->bulan == '02' ? 'selected' : '' }}
-                                                    value="02">
+                                            @elseif ($minyaksawit->bulan == '2')
+                                                <option {{ $minyaksawit->bulan == '2' ? 'selected' : '' }}
+                                                    value="2">
                                                     FEBRUARI</option>
 
                                                 {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
-                                            @elseif ($minyaksawit->bulan == '03')
-                                                <option {{ $minyaksawit->bulan == '03' ? 'selected' : '' }}
-                                                    value="03">MAC
+                                            @elseif ($minyaksawit->bulan == '3')
+                                                <option {{ $minyaksawit->bulan == '3' ? 'selected' : '' }}
+                                                    value="3">MAC
                                                 </option>
 
                                                 {{-- <option selected hidden disabled value="03">MAC</option> --}}
-                                            @elseif ($minyaksawit->bulan == '04')
-                                                <option {{ $minyaksawit->bulan == '04' ? 'selected' : '' }}
-                                                    value="01">APRIL
+                                            @elseif ($minyaksawit->bulan == '4')
+                                                <option {{ $minyaksawit->bulan == '4' ? 'selected' : '' }}
+                                                    value="4">APRIL
                                                 </option>
 
                                                 {{-- <option selected hidden disabled value="04">APRIL</option> --}}
-                                            @elseif ($minyaksawit->bulan == '05')
-                                                <option {{ $minyaksawit->bulan == '05' ? 'selected' : '' }}
-                                                    value="05">MEI
+                                            @elseif ($minyaksawit->bulan == '5')
+                                                <option {{ $minyaksawit->bulan == '5' ? 'selected' : '' }}
+                                                    value="5">MEI
                                                 </option>
 
                                                 {{-- <option selected hidden disabled value="05">MEI</option> --}}
-                                            @elseif ($minyaksawit->bulan == '06')
-                                                <option {{ $minyaksawit->bulan == '06' ? 'selected' : '' }}
-                                                    value="06">JUN
+                                            @elseif ($minyaksawit->bulan == '6')
+                                                <option {{ $minyaksawit->bulan == '6' ? 'selected' : '' }}
+                                                    value="6">JUN
                                                 </option>
 
                                                 {{-- <option selected hidden disabled value="06">JUN</option> --}}
-                                            @elseif ($minyaksawit->bulan == '07')
-                                                <option {{ $minyaksawit->bulan == '07' ? 'selected' : '' }}
-                                                    value="07">JULAI
+                                            @elseif ($minyaksawit->bulan == '7')
+                                                <option {{ $minyaksawit->bulan == '7' ? 'selected' : '' }}
+                                                    value="7">JULAI
                                                 </option>
 
                                                 {{-- <option selected hidden disabled value="07">JULAI</option> --}}
-                                            @elseif ($minyaksawit->bulan == '08')
-                                                <option {{ $minyaksawit->bulan == '08' ? 'selected' : '' }}
-                                                    value="08">OGOS
+                                            @elseif ($minyaksawit->bulan == '8')
+                                                <option {{ $minyaksawit->bulan == '8' ? 'selected' : '' }}
+                                                    value="8">OGOS
                                                 </option>
 
                                                 {{-- <option selected hidden disabled value="08">OGOS</option> --}}
-                                            @elseif ($minyaksawit->bulan == '09')
-                                                <option {{ $minyaksawit->bulan == '09' ? 'selected' : '' }}
-                                                    value="09">
+                                            @elseif ($minyaksawit->bulan == '9')
+                                                <option {{ $minyaksawit->bulan == '9' ? 'selected' : '' }}
+                                                    value="9">
                                                     SEPTEMBER</option>
 
                                                 {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
