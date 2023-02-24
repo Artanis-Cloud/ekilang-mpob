@@ -207,9 +207,15 @@
 
                                                         <option selected value="">Sila Pilih</option>
                                                         @foreach ($users2 as $data)
-                                                            <option value="{{ $data->username }}">
-                                                                {{ $data->username }} - {{ $data->pelesen->e_np }}
-                                                            </option>
+                                                        @if ($data->pelesen)
+                                                        @foreach ($data->pelesen as $pelesen)
+                                                        <option value="{{ $data->username }}">
+                                                            {{ $data->username }} - {{ $pelesen->e_np }}
+                                                        </option>
+                                                        @endforeach
+
+                                                        @endif
+
                                                         @endforeach
                                                     </select>
                                                 </div>
