@@ -138,34 +138,9 @@
                                                     <label class="required">Tahun</label>
                                                     <select class="form-control" name="tahun" required id="tahun_id" oninput="valid_tahun()">
                                                         <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                        <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
-                                                        </option>
-                                                        <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
-                                                        </option>
-                                                        <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
-                                                        </option>
-                                                        <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
-                                                        </option>
-                                                        <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
-                                                        </option>
-                                                        <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
-                                                        </option>
-                                                        <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
-                                                        </option>
-                                                        <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
-                                                        </option>
-                                                        <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
-                                                        </option>
-                                                        <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
-                                                        </option>
-                                                        <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
-                                                        </option>
-                                                        <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
-                                                        </option>
-                                                        <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
-                                                        </option>
-                                                        <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
-                                                        </option>
+                                                        @for ($i = 2011; $i <= date('Y'); $i++)
+                                                            <option>{{ $i }}</option>
+                                                        @endfor
                                                     </select>
                                                     <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat
                                                         pilihan di
