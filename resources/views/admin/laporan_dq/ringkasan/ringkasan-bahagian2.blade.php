@@ -288,9 +288,16 @@
                                                 <select class="form-control select2" name="e_nl" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
+                                                    @if ($data->pelesen)
+                                                        @foreach ($data->pelesen as $pelesen)
                                                         <option value="{{ $data->e_nl }}">
-                                                            {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                            {{ $data->e_nl }} - {{ $pelesen->e_np }}
                                                         </option>
+                                                        @endforeach
+
+                                                        @endif
+
+
                                                     @endforeach
                                                 </select>
                                             </div>
