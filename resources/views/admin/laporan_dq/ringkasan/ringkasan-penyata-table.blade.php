@@ -177,7 +177,7 @@
                                                         <option selected hidden disabled value="">Sila Pilih</option>
                                                         @foreach ($users2 as $data)
                                                             <option value="{{ $data->e_nl }}">
-                                                                {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                                {{ $data->e_nl }} - {{ $data->name }}
                                                             </option>
                                                         @endforeach
                                                     </select>

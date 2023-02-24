@@ -301,11 +301,17 @@
                                             <div class="form-group">
                                                 <label>Pemegang Pelesen</label>
                                                 <select class="form-control select2" name="e_nl" style="width: 10%">
-                                                    <option value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
-                                                        <option value="{{ $data->e_nl }}" {{(old('e_nl', $lesen) == $data->e_nl ? 'selected' : '')}}>
-                                                            {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                    @if ($data->pelesen)
+                                                        @foreach ($data->pelesen as $pelesen)
+                                                        <option value="{{ $data->e_nl }}">
+                                                            {{ $data->e_nl }} - {{ $pelesen->e_np }}
                                                         </option>
+                                                        @endforeach
+
+                                                        @endif
+
+
                                                     @endforeach
                                                 </select>
                                             </div>

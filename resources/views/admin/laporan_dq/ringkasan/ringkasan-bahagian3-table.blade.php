@@ -317,10 +317,14 @@
                                                     <option value=""  >Sila Pilih Jenis Data</option>
                                                         {{-- <option selected hidden>{{ $result[0]->ebio_nl  }} - {{  $result[0]->e_np }}</option> --}}
                                                         @foreach ($users2 as $data)
-                                                            <option value="{{ $data->e_nl }}"  {{(old('e_nl', $lesen) == $data->e_nl ? 'selected' : '')}} >
-                                                                {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                        @if ($data->pelesen)
+                                                            @foreach ($data->pelesen as $pelesen)
+                                                            <option value="{{ $data->e_nl }}">
+                                                                {{ $data->e_nl }} - {{ $pelesen->e_np }}
                                                             </option>
-                                                            {{-- <option value="{{ $data->e_nl }}" {{ old('e_nl', $data->e_nl)  }}>{{ $data->e_nl }}</option> --}}
+                                                            @endforeach
+
+                                                            @endif
 
                                                         @endforeach
                                                 </select>
