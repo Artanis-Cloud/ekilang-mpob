@@ -218,6 +218,9 @@ class Proses4Controller extends Controller
                 $kap_tangki_others =  $pelesen->kap_tangki_others ;
                 $kap_tangki_jumlah =  $pelesen->kap_tangki_jumlah  ;
 
+                $bln = ltrim($e_bln, "0");
+                // dd($e_bln);
+
                 $str="'";
                 $np = str_replace($str, "\'", $e_np);
                 $ap1 = str_replace($str, "\'", $e_ap1);
@@ -241,7 +244,8 @@ class Proses4Controller extends Controller
 
                 }
 
-                $check = HPelesen::where('e_nl', $e_nl)->where('e_kat', $e_kat)->where('e_thn', $e_thn)->where('e_bln', $e_bln)->first();
+                $check = HPelesen::where('e_nl', $e_nl)->where('e_kat', $e_kat)->where('e_thn', $e_thn)->where('e_bln', $bln)->first();
+                // dd($check);
 
                 if ($check) {
                     $check->delete();
