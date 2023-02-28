@@ -139,7 +139,7 @@ class Proses4Controller extends Controller
 
     public function porting_pelesen()
     {
-       
+
         $user = User::with('pelesen')->get();
 
         foreach($user as $selects){
@@ -1256,7 +1256,6 @@ class Proses4Controller extends Controller
                         $b9 = (float) $rowebio_b->ebio_b9 ;
                         $b10 = (float) $rowebio_b->ebio_b10 ;
                         $b11 = (float) $rowebio_b->ebio_b11 ;
-                        // $b12 = (float) $rowebio_b ->ebio_b12 ;
                         $b13 = (float) $rowebio_b->ebio_b13 ;
 
                         // insert into mysqli history e91b
@@ -1280,10 +1279,16 @@ class Proses4Controller extends Controller
                         // $deletehbiob = DB::delete("DELETE from h_bio_b_s where ebio_nobatch='$nobatch'");
                         if ($b4) {
                             $deletehbiob = DB::delete("DELETE from h_bio_b_s where ebio_nobatch='$nobatch' and ebio_b4='$b4'");
+
+                            $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
+                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+                        } else {
+                            $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
+                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
                         }
 
-                        $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
-                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+                        // $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
+                        // '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
                     }
 
                     $ebioc = EBioC::where('ebio_reg', $regno)->orderBy('ebio_c3')->get();
