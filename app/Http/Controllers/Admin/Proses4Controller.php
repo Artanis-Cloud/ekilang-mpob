@@ -1185,7 +1185,7 @@ class Proses4Controller extends Controller
     public function admin_portbio2()
     {
         //data from ebio_init
-        $ebioinit = EBioInit::where('ebio_flg', '2')->get();
+        $ebioinit = EBioInit::where('ebio_flg', ['2','3'])->get();
         // dd($ebioinit);
 
         $totalplbio = 0;
