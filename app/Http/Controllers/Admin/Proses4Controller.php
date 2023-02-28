@@ -122,7 +122,7 @@ class Proses4Controller extends Controller
     public function admin_portbio()
     {
         // dd($request->e_tahun);
-        $this->porting_pelesen();
+        // $this->porting_pelesen();
         $this->admin_portbio2();
         // $this->porting_pl91($request->all());
         // $this->porting_pl101($request->all());
@@ -1185,7 +1185,7 @@ class Proses4Controller extends Controller
     public function admin_portbio2()
     {
         //data from ebio_init
-        $ebioinit = EBioInit::where('ebio_flg', ['2','3'])->get();
+        $ebioinit = EBioInit::whereIn('ebio_flg', array(2,3))->get();
         // dd($ebioinit);
 
         $totalplbio = 0;
