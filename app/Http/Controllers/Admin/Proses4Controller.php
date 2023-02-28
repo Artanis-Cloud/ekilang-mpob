@@ -1241,7 +1241,7 @@ class Proses4Controller extends Controller
 
 
                     $ebiob = EBioB::where('ebio_reg', $regno)->get();
-                    // dd($rowebio_b);
+                    // dd($ebiob);
                     // $jum91b = 0;
 
                     foreach ($ebiob as $rowebio_b)
@@ -1280,11 +1280,9 @@ class Proses4Controller extends Controller
                         if ($b4) {
                             $deletehbiob = DB::delete("DELETE from h_bio_b_s where ebio_nobatch='$nobatch' and ebio_b4='$b4'");
 
-                            $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
-                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+                            $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
                         } else {
-                            $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
-                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+                            $inserthbiob2 = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
                         }
 
                         // $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
