@@ -209,7 +209,7 @@ footer a {
                       </div>
                 </div> --}}
             <div class="row" style="margin-top: -50px">
-                <img src="{{ asset('theme/images/title-mpob.png') }}"  style=" width:900px;  " >
+                <img src="{{ asset('theme/images/title2.png') }}"  style=" width:900px;  " >
 
             </div>
           <div class="container"  style="margin-top: -100px">

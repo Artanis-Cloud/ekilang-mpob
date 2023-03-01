@@ -281,49 +281,50 @@
                             </b> --}}
                             <!--End Logo icon -->
                             <!-- Logo text -->
-                            <span class="logo-text">
+                            {{-- <span class="logo-text"> --}}
                                 <!-- Light Logo text -->
                                 @if (auth()->user()->category == 'PL91')
-                                    <a href="{{ route('buah.dashboard') }}">
+                                    {{-- <a href="{{ route('buah.dashboard') }}"> --}}
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px; width:80%; margin-left:10%">
-                                    </a>
+                                        style="padding-top:20px; width:170px;">
+                                    {{-- </a> --}}
                                 @elseif (auth()->user()->category == 'PL101')
-                                    <a href="{{ route('penapis.dashboard') }}">
+                                    {{-- <a href="{{ route('penapis.dashboard') }}"> --}}
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:80%; margin-left:10%">
-                                    </a>
+                                        style="padding-top:20px; width:170px;">
+                                    {{-- </a> --}}
                                 @elseif (auth()->user()->category == 'PL102')
-                                    <a href="{{ route('isirung.dashboard') }}">
+                                    {{-- <a href="{{ route('isirung.dashboard') }}"> --}}
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:80%; margin-left:10%">
-                                    </a>
+                                        style="padding-top:20px; width:170px;">
+                                    {{-- </a> --}}
                                 @elseif (auth()->user()->category == 'PL104')
-                                    <a href="{{ route('oleo.dashboard') }}">
+                                    {{-- <a href="{{ route('oleo.dashboard') }}"> --}}
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px;height:110%; width:80%; margin-left:10%">
-                                    </a>
+                                        style="padding-top:20px; width:170px;">
+                                    {{-- </a> --}}
                                 @elseif (auth()->user()->category == 'PL111')
-                                    <a href="{{ route('pusatsimpan.dashboard') }}">
+                                    {{-- <a href="{{ route('pusatsimpan.dashboard') }}"> --}}
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                        style="padding-top:20px;height:110%; width:80%; margin-left:10%">
-                                    </a>
+                                        style="padding-top:20px; width:170px;">
+                                    {{-- </a> --}}
                                 @elseif (auth()->user()->category == 'PLBIO')
-                                    <a href="{{ route('bio.dashboard') }}">
+                                    {{-- <a href="{{ route('bio.dashboard') }}"> --}}
                                         <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                        style="padding-top:20px;height:110%; width:80%; margin-left:10%">
-                                    </a>
+                                        style="padding-top:20px; width:170px;">
+                                    {{-- </a> --}}
                                 @elseif (auth()->user()->category == 'admin')
-                                    <a href="{{ route('admin.dashboard') }}">
-                                        <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
-                                            style="padding-top:20px; width:170px; margin-left:-15%">
-                                    </a>
+                                    <img src="{{ asset('logo7.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:20px; width:170px;">
+                                    {{-- <a href="{{ route('admin.dashboard') }}">
+
+                                    </a> --}}
                                 @endif
-                            </span>
+                            {{-- </span> --}}
                         </a>
-                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="ti-more"></i>
+
+                    <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
+                        <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>
                     </a>
                     </div>
                     <!-- ============================================================== -->
@@ -337,11 +338,17 @@
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a> --}}
+
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="ti-more"></i>
+                </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="background-image:  url({{ asset('theme/images/nav-head-2.png') }}); background-size:cover ">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="background-image:  url({{ asset('theme/images/nav-head-2.png') }});
+                    background-size:cover; background-position: center ">
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
 
@@ -615,9 +622,11 @@
                             <li class="">
                                 <span class=""
                                     style="color: black; text-align:center; margin-left:12%;">
-                                    <b style="">
-                                        KILANG BUAH
-                                    </b>
+                                    <a href="{{ route('buah.dashboard') }}">
+                                        <b style="color: black">
+                                            KILANG BUAH
+                                        </b>
+                                    </a>
                                 </span>
                             </li>
 
@@ -773,9 +782,11 @@
                             <li class="">
                                 <span class=""
                                     style="color: black; text-align:center; margin-left:12%;">
-                                    <b style="">
-                                        KILANG PENAPIS
-                                    </b>
+                                    <a href="{{ route('penapis.dashboard') }}">
+                                        <b style="color: black">
+                                            KILANG PENAPIS
+                                        </b>
+                                    </a>
                                 </span>
                             </li>
 
@@ -935,9 +946,11 @@
                             <li class="">
                                 <span class=""
                                     style="color: black; text-align:center; margin-left:12%;">
-                                    <b style="">
-                                        KILANG ISIRUNG
-                                    </b>
+                                    <a href="{{ route('isirung.dashboard') }}">
+                                        <b style="color: black">
+                                            KILANG ISIRUNG
+                                        </b>
+                                    </a>
                                 </span>
                             </li>
 
@@ -1092,9 +1105,11 @@
                             <li class="">
                                 <span class=""
                                     style="color: black; text-align:center; margin-left:12%;">
-                                    <b style="">
-                                        KILANG OLEOKIMIA
-                                    </b>
+                                    <a href="{{ route('oleo.dashboard') }}">
+                                        <b style="color:black">
+                                            KILANG OLEOKIMIA
+                                        </b>
+                                    </a>
                                 </span>
                             </li>
 
@@ -1245,9 +1260,11 @@
                             <li class="">
                                 <span class=""
                                     style="color: black; text-align:center; margin-left:12%;">
-                                    <b style="">
-                                        PUSAT SIMPANAN
-                                    </b>
+                                    <a href="{{ route('pusatsimpan.dashboard') }}">
+                                        <b style="color: black">
+                                            PUSAT SIMPANAN
+                                        </b>
+                                    </a>
                                 </span>
                             </li>
 
@@ -1368,9 +1385,11 @@
                             <li class="">
                                 <span class=""
                                     style="color: black; text-align:center; margin-left:12%;">
-                                    <b style="">
-                                        KILANG BIODIESEL
-                                    </b>
+                                    <a href="{{ route('bio.dashboard') }}">
+                                        <b style="color: black">
+                                            KILANG BIODIESEL
+                                        </b>
+                                    </a>
                                 </span>
                             </li>
 
@@ -1799,7 +1818,8 @@
 
                                 <span class="hide-menu font-weight-bold"
                                     style="color: black; text-align:center; margin-left:10%; ">
-                                    {{ ucfirst(auth()->user()->role) }}
+                                    <a href="{{ route('admin.dashboard') }}" style="color:black">
+                                    {{ ucfirst(auth()->user()->role) }}</a>
                                 </span>
 
                             </li>
