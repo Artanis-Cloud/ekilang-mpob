@@ -2934,6 +2934,7 @@ class LaporanController extends Controller
             ];
             $layout = 'layouts.admin';
 
+            if ($proses_sm->kap_proses != 0 && $proses_sbh->kap_proses != 0 && $proses_srwk->kap_proses != 0) {
             if ($start_month) {
                 $array = [
                     'laporan' => $laporan,
@@ -3001,6 +3002,10 @@ class LaporanController extends Controller
             }
 
             return view('admin.laporan_dq.laporan-utilrate', $array);
+        } else {
+            return redirect()->back()
+                ->with('error', 'Kapasiti pemprosesan bernilai 0. Pengiraan kadar penggunaan tidak dapat dikeluarkan!');
+        }
         } else {
             return redirect()->back()
                 ->with('error', 'Rekod Tidak Wujud!');
