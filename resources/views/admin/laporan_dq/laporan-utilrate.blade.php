@@ -168,7 +168,7 @@
                                                     $total_alluratesrwk = 0;
                                                 @endphp
                                                 @foreach ($proses_sm as $data)
-                                                {{ dd($data) }}
+                                                {{-- {{ dd($data) }} --}}
 
                                                     @php
                                                         $by_pelesen = 0;
@@ -224,7 +224,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-
+{{-- {{ dd($by_pelesen) }} --}}
                                                         <td style="text-align: right">
                                                             {{ number_format($by_pelesen ?? 0, 2) }}</td>
 
