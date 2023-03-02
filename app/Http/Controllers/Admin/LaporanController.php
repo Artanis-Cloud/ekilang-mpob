@@ -2789,7 +2789,7 @@ class LaporanController extends Controller
             foreach ($proses_sm as $key => $data) {
                 $kap_proses_sm[$key] = $data->kap_proses;
             }
-            dd(in_array("0", $kap_proses_sm));
+            // dd(in_array("0", $kap_proses_sm));
             foreach ($proses_sbh as $key => $data) {
                 $kap_proses_sbh[$key] = $data->kap_proses;
             }
@@ -2801,7 +2801,9 @@ class LaporanController extends Controller
             if (in_array("0", $kap_proses_sm) && in_array("0", $kap_proses_sbh) && in_array("0", $kap_proses_srwk)) {
                 return redirect()->back()
                     ->with('error', 'Kapasiti pemprosesan bernilai 0. Pengiraan kadar penggunaan tidak dapat dikeluarkan!');
-            } else {
+            }
+
+
                 if ($start_month) {
                     $array = [
                         'laporan' => $laporan,
@@ -2867,7 +2869,7 @@ class LaporanController extends Controller
                 }
 
                 return view('admin.laporan_dq.laporan-utilrate', $array);
-            }
+
         } else {
             return redirect()->back()
                 ->with('error', 'Rekod Tidak Wujud!');
