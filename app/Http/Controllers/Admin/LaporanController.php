@@ -2917,7 +2917,7 @@ class LaporanController extends Controller
             GROUP by p.e_nl");
 
 
-            // dd($proses);
+            dd($proses_sm);
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
