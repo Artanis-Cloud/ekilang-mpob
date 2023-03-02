@@ -2943,7 +2943,7 @@ class LaporanController extends Controller
             // foreach ($proses_srwk as $key => $data){
             //     $kap_proses_srwk[$key] = $data->kap_proses;
             // }
-
+                dd($proses_sm["kap_proses"]);
             if (in_array("0", $proses_sm->proses)) {
             if ($start_month) {
                 $array = [
