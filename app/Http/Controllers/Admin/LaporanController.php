@@ -2789,12 +2789,14 @@ class LaporanController extends Controller
             foreach ($proses_sm as $key => $data) {
                 $kap_proses_sm[$key] = $data->kap_proses;
             }
+            dd($kap_proses_sm);
             foreach ($proses_sbh as $key => $data) {
                 $kap_proses_sbh[$key] = $data->kap_proses;
             }
             foreach ($proses_srwk as $key => $data) {
                 $kap_proses_srwk[$key] = $data->kap_proses;
             }
+
             // dd($proses_sm["kap_proses"]);
             if (in_array("0", $kap_proses_sm) && in_array("0", $kap_proses_sbh) && in_array("0", $kap_proses_srwk)) {
                 return redirect()->back()
