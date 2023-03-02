@@ -349,7 +349,7 @@
                                                             @endif
                                                         @endforeach
                                                     @endfor --}}
-                                                        @if ($data->ebio_bln == '01' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '1' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_1++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -361,7 +361,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '02' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '2' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_2 += $data->ebio_c6;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -374,7 +374,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '03' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '3' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_3++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -387,7 +387,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '04' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '4' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_4++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -400,7 +400,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '05' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '5' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_5++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -413,7 +413,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '06' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '6' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_6++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -426,7 +426,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '07' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '7' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_7++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -439,7 +439,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '08' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '8' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_8++;
                                                                 //$total_bulan += $data->ebio_c6;
@@ -452,7 +452,7 @@
                                                         @else
                                                             <td>0.00</td>
                                                         @endif
-                                                        @if ($data->ebio_bln == '09' && $data->ebio_c6 != 0)
+                                                        @if ($data->ebio_bln == '9' && $data->ebio_c6 != 0)
                                                             @php
                                                                 // $bulan_9++;
                                                                 //$total_bulan += $data->ebio_c6;
