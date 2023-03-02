@@ -167,6 +167,7 @@
                                                     $total_alluratesbh = 0;
                                                     $total_alluratesrwk = 0;
                                                 @endphp
+                                                {{ dd($proses_sm) }}
                                                 @foreach ($proses_sm as $data)
                                                     @php
                                                         $by_pelesen = 0;
