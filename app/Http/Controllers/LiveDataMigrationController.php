@@ -392,14 +392,14 @@ class LiveDataMigrationController extends Controller
         // $this->pbcatvld();
         // $this->pelabuhan_luar();
         // $this->pelabuhan_msia();
-        $this->pelesen();
+        // $this->pelesen();
         // $this->pengumuman();
         // $this->pl91_individual();
         // $this->pr();
         // $this->prod_cat();
         // $this->prod_cat2();
         // $this->prodmsia();
-        // $this->prodnegeri();
+        $this->prodnegeri();
         // $this->prodsemsia();
         // $this->prodss();
         // $this->produk();
@@ -1559,26 +1559,30 @@ class LiveDataMigrationController extends Controller
 
     public function h101_e()
     {
-        $delete = DB::delete("DELETE FROM h101_e");
+        // $delete = DB::delete("DELETE FROM h101_e");
 
-        $selects = DB::connection('mysql2')->select("SELECT * FROM h101_e");
+        $selects = DB::connection('mysql2')->select("SELECT *  FROM h101_e");
+        // dd($selects);
 
-        foreach ($selects as $key => $select) {
+        foreach ($selects as $select) {
 
-            if ($select->e101_e6 == '0000-00-00' || $select->e101_e6 == '2020-00-03' || $select->e101_e6 == '2020-00-01'  || $select->e101_e6 == '2020-00-00'|| $select->e101_e6 == '2020-00-08'|| $select->e101_e6 == '2000-04-00'|| $select->e101_e6 == '2020-00-12') {
-                $data = NULL;
-            } elseif($select->e101_e6 == '2020-00-07' || $select->e101_e6 == '2000-00-22' || $select->e101_e6 == '2000-07-00' || $select->e101_e6 == '2020-00-06' || $select->e101_e6 == '2000-08-00' || $select->e101_e6 == '2020-00-09' || $select->e101_e6 == '2009-00-05') {
-                $data = NULL;
-            }
-             elseif($select->e101_e6 == '2009-00-09' || $select->e101_e6 == '2001-00-02' || $select->e101_e6 == '2001-00-03' || $select->e101_e6 == '2001-00-04'|| $select->e101_e6 == '2001-00-05'){
-                $data = NULL;
-            }
-             elseif($select->e101_e6 == '2001-00-06' || $select->e101_e6 == '2001-00-07' || $select->e101_e6 == '2001-00-08' || $select->e101_e6 == '2021-00-07' || $select->e101_e6 == '2021-00-06'){
-                $data = NULL;
-            }
-             else {
-                $data = $select->e101_e6;
-            }
+        // dd($select);
+
+
+            // if ($select->e101_e6 == '0000-00-00' || $select->e101_e6 == '2020-00-03' || $select->e101_e6 == '2020-00-01'  || $select->e101_e6 == '2020-00-00'|| $select->e101_e6 == '2020-00-08'|| $select->e101_e6 == '2000-04-00'|| $select->e101_e6 == '2020-00-12') {
+            //     $data = NULL;
+            // } elseif($select->e101_e6 == '2020-00-07' || $select->e101_e6 == '2000-00-22' || $select->e101_e6 == '2000-07-00' || $select->e101_e6 == '2020-00-06' || $select->e101_e6 == '2000-08-00' || $select->e101_e6 == '2020-00-09' || $select->e101_e6 == '2009-00-05') {
+            //     $data = NULL;
+            // }
+            //  elseif($select->e101_e6 == '2009-00-09' || $select->e101_e6 == '2001-00-02' || $select->e101_e6 == '2001-00-03' || $select->e101_e6 == '2001-00-04'|| $select->e101_e6 == '2001-00-05'){
+            //     $data = NULL;
+            // }
+            //  elseif($select->e101_e6 == '2001-00-06' || $select->e101_e6 == '2001-00-07' || $select->e101_e6 == '2001-00-08' || $select->e101_e6 == '2021-00-07' || $select->e101_e6 == '2021-00-06'){
+            //     $data = NULL;
+            // }
+            //  else {
+                // $data = $select->e101_e6;
+            // }
 
             $insert = H101E::create([
                 'e101_e1' => $select->e101_e1 ?? NULL,
@@ -1586,7 +1590,7 @@ class LiveDataMigrationController extends Controller
                 'e101_e3' => $select->e101_e3 ?? NULL,
                 'e101_e4' => $select->e101_e4 ?? NULL,
                 'e101_e5' => $select->e101_e5 ?? NULL,
-                'e101_e6' => $data ?? NULL,
+                'e101_e6' => $select->e101_e6 ?? NULL,
                 'e101_e7' => $select->e101_e7 ?? NULL,
                 'e101_e8' => $select->e101_e8 ?? NULL,
                 'e101_e9' => $select->e101_e9 ?? NULL,
@@ -1614,7 +1618,7 @@ class LiveDataMigrationController extends Controller
 
     public function h101_init()
     {
-        $delete = DB::delete("DELETE FROM h101_init");
+        // $delete = DB::delete("DELETE FROM h101_init");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM h101_init");
 
@@ -1622,12 +1626,12 @@ class LiveDataMigrationController extends Controller
 
         foreach ($selects as $key => $select) {
 
-            if ($select->e101_ddate == '2020-00-09'  ) {
-                $data = NULL;
-            }
-             else {
-                $data = $select->e101_ddate;
-            }
+        //     if ($select->e101_ddate == '2020-00-09'  ) {
+        //         $data = NULL;
+        //     }
+        //      else {
+        //         $data = $select->e101_ddate;
+        //     }
 
             $insert = H101Init::create([
                 'e101_nobatch' => $select->e101_nobatch ?? NULL,
@@ -1636,7 +1640,7 @@ class LiveDataMigrationController extends Controller
                 'e101_thn' => $select->e101_thn ?? NULL,
                 'e101_flg' => $select->e101_flg ?? NULL,
                 'e101_sdate' => $select->e101_sdate ?? NULL,
-                'e101_ddate' => $data ?? NULL,
+                'e101_ddate' => $select->e101_ddate ?? NULL,
                 'e101_a5' => $select->e101_a5 ?? NULL,
                 'e101_a6' => $select->e101_a6 ?? NULL,
                 'e101_a7' => $select->e101_a7 ?? NULL,
@@ -1672,18 +1676,18 @@ class LiveDataMigrationController extends Controller
 
     public function h102c()
     {
-        $delete = DB::delete("DELETE FROM h102c");
+        // $delete = DB::delete("DELETE FROM h102c");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM h102c");
 
         foreach ($selects as $key => $select) {
 
-            if ($select->e102_c6 == '2001-00-03'  ) {
-                $data = NULL;
-            }
-             else {
-                $data = $select->e102_c6;
-            }
+            // if ($select->e102_c6 == '2001-00-03'  ) {
+            //     $data = NULL;
+            // }
+            //  else {
+            //     $data = $select->e102_c6;
+            // }
 
             $insert = H102c::create([
                 'e102_c1' => $select->e102_c1 ?? NULL,
@@ -1691,7 +1695,7 @@ class LiveDataMigrationController extends Controller
                 'e102_c3' => $select->e102_c3 ?? NULL,
                 'e102_c4' => $select->e102_c4 ?? NULL,
                 'e102_c5' => $select->e102_c5 ?? NULL,
-                'e102_c6' => $data ?? NULL,
+                'e102_c6' => $select->e102_c6 ?? NULL,
                 'e102_c7' => $select->e102_c7 ?? NULL,
                 'e102_c8' => $select->e102_c8 ?? NULL,
                 'e102_c9' => $select->e102_c9 ?? NULL,
@@ -1719,7 +1723,7 @@ class LiveDataMigrationController extends Controller
 
     public function h102_init()
     {
-        $delete = DB::delete("DELETE FROM h102_init");
+        // $delete = DB::delete("DELETE FROM h102_init");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM h102_init");
 
