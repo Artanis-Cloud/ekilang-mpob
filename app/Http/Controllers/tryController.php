@@ -182,74 +182,12 @@ class tryController extends Controller
     public function testdb_pldb()
     {
 
-        $tahun1 = date('Y');
-        $tahun2 = date('Y') - 1;
-        $bulan = date('m');
+        // $e_bln = date('m', strtotime('last month'));
 
-        $current_date = date('Y-m-d');
-        if ($bulan == 1) {
-           $date = Init::where('tahun', $tahun2)->first();
-
-        } else {
-           $date = Init::where('tahun', $tahun1)->first();
-
-        }
-        // dd($date);
+        // dd($e_bln);
 
 
-        if ($bulan == 2) {
-            $sdate = $date->sjan;
-            $edate = $date->ejan;
-        }
-        elseif ($bulan == 3) {
-            $sdate = $date->sfeb;
-            $edate = $date->efeb;
-        }
-        elseif ($bulan == 4) {
-            $sdate = $date->smac;
-            $edate = $date->emac;
-        }
-        elseif ($bulan == 5) {
-            $sdate = $date->sapr;
-            $edate = $date->eapr;
-        }
-        elseif ($bulan == 6) {
-            $sdate = $date->smei;
-            $edate = $date->emei;
-        }
-        elseif ($bulan == 7) {
-            $sdate = $date->sjun;
-            $edate = $date->ejun;
-        }
-        elseif ($bulan == 8) {
-            $sdate = $date->sjul;
-            $edate = $date->ejul;
-        }
-        elseif ($bulan == 9) {
-            $sdate = $date->sogos;
-            $edate = $date->eogos;
-        }
-        elseif ($bulan == 10) {
-            $sdate = $date->ssept;
-            $edate = $date->esept;
-        }
-        elseif ($bulan == 11) {
-            $sdate = $date->sokt;
-            $edate = $date->eokt;
-        }
-        elseif ($bulan == 12) {
-            $sdate = $date->snov;
-            $edate = $date->enov;
-        }
-        elseif ($bulan == 1){
-            $sdate = $date->sdec;
-            $edate = $date->edec;
-        }
-
-
-        // dd($sdate == $current_date);
-
-
+        $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
 
 
