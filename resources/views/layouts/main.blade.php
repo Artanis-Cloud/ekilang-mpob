@@ -2819,7 +2819,7 @@ $('ul > li> a').on('click', function() {
         /* time */
         var hr,
             _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
-            sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+            // sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
             ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
 
         if (dateInfo.getHours() == 0) {
@@ -2830,7 +2830,7 @@ $('ul > li> a').on('click', function() {
             hr = dateInfo.getHours();
         }
 
-        var currentTime = hr + ":" + _min + ":" + sec;
+        var currentTime = hr + ":" + _min;
 
         // print time
         document.getElementsByClassName("hms")[0].innerHTML = currentTime;
