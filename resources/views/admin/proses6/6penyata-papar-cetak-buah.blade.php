@@ -2,6 +2,11 @@
 
 @section('content')
 
+{{-- <style>
+@media all and (max-width: 479px) {
+    .breadcrumb {display:none;}
+}
+</style> --}}
 
 
     <div class="page-wrapper">
@@ -11,31 +16,31 @@
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row">
-                <div class="col-5 align-self-center">
-                    <h4 class="page-title">Papar Penyata</h4>
-                </div>
-                <div class="col-7 align-self-center">
-                    <div class="d-flex align-items-center justify-content-end">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                    @if (!$loop->last)
-                                        <li class="breadcrumb-item">
-                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
-                                                onMouseOver="this.style.color='#25877b'"
-                                                onMouseOut="this.style.color='grey'">
-                                                {{ $breadcrumb['name'] }}
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li class="breadcrumb-item active" aria-current="page"
-                                            style="color: #25877b  !important;">
+                <div class="col-12 align-self-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                @if (!$loop->last)
+                                    <li class="breadcrumb-item">
+                                        <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                            onMouseOver="this.style.color='#25877b'"
+                                            onMouseOut="this.style.color='grey'">
                                             {{ $breadcrumb['name'] }}
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ol>
-                        </nav>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="breadcrumb-item active" aria-current="page"
+                                        style="color: #25877b  !important;">
+                                        {{ $breadcrumb['name'] }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-7 align-self-center" id="breadcrumb">
+                    <div class="d-flex align-items-center justify-content-end">
+
                     </div>
                 </div>
             </div>
@@ -46,12 +51,12 @@
             <div class="tab" style="margin-left:2%">
                 {{-- <button class="tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                 Terkini</button> --}}
-                <a style="color:black; border-radius:unset; font-size:14px; background-color:rgb(255, 255, 255)"
+                <a style="color:black; border-radius:unset; font-size:10px; background-color:rgb(255, 255, 255)"
                     class="btn btn-work tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                     Telah Dihantar</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
                 <a href="{{ route('admin.5penyatabelumhantarbuah') }}"
-                    style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                    style="color:black; border-radius:unset; font-size:10px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                 {{-- </button> --}}
 
