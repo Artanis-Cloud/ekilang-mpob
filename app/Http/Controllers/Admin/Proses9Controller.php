@@ -3003,7 +3003,7 @@ class Proses9Controller extends Controller
                     $data_pelesen = $pelesen;
                 }
             }
-            dd($data_pelesen);
+            // dd($data_pelesen);
             if ($data_pelesen) {
 
                 if ($data_pelesen->e_thn == $tahun && $data_pelesen->e_bln == $bulan) {
