@@ -2996,7 +2996,7 @@ class Proses9Controller extends Controller
         } elseif ($tahun > 2022) {
 
             $check = HBioInit::with('h_pelesen')->where('ebio_nobatch', $nobatch)->where('ebio_thn', $tahun)->where('ebio_bln', $bulan)->first();
-            dd($check);
+            // dd($check);
 
             foreach ($check->h_pelesen as $pelesen) {
                 if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
