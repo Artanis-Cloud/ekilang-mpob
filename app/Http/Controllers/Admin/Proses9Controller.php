@@ -611,9 +611,10 @@ class Proses9Controller extends Controller
                 foreach ($check->h_pelesen as $pelesen) {
                     if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
                         $data_pelesen = $pelesen;
-                    } else {
-                        $data_pelesen = '';
                     }
+                    // else {
+                    //     $data_pelesen = '';
+                    // }
                 }
                 // dd($data_pelesen);
                 if ($data_pelesen) {
@@ -1211,9 +1212,10 @@ class Proses9Controller extends Controller
             foreach ($check->h_pelesen as $pelesen) {
                 if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
                     $data_pelesen = $pelesen;
-                } else {
-                    $data_pelesen = '';
                 }
+                // else {
+                //     $data_pelesen = '';
+                // }
             }
 
             if ($data_pelesen) {
@@ -1534,9 +1536,10 @@ class Proses9Controller extends Controller
             foreach ($check->h_pelesen as $pelesen) {
                 if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
                     $data_pelesen = $pelesen;
-                } else {
-                    $data_pelesen = '';
                 }
+                // else {
+                //     $data_pelesen = '';
+                // }
             }
             if ($data_pelesen) {
 
@@ -2330,9 +2333,10 @@ class Proses9Controller extends Controller
             foreach ($check->h_pelesen as $pelesen) {
                 if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
                     $data_pelesen = $pelesen;
-                } else {
-                    $data_pelesen = '';
                 }
+                // else {
+                //     $data_pelesen = '';
+                // }
             }
 
             if ($data_pelesen) {
@@ -2787,9 +2791,10 @@ class Proses9Controller extends Controller
             foreach ($check->h_pelesen as $pelesen) {
                 if ($pelesen->e_thn == $tahun && $pelesen->e_bln == $bulan) {
                     $data_pelesen = $pelesen;
-                } else {
-                    $data_pelesen = '';
                 }
+                // else {
+                //     $data_pelesen = '';
+                // }
             }
             // dd($data_pelesen);
             if ($data_pelesen) {
