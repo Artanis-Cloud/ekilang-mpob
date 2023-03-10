@@ -6,6 +6,7 @@ use App\Models\Daerah;
 use App\Models\EBioInit;
 use App\Models\HBioInit;
 use App\Models\HebahanStokAkhir;
+use App\Models\HPelesen;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\ProfileBulanan;
@@ -286,28 +287,28 @@ class DataMigrationController extends Controller
 
         foreach ($biodiesels as $biodiesel) {
 
-            $daerahap = Daerah::where('nama_daerah', $biodiesel->e_apdaerah)->first();
-            $daerahas = Daerah::where('nama_daerah', $biodiesel->e_asdaerah)->first();
-            $negeriap = Negeri::where('nama_negeri', $biodiesel->e_apnegeri)->first();
-            $negerias = Negeri::where('nama_negeri', $biodiesel->e_asnegeri)->first();
+            // $daerahap = Daerah::where('nama_daerah', $biodiesel->e_apdaerah)->first();
+            // $daerahas = Daerah::where('nama_daerah', $biodiesel->e_asdaerah)->first();
+            // $negeriap = Negeri::where('nama_negeri', $biodiesel->e_apnegeri)->first();
+            // $negerias = Negeri::where('nama_negeri', $biodiesel->e_asnegeri)->first();
             // dd($negerias);
 
             $password = Hash::make('12345678');
-            $crypted = Crypt::encryptString('12345678');
+            // $crypted = Crypt::encryptString('12345678');
             // dd($crypted);
 
-            $count_user = User::count();
-            $count_pelesen = Pelesen::count();
-            if($biodiesel->e_asnegeri == '-Negeri-'){
-                $biodiesel->e_asnegeri = null;
-            }
-            if($biodiesel->e_apnegeri == '-Negeri-'){
-                $biodiesel->e_apnegeri = null;
-            }
+            $count_user = RegPelesen::max('e_id');
+            // $count_pelesen = Pelesen::count();
+            // if($biodiesel->e_asnegeri == '-Negeri-'){
+            //     $biodiesel->e_asnegeri = null;
+            // }
+            // if($biodiesel->e_apnegeri == '-Negeri-'){
+            //     $biodiesel->e_apnegeri = null;
+            // }
             // if($kilang->e_nl == '616115025000'){
             //     dd($kilang);
             // }
-            $user = User::where('username', $biodiesel->e_nl)->where('category', $biodiesel->e_kat)->first();
+            $user = RegPelesen::where('e_nl', $biodiesel->e_nl)->where('e_kat', $biodiesel->e_kat)->first();
             // dd($users);
 
             // foreach ($users as $user) {
@@ -315,141 +316,30 @@ class DataMigrationController extends Controller
             //     $kat[$biodiesel->e_nl] = $user->category;
             // }
             // dd($kat[$biodiesel->e_nl]);
-            if(!$user){
-                $user = User::create([
-                    'id' => $count_user++,
-                    'name' => $biodiesel->e_np ?? '-',
-                    'email' => $biodiesel->e_email ?? '-',
-                    'password' => $password,
-                    'crypted_pass' => $crypted,
-                    'username' => $biodiesel->e_nl ?? '-',
-                    'category' => $biodiesel->e_kat ?? '-',
-                    'sub_cat' => NULL,
-                    'status' =>  '1',
-                    'map_flg' =>  '0',
-                    'map_sdate' =>  NULL,
+
+                $user = RegPelesen::create([
+                    'e_id' => $count_user + 1,
+                    'e_nl' => $biodiesel->e_nl ,
+                    'e_kat' => 'PLBIO',
+                    'e_pwd' => $password,
+                    'kodpgw' => $biodiesel->kodpgw ?? NULL,
+                    'nosiri' => $biodiesel->nosri ?? NULL,
+                    'e_status' => $biodiesel->e_status ?? NULL,
+                    'e_stock' => NULL,
+                    'directory' =>  NULL,
                 ]);
-            }else{
 
-                if ($user->e_kat == $biodiesel->e_kat) {
-                    $user->e_email = $biodiesel->e_email ?? '-';
-                    $user->password = $password;
-                    $user->crypted_pass = $crypted;
-                    $user->save();
-
-                } else {
-                    $user = User::create([
-                        'id' => $count_user++,
-                        'name' => $biodiesel->e_np ?? '-',
-                        'email' => $biodiesel->e_email ?? '-',
-                        'password' => $password,
-                        'crypted_pass' => $crypted,
-                        'username' => $biodiesel->e_nl ?? '-',
-                        'category' => $biodiesel->e_kat ?? '-',
-                        'sub_cat' => NULL,
-                        'status' =>  '1',
-                        'map_flg' =>  '0',
-                        'map_sdate' =>  NULL,
-                    ]);
-                }
 
 
 
             }
 
 
-            $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->first();
 
-            if(!$pelesen){
-                $pelesen = Pelesen::create([
-                    'e_id' => $count_pelesen++,
-                    'e_nl' => $biodiesel->e_nl ?? '-',
-                    'e_np' => $biodiesel->e_np ?? '-',
-                    'e_kat' => $biodiesel->e_kat ?? '-',
-                    'e_ap1' => $biodiesel->e_ap1 ?? '-',
-                    'e_ap2' => $biodiesel->e_ap2 ?? '-',
-                    'e_ap3' => $biodiesel->e_ap3 ?? '-',
-                    'e_as1' => $biodiesel->e_as1 ?? '-',
-                    'e_as2' => $biodiesel->e_as2 ?? '-',
-                    'e_as3' => $biodiesel->e_as3 ?? '-',
-                    'e_notel' =>  $biodiesel->e_notel ?? '-',
-                    'e_nofax' =>  $biodiesel->e_nofax ?? '-',
-                    'e_email' =>  $biodiesel->e_email ?? '-',
-                    'e_npg' =>  $biodiesel->e_npg ?? '-',
-                    'e_jpg' =>  $biodiesel->e_jpg ?? '-',
-                    'kodpgw' =>  $biodiesel->kodpgw ?? '-',
-                    'nosiri' =>  $biodiesel->nosiri ?? '-',
-                    'e_npgtg' =>  $biodiesel->e_npgtg ?? '-',
-                    'e_jpgtg' =>  $biodiesel->e_jpgtg ?? '-',
-                    'e_asnegeri' =>  $negerias->kod_negeri ?? '-',
-                    'e_asdaerah' =>  $daerahas->kod_daerah ?? '-',
-                    'e_negeri' =>  $negeriap->kod_negeri ?? '-',
-                    'e_daerah' =>  $daerahap->kod_daerah ?? '-',
-                    'e_syktinduk' =>  $biodiesel->e_sykt_induk ?? '-',
-                    'e_status' =>  $biodiesel->e_status ?? '-',
-                ]);
-            }else{
-                if ($pelesen->e_kat == $biodiesel->e_kat) {
-                    $pelesen->e_nl = $biodiesel->e_nl ?? '-';
-                    $pelesen->e_np = $biodiesel->e_np ?? '-';
-                    $pelesen->e_kat = $biodiesel->e_kat ?? '-';
-                    $pelesen->e_ap1 = $biodiesel->e_ap1 ?? '-';
-                    $pelesen->e_ap2 = $biodiesel->e_ap2 ?? '-';
-                    $pelesen->e_ap3 = $biodiesel->e_ap3 ?? '-';
-                    $pelesen->e_as1 = $biodiesel->e_as1 ?? '-';
-                    $pelesen->e_as2 = $biodiesel->e_as2 ?? '-';
-                    $pelesen->e_as3 = $biodiesel->e_as3 ?? '-';
-                    $pelesen->e_notel = $biodiesel->e_notel ?? '-';
-                    $pelesen->e_nofax = $biodiesel->e_nofax ?? '-';
-                    $pelesen->e_email = $biodiesel->e_email ?? '-';
-                    $pelesen->e_npg = $biodiesel->e_npg ?? '-';
-                    $pelesen->e_jpg = $biodiesel->e_jpg ?? '-';
-                    $pelesen->kodpgw = $biodiesel->kodpgw ?? '-';
-                    $pelesen->nosiri = $biodiesel->nosiri ?? '-';
-                    $pelesen->e_npgtg = $biodiesel->e_npgtg ?? '-';
-                    $pelesen->e_jpgtg = $biodiesel->e_jpgtg ?? '-';
-                    $pelesen->e_asnegeri = $negerias->kod_negeri ?? '-';
-                    $pelesen->e_asdaerah = $daerahas->kod_daerah ?? '-';
-                    $pelesen->e_negeri = $negeriap->kod_negeri ?? '-';
-                    $pelesen->e_daerah = $daerahap->kod_daerah ?? '-';
-                    $pelesen->e_syktinduk = $biodiesel->e_sykt_induk ?? '-';
-                    $pelesen->e_status = $biodiesel->e_status ?? '-';
 
-                $pelesen->save();
 
-                } else {
-                    $pelesen = Pelesen::create([
-                        'e_id' => $count_pelesen++,
-                        'e_nl' => $biodiesel->e_nl ?? '-',
-                        'e_np' => $biodiesel->e_np ?? '-',
-                        'e_kat' => $biodiesel->e_kat ?? '-',
-                        'e_ap1' => $biodiesel->e_ap1 ?? '-',
-                        'e_ap2' => $biodiesel->e_ap2 ?? '-',
-                        'e_ap3' => $biodiesel->e_ap3 ?? '-',
-                        'e_as1' => $biodiesel->e_as1 ?? '-',
-                        'e_as2' => $biodiesel->e_as2 ?? '-',
-                        'e_as3' => $biodiesel->e_as3 ?? '-',
-                        'e_notel' =>  $biodiesel->e_notel ?? '-',
-                        'e_nofax' =>  $biodiesel->e_nofax ?? '-',
-                        'e_email' =>  $biodiesel->e_email ?? '-',
-                        'e_npg' =>  $biodiesel->e_npg ?? '-',
-                        'e_jpg' =>  $biodiesel->e_jpg ?? '-',
-                        'kodpgw' =>  $biodiesel->kodpgw ?? '-',
-                        'nosiri' =>  $biodiesel->nosiri ?? '-',
-                        'e_npgtg' =>  $biodiesel->e_npgtg ?? '-',
-                        'e_jpgtg' =>  $biodiesel->e_jpgtg ?? '-',
-                        'e_asnegeri' =>  $negerias->kod_negeri ?? '-',
-                        'e_asdaerah' =>  $daerahas->kod_daerah ?? '-',
-                        'e_negeri' =>  $negeriap->kod_negeri ?? '-',
-                        'e_daerah' =>  $daerahap->kod_daerah ?? '-',
-                        'e_syktinduk' =>  $biodiesel->e_sykt_induk ?? '-',
-                        'e_status' =>  $biodiesel->e_status ?? '-',
-                    ]);
-                }
 
-            }
 
-        }
     }
 
     public function transfer_profilebulanans_to_pelesen()
@@ -594,16 +484,16 @@ class DataMigrationController extends Controller
 
         // $biodiesels = DB::connection('mysql2')->select("SELECT * FROM  login_admin");
 
-        $reg_pelesens = RegPelesen::get();
+        $reg_pelesens = User::get();
 
         foreach ($reg_pelesens as $rp) {
             // $user = User::where('username', $biodiesel->e_nl)->whereNull('crypted_pass')->first();
-            $pelesen = Pelesen::where('e_nl', $rp->e_nl)->first();
-            // dd($user);
+            $pelesen = HPelesen::where('e_nl', $rp->username)->where('e_kat', null)->first();
+            // dd($pelesen);
 
             if($pelesen){
                 // if(!$user->sub_cat){
-                    $pelesen->e_kat = $rp->e_kat;
+                    $pelesen->e_kat = $rp->category;
                     $pelesen->save();
                 // }
             }
@@ -614,52 +504,6 @@ class DataMigrationController extends Controller
             //     // }
             // }
         }
-        // foreach ($biodiesels as $biodiesel) {
-        //     // $user = User::where('username', $biodiesel->e_nl)->whereNull('e_kat')->first();
-        //     $pelesen = User::where('username', $biodiesel->USERNAME)->first();
-        //     // dd($pelesen);
 
-        //     if($pelesen){
-        //         // if(!$user->sub_cat){
-        //             $pelesen->crypted_pass = Crypt::encryptString($biodiesel->PASSWORD);
-        //             $pelesen->save();
-        //         // }
-        //     }
-        //     // if($user){
-        //     //     // if(!$user->sub_cat){
-        //     //         $user->crypted_pass = Crypt::encryptString($biodiesel->password);
-        //     //         $user->save();
-        //     //     // }
-        //     // }
-        // }
-
-        // $reg_users = RegUser::get();
-
-        // foreach ($reg_users as $reg_user) {
-        //     $user = User::where('username', $reg_user->e_userid)->where('category', 'admin')->first();
-
-        //     // $e_kat = array($reg_user->e_kat);
-
-        //     if($user){
-        //         // if(!$user->sub_cat){
-        //             $user->crypted_pass = Crypt::encryptString($reg_user->e_pwd);
-        //             $user->save();
-        //         // }
-        //     }
-        // }
-        // $reg_pls = RegPelesen::get();
-
-        // foreach ($reg_pls as $reg_pl) {
-        //     $user = User::where('username', $reg_pl->e_nl)->where('category', $reg_pl->e_kat)->first();
-
-        //     // $e_kat = array($reg_user->e_kat);
-
-        //     if($user){
-        //         // if(!$user->sub_cat){
-        //             $user->crypted_pass = Crypt::encryptString($reg_pl->e_pwd);
-        //             $user->save();
-        //         // }
-        //     }
-        // }
     }
 }
