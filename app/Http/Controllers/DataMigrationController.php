@@ -297,8 +297,8 @@ class DataMigrationController extends Controller
             $crypted = Crypt::encryptString('12345678');
             // dd($crypted);
 
-            // $count_rp = RegPelesen::max('e_id');
-            $count_user = User::max('e_id');
+            $count_rp = RegPelesen::max('e_id');
+            $count_user = User::max('id');
             $count_pelesen = Pelesen::count();
 
             if($biodiesel->e_asnegeri == '-Negeri-'){
@@ -311,17 +311,17 @@ class DataMigrationController extends Controller
             // $rp = RegPelesen::where('e_nl', $biodiesel->e_nl)->where('e_kat', $biodiesel->e_kat)->first();
 
 
-                // $rp = RegPelesen::create([
-                //     'e_id' => $count_rp + 1,
-                //     'e_nl' => $biodiesel->e_nl ,
-                //     'e_kat' => 'PLBIO',
-                //     'e_pwd' => $password,
-                //     'kodpgw' => $biodiesel->kodpgw ?? NULL,
-                //     'nosiri' => $biodiesel->nosri ?? NULL,
-                //     'e_status' => $biodiesel->e_status ?? NULL,
-                //     'e_stock' => NULL,
-                //     'directory' =>  NULL,
-                // ]);
+            //     $rp = RegPelesen::create([
+            //         'e_id' => $count_rp + 1,
+            //         'e_nl' => $biodiesel->e_nl ,
+            //         'e_kat' => 'PLBIO',
+            //         'e_pwd' => $password,
+            //         'kodpgw' => $biodiesel->kodpgw ?? NULL,
+            //         'nosiri' => $biodiesel->nosri ?? NULL,
+            //         'e_status' => $biodiesel->e_status ?? NULL,
+            //         'e_stock' => NULL,
+            //         'directory' =>  NULL,
+            //     ]);
 
 
                 $user = User::where('username', $biodiesel->e_nl)->where('category', $biodiesel->e_kat)->first();
@@ -341,7 +341,7 @@ class DataMigrationController extends Controller
                         'map_sdate' =>  NULL,
                     ]);
 
-            }
+            
 
 
                 $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->first();
@@ -436,6 +436,7 @@ class DataMigrationController extends Controller
                 }
 
             }
+        }
 
 
 
