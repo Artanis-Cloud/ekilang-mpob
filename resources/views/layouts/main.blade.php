@@ -766,6 +766,12 @@
                                     <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ asset('manual/users/buah.pdf') }}" class="sidebar-link"  target="_blank">
+                                    <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
+                                    <span class="hide-menu"><b> Manual Pengguna </b></span>
+                                </a>
+                            </li>
 
                         </ul>
                     </nav>
@@ -927,6 +933,12 @@
                                     <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ asset('manual/users/penapis.pdf') }}" class="sidebar-link"  target="_blank">
+                                    <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
+                                    <span class="hide-menu"><b> Manual Pengguna </b></span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 
@@ -1086,6 +1098,12 @@
                                     <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ asset('manual/users/isirung.pdf') }}" class="sidebar-link"  target="_blank">
+                                    <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
+                                    <span class="hide-menu"><b> Manual Pengguna </b></span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 
@@ -1203,6 +1221,7 @@
                                             </a>
                                         </li>
 
+
                                     </ul>
                                 </li>
                             @else
@@ -1239,6 +1258,12 @@
                                 <a href="{{ route('oleo.kod.negara') }}" class="sidebar-link">
                                     <i class="fas fa-globe" style="color:#f6f8f9 "></i>
                                     <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ asset('manual/users/oleo.pdf') }}" class="sidebar-link"  target="_blank">
+                                    <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
+                                    <span class="hide-menu"><b> Manual Pengguna </b></span>
                                 </a>
                             </li>
                         </ul>
@@ -1364,6 +1389,12 @@
                                 <a href="{{ route('pusatsimpan.kod.negara') }}" class="sidebar-link">
                                     <i class="fas fa-globe" style="color:#f6f8f9 "></i>
                                     <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ asset('manual/users/simpanan.pdf') }}" class="sidebar-link"  target="_blank">
+                                    <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
+                                    <span class="hide-menu"><b> Manual Pengguna </b></span>
                                 </a>
                             </li>
                         </ul>
@@ -1519,6 +1550,12 @@
                                 <a href="{{ route('bio.kod.negara') }}" class="sidebar-link">
                                     <i class="fas fa-globe" style="color:#f6f8f9 "></i>
                                     <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ asset('manual/admin/manual.pdf') }}" class="sidebar-link"  target="_blank">
+                                    <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
+                                    <span class="hide-menu"><b> Manual Pengguna </b></span>
                                 </a>
                             </li>
                         </ul>
