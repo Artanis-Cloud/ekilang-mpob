@@ -336,6 +336,7 @@ footer a {
                         </div><br>
                         <span style="color:#164875"> Sila Pilih Sektor</span><br>
                         @foreach ($users as $user)
+                        {{-- {{ dd($user->category) }} --}}
                             <input id="e_nl" type="hidden"
                                 class="form-control @error('username') is-invalid @enderror"
                                 oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')"
@@ -349,32 +350,37 @@ footer a {
                             @enderror
 
                             <input type="hidden" name="multilogin" value="true">
-                            <input type="hidden" name="category" value="{{ $user->category }}">
+                            {{-- <input type="hidden" name="category" value="{{ $user->category }}"> --}}
+
                             @if ($user->category == 'PL91')
-                                <button class="submit"
+                            {{-- <input type="hidden" name="category" value="PL91"> --}}
+
+                                <button class="submit" name="category" value="PL91"
                                     type="submit">
                                     Kilang Buah</button>
                             @elseif ($user->category == 'PL101')
-                                <button class="submit"
+                            {{-- <input type="hidden" name="category" value="PL101"> --}}
+
+                                <button class="submit" name="category" value="PL101"
 
                                     type="submit">
                                     Kilang Penapis</button>
                             @elseif ($user->category == 'PL102')
-                                <button class="submit"
+                            {{-- <input type="hidden" name="category" value="PL102"> --}}
+
+                                <button class="submit"  name="category" value="PL102"
                                     type="submit">
                                     Kilang Isirung</button>
                             @elseif ($user->category == 'PL104')
-                                <button class="submit"
+                                <button class="submit" name="category" value="PL104"
                                     type="submit">
-                                    Kilang Oleokimia</button><
+                                    Kilang Oleokimia</button>
                             @elseif ($user->category == 'PL111')
-                                <button class="submit"
+                                <button class="submit"  name="category" value="PL111"
                                     type="submit">
                                     Pusat Simpanan</button>
                             @elseif ($user->category == 'PLBIO')
-                                <button class="submit"
-
-                                    type="submit">
+                                <button class="submit" name="category" value="PLBIO" type="submit">
                                     Kilang Biodiesel</button>
                             @endif
                         @endforeach

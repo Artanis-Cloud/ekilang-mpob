@@ -40,6 +40,7 @@ class ChangeSectController extends Controller
 
     public function multiLogin2(Request $request)
     {
+        // dd($request->all());
         $user = User::where('username', $request->username)->where('category', $request->category)->first();
         Auth::loginUsingId($user->id);
 
