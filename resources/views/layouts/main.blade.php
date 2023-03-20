@@ -1553,7 +1553,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="{{ asset('manual/admin/manual.pdf') }}" class="sidebar-link"  target="_blank">
+                                <a href="{{ asset('manual/users/bio.pdf') }}" class="sidebar-link"  target="_blank">
                                     <i class="fas fa-user-circle" style="color:#f6f8f9 "></i>
                                     <span class="hide-menu"><b> Manual Pengguna </b></span>
                                 </a>
