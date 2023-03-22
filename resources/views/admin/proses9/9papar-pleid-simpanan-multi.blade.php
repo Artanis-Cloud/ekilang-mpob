@@ -262,224 +262,228 @@
                                                 <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                                     MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON TRANSHIPMENT)</font>
                                         </b> </p>
+                                        <div class="table-responsive">
 
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Nama Produk</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Kod Produk</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Stok Awal</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Terimaan Dalam Negeri</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Import</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Edaran Tempatan</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Eksport</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Pelarasan (+/-)</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Stok Akhir</font>
-                                                        </b></td>
-                                                </tr>
-                                                @foreach ($bhga[$nolesen_key] as $penyataa_key => $dataa)
-                                                {{-- {{ dd($dataa) }} --}}
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2.7">{{ $dataa->comm_desc ?? ''}}</font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2.7">{{ $dataa->INS_KD ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->INS_KE ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->INS_KF ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->INS_KG ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->INS_KH ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->INS_KI ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->beza ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($dataa->INS_KJ ??  0,2) }}</font>
-                                                    </td>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Nama Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Terimaan Dalam Negeri</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Import</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Edaran Tempatan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Eksport</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Pelarasan (+/-)</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($bhga[$nolesen_key] as $penyataa_key => $dataa)
+                                                    {{-- {{ dd($dataa) }} --}}
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $dataa->comm_desc ?? ''}}</font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2.7">{{ $dataa->INS_KD ?? ''}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->INS_KE ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->INS_KF ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->INS_KG ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->INS_KH ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->INS_KI ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->beza ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($dataa->INS_KJ ??  0,2) }}</font>
+                                                        </td>
 
-                                                </tr>
-                                                @endforeach
-                                                <tr>
-                                                    <td align="center">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    @foreach ($totala5[$nolesen_key] as $total5_key => $total5)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($totala6[$nolesen_key] as $total6_key => $total6)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($totala7[$nolesen_key] as $total7_key => $total7)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totala8[$nolesen_key] as $total8_key => $total8)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totala9[$nolesen_key] as $total9_key => $total9)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totala10[$nolesen_key] as $total10_key => $total10)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totala11[$nolesen_key] as $total11_key => $total11)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
+                                                        @foreach ($totala5[$nolesen_key] as $total5_key => $total5)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totala6[$nolesen_key] as $total6_key => $total6)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totala7[$nolesen_key] as $total7_key => $total7)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totala8[$nolesen_key] as $total8_key => $total8)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totala9[$nolesen_key] as $total9_key => $total9)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totala10[$nolesen_key] as $total10_key => $total10)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totala11[$nolesen_key] as $total11_key => $total11)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
 
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                                 MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>
                                         </b> </p>
+                                        <div class="table-responsive">
 
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Nama Produk</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Kod Produk</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Stok Awal</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Penerimaan Dari Luar Negara</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Edaran Ke Dalam Negeri/Import</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Eksport Semula</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Pelarasan (+/-)</font>
-                                                        </b></td>
-                                                    <td width="8%" align="center"><b>
-                                                            <font size="2">Stok Akhir</font>
-                                                        </b></td>
-                                                </tr>
-                                                @foreach ($bhgb[$nolesen_key] as $penyatab_key => $datab)
-                                                {{-- {{ dd($datab) }} --}}
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2.7">{{ $datab->comm_desc ?? ''}}</font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2.7">{{ $datab->INS_TD ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($datab->INS_TE ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($datab->INS_TF ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($datab->INS_TG ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($datab->INS_TH ??  0,2) }}</font>
-                                                    </td>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Nama Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Penerimaan Dari Luar Negara</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Edaran Ke Dalam Negeri/Import</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Eksport Semula</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Pelarasan (+/-)</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($bhgb[$nolesen_key] as $penyatab_key => $datab)
+                                                    {{-- {{ dd($datab) }} --}}
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $datab->comm_desc ?? ''}}</font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2.7">{{ $datab->INS_TD ?? ''}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datab->INS_TE ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datab->INS_TF ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datab->INS_TG ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datab->INS_TH ??  0,2) }}</font>
+                                                        </td>
 
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($datab->beza ??  0,2) }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2.7">{{ number_format($datab->INS_TI ??  0,2) }}</font>
-                                                    </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datab->beza ??  0,2) }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datab->INS_TI ??  0,2) }}</font>
+                                                        </td>
 
 
-                                                </tr>
-                                                @endforeach
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    @foreach ($totalb5[$nolesen_key] as $total5_key => $total5)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($totalb6[$nolesen_key] as $total6_key => $total6)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($totalb7[$nolesen_key] as $total7_key => $total7)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totalb8[$nolesen_key] as $total8_key => $total8)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totalb10[$nolesen_key] as $total10_key => $total10)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($totalb11[$nolesen_key] as $total11_key => $total11)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                </tr>
-                                            </tbody>
-                                        </table><br>
+                                                        @foreach ($totalb5[$nolesen_key] as $total5_key => $total5)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totalb6[$nolesen_key] as $total6_key => $total6)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totalb7[$nolesen_key] as $total7_key => $total7)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totalb8[$nolesen_key] as $total8_key => $total8)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totalb10[$nolesen_key] as $total10_key => $total10)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($totalb11[$nolesen_key] as $total11_key => $total11)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><br>
 
 
                                         <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

@@ -311,224 +311,226 @@
 
                                      {{-- {{ dd($data[$key][$key]->F911G1) }} --}}
 
+                                            <div class="table-responsive">
 
-                                             <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
-                                                cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370">
-                                                        <td width="220">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Butiran</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Minyak Sawit Mentah <br> (CPO) Kod 01
-                                                                    </font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Isirung <br>(PK) Kod 51</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Minyak Keladak <br>(Sludge Oil) Kod 49
-                                                                    </font>
-                                                                </b></p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">A. Stok Awal Di Premis</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911G1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p style="text-align: center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911G2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911G3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911G4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">B. Pembelian/Penerimaan</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911H1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911H2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911H3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911H4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">C. Diproses</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911I ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">D. Pengeluaran</font>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911J1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911J2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911J3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">E. Penjualan/Pengedaran Tempatan</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911K1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911K2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911K3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911K4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">F. Eksport&nbsp;Terus Dari Premis</font>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="2.7"></font>
-                                                                {{ number_format($data->F911L1 ?? 0, 2) }}
-                                                            </p>
-                                                        </td>
-                                                        <td width="110" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="2.7" </font>
-                                                                    {{ number_format($data->F911L2 ?? 0, 2) }}
-                                                            </p>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="2.7"></font>
-                                                                {{ number_format($data->F911L3 ?? 0, 2) }}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">G. Stok Akhir Di Premis</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911N1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911N2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911N3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->F911N4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
+                                                    cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
+                                                    class="table table-bordered">
+                                                    <tbody>
+                                                        <tr style="background-color: #d3d3d370">
+                                                            <td width="220">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Butiran</font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Minyak Sawit Mentah <br> (CPO) Kod 01
+                                                                        </font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Isirung <br>(PK) Kod 51</font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Minyak Keladak <br>(Sludge Oil) Kod 49
+                                                                        </font>
+                                                                    </b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">A. Stok Awal Di Premis</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911G1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p style="text-align: center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911G2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911G3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911G4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">B. Pembelian/Penerimaan</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911H1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911H2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911H3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911H4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">C. Diproses</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911I ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                            <td width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                            <td width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">D. Pengeluaran</font>
+                                                            </td>
+                                                            <td width="120" bgcolor="#C0C0C0" align="center">
+                                                                <p align="left">&nbsp;</p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911J1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911J2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911J3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">E. Penjualan/Pengedaran Tempatan</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911K1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911K2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911K3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911K4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">F. Eksport&nbsp;Terus Dari Premis</font>
+                                                            </td>
+                                                            <td width="120" bgcolor="#C0C0C0" align="center">
+                                                                <p align="left">&nbsp;</p>
+                                                            </td>
+                                                            <td width="135" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <font size="2.7"></font>
+                                                                    {{ number_format($data->F911L1 ?? 0, 2) }}
+                                                                </p>
+                                                            </td>
+                                                            <td width="110" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <font size="2.7" </font>
+                                                                        {{ number_format($data->F911L2 ?? 0, 2) }}
+                                                                </p>
+                                                            </td>
+                                                            <td width="120" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <font size="2.7"></font>
+                                                                    {{ number_format($data->F911L3 ?? 0, 2) }}
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">G. Stok Akhir Di Premis</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911N1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911N2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911N3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="center">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->F911N4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                             <br>
 
                                              <p><b>
@@ -1077,40 +1079,43 @@
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1"  style="width: 100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370">
-                                                        <td width="14%" align="center">
-                                                            <font size="2.7"><b>Produk</b></font>
-                                                        </td>
-                                                        <td width="7%" align="center">
-                                                            <font size="2.7"><b>Kod Produk</b></font>
-                                                        </td>
-                                                        <td width="15%" align="center">
-                                                            <font size="2.7"><b>Nombor Borang Kastam 2</b></font>
-                                                        </td>
-                                                        <td width="12%" align="center">
-                                                            <font size="2.7"><b>Tarikh Eksport</b></font>
-                                                        </td>
-                                                        <td width="10%" align="center">
-                                                            <font size="2.7"><b>Kuantiti<br> (Tan Metrik)</b></font>
-                                                        </td>
-                                                        <td width="11%" align="center">
-                                                            <font size="2.7"><b>Nilai (RM)</b></font>
-                                                        </td>
-                                                        <td width="6%" align="center">
-                                                            <font size="2.7"><b>Kod Negara</b></font>
-                                                        </td>
-                                                        <td width="15%" align="center">
-                                                            <font size="2.7"><b>Destinasi Negara</b></font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="8" style="text-align: center">Tiada Rekod</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <div class="table-responsive">
+
+                                                <table border="1"  style="width: 100%" cellspacing="0" cellpadding="0"
+                                                    class="table table-bordered">
+                                                    <tbody>
+                                                        <tr style="background-color: #d3d3d370">
+                                                            <td width="14%" align="center">
+                                                                <font size="2.7"><b>Produk</b></font>
+                                                            </td>
+                                                            <td width="7%" align="center">
+                                                                <font size="2.7"><b>Kod Produk</b></font>
+                                                            </td>
+                                                            <td width="15%" align="center">
+                                                                <font size="2.7"><b>Nombor Borang Kastam 2</b></font>
+                                                            </td>
+                                                            <td width="12%" align="center">
+                                                                <font size="2.7"><b>Tarikh Eksport</b></font>
+                                                            </td>
+                                                            <td width="10%" align="center">
+                                                                <font size="2.7"><b>Kuantiti<br> (Tan Metrik)</b></font>
+                                                            </td>
+                                                            <td width="11%" align="center">
+                                                                <font size="2.7"><b>Nilai (RM)</b></font>
+                                                            </td>
+                                                            <td width="6%" align="center">
+                                                                <font size="2.7"><b>Kod Negara</b></font>
+                                                            </td>
+                                                            <td width="15%" align="center">
+                                                                <font size="2.7"><b>Destinasi Negara</b></font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="8" style="text-align: center">Tiada Rekod</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

@@ -151,9 +151,9 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        // dd($request->all());
         if (!$request->multilogin) {
             $users = User::where('username', auth()->user()->username)->get();
+            // dd(count($users) > 1);
 
             if (count($users) > 1) {
                 foreach ($users as $key => $cat) {
@@ -162,10 +162,12 @@ class LoginController extends Controller
                     $crypted[$key] = $cat->crypted_pass;
                     $stat[$key] = $cat->stat;
                 }
+                // dd($crypted);
+
 
                 $check0 = Crypt::decryptString($crypted[0]);
                 $check1 = Crypt::decryptString($crypted[1]);
-                // dd($check1);
+                // dd($check0);
 
                 if ($category[0] != $category[1]) {
                     if ($check0 != $check1) {
