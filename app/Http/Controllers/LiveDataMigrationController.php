@@ -266,7 +266,7 @@ class LiveDataMigrationController extends Controller
         // $this->h104_b();
         // $this->h104_c();
 
-        //brlum
+        // // brlum
         // $this->h104_d();
         // $this->h104_init();
 
@@ -392,14 +392,14 @@ class LiveDataMigrationController extends Controller
         // $this->pbcatvld();
         // $this->pelabuhan_luar();
         // $this->pelabuhan_msia();
-        // $this->pelesen();
+        $this->pelesen();
         // $this->pengumuman();
         // $this->pl91_individual();
         // $this->pr();
         // $this->prod_cat();
         // $this->prod_cat2();
         // $this->prodmsia();
-        $this->prodnegeri();
+        // $this->prodnegeri();
         // $this->prodsemsia();
         // $this->prodss();
         // $this->produk();
@@ -1277,7 +1277,7 @@ class LiveDataMigrationController extends Controller
                 'Subject' => $select->Subject ?? NULL,
                 'Message' => $select->Message ?? NULL,
                 'Status' => $select->Status ?? NULL,
-                'file_upload' => $select->file_upload ?? NULL,
+                // 'file_upload' => $select->file_upload ?? NULL,
 
 
             ]);
@@ -1559,7 +1559,7 @@ class LiveDataMigrationController extends Controller
 
     public function h101_e()
     {
-        // $delete = DB::delete("DELETE FROM h101_e");
+        $delete = DB::delete("DELETE FROM h101_e");
 
         $selects = DB::connection('mysql2')->select("SELECT *  FROM h101_e");
         // dd($selects);
@@ -1618,7 +1618,7 @@ class LiveDataMigrationController extends Controller
 
     public function h101_init()
     {
-        // $delete = DB::delete("DELETE FROM h101_init");
+        $delete = DB::delete("DELETE FROM h101_init");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM h101_init");
 
@@ -1676,7 +1676,7 @@ class LiveDataMigrationController extends Controller
 
     public function h102c()
     {
-        // $delete = DB::delete("DELETE FROM h102c");
+        $delete = DB::delete("DELETE FROM h102c");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM h102c");
 
@@ -1723,7 +1723,7 @@ class LiveDataMigrationController extends Controller
 
     public function h102_init()
     {
-        // $delete = DB::delete("DELETE FROM h102_init");
+        $delete = DB::delete("DELETE FROM h102_init");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM h102_init");
 
@@ -2300,7 +2300,7 @@ class LiveDataMigrationController extends Controller
 
     public function p91_dtl_cluster()
     {
-        $delete = DB::delete("DELETE FROM p91_dtl_cluster");
+        // $delete = DB::delete("DELETE FROM p91_dtl_cluster");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM p91_dtl_cluster");
 
@@ -2327,7 +2327,7 @@ class LiveDataMigrationController extends Controller
 
     public function p91_dtl_district()
     {
-        $delete = DB::delete("DELETE FROM p91_dtl_district");
+        // $delete = DB::delete("DELETE FROM p91_dtl_district");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM p91_dtl_district");
 
@@ -2354,7 +2354,7 @@ class LiveDataMigrationController extends Controller
 
     public function p91_dtl_kawasan()
     {
-        $delete = DB::delete("DELETE FROM p91_dtl_kawasan");
+        // $delete = DB::delete("DELETE FROM p91_dtl_kawasan");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM p91_dtl_kawasan");
 
@@ -2380,7 +2380,7 @@ class LiveDataMigrationController extends Controller
 
     public function p91_dtl_month()
     {
-        $delete = DB::delete("DELETE FROM p91_dtl_month");
+        // $delete = DB::delete("DELETE FROM p91_dtl_month");
 
         $selects = DB::connection('mysql2')->select("SELECT * FROM p91_dtl_month");
 

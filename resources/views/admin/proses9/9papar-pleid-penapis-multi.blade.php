@@ -59,237 +59,236 @@
 
 
                             <div class="card-body">
-                                <div class="row">
                                     {{-- <div class="col-md-4 col-12"> --}}
-                                    <div class="pl-3">
+                                <div class="pl-3">
 
 
 
-                                        <body>
-                                            {{-- <p align="left">
-                                                    PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
+                                    <body>
+                                        {{-- <p align="left">
+                                                PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                            <div align="">
-                                                <table border="0" width="100%">
-                                                    <tbody style=" width:10rem; margin-right: -10px">
-                                                        <tr>
-                                                            <td width="85%" height="19">
-                                                                <p align=""><b>{{ $data[0]->kodpgw ?? ''  }}{{ $data[0]->nosiri ?? ''  }}</b></p>
-                                                            </td>
-                                                            <td width="15%" height="19">
-                                                                <p align="left"><b>MPOB(EL) RF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="85%" height="19">
-                                                                <p align=""><b></b></p>
-                                                            </td>
-                                                            <td width="15%" height="19">
-                                                                <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-RF </b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="87%" height="19">
-                                                                <p align=""><b></b></p>
-                                                            </td>
-                                                            <td width="12%" height="19">
-                                                                <p align="left" style="margin-top: -15px"><b>MPOB(EL) PM 4-RF </b></p>
-                                                            </td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div><br>
-
-                                            <p align="center">
-                                                <img border="0" src="{{ asset('/mpob.png') }}" width="128"
-                                                    height="100">
-                                            </p>
-
-                                            <title>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4</title>
-                                            <p align="center"><b>
-                                                    <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
-
-                                                    </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
-
-                                                    BULAN :
-                                                    @if($data[0]->e101_bln == "01") JANUARI
-                                                        @elseif($data[0]->e101_bln == "02") FEBRUARI
-                                                        @elseif($data[0]->e101_bln == "03") MAC
-                                                        @elseif($data[0]->e101_bln == "04") APRIL
-                                                        @elseif($data[0]->e101_bln == "05") MEI
-                                                        @elseif($data[0]->e101_bln == "06") JUN
-                                                        @elseif($data[0]->e101_bln == "07") JULAI
-                                                        @elseif($data[0]->e101_bln == "08") OGOS
-                                                        @elseif($data[0]->e101_bln == "09") SEPTEMBER
-                                                        @elseif($data[0]->e101_bln == "10") OKTOBER
-                                                        @elseif($data[0]->e101_bln == "11") NOVEMBER
-                                                        @elseif($data[0]->e101_bln == "12") DISEMBER
-                                                        @endif
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data[0]->e101_thn ?? '' }}
-                                                </b><br>
-
-                                            </p>
-                                            <hr>
-
-                                            <table border="0" width="111%" cellspacing="0">
-
-                                                <tbody>
+                                        <div align="">
+                                            <table border="0" width="100%">
+                                                <tbody style=" width:10rem; margin-right: -10px">
                                                     <tr>
-
-                                                        <td width="25%" height="19">
-                                                            Nombor Lesen
+                                                        <td width="85%" height="19">
+                                                            <p align=""><b>{{ $data[0]->kodpgw ?? ''  }}{{ $data[0]->nosiri ?? ''  }}</b></p>
                                                         </td>
-
-                                                        <td width="88%" height="19"><b>
-                                                                {{ $data[0]->e_nl ?? ''  }}
-                                                            </b></td>
-
+                                                        <td width="15%" height="19">
+                                                            <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                                        </td>
                                                     </tr>
-
                                                     <tr>
-
-                                                        <td width="25%" height="19">
-                                                            Nama Premis
+                                                        <td width="85%" height="19">
+                                                            <p align=""><b></b></p>
                                                         </td>
-
-                                                        <td width="88%" height="19" style="text-transform:uppercase"><b>
-                                                                {{ $data[0]->e_np ?? ''  }}
-                                                            </b></td>
-
+                                                        <td width="15%" height="19">
+                                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-RF </b></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="87%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="12%" height="19">
+                                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PM 4-RF </b></p>
+                                                        </td>
                                                     </tr>
 
                                                 </tbody>
                                             </table>
+                                        </div><br>
 
-                                            <hr>
+                                        <p align="center">
+                                            <img border="0" src="{{ asset('/mpob.png') }}" width="128"
+                                                height="100">
+                                        </p>
 
-                                            <p></p>
+                                        <title>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4</title>
+                                        <p align="center"><b>
+                                                <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
+                                                </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                            <p align="left"><b>
-                                                    <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
-                                                </b></p>
+                                                BULAN :
+                                                @if($data[0]->e101_bln == "01") JANUARI
+                                                    @elseif($data[0]->e101_bln == "02") FEBRUARI
+                                                    @elseif($data[0]->e101_bln == "03") MAC
+                                                    @elseif($data[0]->e101_bln == "04") APRIL
+                                                    @elseif($data[0]->e101_bln == "05") MEI
+                                                    @elseif($data[0]->e101_bln == "06") JUN
+                                                    @elseif($data[0]->e101_bln == "07") JULAI
+                                                    @elseif($data[0]->e101_bln == "08") OGOS
+                                                    @elseif($data[0]->e101_bln == "09") SEPTEMBER
+                                                    @elseif($data[0]->e101_bln == "10") OKTOBER
+                                                    @elseif($data[0]->e101_bln == "11") NOVEMBER
+                                                    @elseif($data[0]->e101_bln == "12") DISEMBER
+                                                    @endif
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data[0]->e101_thn ?? '' }}
+                                            </b><br>
 
-                                            <table border="0" width="80%" cellpadding="0" cellspacing="0">
+                                        </p>
+                                        <hr>
 
-                                                <tbody>
+                                        <table border="0" width="111%" cellspacing="0">
 
+                                            <tbody>
+                                                <tr>
 
-                                                    <tr>
+                                                    <td width="25%" height="19">
+                                                        Nombor Lesen
+                                                    </td>
 
-                                                        <td width="35%">Alamat Premis Berlesen</td>
+                                                    <td width="88%" height="19"><b>
+                                                            {{ $data[0]->e_nl ?? ''  }}
+                                                        </b></td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap1 ?? ''  }}</b></td>
+                                                </tr>
 
-                                                    </tr>
+                                                <tr>
 
-                                                    <tr>
+                                                    <td width="25%" height="19">
+                                                        Nama Premis
+                                                    </td>
 
-                                                        <td width="35%">&nbsp;</td>
+                                                    <td width="88%" height="19" style="text-transform:uppercase"><b>
+                                                            {{ $data[0]->e_np ?? ''  }}
+                                                        </b></td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap2 ?? ''  }}</b></td>
+                                                </tr>
 
-                                                    </tr>
+                                            </tbody>
+                                        </table>
 
-                                                    <tr>
+                                        <hr>
 
-                                                        <td width="35%">&nbsp;</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap3 ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Alamat Surat Menyurat</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as1 ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">&nbsp;</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as2 ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">&nbsp;</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as3 ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">No Telefon</td>
-
-                                                        <td width="65%"><b>{{ $data[0]->e_notel ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">No Faks</td>
-
-                                                        <td width="65%"><b>{{ $data[0]->e_nofax ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Alamat emel </td>
-
-                                                        <td width="65%"><b>{{ $data[0]->e_email ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Pegawai Melapor</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npg ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Jawatan Pegawai Melapor</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpg ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Pegawai Bertanggungjawab</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npgtg ?? ''  }}</b></td>
-
-                                                    </tr>
-                                                    <tr>
-
-                                                        <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
-
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpgtg ?? ''  }}</b></td>
-
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                            <br>
+                                        <p></p>
 
 
-                                            <p><b>
-                                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : PRODUK MINYAK
-                                                        SAWIT</font>
-                                                </b> </p>
+                                        <p align="left"><b>
+                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
+                                            </b></p>
 
-                                                <table border="1" class="table table-bordered" width="100%"
+                                        <table border="0" width="80%" cellpadding="0" cellspacing="0">
+
+                                            <tbody>
+
+
+                                                <tr>
+
+                                                    <td width="35%">Alamat Premis Berlesen</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap1 ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap2 ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap3 ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Alamat Surat Menyurat</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as1 ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as2 ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as3 ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">No Telefon</td>
+
+                                                    <td width="65%"><b>{{ $data[0]->e_notel ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">No Faks</td>
+
+                                                    <td width="65%"><b>{{ $data[0]->e_nofax ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Alamat emel </td>
+
+                                                    <td width="65%"><b>{{ $data[0]->e_email ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Nama Pegawai Melapor</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npg ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Jawatan Pegawai Melapor</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpg ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Nama Pegawai Bertanggungjawab</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npgtg ?? ''  }}</b></td>
+
+                                                </tr>
+                                                <tr>
+
+                                                    <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
+
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpgtg ?? ''  }}</b></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <br>
+
+
+                                        <p><b>
+                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : PRODUK MINYAK
+                                                    SAWIT</font>
+                                            </b> </p>
+                                        <div class="table-responsive">
+                                            <table border="1" class="table table-bordered" width="100%"
                                                 bordercolor="#000000" cellspacing="0" cellpadding="0"
                                                 bordercolorlight="#FFFFFF" bordercolordark="#000000">
                                                 <tbody>
@@ -436,14 +435,16 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br>
+                                        </div>
+                                        <br>
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : PRODUK
-                                                    ISIRUNG MINYAK SAWIT </font>
-                                            </b> </p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : PRODUK
+                                                ISIRUNG MINYAK SAWIT </font>
+                                        </b> </p>
+                                        <div class="table-responsive">
 
-                                                <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
@@ -587,44 +588,46 @@
 
                                                 </tbody>
                                             </table>
+                                        </div>
+                                        <br>
 
-                                            <br>
 
+                                        <p><b>
+                                            <font style="font-size: 15px"  color="0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                HARI BEROPERASI DAN KADAR PENGGUNAAN KAPASITI
+                                            </font>
+                                        </b></p>
+                                        <table border="0" width="60%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                @foreach ($penyata3[$nobatch_key] as $penyata3_key => $data)
 
-                                            <p><b>
-                                                <font style="font-size: 15px"  color="0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    HARI BEROPERASI DAN KADAR PENGGUNAAN KAPASITI
-                                                </font>
-                                            </b></p>
-                                            <table border="0" width="60%" cellspacing="0" cellpadding="0">
-                                                <tbody>
-                                                    @foreach ($penyata3[$nobatch_key] as $penyata3_key => $data)
+                                                <tr>
+                                                    <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
+                                                    <td width="40%"><b>{{ $data->F101A7 }} Hari</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
+                                                    <td width="40%"><b>{{ number_format($data->F101A8 ??  0,2) }} %</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
+                                                    </td>
+                                                    <td width="40%"><b>{{ number_format($data->F101A9 ??  0,2) }} %</b></td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        <br>
+                                        <p>
 
-                                                    <tr>
-                                                        <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="40%"><b>{{ $data->F101A7 }} Hari</b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
-                                                        <td width="40%"><b>{{ number_format($data->F101A8 ??  0,2) }} %</b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
-                                                        </td>
-                                                        <td width="40%"><b>{{ number_format($data->F101A9 ??  0,2) }} %</b></td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                            <br>
-                                            <p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                AKHIR
+                                                BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
+                                                BAHAN MAKANAN</font>
+                                        </b></p>
+                                        <div class="table-responsive">
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
-                                                    AKHIR
-                                                    BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
-                                                    BAHAN MAKANAN</font>
-                                            </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -724,14 +727,16 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
-                                                    AKHIR
-                                                    BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
-                                                    BAHAN BUKAN MAKANAN</font>
-                                            </b></p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                AKHIR
+                                                BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
+                                                BAHAN BUKAN MAKANAN</font>
+                                        </b></p>
+                                        <div class="table-responsive">
 
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered" style="padding: 0.2rem 0.3rem">
@@ -832,14 +837,16 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                    TERIMAAN BEKALAN PRODUK SAWIT -
-                                                    SENDIRI</font>
-                                            </b></p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
+                                                TERIMAAN BEKALAN PRODUK SAWIT -
+                                                SENDIRI</font>
+                                        </b></p>
+                                        <div class="table-responsive">
 
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
@@ -909,13 +916,16 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                    TERIMAAN BEKALAN PRODUK SAWIT -
-                                                    LUAR</font>
-                                            </b></p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
+                                                TERIMAAN BEKALAN PRODUK SAWIT -
+                                                LUAR</font>
+                                        </b></p>
+                                        <div class="table-responsive">
+
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
@@ -984,12 +994,14 @@
                                                     </tr>
 
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    EKSPORT PRODUK SAWIT</font>
-                                            </b></p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                EKSPORT PRODUK SAWIT</font>
+                                        </b></p>
+                                        <div class="table-responsive">
 
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
@@ -1046,12 +1058,14 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
-                                            <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    IMPORT PRODUK SAWIT</font>
-                                            </b></p>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                IMPORT PRODUK SAWIT</font>
+                                        </b></p>
+                                        <div class="table-responsive">
 
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
@@ -1108,31 +1122,31 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
-                                            <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-
-
-                                            <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                                @foreach ($users[$nobatch_key] as $users_key => $data)
-                                                {{ $data->tkhsubmit }}
-                                                @endforeach
-                                            </p>
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
-
-                                                &nbsp;&nbsp;
-                                            </p>
+                                        <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
+                                            adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
 
-                                        </body>
-                                    </div>
+                                        <p>Tarikh Penghantaran: &nbsp;&nbsp;
+                                            @foreach ($users[$nobatch_key] as $users_key => $data)
+                                            {{ $data->tkhsubmit }}
+                                            @endforeach
+                                        </p>
+                                        <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                            <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
+                                        </p>
+                                        <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                            <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
+                                        </p>
+                                        <p>No Telefon Kilang: &nbsp;&nbsp;
+
+                                            &nbsp;&nbsp;
+                                        </p>
+
+
+                                    </body>
                                 </div>
                             </div>
 

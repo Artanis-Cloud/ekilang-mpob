@@ -277,417 +277,424 @@
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                                     SAWIT</font>
                                         </b> </p>
+                                        <div class="table-responsive">
 
-                                        <table border="1" class="table table-bordered" width="100%"
-                                            bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                            bordercolorlight="#FFFFFF" bordercolordark="#000000">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Produk Minyak Sawit</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kod Produk</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Belian/Terimaan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Import</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jumlah Yang Diproses</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jualan/Edaran Tempatan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Eksport</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                </tr>
-                                                @foreach ($bhg1a[$nobatch_key] as $penyata1a_key => $dataia)
+                                            <table border="1" class="table table-bordered" width="100%"
+                                                bordercolor="#000000" cellspacing="0" cellpadding="0"
+                                                bordercolorlight="#FFFFFF" bordercolordark="#000000">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Produk Minyak Sawit</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kod Produk</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Awal Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Belian/Terimaan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Import</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jumlah Yang Diproses</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jualan/Edaran Tempatan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Eksport</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($bhg1a[$nobatch_key] as $penyata1a_key => $dataia)
+                                                        <tr>
+                                                            <td align="left">
+                                                                <font size="2">{{  $dataia->comm_desc ?? ''}}</font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2">{{  $dataia->F104B4 ?? ''}}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B5 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B6 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B7 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B8 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B9 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B10 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B11 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"> {{ number_format( $dataia->F104B12 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataia->F104B13 ??  0,2)  }}</font>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
                                                     <tr>
-                                                        <td align="left">
-                                                            <font size="2">{{  $dataia->comm_desc ?? ''}}</font>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2">{{  $dataia->F104B4 ?? ''}}</font>
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B5 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B6 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B7 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B8 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B9 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B10 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B11 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"> {{ number_format( $dataia->F104B12 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->F104B13 ??  0,2)  }}</font>
-                                                        </td>
+                                                        @foreach ($total1ab5[$nobatch_key] as $total5_key => $total5)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab6[$nobatch_key] as $total6_key => $total6)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab7[$nobatch_key] as $total7_key => $total7)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab8[$nobatch_key] as $total8_key => $total8)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab9[$nobatch_key] as $total9_key => $total9)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab10[$nobatch_key] as $total10_key => $total10)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab11[$nobatch_key] as $total11_key => $total11)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab12[$nobatch_key] as $total12_key => $total12)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1ab13[$nobatch_key] as $total13_key => $total13)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+
                                                     </tr>
-                                                @endforeach
-
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    @foreach ($total1ab5[$nobatch_key] as $total5_key => $total5)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab6[$nobatch_key] as $total6_key => $total6)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab7[$nobatch_key] as $total7_key => $total7)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab8[$nobatch_key] as $total8_key => $total8)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab9[$nobatch_key] as $total9_key => $total9)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab10[$nobatch_key] as $total10_key => $total10)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab11[$nobatch_key] as $total11_key => $total11)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab12[$nobatch_key] as $total12_key => $total12)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1ab13[$nobatch_key] as $total13_key => $total13)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                     MINYAK ISIRUNG SAWIT</font>
                                         </b> </p>
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                            class="table table-bordered">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Produk Minyak Isirung Sawit</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kod Produk</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Belian/Terimaan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Import</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jumlah Yang Diproses</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jualan/Edaran Tempatan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Eksport</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                </tr>
-                                                @foreach ($bhg1b[$nobatch_key] as $penyata1b_key => $dataib)
+                                        <div class="table-responsive">
+
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Produk Minyak Isirung Sawit</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kod Produk</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Awal Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Belian/Terimaan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Import</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jumlah Yang Diproses</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jualan/Edaran Tempatan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Eksport</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($bhg1b[$nobatch_key] as $penyata1b_key => $dataib)
+                                                        <tr>
+                                                            <td align="left">
+                                                                <font size="2">{{  $dataib->comm_desc ?? ''}}</font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2">{{  $dataib->F104B4 ?? ''}}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B5 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B6 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B7 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B8 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B9 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B10 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B11 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"> {{ number_format( $dataib->F104B12 ??  0,2)  }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format( $dataib->F104B13 ??  0,2)  }}</font>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
+
                                                     <tr>
-                                                        <td align="left">
-                                                            <font size="2">{{  $dataib->comm_desc ?? ''}}</font>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2">{{  $dataib->F104B4 ?? ''}}</font>
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B5 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B6 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B7 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B8 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B9 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B10 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B11 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"> {{ number_format( $dataib->F104B12 ??  0,2)  }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format( $dataib->F104B13 ??  0,2)  }}</font>
-                                                        </td>
+                                                        @foreach ($total1bb5[$nobatch_key] as $total5_key => $total5)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb6[$nobatch_key] as $total6_key => $total6)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb7[$nobatch_key] as $total7_key => $total7)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb8[$nobatch_key] as $total8_key => $total8)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb9[$nobatch_key] as $total9_key => $total9)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb10[$nobatch_key] as $total10_key => $total10)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb11[$nobatch_key] as $total11_key => $total11)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb12[$nobatch_key] as $total12_key => $total12)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1bb13[$nobatch_key] as $total13_key => $total13)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
                                                     </tr>
-                                                @endforeach
-
-
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    @foreach ($total1bb5[$nobatch_key] as $total5_key => $total5)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb6[$nobatch_key] as $total6_key => $total6)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb7[$nobatch_key] as $total7_key => $total7)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb8[$nobatch_key] as $total8_key => $total8)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb9[$nobatch_key] as $total9_key => $total9)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb10[$nobatch_key] as $total10_key => $total10)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb11[$nobatch_key] as $total11_key => $total11)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb12[$nobatch_key] as $total12_key => $total12)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                        @foreach ($total1bb13[$nobatch_key] as $total13_key => $total13)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        @endforeach
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
 
                                         <br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
                                         </b></p>
+                                        <div class="table-responsive">
 
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                            class="table table-bordered">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Produk Minyak Sawit Lain</font><b></b>
-                                                    </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kod Produk</font><b></b>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Produk Minyak Sawit Lain</font><b></b>
                                                         </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Belian/Terimaan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Import</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jumlah Yang Diproses</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jualan/Edaran Tempatan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Eksport</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                </tr>
-                                                @foreach ($bhg1c[$nobatch_key] as $penyata1c_key => $dataic)
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2">{{  $dataic->comm_desc ?? ''}}</font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2">{{  $dataic->F104B4 ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B5 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B6 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B7 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B8 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B9 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B10 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B11 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"> {{ number_format( $dataic->F104B12 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $dataic->F104B13 ??  0,2)  }}</font>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    @foreach ($total1cb5[$nobatch_key] as $total5_key => $total5)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kod Produk</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Awal Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Belian/Terimaan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Import</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jumlah Yang Diproses</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jualan/Edaran Tempatan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Eksport</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($bhg1c[$nobatch_key] as $penyata1c_key => $dataic)
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2">{{  $dataic->comm_desc ?? ''}}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb6[$nobatch_key] as $total6_key => $total6)
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2">{{  $dataic->F104B4 ?? ''}}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb7[$nobatch_key] as $total7_key => $total7)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B5 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb8[$nobatch_key] as $total8_key => $total8)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B6 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb9[$nobatch_key] as $total9_key => $total9)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B7 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb10[$nobatch_key] as $total10_key => $total10)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B8 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb11[$nobatch_key] as $total11_key => $total11)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B9 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb12[$nobatch_key] as $total12_key => $total12)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B10 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
-                                                        @foreach ($total1cb13[$nobatch_key] as $total13_key => $total13)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
+                                                            <font size="2">{{ number_format( $dataic->F104B11 ??  0,2)  }}</font>
                                                         </td>
-                                                        @endforeach
+                                                        <td align="right">
+                                                            <font size="2"> {{ number_format( $dataic->F104B12 ??  0,2)  }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format( $dataic->F104B13 ??  0,2)  }}</font>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                    <tr>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        @foreach ($total1cb5[$nobatch_key] as $total5_key => $total5)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb6[$nobatch_key] as $total6_key => $total6)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb7[$nobatch_key] as $total7_key => $total7)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb8[$nobatch_key] as $total8_key => $total8)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb9[$nobatch_key] as $total9_key => $total9)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb10[$nobatch_key] as $total10_key => $total10)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb11[$nobatch_key] as $total11_key => $total11)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb12[$nobatch_key] as $total12_key => $total12)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
+                                                            @foreach ($total1cb13[$nobatch_key] as $total13_key => $total13)
+                                                            <td align="right">
+                                                                <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
+                                                            </td>
+                                                            @endforeach
 
-                                                </tr>
-                                                </tr>
-                                            </tbody>
-                                        </table><br>
+                                                    </tr>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><br>
 
 
                                         <p><b>
@@ -718,262 +725,270 @@
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
                                         </b></p>
+                                        <div class="table-responsive">
 
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                            class="table table-bordered">
-                                            <tbody>
-                                                <tr style="padding: 0.2rem 0.3rem; background-color: #d3d3d370">
-                                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Produk Oleokimia</font>
-                                                        </b></td>
-                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kod Produk</font>
-                                                        </b></td>
-                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Belian/Terimaan</font>
-                                                        </b></td>
-                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Pengeluaran</font>
-                                                        </b></td>
-                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jualan/Edaran Tempatan</font>
-                                                        </b></td>
-                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Eksport</font>
-                                                        </b></td>
-                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir</font>
-                                                        </b></td>
-                                                </tr>
-                                                @foreach ($bhg3[$nobatch_key] as $penyata3_key => $data3)
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2">{{  $data3->comm_desc ?? ''}}</font>
-                                                    </td>
-                                                    <td style="text-align: center; vert3al-align:middle">
-                                                        <font size="2">{{  $data3->F104C3 ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $data3->F104C4 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $data3->F104C5 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $data3->F104C6 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $data3->F104C7 ??  0,2)  }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format( $data3->F104C8 ??  0,2)  }}</font>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                                {{-- @foreach ($iii as $dataiii)
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2">{{ $dataiii->produk->proddesc }}</font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2">{{ $dataiii->e104_c3 }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataiii->e104_c4 ??  0,2)}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{  number_format($dataiii->e104_c5 ??  0,2)}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataiii->e104_c6 ??  0,2)}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataiii->e104_c7 ??  0,2)}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataiii->e104_c8 ??  0,2)}}</font>
-                                                    </td>
-                                                </tr>
-                                                @endforeach --}}
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    @foreach ($total3c4[$nobatch_key] as $total4_key => $total4)
-                                                    <td align="right">
-                                                        <font size="2.7"><b>{{ number_format($total4->total4 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    @endforeach
-                                                    @foreach ($total3c5[$nobatch_key] as $total5_key => $total5)
-                                                    <td align="right">
-                                                        <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    @endforeach
-                                                    @foreach ($total3c6[$nobatch_key] as $total6_key => $total6)
-                                                    <td align="right">
-                                                        <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    @endforeach
-                                                    @foreach ($total3c7[$nobatch_key] as $total7_key => $total7)
-                                                    <td align="right">
-                                                        <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    @endforeach
-                                                    @foreach ($total3c8[$nobatch_key] as $total8_key => $total8)
-                                                    <td align="right">
-                                                        <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    @endforeach
-                                                    {{-- <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii4 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii5 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii6 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii7 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii8 ??  0,2) }}</b></font>
-                                                    </td> --}}
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="padding: 0.2rem 0.3rem; background-color: #d3d3d370">
+                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Produk Oleokimia</font>
+                                                            </b></td>
+                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Belian/Terimaan</font>
+                                                            </b></td>
+                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Pengeluaran</font>
+                                                            </b></td>
+                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
+                                                            </b></td>
+                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Eksport</font>
+                                                            </b></td>
+                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($bhg3[$nobatch_key] as $penyata3_key => $data3)
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2">{{  $data3->comm_desc ?? ''}}</font>
+                                                        </td>
+                                                        <td style="text-align: center; vert3al-align:middle">
+                                                            <font size="2">{{  $data3->F104C3 ?? ''}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format( $data3->F104C4 ??  0,2)  }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format( $data3->F104C5 ??  0,2)  }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format( $data3->F104C6 ??  0,2)  }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format( $data3->F104C7 ??  0,2)  }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format( $data3->F104C8 ??  0,2)  }}</font>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                    {{-- @foreach ($iii as $dataiii)
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2">{{ $dataiii->produk->proddesc }}</font>
+                                                        </td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2">{{ $dataiii->e104_c3 }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format($dataiii->e104_c4 ??  0,2)}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{  number_format($dataiii->e104_c5 ??  0,2)}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format($dataiii->e104_c6 ??  0,2)}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format($dataiii->e104_c7 ??  0,2)}}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format($dataiii->e104_c8 ??  0,2)}}</font>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach --}}
+                                                    <tr>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        @foreach ($total3c4[$nobatch_key] as $total4_key => $total4)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total4->total4 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($total3c5[$nobatch_key] as $total5_key => $total5)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($total3c6[$nobatch_key] as $total6_key => $total6)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($total3c7[$nobatch_key] as $total7_key => $total7)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($total3c8[$nobatch_key] as $total8_key => $total8)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        {{-- <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliii4 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliii5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliii6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliii7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliii8 ??  0,2) }}</b></font>
+                                                        </td> --}}
 
-                                                </tr>
-                                            </tbody>
-                                        </table><br>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><br>
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
                                             </font>
                                         </b></p>
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                            class="table table-bordered">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Produk Minyak Sawit</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kod Produk</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Nombor Borang Kastam 2</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Tarikh Eksport</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kuantiti <br>
-                                                                (Tan Metrik)</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Nilai (RM)</font>
-                                                    </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Kod Negara</font>
-                                                    </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Destinasi Negara</font>
-                                                    </b></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>0.00</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>0.00</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                </tr>
+                                        <div class="table-responsive">
 
-                                            </tbody>
-                                        </table><br>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Produk Minyak Sawit</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Nombor Borang Kastam 2</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Tarikh Eksport</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kuantiti <br>
+                                                                    (Tan Metrik)</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Nilai (RM)</font>
+                                                        </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Kod Negara</font>
+                                                        </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Destinasi Negara</font>
+                                                        </b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div><br>
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
                                             </font>
                                         </b></p>
-                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                            class="table table-bordered">
-                                            <tbody>
-                                                <tr style="background-color: #d3d3d370">
-                                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Produk Minyak Sawit</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kod Produk</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Nombor Borang Kastam 2</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Tarikh Eksport</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kuantiti <br>
-                                                                (Tan Metrik)</font>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Nilai (RM)</font>
-                                                    </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Kod Negara</font>
-                                                    </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Destinasi Negara</font>
-                                                    </b></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>0.00</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>0.00</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                </tr>
+                                        <div class="table-responsive">
 
-                                            </tbody>
-                                        </table><br>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Produk Minyak Sawit</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Nombor Borang Kastam 2</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Tarikh Eksport</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kuantiti <br>
+                                                                    (Tan Metrik)</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Nilai (RM)</font>
+                                                        </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Kod Negara</font>
+                                                        </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Destinasi Negara</font>
+                                                        </b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div><br>
 
 
 
