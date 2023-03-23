@@ -193,7 +193,10 @@ class Proses6Controller extends Controller
         and e.e101_flg in ('2','3')
         and p.e_nl = k.e_nl
         and k.e_kat = 'PL101'
+        and p.e_kat = 'PL101'
         order by k.kodpgw, k.nosiri");
+
+        // dd($users);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -372,6 +375,8 @@ class Proses6Controller extends Controller
             $totalvbd8[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
 
             $penyatavii[$key] = E101E::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', 1)->get();
+            $totalviie7[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '1')->sum('e101_e7');
+            $totalviie8[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '1')->sum('e101_e8');
 
 
 
@@ -443,6 +448,8 @@ class Proses6Controller extends Controller
             'totaliib11',
             'totalib12',
             'totaliib12',
+            'totalviie7',
+            'totalviie8',
             'totalib13',
             'totaliib13',
             'totalib14',
@@ -591,6 +598,7 @@ class Proses6Controller extends Controller
         and e.e104_flg in ('2','3')
         and p.e_nl = k.e_nl
         and k.e_kat = 'PL104'
+        and p.e_kat = 'PL104'
         order by k.kodpgw, k.nosiri");
 
         $breadcrumbs    = [
