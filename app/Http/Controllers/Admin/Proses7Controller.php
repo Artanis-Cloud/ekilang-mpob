@@ -181,7 +181,7 @@ class Proses7Controller extends Controller
             $kod_combine =  $daerah->kod_negeri . '-' . $daerah->kod_daerah ;
 
 
-        $daerahekilang_insert = DB::insert("INSERT into daerah values ('$kod_negeri',null,'$kod_daerah','$nama_daerah',null,'$kod_combine)");
+        $daerahekilang_insert = DB::insert("INSERT into daerah values ('$kod_negeri',null,'$kod_daerah','$nama_daerah',null,'$kod_combine')");
         $daerahstat_insert = DB::connection('mysql3')->insert("INSERT into daerah values ('$kod_negeri',null,'$kod_daerah','$nama_daerah',null)");
 
         $totaldaerah = $totaldaerah + 1;
