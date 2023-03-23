@@ -390,7 +390,7 @@
                                                                     {{ number_format($dataia->e104_b7 ?? 0, 2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">0.00</font>
+                                                                <font size="2">{{ number_format($dataia->e104_b8 ?? 0, 2) }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">
@@ -533,7 +533,7 @@
                                                                     {{ number_format($dataib->e104_b7 ?? 0, 2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">0.00</font>
+                                                                <font size="2"> {{ number_format($dataib->e104_b8 ?? 0, 2) }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">
@@ -675,7 +675,7 @@
                                                                     {{ number_format($dataic->e104_b7 ?? 0, 2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">0.00</font>
+                                                                <font size="2">{{ number_format($dataic->e104_b8 ?? 0, 2) }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">

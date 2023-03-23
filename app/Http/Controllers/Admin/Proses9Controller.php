@@ -848,6 +848,7 @@ class Proses9Controller extends Controller
                 'totalivbc10',
                 'totalib11',
                 'totaliib11',
+                'totalib12',
                 'totaliib12',
                 'totalib13',
                 'totaliib13',
@@ -2584,6 +2585,8 @@ class Proses9Controller extends Controller
                         $total3[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
                         $total4[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
                         $total5[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
+                        $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
+                        $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
 
                         $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
                         $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -2640,6 +2643,8 @@ class Proses9Controller extends Controller
                     $total3[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
                     $total4[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
                     $total5[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
+                    $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
+                    $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
 
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
                     $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -2666,7 +2671,9 @@ class Proses9Controller extends Controller
                 'total2',
                 'total3',
                 'total4',
-                'total5'
+                'total5',
+                'total6',
+                'total7'
             ));
         }
         else {
