@@ -347,13 +347,13 @@
                                                             <font size="2"><b>{{ number_format($total2[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($total6[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($total3[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($total7[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($total4[$key] ?? 0, 2) }}</b></font>

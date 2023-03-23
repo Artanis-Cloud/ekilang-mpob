@@ -356,7 +356,7 @@
                                                                         <font size="2.7">0.00</font>
                                                                     </td>
                                                                     <td align="right">
-                                                                        <font size="2.7">{{ number_format($datai->e101_b ??  0,2) }}</font>
+                                                                        <font size="2.7">{{ number_format($datai->e101_b9 ??  0,2) }}</font>
                                                                     </td>
                                                                     <td align="right">
                                                                         <font size="2.7">{{ number_format($datai->e101_b10 ??  0,2) }}</font>
