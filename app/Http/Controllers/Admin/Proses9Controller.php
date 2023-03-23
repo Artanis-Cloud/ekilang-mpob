@@ -986,6 +986,7 @@ class Proses9Controller extends Controller
                 'totalivbc10',
                 'totalib11',
                 'totaliib11',
+                'totalib12',
                 'totaliib12',
                 'totalib13',
                 'totaliib13',

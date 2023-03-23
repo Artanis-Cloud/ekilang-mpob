@@ -143,7 +143,7 @@ class Proses6Controller extends Controller
             // dd($penyata);
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
             $query = E91Init::findOrFail($e91_reg);
             $query->e91_flagcetak = 'Y';
@@ -376,7 +376,7 @@ class Proses6Controller extends Controller
 
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e101_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
             $query = E101Init::findOrFail($e101_reg);
             $query->e101_flagcetak = 'Y';
@@ -552,7 +552,7 @@ class Proses6Controller extends Controller
             $penyatavi[$key] = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '1')->get();
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e102_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
             $query = E102Init::findOrFail($e102_reg);
             $query->e102_flagcetak = 'Y';
@@ -735,7 +735,7 @@ class Proses6Controller extends Controller
             $totaliv2[$key] = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e104_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
             $query = E104Init::findOrFail($e104_reg);
             $query->e104_flagcetak = 'Y';
@@ -861,7 +861,7 @@ class Proses6Controller extends Controller
             $total5[$key] = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_stokakhir');
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
             $query = E07Init::findOrFail($e07_reg);
             $query->e07_flagcetak = 'Y';
@@ -983,7 +983,7 @@ class Proses6Controller extends Controller
             $query->save();
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
         }
 
