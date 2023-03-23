@@ -491,6 +491,7 @@ class Proses6Controller extends Controller
         and e.e102_flg in ('2','3')
         and p.e_nl = k.e_nl
         and k.e_kat = 'PL102'
+        and p.e_kat = 'PL102'
         order by k.kodpgw, k.nosiri");
 
         $breadcrumbs    = [
@@ -815,6 +816,7 @@ class Proses6Controller extends Controller
         and e.e07_flg in ('2','3')
         and p.e_nl = k.e_nl
         and k.e_kat = 'PL111'
+        and p.e_kat = 'PL111'
         order by k.kodpgw, k.nosiri");
 
         $breadcrumbs    = [
@@ -917,6 +919,7 @@ class Proses6Controller extends Controller
         and e.ebio_nl = k.username
         and k.category = p.e_kat
         and k.category = 'PLBIO'
+        and p.e_kat = 'PLBIO'
         order by k.kod_pegawai, k.no_siri");
 
         $breadcrumbs    = [
@@ -1038,6 +1041,7 @@ class Proses6Controller extends Controller
         and e.e91_flg in ('2','3')
         and p.e_nl = k.e_nl
         and k.e_kat = 'PL91'
+        and p.e_kat = 'PL91'
         order by k.kodpgw, k.nosiri");
 
 
