@@ -168,8 +168,8 @@ class Proses7Controller extends Controller
         $delete_daerahekilang = DB::table('daerah')->delete();
         $delete_daerahstat = DB::connection('mysql3')->delete("DELETE from daerah");
 
-        $insertekilang = DB::insert("INSERT into daerah values ('','','','','','','','')");
-        $insertstat = DB::connection('mysql3')->insert("INSERT into daerah values ('','','','','','','','')");
+        // $insertekilang = DB::insert("INSERT into daerah values ('','','','','','','','')");
+        // $insertstat = DB::connection('mysql3')->insert("INSERT into daerah values ('','','','','','','','')");
 
         $totaldaerah = 0;
 
