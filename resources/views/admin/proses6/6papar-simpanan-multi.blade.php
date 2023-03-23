@@ -496,7 +496,7 @@
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                            {{ $formatteddate }}
+                                            {{ $formatteddate[$key] }}
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
