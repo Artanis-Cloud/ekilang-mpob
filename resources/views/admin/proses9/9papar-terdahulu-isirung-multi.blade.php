@@ -726,6 +726,73 @@
                                                                 <font size="2">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
+                                                    @if ($vi[$key] && !$vi[$key]->isEmpty())
+                                                        @foreach ($vi[$key] as $datavi)
+                                                        {{-- {{ dd($datavi) }} --}}
+                                                            <tr>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">{{ $datavi->produk->proddesc ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">{{ $datavi->e102_c4 ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">{{ $datavi->e102_c5 ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavii->e102_c6 ?? '' }}</font>
+                                                                </td>
+                                                                <td style="text-align: right; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ number_format($datavi->e102_c7  ?? 0, 2) }}</font>
+                                                                </td>
+                                                                <td style="text-align: right; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ number_format($datavi->e102_c8  ?? 0, 2) }}</font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavi->e102_c9 ?? '' }}</font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavi->e102_c6 ?? '' }}</font>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                    {{-- {{ dd($totalvi) }} --}}
+                                                        <tr>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                     <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -740,10 +807,10 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalvi[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalvi2[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2"><b>-</b></font>
@@ -752,18 +819,6 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                     </tr>
-                                                    {{-- @foreach ($vi as $datavi)
-                                                    <tr>
-                                                        <td>{{ $datavi->produk->proddesc }}</td>
-                                                        <td>{{ $datavi->e102_c4 }}</td>
-                                                        <td>{{ $datavi->e102_c5 }}</td>
-                                                        <td>{{ $datavi->e102_c6 }}</td>
-                                                        <td>{{  number_format($datavi->e102_c7 ??  0,2) }}</td>
-                                                        <td>{{  number_format($datavi->e102_c8 ??  0,2) }}</td>
-                                                        <td>{{ $datavi->e102_c9 }}</td>
-                                                        <td>{{ $datavi->negara->namanegara }}</td>
-                                                    </tr>
-                                                    @endforeach --}}
                                                 </tbody>
                                             </table><br>
                                         </div>

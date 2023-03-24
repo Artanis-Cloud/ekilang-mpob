@@ -85,7 +85,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm" >
 
-                            @foreach ($penyata as $data)
+                            @foreach ($penyata as $key => $data)
                                 {{-- @foreach (array_merge($pelesens, $data) as $data) --}}
 
 

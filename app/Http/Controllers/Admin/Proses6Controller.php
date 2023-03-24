@@ -359,7 +359,7 @@ class Proses6Controller extends Controller
             $totalivbc10[$key] = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
             //   dd($totalivac5);
 
-            $penyatava[$key] = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', 1)->get();
+            $penyatava[$key] = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', 1)->orderBy('e101_d4')->get();
             // dd($penyatava);
             $totalvad5[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d5');
             $totalvad6[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d6');
@@ -367,14 +367,14 @@ class Proses6Controller extends Controller
             $totalvad8[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d8');
 
 
-            $penyatavb[$key] = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', 2)->get();
+            $penyatavb[$key] = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', 2)->orderBy('e101_d4')->get();
             // dd($penyatavb);
             $totalvbd5[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d5');
             $totalvbd6[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d6');
             $totalvbd7[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d7');
             $totalvbd8[$key] = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
 
-            $penyatavii[$key] = E101E::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', 1)->get();
+            $penyatavii[$key] = E101E::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', 1)->orderBy('e101_e4')->get();
             $totalviie7[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '1')->sum('e101_e7');
             $totalviie8[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '1')->sum('e101_e8');
 
@@ -557,7 +557,13 @@ class Proses6Controller extends Controller
 
             $totalv[$key] = DB::table("e102b")->where('e102_b2', $penyata[$key]->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
 
-            $penyatavi[$key] = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '1')->get();
+            $penyatavi[$key] = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '1')->orderBy('e102_c4')->get();
+            $totalvi[$key] = DB::table("e102c")->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '1')->sum('e102_c7');
+            $totalvi2[$key] = DB::table("e102c")->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '1')->sum('e102_c8');
+
+            $penyatavii[$key] = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '2')->orderBy('e102_c4')->get();
+            $totalvii[$key] = DB::table("e102c")->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '2')->sum('e102_c7');
+            $totalvii2[$key] = DB::table("e102c")->where('e102_c2', $penyata[$key]->e102_reg)->where('e102_c3', '2')->sum('e102_c8');
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e102_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -569,7 +575,7 @@ class Proses6Controller extends Controller
 
         $layout = 'layouts.main';
 
-        // dd($penyata)
+        // dd($totalvi);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses6.6papar-isirung-multi', compact(
             'returnArr',
@@ -585,7 +591,12 @@ class Proses6Controller extends Controller
             'totaliv',
             'penyatav',
             'totalv',
-            'penyatavi'
+            'totalvi',
+            'totalvi2',
+            'totalvii',
+            'totalvii2',
+            'penyatavi',
+            'penyatavii'
         ));
     }
 

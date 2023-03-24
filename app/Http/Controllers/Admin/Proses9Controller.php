@@ -1713,9 +1713,10 @@ class Proses9Controller extends Controller
 
 
                     $vi[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->get();
-                    // dd($vi);
+                    $totalvi[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->sum('e102_c7');
 
-                    $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->get();
+
+                    $vii[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->get();
 
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e102_sdate);
                     $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -1726,7 +1727,7 @@ class Proses9Controller extends Controller
             }
             $layout = 'layouts.main';
 
-            // dd($penyata);
+            // dd($vi);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-terdahulu-isirung-multi', compact(
                 'returnArr',
