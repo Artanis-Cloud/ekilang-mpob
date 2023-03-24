@@ -347,19 +347,19 @@
                                                             <font size="2"><b>{{ number_format($total2[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>{{ number_format($total6[$key] ?? 0, 2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
                                                             <font size="2"><b>{{ number_format($total3[$key] ?? 0, 2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total7[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($total4[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($total5[$key] ?? 0, 2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total6[$key] ?? 0, 2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total7[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -402,34 +402,63 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td style="text-align: center; vertical-align:middle">
+                                                    @foreach ($b[$key] as $datab)
+                                                        <tr>
+                                                            <td align="left">
+                                                                <font size="2">{{ $datab->produk->proddesc }}</font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2">{{ $datab->produk->prodid }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($datab->e07t_stokawal ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($datab->e07t_terima ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($datab->e07t_edaran ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($datab->e07t_eksport ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($datab->e07t_pelarasan ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($datab->e07t_stokakhir ?? 0, 2) }}</font>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr style="background-color: white">
+                                                        <td align="center">
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        <td style="text-align: center; vertical-align:middle">
+                                                        <td align="center">
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalb[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalb2[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalb3[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalb4[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalb5[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalb6[$key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
+                                        </div><br>
 
 
                                         <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

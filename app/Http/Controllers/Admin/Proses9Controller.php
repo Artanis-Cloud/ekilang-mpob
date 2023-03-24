@@ -8,6 +8,7 @@ use App\Models\E102Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\H07Btranshipment;
+use App\Models\H07Transhipment;
 use App\Models\H07Init;
 use App\Models\H101B;
 use App\Models\H101C;
@@ -1714,9 +1715,13 @@ class Proses9Controller extends Controller
 
                     $vi[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->get();
                     $totalvi[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->sum('e102_c7');
+                    $totalvi2[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->sum('e102_c8');
 
 
                     $vii[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->get();
+                    $totalvii[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->sum('e102_c7');
+                    $totalvii2[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->sum('e102_c8');
+
 
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e102_sdate);
                     $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -1727,7 +1732,7 @@ class Proses9Controller extends Controller
             }
             $layout = 'layouts.main';
 
-            // dd($vi);
+            // dd($totalvi);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-terdahulu-isirung-multi', compact(
                 'returnArr',
@@ -1742,6 +1747,10 @@ class Proses9Controller extends Controller
                 'totaliii',
                 'iv',
                 'totaliv',
+                'totalvi',
+                'totalvi2',
+                'totalvii',
+                'totalvii2',
                 'v',
                 'totalv',
                 'vi',
@@ -1783,10 +1792,16 @@ class Proses9Controller extends Controller
                     $totalv[$key] = DB::table("h102b")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_b3', '33')->sum('e102_b6');
 
 
-                    $vi[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->get();
-                    // dd($vi);
 
-                    $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->get();
+
+                    $vi[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->get();
+                    $totalvi[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->sum('e102_c7');
+                    $totalvi2[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '1')->sum('e102_c8');
+
+
+                    $vii[$key] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->get();
+                    $totalvii[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->sum('e102_c7');
+                    $totalvii2[$key] = DB::table("h102c")->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_c3', '2')->sum('e102_c8');
 
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e102_sdate);
                     $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -1816,6 +1831,10 @@ class Proses9Controller extends Controller
                 'v',
                 'totalv',
                 'vi',
+                'totalvi',
+                'totalvi2',
+                'totalvii',
+                'totalvii2',
                 'vii'
             ));
         } else {
@@ -1910,7 +1929,7 @@ class Proses9Controller extends Controller
                     $totaliii7[$key] = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c7');
                     $totaliii8[$key] = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c8');
 
-                    $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->get();
+                    $iv[$key] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->orderBy('e104_d4')->get();
 
                     if ($iv) {
                         $totaliv7[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
@@ -1918,13 +1937,27 @@ class Proses9Controller extends Controller
 
                         // dd($penyata->e014_nobatch = '062019CA0004');
 
-                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv->e104_d6);
+                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
                         // $formatteddat2 = $myDateTime2->format('d-m-Y');
                     } else {
                         $myDateTime2 = [];
                         $formatteddat2 = [];
                     }
 
+                    $v[$key] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '2')->orderBy('e104_d4')->get();
+
+                    if ($iv) {
+                        $totalv7[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '2')->sum('e104_d7');
+                        $totalv8[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '2')->sum('e104_d8');
+
+                        // dd($penyata->e014_nobatch = '062019CA0004');
+
+                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
+                        // $formatteddat2 = $myDateTime2->format('d-m-Y');
+                    } else {
+                        $myDateTime2 = [];
+                        $formatteddat2 = [];
+                    }
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e104_sdate);
                     $formatteddate[$key] = $myDateTime->format('d-m-Y');
                 } else {
@@ -1932,6 +1965,7 @@ class Proses9Controller extends Controller
                         ->with('error', 'Maklumat Pelesen tidak wujud. Sila port data!');
                 }
             }
+            // dd( $iv[$key]);
 
 
 
@@ -1954,6 +1988,7 @@ class Proses9Controller extends Controller
                 'ii',
                 'iii',
                 'iv',
+                'v',
                 'totalia5',
                 'totalia6',
                 'totalia7',
@@ -1988,6 +2023,8 @@ class Proses9Controller extends Controller
                 'totaliii8',
                 'totaliv7',
                 'totaliv8',
+                'totalv7',
+                'totalv8',
                 // 'myDateTime',/
                 // 'myDateTime2',
                 // 'formatteddat2',
@@ -2060,15 +2097,31 @@ class Proses9Controller extends Controller
                     $totaliii7[$key] = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c7');
                     $totaliii8[$key] = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c8');
 
-                    $iv[$key] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->get();
 
-                    if ($iv[$key]) {
+                    $iv[$key] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->orderBy('e104_d4')->get();
+
+                    if ($iv) {
                         $totaliv7[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
                         $totaliv8[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
 
                         // dd($penyata->e014_nobatch = '062019CA0004');
 
-                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv->e104_d6);
+                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
+                        // $formatteddat2 = $myDateTime2->format('d-m-Y');
+                    } else {
+                        $myDateTime2 = [];
+                        $formatteddat2 = [];
+                    }
+
+                    $v[$key] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '2')->orderBy('e104_d4')->get();
+
+                    if ($iv) {
+                        $totalv7[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '2')->sum('e104_d7');
+                        $totalv8[$key] = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '2')->sum('e104_d8');
+
+                        // dd($penyata->e014_nobatch = '062019CA0004');
+
+                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
                         // $formatteddat2 = $myDateTime2->format('d-m-Y');
                     } else {
                         $myDateTime2 = [];
@@ -2104,6 +2157,7 @@ class Proses9Controller extends Controller
                 'ii',
                 'iii',
                 'iv',
+                'v',
                 'totalia5',
                 'totalia6',
                 'totalia7',
@@ -2138,6 +2192,8 @@ class Proses9Controller extends Controller
                 'totaliii8',
                 'totaliv7',
                 'totaliv8',
+                'totalv7',
+                'totalv8'
                 // 'myDateTime',/
                 // 'myDateTime2',
                 // 'formatteddat2',
@@ -2583,11 +2639,19 @@ class Proses9Controller extends Controller
                         $a[$key] = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->orderBy('e07bt_produk')->get();
                         $total[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokawal');
                         $total2[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_terima');
-                        $total3[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
-                        $total4[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
-                        $total5[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
-                        $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
-                        $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
+                        $total3[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
+                        $total4[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
+                        $total5[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
+                        $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
+                        $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
+
+                        $b[$key] = H07Transhipment::with('h07init', 'produk')->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->orderBy('e07t_produk')->get();
+                        $totalb[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_stokawal');
+                        $totalb2[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_terima');
+                        $totalb3[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_edaran');
+                        $totalb4[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_eksport');
+                        $totalb5[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_pelarasan');
+                        $totalb6[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_stokakhir');
 
                         $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
                         $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -2613,7 +2677,16 @@ class Proses9Controller extends Controller
                 'total2',
                 'total3',
                 'total4',
-                'total5'
+                'total5',
+                'total6',
+                'total7',
+                'b',
+                'totalb',
+                'totalb2',
+                'totalb3',
+                'totalb4',
+                'totalb5',
+                'totalb6'
             ));
         }  elseif ($tahun > 2022) {
             foreach ($nobatch as $key => $e07_nobatch) {
@@ -2647,6 +2720,14 @@ class Proses9Controller extends Controller
                     $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
                     $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
 
+                    $b[$key] = H07Transhipment::with('h07init', 'produk')->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->orderBy('e07t_produk')->get();
+                    $totalb[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_stokawal');
+                    $totalb2[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_terima');
+                    $totalb3[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_edaran');
+                    $totalb4[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_eksport');
+                    $totalb5[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_pelarasan');
+                    $totalb6[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_stokakhir');
+
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
                     $formatteddate[$key] = $myDateTime->format('d-m-Y');
                 } else {
@@ -2674,7 +2755,14 @@ class Proses9Controller extends Controller
                 'total4',
                 'total5',
                 'total6',
-                'total7'
+                'total7',
+                'b',
+                'totalb',
+                'totalb2',
+                'totalb3',
+                'totalb4',
+                'totalb5',
+                'totalb6'
             ));
         }
         else {

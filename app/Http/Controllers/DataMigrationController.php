@@ -324,24 +324,24 @@ class DataMigrationController extends Controller
             //     ]);
 
 
-                $user = User::where('username', $biodiesel->e_nl)->where('category', $biodiesel->e_kat)->first();
+                // $user = User::where('username', $biodiesel->e_nl)->where('category', $biodiesel->e_kat)->first();
 
 
-                    $user = User::create([
-                        'id' => $count_user++,
-                        'name' => $biodiesel->e_np ?? '-',
-                        'email' => $biodiesel->e_email ?? '-',
-                        'password' => $password,
-                        'crypted_pass' => $crypted,
-                        'username' => $biodiesel->e_nl ?? '-',
-                        'category' => $biodiesel->e_kat ?? '-',
-                        'sub_cat' => NULL,
-                        'status' =>  '1',
-                        'map_flg' =>  '0',
-                        'map_sdate' =>  NULL,
-                    ]);
+                //     $user = User::create([
+                //         'id' => $count_user++,
+                //         'name' => $biodiesel->e_np ?? '-',
+                //         'email' => $biodiesel->e_email ?? '-',
+                //         'password' => $password,
+                //         'crypted_pass' => $crypted,
+                //         'username' => $biodiesel->e_nl ?? '-',
+                //         'category' => $biodiesel->e_kat ?? '-',
+                //         'sub_cat' => NULL,
+                //         'status' =>  '1',
+                //         'map_flg' =>  '0',
+                //         'map_sdate' =>  NULL,
+                //     ]);
 
-            
+
 
 
                 $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->first();

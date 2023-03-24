@@ -33,4 +33,15 @@ class H07Transhipment extends Model
         'e07t_stokakhir',
 
     ];
+
+    public function h07init()
+    {
+
+        return $this->hasOne(H07Init::class, 'e07_nobatch', 'e07t_nobatch');
+    }
+
+    public function produk()
+    {
+        return $this->hasOne(Produk::class, 'prodid', 'e07t_produk');
+    }
 }
