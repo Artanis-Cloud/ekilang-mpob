@@ -51,7 +51,7 @@
 
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
-                            @foreach ($query as $nobatch_key => $data)
+                            @foreach ($query as  $data)
                             {{-- {{ dd($data) }} --}}
 `
                                 <div class="pl-3">
@@ -132,7 +132,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data[$nobatch_key][0]->e_nl  }}
+                                                        {{ $data[0]->e_nl  }}
                                                         </b></td>
 
                                                 </tr>
