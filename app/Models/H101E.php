@@ -48,4 +48,21 @@ class H101E extends Model
         'mpobq_nilai_2',
 
     ];
+
+
+    public function h101init()
+    {
+
+        return $this->hasOne(H101Init::class, 'e101_nobatch', 'e101_nobatch');
+    }
+    public function produk()
+    {
+
+        return $this->hasOne(Produk::class, 'prodid', 'e101_e4');
+    }
+    public function negara()
+    {
+
+        return $this->hasOne(Negara::class, 'kodnegara', 'e101_e9');
+    }
 }
