@@ -59,7 +59,14 @@
 
                         <div class=" text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Senarai Penyata Bulan Terdahulu
+                            <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%">
+                                Paparan Senarai Penyata Bulan Terdahulu
+                            @if ($sumber == 'ekilang')
+                                eKilang
+                            @else
+                                PLEID
+
+                            @endif &nbsp;
                             </h3>
                             {{-- <p>Maklumat Kilang</p> --}}
                             <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan: &nbsp;<b>
