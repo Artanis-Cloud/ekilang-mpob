@@ -730,7 +730,7 @@
                                                         @foreach ($vi[$key] as $datavi)
                                                         {{-- {{ dd($datavi) }} --}}
                                                             <tr>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">{{ $datavi->produk->proddesc ?? '' }}
                                                                     </font>
                                                                 </td>
@@ -738,11 +738,11 @@
                                                                     <font size="2">{{ $datavi->e102_c4 ?? '' }}
                                                                     </font>
                                                                 </td>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">{{ $datavi->e102_c5 ?? '' }}
                                                                     </font>
                                                                 </td>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">
                                                                         {{ $datavi->e102_c6 ?? '-' }}</font>
                                                                 </td>
@@ -758,15 +758,15 @@
                                                                     <font size="2">
                                                                         {{ $datavi->e102_c9 ?? '' }}</font>
                                                                 </td>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">
-                                                                        {{ $datavi->e102_c6 ?? '' }}</font>
+                                                                        {{ $datavi->negara->namanegara ?? '' }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
                                                     @else
                                                     {{-- {{ dd($totalvi) }} --}}
-                                                
+
                                                     @endif
                                                     <tr>
                                                         <td style="text-align: center; vertical-align:middle">
@@ -835,7 +835,7 @@
                                                         @foreach ($vii[$key] as $datavii)
                                                         {{-- {{ dd($datavi) }} --}}
                                                             <tr>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">{{ $datavii->produk->proddesc ?? '' }}
                                                                     </font>
                                                                 </td>
@@ -843,11 +843,11 @@
                                                                     <font size="2">{{ $datavii->e102_c4 ?? '' }}
                                                                     </font>
                                                                 </td>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">{{ $datavii->e102_c5 ?? '' }}
                                                                     </font>
                                                                 </td>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">
                                                                         {{ $datavii->e102_c6 ?? '-' }}</font>
                                                                 </td>
@@ -863,9 +863,9 @@
                                                                     <font size="2">
                                                                         {{ $datavii->e102_c9 ?? '' }}</font>
                                                                 </td>
-                                                                <td style="text-align: center; vertical-align:middle">
+                                                                <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">
-                                                                        {{ $datavii->e102_c6 ?? '' }}</font>
+                                                                        {{ $datavii->negara->namanegara ?? '' }}</font>  
                                                                 </td>
                                                             </tr>
                                                         @endforeach

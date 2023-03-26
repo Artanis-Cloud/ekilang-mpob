@@ -263,7 +263,7 @@ class LiveDataMigrationController extends Controller
 
         // $this->h102c();
 
-        // $this->h102_init();
+        $this->h102_init();
         // $this->h104_b();
         // $this->h104_c();
 
@@ -1776,6 +1776,7 @@ class LiveDataMigrationController extends Controller
                 'e102_al1' => $select->e102_al1 ?? NULL,
                 'e102_al2' => $select->e102_al2 ?? NULL,
                 'e102_al3' => $select->e102_al3 ?? NULL,
+                'e102_al4' => $select->e102_al4 ?? NULL,
                 'e102_npg' => $select->e102_npg ?? NULL,
                 'e102_jpg' => $select->e102_jpg ?? NULL,
                 'e102_ae3' => $select->e102_ae3 ?? NULL,
