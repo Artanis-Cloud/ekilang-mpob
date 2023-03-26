@@ -593,7 +593,7 @@ class Proses9Controller extends Controller
                 where
                         e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
 
-                dd($penyata );
+                // dd($penyata );
 
                 $penyata[$e91_nobatch] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
                         DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
