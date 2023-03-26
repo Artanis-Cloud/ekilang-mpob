@@ -1446,7 +1446,7 @@ class Proses9Controller extends Controller
     }
 
 
-    public function process_admin_pleid_isirung_form($nobatch, $nolesen, $tahun, $bulan)
+    public function process_admin_pleid_isirung_form($nobatch,  $tahun, $bulan)
     {
 
         if (!$nobatch) {
@@ -1476,8 +1476,9 @@ class Proses9Controller extends Controller
 
                 $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                    FROM h_pelesen p
-                    WHERE p.e_nl = '$nolesen'
+                    FROM h102_init e, h_pelesen p
+                    WHERE p.e_nl = e.e102_nl
+                    -- AND p.e_nl = '$nolesen'
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
 
