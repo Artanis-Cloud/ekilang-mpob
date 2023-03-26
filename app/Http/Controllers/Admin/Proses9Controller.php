@@ -1591,7 +1591,7 @@ class Proses9Controller extends Controller
                             p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg, e.e102_nobatch
                             FROM h_pelesen p, h102_init e
                             WHERE p.e_nl = e.e102_nl
-                            AND e.e91_nobatch = '$e102_nobatch'
+                            AND e.e102_nobatch = '$e102_nobatch'
                             AND p.e_kat = 'PL102'
                             AND p.e_thn = '$tahun'
                             AND p.e_bln = '$bln'");
