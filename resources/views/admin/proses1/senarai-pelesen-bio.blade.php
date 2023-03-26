@@ -287,8 +287,6 @@
                                                         <td>{{ $datapl->e_np ?? '-' }}</td>
                                                         <td>{{ $datapl->e_email ?? '-' }}</td>
                                                         <td>{{ $datapl->e_notel ?? '-' }}</td>
-                                                        {{-- <td style="text-align: center">{{ $data->kodpgw }}</td> --}}
-                                                        {{-- <td style="text-align: center">{{ $data->nosiri }}</td> --}}
                                                         @if ($data->e_status == 1)
                                                             <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
@@ -367,9 +365,6 @@
 
     </div>
 
-
-
-
     </div>
 @endsection
 
@@ -398,7 +393,6 @@
     <script>
 
         $(document).ready(function () {
-            // Setup - add a text input to each footer cell
             $('#examplebio tfoot th').each(function () {
                 var title = $(this).text();
                 $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
@@ -469,12 +463,10 @@
                                     }
                                 }
                                 else if(column === 1){
-                                    // var value = document.getElementById('papar').id;
                                     data = data.replace(/<.*?>/g, "");
                                     return $.trim(data);
                                 }
                                 else if(column === 34){
-                                    // var value = document.getElementById('papar').id;
                                     data = data.replace(/<.*?>/g, "");
                                     return $.trim(data);
                                 }

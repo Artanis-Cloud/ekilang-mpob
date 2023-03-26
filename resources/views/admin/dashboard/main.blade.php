@@ -296,27 +296,6 @@
 
                         </div>
                     </div>
-
-
-
-                    {{-- <script>
-                        var dt = new Date();
-                        var newm = (("0" + (dt.getMonth())).slice(-2));
-                        let month = '12';
-
-                        console.log(newm == 0);
-                        if (newm == 00) {
-                            document.getElementById("Bulan").innerHTML = 'month';
-                        } else {
-                            document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
-
-                        }
-
-                        console.log(month);
-
-                        var dt = new Date();
-                        document.getElementById("Tahun").innerHTML = (dt.getFullYear());
-                    </script> --}}
                     <div class="modal-body">
 
                         <div class="noPrint">
@@ -394,12 +373,6 @@
                                     <tr style="background-color:  #d3d3d370">
                                         <td class="headerColor">Tarikh</td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                            {{-- @php --}}
-                                            {{-- // $total_bulan[$i] = 0;
-                                                // $total_kapasiti[$i] = 0;
-                                                // $total_kapasiti_bio = 0;
-                                            // @endphp --}}
-                                            {{-- @if ($i == '1') --}}
                                             <td class="headerColor" scope="col"
                                                 style="vertical-align: middle; text-align:center">{{ $i }}hb
                                             </td>
@@ -485,10 +458,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                        </button> --}}
                         <div class="noPrint">
                             <button type="submit" class="btn btn-primary ml-1 noPrint" data-dismiss="modal">
                                 <i class="bx bx-check d-block d-sm-none"></i>
@@ -507,9 +476,6 @@
     </div>
     </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
 @endsection
 
 
@@ -527,7 +493,6 @@
         }
     </script>
     <script>
-        // Chart.register(ChartDataLabels);
 
         var Labels = new Array();
         var Count = new Array();
@@ -547,13 +512,6 @@
             // console.log(Labels);
 
         });
-        // Labels.push('Kilang Buah');
-        // Labels.push('Kilang Penapis');
-        // Labels.push('Kilang Isirung');
-        // Labels.push('Kilang Oleokimia');
-        // Labels.push('Pusat Simpanan');
-        // Labels.push('Kilang Biodiesel');
-        // console.log(Labels);
         const barChartCTX = document.getElementById('barChart1');
         var barChart = new Chart(barChartCTX, {
             type: 'bar',

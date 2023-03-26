@@ -274,6 +274,7 @@ class Proses9Controller extends Controller
                     return redirect()->back()
                         ->with('error', 'Penyata Tidak Wujud!');
                 }
+                // dd($users);
             } elseif ($sektor == 'PL104') {
 
                 $users = DB::select("SELECT DISTINCT  e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate

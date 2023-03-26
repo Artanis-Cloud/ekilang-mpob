@@ -45,6 +45,7 @@ use App\Models\H101C;
 use App\Models\H101D;
 use App\Models\H101E;
 use App\Models\H101Init;
+use App\Models\H102b;
 use App\Models\H102c;
 use App\Models\H102Init;
 use App\Models\H104B;
@@ -392,7 +393,7 @@ class LiveDataMigrationController extends Controller
         // $this->pbcatvld();
         // $this->pelabuhan_luar();
         // $this->pelabuhan_msia();
-        $this->pelesen();
+        // $this->pelesen();
         // $this->pengumuman();
         // $this->pl91_individual();
         // $this->pr();
@@ -1047,6 +1048,10 @@ class LiveDataMigrationController extends Controller
                 'e102_ak1' => $select->e102_ak1 ?? NULL,
                 'e102_ak2' => $select->e102_ak2 ?? NULL,
                 'e102_ak3' => $select->e102_ak3 ?? NULL,
+                'e102_al1' => $select->e102_al1 ?? NULL,
+                'e102_al2' => $select->e102_al2 ?? NULL,
+                'e102_al3' => $select->e102_al3 ?? NULL,
+                'e102_al4' => $select->e102_al4 ?? NULL,
                 'e102_npg' => $select->e102_npg ?? NULL,
                 'e102_jpg' => $select->e102_jpg ?? NULL,
                 'e102_flagcetak' => $select->e102_flagcetak ?? NULL,
@@ -1660,7 +1665,7 @@ class LiveDataMigrationController extends Controller
 
         foreach ($selects as $key => $select) {
 
-            $insert = H101B::create([
+            $insert = H102b::create([
                 'e102_b1' => $select->e102_b1 ?? NULL,
                 'e102_nobatch' => $select->e102_nobatch ?? NULL,
                 'e102_b3' => $select->e102_b3 ?? NULL,
@@ -1768,6 +1773,9 @@ class LiveDataMigrationController extends Controller
                 'e102_ak1' => $select->e102_ak1 ?? NULL,
                 'e102_ak2' => $select->e102_ak2 ?? NULL,
                 'e102_ak3' => $select->e102_ak3 ?? NULL,
+                'e102_al1' => $select->e102_al1 ?? NULL,
+                'e102_al2' => $select->e102_al2 ?? NULL,
+                'e102_al3' => $select->e102_al3 ?? NULL,
                 'e102_npg' => $select->e102_npg ?? NULL,
                 'e102_jpg' => $select->e102_jpg ?? NULL,
                 'e102_ae3' => $select->e102_ae3 ?? NULL,

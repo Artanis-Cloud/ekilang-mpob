@@ -222,7 +222,7 @@
                                                             <td>{{ $loop->iteration }}</td>
                                                             {{-- <td>{{ $data->ebio_thn }}</td> --}}
                                                             <td> <a
-                                                                href="{{ route('admin.laporan.ringkasan', [$data->e_nl, $data->ebio_thn]) }}"><u>
+                                                                href="{{ route('admin.laporan.ringkasan', [$data->ebio_nl, $data->ebio_thn]) }}"><u>
                                                                     {{ $data->e_nl }}</u></a></td>
 
                                                             <td class="text-left">{{ $data->e_np }}</td>
