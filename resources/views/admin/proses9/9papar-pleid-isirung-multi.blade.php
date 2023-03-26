@@ -132,7 +132,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data[$nobatch_key]->e_nl  }}
+                                                        {{ $data[$nobatch_key][0]->e_nl  }}
                                                         </b></td>
 
                                                 </tr>
