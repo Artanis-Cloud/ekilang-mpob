@@ -31,4 +31,16 @@ class E07Transhipment extends Model
         'e07t_pelarasan',
         'e07t_stokakhir',
     ];
+
+
+    public function e07init()
+    {
+
+        return $this->hasOne(E07Init::class, 'e07_reg', 'e07t_idborang');
+    }
+
+    public function produk()
+    {
+        return $this->hasOne(Produk::class, 'prodid', 'e07t_produk');
+    }
 }

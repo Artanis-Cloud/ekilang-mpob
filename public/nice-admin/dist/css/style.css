@@ -8219,7 +8219,8 @@ sidebar navigation
       color: #fff;
       padding: 12px 15px;
       display: flex;
-      white-space: nowrap;
+      /* white-space: nowrap; */
+      font-size: 12px;
       align-items: center;
       line-height: 25px;
       opacity: 1.0; }

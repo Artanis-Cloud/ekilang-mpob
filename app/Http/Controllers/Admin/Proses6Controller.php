@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\E07Btranshipment;
+use App\Models\E07Transhipment;
 use App\Models\E07Init;
 use App\Models\E101B;
 use App\Models\E101C;
@@ -378,6 +379,10 @@ class Proses6Controller extends Controller
             $totalviie7[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '1')->sum('e101_e7');
             $totalviie8[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '1')->sum('e101_e8');
 
+            $penyataviii[$key] = E101E::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', 2)->orderBy('e101_e4')->get();
+            $totalviiie7[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '2')->sum('e101_e7');
+            $totalviiie8[$key] = DB::table("e101_e")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', '2')->sum('e101_e8');
+
 
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e101_sdate);
@@ -412,6 +417,7 @@ class Proses6Controller extends Controller
             'penyatava',
             'penyatavb',
             'penyatavii',
+            'penyataviii',
             'totalib5',
             'totaliib5',
             'totalivac5',
@@ -450,6 +456,8 @@ class Proses6Controller extends Controller
             'totaliib12',
             'totalviie7',
             'totalviie8',
+            'totalviiie7',
+            'totalviiie8',
             'totalib13',
             'totaliib13',
             'totalib14',
@@ -873,7 +881,7 @@ class Proses6Controller extends Controller
 
             $penyatai[$key] = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $penyata[$key]->e07_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '!=', '07');
-            })->get();
+            })->orderBy('e07bt_produk')->get();
             // dd($penyata);
             $total[$key] = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_stokawal');
             $total2[$key] = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_terima');
@@ -882,6 +890,17 @@ class Proses6Controller extends Controller
             $total5[$key] = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_stokakhir');
             $total6[$key] = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_import');
             $total7[$key] = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_eksport');
+
+            $penyataii[$key] = E07Transhipment::with('e07init', 'produk')->where('e07t_idborang', $penyata[$key]->e07_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '!=', '07');
+            })->orderBy('e07t_produk')->get();
+            // dd($penyata);
+            $totalii[$key] = DB::table("e07_transhipment")->where('e07t_idborang', $penyata[$key]->e07_reg)->sum('e07t_stokawal');
+            $totalii2[$key] = DB::table("e07_transhipment")->where('e07t_idborang', $penyata[$key]->e07_reg)->sum('e07t_terima');
+            $totalii3[$key] = DB::table("e07_transhipment")->where('e07t_idborang', $penyata[$key]->e07_reg)->sum('e07t_edaran');
+            $totalii4[$key] = DB::table("e07_transhipment")->where('e07t_idborang', $penyata[$key]->e07_reg)->sum('e07t_pelarasan');
+            $totalii5[$key] = DB::table("e07_transhipment")->where('e07t_idborang', $penyata[$key]->e07_reg)->sum('e07t_stokakhir');
+            $totalii7[$key] = DB::table("e07_transhipment")->where('e07t_idborang', $penyata[$key]->e07_reg)->sum('e07t_eksport');
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -910,7 +929,14 @@ class Proses6Controller extends Controller
             'total4',
             'total5',
             'total6',
-            'total7'
+            'total7',
+            'penyataii',
+            'totalii',
+            'totalii2',
+            'totalii3',
+            'totalii4',
+            'totalii5',
+            'totalii7'
         ));
     }
 
