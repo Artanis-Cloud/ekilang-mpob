@@ -798,13 +798,13 @@
                                                         <td align="left">
                                                             <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
                                                         </td>
-                                                        <td align="left">
+                                                        <td align="center">
                                                             <font size="2">{{ $dataiv->produk->prodid ?? ''}}</font>
                                                         </td>
-                                                        <td style="text-align: center; vertical-align:middle">
+                                                        <td style="text-align: left; vertical-align:middle">
                                                             <font size="2">{{ $dataiv->e104_d5  ?? ''}}</font>
                                                         </td>
-                                                        <td align="right">
+                                                        <td align="left">
                                                             <font size="2">{{  $dataiv->e104_d6 ?? '' }}</font>
                                                         </td>
                                                         <td align="right">
@@ -813,10 +813,10 @@
                                                         <td align="right">
                                                             <font size="2">{{number_format ($dataiv->e104_d8 ??  0,2) ?? '' }}</font>
                                                         </td>
-                                                        <td align="right">
+                                                        <td align="center">
                                                             <font size="2">{{ $dataiv->e104_d9  ?? ''}}</font>
                                                         </td>
-                                                        <td align="right">
+                                                        <td align="left">
                                                             <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
                                                         </td>
                                                     </tr>
@@ -894,13 +894,13 @@
                                                         <td align="left">
                                                             <font size="2">{{  $datav->produk->proddesc ?? ''}}</font>
                                                         </td>
-                                                        <td align="left">
+                                                        <td align="center">
                                                             <font size="2">{{ $datav->produk->prodid ?? ''}}</font>
                                                         </td>
-                                                        <td style="text-align: center; vertical-align:middle">
+                                                        <td style="text-align: left; vertical-align:middle">
                                                             <font size="2">{{ $datav->e104_d5  ?? ''}}</font>
                                                         </td>
-                                                        <td align="right">
+                                                        <td align="left">
                                                             <font size="2">{{  $datav->e104_d6 ?? '' }}</font>
                                                         </td>
                                                         <td align="right">
@@ -909,10 +909,10 @@
                                                         <td align="right">
                                                             <font size="2">{{number_format ($datav->e104_d8 ??  0,2) ?? '' }}</font>
                                                         </td>
-                                                        <td align="right">
+                                                        <td align="center">
                                                             <font size="2">{{ $datav->e104_d9  ?? ''}}</font>
                                                         </td>
-                                                        <td align="right">
+                                                        <td align="left">
                                                             <font size="2">{{$datav->negara->namanegara ?? ''}}</font>
                                                         </td>
                                                     </tr>
