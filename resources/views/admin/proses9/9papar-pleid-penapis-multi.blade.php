@@ -1031,32 +1031,47 @@
                                                                 <font size="2.7">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
+                                                    @foreach ($vi[$key]   as $datavi)
                                                     <tr>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $datavi->produk->proddesc ?? '-' }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>-</b></font>
+                                                            <font size="2.7">{{ $datavi->e101_e4 ?? '-' }}</font>
                                                         </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $datavi->e101_e5 ?? '-' }}</font>
                                                         </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
+                                                        @php
+                                                            $myDateTimevi= strtotime($datavi->e101_e6);
+                                                            if ($myDateTimevi) {
+                                                                $myDateTimevi= DateTime::createFromFormat('Y-m-d', $datavi->e101_e6);
+                                                                $formatteddatevi= $myDateTimevi->format('d-m-Y');
+
+                                                            }else {
+                                                                $formatteddatevi=$datavi->e101_e6;
+                                                            }
+                                                        @endphp
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $formatteddatevi ?? '-' }}</font>
+                                                        </td>
+                                                        {{-- <td align="left">
+                                                            <font size="2.7">{{ $datavi->e101_e6 ?? '-' }}</font>
+                                                        </td> --}}
+                                                        <td align="right">
+                                                            <font size="2.7">{{ number_format($datavi->e101_e7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2.7">{{ number_format($datavi->e101_e8 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>-</b></font>
+                                                            <font size="2.7">{{ $datavi->e101_e9 ??  '-' }}</font>
                                                         </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $datavi->negara->namanegara ??  '-' }}</font>
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div><br>

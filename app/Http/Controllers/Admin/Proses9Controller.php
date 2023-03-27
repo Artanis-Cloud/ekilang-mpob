@@ -1196,7 +1196,7 @@ class Proses9Controller extends Controller
 
                 // $penyata6[$nobatch1] = DB::connection('mysql5')->select("SHOW TABLES");
 
-                dd($vi);
+                // dd($vi);
 
                 // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
                 // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
@@ -1217,6 +1217,7 @@ class Proses9Controller extends Controller
                 'returnArr',
                 'layout',
                 'query',
+                'vi',
                 'pelesens',
                 'penyata1',
                 'penyata2',
