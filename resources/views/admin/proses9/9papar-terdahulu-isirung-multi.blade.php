@@ -865,7 +865,7 @@
                                                                 </td>
                                                                 <td style="text-align: left; vertical-align:middle">
                                                                     <font size="2">
-                                                                        {{ $datavii->negara->namanegara ?? '' }}</font>  
+                                                                        {{ $datavii->negara->namanegara ?? '' }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

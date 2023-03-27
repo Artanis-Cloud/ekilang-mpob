@@ -664,7 +664,7 @@ class Proses6Controller extends Controller
 
             $penyataia[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
-            })->get();
+            })->orderBy('e104_b4')->get();
 
             $total[$key] = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
 
@@ -688,7 +688,7 @@ class Proses6Controller extends Controller
 
             $penyataib[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
-            })->get();
+            })->orderBy('e104_b4')->get();
 
             $totalib[$key] = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b5');
 
@@ -713,7 +713,7 @@ class Proses6Controller extends Controller
 
             $penyataic[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '08');
-            })->get();
+            })->orderBy('e104_b4')->get();
 
             $totalic[$key] = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b5');
 
@@ -742,7 +742,7 @@ class Proses6Controller extends Controller
 
             $penyataiii[$key] = E104C::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat',  ['03', '06', '08']);
-            })->get();
+            })->orderBy('e104_c3')->get();
 
             $totaliii[$key] = DB::table("e104_c")->where('e104_reg',  $penyata[$key]->e104_reg)->sum('e104_c4');
 
@@ -756,11 +756,13 @@ class Proses6Controller extends Controller
             // dd($penyataiii);
 
 
-            $penyataiv[$key] = E104D::with('e104init', 'produk', 'negara')->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', 1)->get();
-
+            $penyataiv[$key] = E104D::with('e104init', 'produk', 'negara')->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', 1)->orderBy('e104_d4')->get();
             $totaliv[$key] = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '1')->sum('e104_d7');
-
             $totaliv2[$key] = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
+
+            $penyatav[$key] = E104D::with('e104init', 'produk', 'negara')->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', 2)->orderBy('e104_d4')->get();
+            $totalv[$key] = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '2')->sum('e104_d7');
+            $totalv2[$key] = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '2')->sum('e104_d8');
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e104_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -790,6 +792,7 @@ class Proses6Controller extends Controller
             'penyataii',
             'penyataiii',
             'penyataiv',
+            'penyatav',
             'total',
             'total2',
             'total3',
@@ -822,6 +825,10 @@ class Proses6Controller extends Controller
             'totaliii3',
             'totaliii4',
             'totaliii5',
+            'totaliv',
+            'totaliv2',
+            'totalv',
+            'totalv2',
         ));
     }
 
@@ -1026,6 +1033,8 @@ class Proses6Controller extends Controller
                 return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
             })->orderBy('ebio_c3')->get();
 
+
+            
             // $wherestmt = "(";
             // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
             // $query = DB::select("update e_bio_inits set ebio_flagcetak = 'Y' where ebio_nl in $ebio_reg");

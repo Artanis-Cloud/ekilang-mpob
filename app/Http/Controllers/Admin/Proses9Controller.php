@@ -801,6 +801,9 @@ class Proses9Controller extends Controller
                     $totalvie7[$key]   = DB::table("h101_e")->where('e101_nobatch', $penyata[$key]->e101_nobatch)->where('e101_e3', '1')->sum('e101_e7');
                     $totalvie8[$key]   = DB::table("h101_e")->where('e101_nobatch', $penyata[$key]->e101_nobatch)->where('e101_e3', '1')->sum('e101_e8');
 
+                    // dd($penyata[$key]->e101_sdate);
+
+
                     $vii[$key]   = H101E::with('h101init', 'produk', 'negara')->where('e101_nobatch', $penyata[$key]->e101_nobatch)->where('e101_e3', '2')->orderBy('e101_e4')->get();
                     $totalviie7[$key]   = DB::table("h101_e")->where('e101_nobatch', $penyata[$key]->e101_nobatch)->where('e101_e3', '2')->sum('e101_e7');
                     $totalviie8[$key]   = DB::table("h101_e")->where('e101_nobatch', $penyata[$key]->e101_nobatch)->where('e101_e3', '2')->sum('e101_e8');
