@@ -1031,7 +1031,7 @@
                                                                 <font size="2.7">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($vi[$key]   as $datavi)
+                                                    @foreach ($vi[$nobatch1]   as $datavi)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2.7">{{ $datavi->produk->proddesc ?? '-' }}</font>
