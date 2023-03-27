@@ -892,6 +892,49 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                     </tr>
+                                                    {{-- {{ dd($totaliv7) }} --}}
+                                                    @foreach ($iv[$nobatch_key] as $dataiv)
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2">{{ $dataiv->produk->prodid ?? ''}}</font>
+                                                        </td>
+                                                        <td style="text-align: left; vertical-align:middle">
+                                                            <font size="2">{{ $dataiv->e104_d5  ?? ''}}</font>
+                                                        </td>
+                                                        @php
+                                                            $myDateTimeiv= strtotime($dataiv->e104_d6);
+                                                            if ($myDateTimeiv) {
+                                                                $myDateTimeiv= DateTime::createFromFormat('Y-m-d', $dataiv->e104_d6);
+                                                                $formatteddateiv= $myDateTimeiv->format('d-m-Y');
+
+                                                            }else {
+                                                                $formatteddateiv=$dataiv->e104_d6;
+                                                            }
+                                                        @endphp
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $formatteddateiv ?? '-' }}</font>
+                                                        </td>
+                                                        {{-- <td align="left">
+                                                            <font size="2.7">{{ $datavi->e104_d6 ?? '-' }}</font>
+                                                        </td> --}}
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format($dataiv->e104_d7 ??  0,2) ?? '' }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{number_format ($dataiv->e104_d8 ??  0,2) ?? '' }}</font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2">{{ $dataiv->e104_d9  ?? ''}}</font>
+                                                        </td>
+                                                        <td align="left">
+                                                            <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+
                                                     <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -906,10 +949,10 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{number_format ($totaliv7[$nobatch_key]  ??  0,2) ?? '' }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{number_format ($totaliv8[$nobatch_key] ??  0,2) ?? '' }}</b></font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2"><b>-</b></font>
@@ -959,6 +1002,49 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                     </tr>
+                                                    {{-- {{ dd($totaliv7) }} --}}
+                                                    @foreach ($v[$nobatch_key] as $datav)
+                                                    <tr>
+                                                        <td align="left">
+                                                            <font size="2">{{  $datav->produk->proddesc ?? ''}}</font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2">{{ $datav->produk->prodid ?? ''}}</font>
+                                                        </td>
+                                                        <td style="text-align: left; vertical-align:middle">
+                                                            <font size="2">{{ $datav->e104_d5  ?? ''}}</font>
+                                                        </td>
+                                                        @php
+                                                            $myDateTimev= strtotime($datav->e104_d6);
+                                                            if ($myDateTimev) {
+                                                                $myDateTimev= DateTime::createFromFormat('Y-m-d', $datav->e104_d6);
+                                                                $formatteddatev= $myDateTimev->format('d-m-Y');
+
+                                                            }else {
+                                                                $formatteddatev=$datav->e104_d6;
+                                                            }
+                                                        @endphp
+                                                        <td align="left">
+                                                            <font size="2.7">{{ $formatteddatev ?? '-' }}</font>
+                                                        </td>
+                                                        {{-- <td align="left">
+                                                            <font size="2.7">{{ $datav->e104_d6 ?? '-' }}</font>
+                                                        </td> --}}
+                                                        <td align="right">
+                                                            <font size="2">{{ number_format($datav->e104_d7 ??  0,2) ?? '' }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{number_format ($datav->e104_d8 ??  0,2) ?? '' }}</font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2">{{ $datav->e104_d9  ?? ''}}</font>
+                                                        </td>
+                                                        <td align="left">
+                                                            <font size="2">{{$datav->negara->namanegara ?? ''}}</font>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+
                                                     <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -973,10 +1059,10 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{number_format ($totalv7[$nobatch_key]  ??  0,2) ?? '' }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{number_format ($totalv8[$nobatch_key] ??  0,2) ?? '' }}</b></font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2"><b>-</b></font>

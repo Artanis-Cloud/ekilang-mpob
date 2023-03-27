@@ -1724,6 +1724,17 @@ class Proses9Controller extends Controller
                         $total5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total5 from pl1022p3 e, kod_sl p, prod_cat2 c
                         where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
                         e.F1022D = p.catid and e.F1022E = c.catid");
+
+
+                        $vi[$e102_nobatch] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '1')->orderBy('e102_c4')->get();
+                        $totalvi[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '1')->sum('e102_c7');
+                        $totalvi2[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '1')->sum('e102_c8');
+
+
+                        $vii[$e102_nobatch] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '2')->orderBy('e102_c4')->get();
+                        $totalvii[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '2')->sum('e102_c7');
+                        $totalvii2[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '2')->sum('e102_c8');
+
                     }
                     $layout = 'layouts.main';
 
@@ -1744,7 +1755,13 @@ class Proses9Controller extends Controller
                         'bhg4',
                         'total4',
                         'bhg5',
-                        'total5'
+                        'total5',
+                        'vi',
+                        'totalvi',
+                        'totalvi2',
+                        'vii',
+                        'totalvii',
+                        'totalvii2',
 
                     ));
                 }
@@ -2436,6 +2453,37 @@ class Proses9Controller extends Controller
             where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
                 $total3c8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C8) as total8 from pl104cp1 e, codedb.commodity_l p
             where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+
+            $iv[$e104_nobatch] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '1')->orderBy('e104_d4')->get();
+
+            if ($iv) {
+                $totaliv7[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
+                $totaliv8[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
+
+                // dd($penyata->e014_nobatch = '062019CA0004');
+
+                // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
+                // $formatteddat2 = $myDateTime2->format('d-m-Y');
+            } else {
+                $myDateTime2 = [];
+                $formatteddat2 = [];
+            }
+
+            $v[$e104_nobatch] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '2')->orderBy('e104_d4')->get();
+
+            if ($iv) {
+                $totalv7[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '2')->sum('e104_d7');
+                $totalv8[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '2')->sum('e104_d8');
+
+                // dd($penyata->e014_nobatch = '062019CA0004');
+
+                // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
+                // $formatteddat2 = $myDateTime2->format('d-m-Y');
+            } else {
+                $myDateTime2 = [];
+                $formatteddat2 = [];
+            }
+
             }
 
 
@@ -2487,7 +2535,13 @@ class Proses9Controller extends Controller
                 'total3c6',
                 'total3c7',
                 'total3c8',
-                'bhg3'
+                'bhg3',
+                'iv',
+                'totaliv7',
+                'totaliv8',
+                'iv',
+                'totalv7',
+                'totalv8',
 
             ));
         } elseif ($tahun > 2022) {
