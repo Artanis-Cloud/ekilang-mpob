@@ -804,9 +804,22 @@
                                                         <td style="text-align: left; vertical-align:middle">
                                                             <font size="2">{{ $dataiv->e104_d5  ?? ''}}</font>
                                                         </td>
+                                                        @php
+                                                            $myDateTimeiv= strtotime($dataiv->e104_d6);
+                                                            if ($myDateTimeiv) {
+                                                                $myDateTimeiv= DateTime::createFromFormat('Y-m-d', $dataiv->e104_d6);
+                                                                $formatteddateiv= $myDateTimeiv->format('d-m-Y');
+
+                                                            }else {
+                                                                $formatteddateiv=$dataiv->e104_d6;
+                                                            }
+                                                        @endphp
                                                         <td align="left">
-                                                            <font size="2">{{  $dataiv->e104_d6 ?? '' }}</font>
+                                                            <font size="2.7">{{ $formatteddateiv ?? '-' }}</font>
                                                         </td>
+                                                        {{-- <td align="left">
+                                                            <font size="2.7">{{ $datavi->e104_d6 ?? '-' }}</font>
+                                                        </td> --}}
                                                         <td align="right">
                                                             <font size="2">{{ number_format($dataiv->e104_d7 ??  0,2) ?? '' }}</font>
                                                         </td>
@@ -900,9 +913,22 @@
                                                         <td style="text-align: left; vertical-align:middle">
                                                             <font size="2">{{ $datav->e104_d5  ?? ''}}</font>
                                                         </td>
+                                                        @php
+                                                            $myDateTimev= strtotime($datav->e104_d6);
+                                                            if ($myDateTimev) {
+                                                                $myDateTimev= DateTime::createFromFormat('Y-m-d', $datav->e104_d6);
+                                                                $formatteddatev= $myDateTimev->format('d-m-Y');
+
+                                                            }else {
+                                                                $formatteddatev=$datav->e104_d6;
+                                                            }
+                                                        @endphp
                                                         <td align="left">
-                                                            <font size="2">{{  $datav->e104_d6 ?? '' }}</font>
+                                                            <font size="2.7">{{ $formatteddatev ?? '-' }}</font>
                                                         </td>
+                                                        {{-- <td align="left">
+                                                            <font size="2.7">{{ $datav->e104_d6 ?? '-' }}</font>
+                                                        </td> --}}
                                                         <td align="right">
                                                             <font size="2">{{ number_format($datav->e104_d7 ??  0,2) ?? '' }}</font>
                                                         </td>

@@ -958,12 +958,12 @@
                                                                     $formatteddatevi=$datavi->e101_e6;
                                                                 }
                                                             @endphp
-                                                            {{-- <td align="left">
-                                                                <font size="2.7">{{ $formatteddatevi ?? '-' }}</font>
-                                                            </td> --}}
                                                             <td align="left">
-                                                                <font size="2.7">{{ $datavi->e101_e6 ?? '-' }}</font>
+                                                                <font size="2.7">{{ $formatteddatevi ?? '-' }}</font>
                                                             </td>
+                                                            {{-- <td align="left">
+                                                                <font size="2.7">{{ $datavi->e101_e6 ?? '-' }}</font>
+                                                            </td> --}}
                                                             <td align="right">
                                                                 <font size="2.7">{{ number_format($datavi->e101_e7 ??  0,2) }}</font>
                                                             </td>
@@ -1064,14 +1064,14 @@
                                                                         $formatteddatevii=$datavii->e101_e6;
                                                                     }
                                                                 @endphp
-                                                                {{-- <td align="left">
-                                                                    <font size="2.7">
-                                                                        {{ $formatteddatevii ?? '-' }}</font>
-                                                                </td> --}}
                                                                 <td align="left">
                                                                     <font size="2.7">
-                                                                        {{ $datavii->e101_e6 ?? '-' }}</font>
+                                                                        {{ $formatteddatevii ?? '-' }}</font>
                                                                 </td>
+                                                                {{-- <td align="left">
+                                                                    <font size="2.7">
+                                                                        {{ $datavii->e101_e6 ?? '-' }}</font>
+                                                                </td> --}}
                                                                 <td align="right">
                                                                     <font size="2.7">{{ number_format($datavii->e101_e7 ??  0,2) }}</font>
                                                                 </td>

@@ -1114,10 +1114,22 @@
                                                                 <td align="left">
                                                                     <font size="2">{{ $datavii->e101_e5 }}</font>
                                                                 </td>
+                                                                @php
+                                                                    $myDateTimevii= strtotime($datavii->e101_e6);
+                                                                    if ($myDateTimevii) {
+                                                                        $myDateTimevii= DateTime::createFromFormat('Y-m-d', $datavii->e101_e6);
+                                                                        $formatteddatevii= $myDateTimevii->format('d-m-Y');
+
+                                                                    }else {
+                                                                        $formatteddatevii=$datavii->e101_e6;
+                                                                    }
+                                                                @endphp
                                                                 <td align="left">
-                                                                    {{-- {{ dd($data->e101_e6) }} --}}
-                                                                    <font size="2">{{ $datavii->e101_e6 }}</font>
+                                                                    <font size="2.7">{{ $formatteddatevii ?? '-' }}</font>
                                                                 </td>
+                                                                {{-- <td align="left">
+                                                                    <font size="2.7">{{ $datavii->e101_e6 ?? '-' }}</font>
+                                                                </td> --}}
                                                                 <td align="right">
                                                                     <font size="2">
                                                                         {{ number_format($datavii->e101_e7 ?? 0, 2) }}</font>
@@ -1205,37 +1217,49 @@
                                                                 <font size="2">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if ($penyatavii[$key] && !$penyatavii[$key]->isEmpty())
-                                                        @foreach ($penyatavii[$key] as $datavii)
+                                                    @if ($penyataviii[$key] && !$penyataviii[$key]->isEmpty())
+                                                        @foreach ($penyataviii[$key] as $dataviii)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $datavii->produk->proddesc }}
+                                                                    <font size="2">{{ $dataviii->produk->proddesc }}
                                                                     </font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $datavii->e101_e4 }}</font>
+                                                                    <font size="2">{{ $dataviii->e101_e4 }}</font>
                                                                 </td>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $datavii->e101_e5 }}</font>
+                                                                    <font size="2">{{ $dataviii->e101_e5 }}</font>
                                                                 </td>
+                                                                @php
+                                                                    $myDateTimeviii= strtotime($dataviii->e101_e6);
+                                                                    if ($myDateTimeviii) {
+                                                                        $myDateTimeviii= DateTime::createFromFormat('Y-m-d', $dataviii->e101_e6);
+                                                                        $formatteddateviii= $myDateTimeviii->format('d-m-Y');
+
+                                                                    }else {
+                                                                        $formatteddateviii=$dataviii->e101_e6;
+                                                                    }
+                                                                @endphp
                                                                 <td align="left">
-                                                                    {{-- {{ dd($data->e101_e6) }} --}}
-                                                                    <font size="2">{{ $datavii->e101_e6 }}</font>
+                                                                    <font size="2.7">{{ $formatteddateviii ?? '-' }}</font>
+                                                                </td>
+                                                                {{-- <td align="left">
+                                                                    <font size="2.7">{{ $dataviii->e101_e6 ?? '-' }}</font>
+                                                                </td> --}}
+                                                                <td align="right">
+                                                                    <font size="2">
+                                                                        {{ number_format($dataviii->e101_e7 ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
                                                                     <font size="2">
-                                                                        {{ number_format($datavii->e101_e7 ?? 0, 2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">
-                                                                        {{ number_format($datavii->e101_e8 ?? 0, 2) }}</font>
+                                                                        {{ number_format($dataviii->e101_e8 ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $datavii->e101_e9 }}</font>
+                                                                    <font size="2">{{ $dataviii->e101_e9 }}</font>
                                                                 </td>
                                                                 <td align="left">
                                                                     <font size="2">
-                                                                        {{ $datavii->negara[0]->namanegara }}</font>
+                                                                        {{ $dataviii->negara[0]->namanegara }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -1259,10 +1283,10 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalviie7[$key] ?? 0, 2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalviiie7[$key] ?? 0, 2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalviie8[$key] ?? 0, 2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalviiie8[$key] ?? 0, 2) }}</b></font>
                                                     </td>
                                                     <td align="center">
                                                         <font size="2"><b>-</b></font>
