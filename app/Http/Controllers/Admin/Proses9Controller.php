@@ -2683,6 +2683,37 @@ class Proses9Controller extends Controller
                     where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
                         $total3c8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C8) as total8 from pl104cp1 e, codedb.commodity_l p
                     where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+
+                    $iv[$e104_nobatch] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '1')->orderBy('e104_d4')->get();
+
+                    if ($iv) {
+                        $totaliv7[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
+                        $totaliv8[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
+
+                        // dd($penyata->e014_nobatch = '062019CA0004');
+
+                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
+                        // $formatteddat2 = $myDateTime2->format('d-m-Y');
+                    } else {
+                        $myDateTime2 = [];
+                        $formatteddat2 = [];
+                    }
+
+                    $v[$e104_nobatch] = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '2')->orderBy('e104_d4')->get();
+
+                    if ($iv) {
+                        $totalv7[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '2')->sum('e104_d7');
+                        $totalv8[$e104_nobatch] = DB::table("h104_d")->where('e104_nobatch', $e104_nobatch)->where('e104_d3', '2')->sum('e104_d8');
+
+                        // dd($penyata->e014_nobatch = '062019CA0004');
+
+                        // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[$key]->e104_d6);
+                        // $formatteddat2 = $myDateTime2->format('d-m-Y');
+                    } else {
+                        $myDateTime2 = [];
+                        $formatteddat2 = [];
+                    }
+
                     }
 
 
@@ -2734,7 +2765,13 @@ class Proses9Controller extends Controller
                         'total3c6',
                         'total3c7',
                         'total3c8',
-                        'bhg3'
+                        'bhg3',
+                        'iv',
+                        'totaliv7',
+                        'totaliv8',
+                        'v',
+                        'totalv7',
+                        'totalv8',
 
                     ));
                 } else {
