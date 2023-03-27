@@ -2539,7 +2539,7 @@ class Proses9Controller extends Controller
                 'iv',
                 'totaliv7',
                 'totaliv8',
-                'iv',
+                'v',
                 'totalv7',
                 'totalv8',
 
