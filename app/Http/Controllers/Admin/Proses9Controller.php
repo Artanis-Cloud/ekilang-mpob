@@ -1421,6 +1421,13 @@ class Proses9Controller extends Controller
                         $totalvbd8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D8) as total8 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
 
 
+                        $vi[$nobatch1]   = H101E::with('h101init', 'produk', 'negara')->where('e101_nobatch', $nobatch1)->where('e101_e3', '1')->orderBy('e101_e4')->get();
+                        $totalvie7[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '1')->sum('e101_e7');
+                        $totalvie8[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '1')->sum('e101_e8');
+
+                        $vii[$nobatch1]   = H101E::with('h101init', 'produk', 'negara')->where('e101_nobatch', $nobatch1)->where('e101_e3', '2')->orderBy('e101_e4')->get();
+                        $totalviie7[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '2')->sum('e101_e7');
+                        $totalviie8[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '2')->sum('e101_e8');
 
                         // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
                         // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
@@ -1441,6 +1448,12 @@ class Proses9Controller extends Controller
                         'returnArr',
                         'layout',
                         'query',
+                        'vi',
+                        'totalvie7',
+                        'totalvie8',
+                        'vii',
+                        'totalviie7',
+                        'totalviie8',
                         'pelesens',
                         'penyata1',
                         'penyata2',
@@ -1582,6 +1595,17 @@ class Proses9Controller extends Controller
                 $total5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total5 from pl1022p3 e, kod_sl p, prod_cat2 c
                 where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
                 e.F1022D = p.catid and e.F1022E = c.catid");
+
+
+                $vi[$e102_nobatch] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '1')->orderBy('e102_c4')->get();
+                $totalvi[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '1')->sum('e102_c7');
+                $totalvi2[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '1')->sum('e102_c8');
+
+
+                $vii[$e102_nobatch] = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '2')->orderBy('e102_c4')->get();
+                $totalvii[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '2')->sum('e102_c7');
+                $totalvii2[$e102_nobatch] = DB::table("h102c")->where('e102_nobatch', $e102_nobatch)->where('e102_c3', '2')->sum('e102_c8');
+
             }
             $layout = 'layouts.main';
 
@@ -1602,7 +1626,13 @@ class Proses9Controller extends Controller
                 'bhg4',
                 'total4',
                 'bhg5',
-                'total5'
+                'total5',
+                'vi',
+                'totalvi',
+                'totalvi2',
+                'vii',
+                'totalvii',
+                'totalvii2',
 
             ));
         } elseif ($tahun > 2022) {

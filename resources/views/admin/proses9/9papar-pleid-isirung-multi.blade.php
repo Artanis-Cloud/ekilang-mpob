@@ -783,6 +783,60 @@
                                                                 <font size="2">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
+                                                    @if ($vi[$nobatch_key] && !$vi[$nobatch_key]->isEmpty())
+                                                        @foreach ($vi[$nobatch_key] as $datavi)
+                                                        {{-- {{ dd($datavi) }} --}}
+                                                            <tr>
+                                                                <td style="text-align: left; vertical-align:middle">
+                                                                    <font size="2">{{ $datavi->produk->proddesc ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">{{ $datavi->e102_c4 ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: left; vertical-align:middle">
+                                                                    <font size="2">{{ $datavi->e102_c5 ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                @php
+                                                                    $myDateTimevi= strtotime($datavi->e102_c6);
+                                                                    if ($myDateTimevi) {
+                                                                        $myDateTimevi= DateTime::createFromFormat('Y-m-d', $datavi->e102_c6);
+                                                                        $formatteddatevi= $myDateTimevi->format('d-m-Y');
+
+                                                                    }else {
+                                                                        $formatteddatevi=$datavi->e102_c6;
+                                                                    }
+                                                                @endphp
+                                                                <td align="left">
+                                                                    <font size="2.7">{{ $formatteddatevi ?? '-' }}</font>
+                                                                </td>
+                                                                {{-- <td align="left">
+                                                                    <font size="2.7">{{ $datavi->e102_c6 ?? '-' }}</font>
+                                                                </td> --}}
+                                                                <td style="text-align: right; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ number_format($datavi->e102_c7  ?? 0, 2) }}</font>
+                                                                </td>
+                                                                <td style="text-align: right; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ number_format($datavi->e102_c8  ?? 0, 2) }}</font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavi->e102_c9 ?? '' }}</font>
+                                                                </td>
+                                                                <td style="text-align: left; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavi->negara->namanegara ?? '' }}</font>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                    {{-- {{ dd($totalvi) }} --}}
+
+                                                    @endif
                                                     <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -797,10 +851,10 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalvi[$nobatch_key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalvi2[$nobatch_key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2"><b>-</b></font>
@@ -809,18 +863,6 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                     </tr>
-                                                    {{-- @foreach ($vi as $datavi)
-                                                    <tr>
-                                                        <td>{{ $datavi->produk->proddesc }}</td>
-                                                        <td>{{ $datavi->e102_c4 }}</td>
-                                                        <td>{{ $datavi->e102_c5 }}</td>
-                                                        <td>{{ $datavi->e102_c6 }}</td>
-                                                        <td>{{  number_format($datavi->e102_c7 ??  0,2) }}</td>
-                                                        <td>{{  number_format($datavi->e102_c8 ??  0,2) }}</td>
-                                                        <td>{{ $datavi->e102_c9 }}</td>
-                                                        <td>{{ $datavi->negara->namanegara }}</td>
-                                                    </tr>
-                                                    @endforeach --}}
                                                 </tbody>
                                             </table>
                                         </div><br>
@@ -859,6 +901,62 @@
                                                                 <font size="2">Negara Sumber</font>
                                                             </b></td>
                                                     </tr>
+                                                    @if ($vii[$nobatch_key] && !$vii[$nobatch_key]->isEmpty())
+                                                        @foreach ($vii[$nobatch_key] as $datavii)
+                                                        {{-- {{ dd($datavi) }} --}}
+                                                            <tr>
+                                                                <td style="text-align: left; vertical-align:middle">
+                                                                    <font size="2">{{ $datavii->produk->proddesc ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">{{ $datavii->e102_c4 ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                <td style="text-align: left; vertical-align:middle">
+                                                                    <font size="2">{{ $datavii->e102_c5 ?? '' }}
+                                                                    </font>
+                                                                </td>
+                                                                @php
+                                                                    $myDateTimevii= strtotime($datavii->e102_c6);
+                                                                    if ($myDateTimevii) {
+                                                                        $myDateTimevii= DateTime::createFromFormat('Y-m-d', $datavii->e102_c6);
+                                                                        $formatteddatevii= $myDateTimevii->format('d-m-Y');
+
+                                                                    }else {
+                                                                        $formatteddatevii=$datavii->e102_c6;
+                                                                    }
+                                                                @endphp
+                                                                <td align="left">
+                                                                    <font size="2.7">
+                                                                        {{ $formatteddatevii ?? '-' }}</font>
+                                                                </td>
+                                                                {{-- <td align="left">
+                                                                    <font size="2.7">
+                                                                        {{ $datavii->e102_c6 ?? '-' }}</font>
+                                                                </td> --}}
+                                                                <td style="text-align: right; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ number_format($datavii->e102_c7  ?? 0, 2) }}</font>
+                                                                </td>
+                                                                <td style="text-align: right; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ number_format($datavii->e102_c8  ?? 0, 2) }}</font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavii->e102_c9 ?? '' }}</font>
+                                                                </td>
+                                                                <td style="text-align: left; vertical-align:middle">
+                                                                    <font size="2">
+                                                                        {{ $datavii->negara->namanegara ?? '' }}</font>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
+                                                    {{-- {{ dd($totalvi) }} --}}
+
+                                                    @endif
                                                     <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -873,10 +971,10 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalvii[$nobatch_key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalvii2[$nobatch_key] ?? 0, 2) }}</b></font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2"><b>-</b></font>
@@ -885,18 +983,6 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                     </tr>
-                                                    {{-- @foreach ($vi as $datavi)
-                                                    <tr>
-                                                        <td>{{ $datavi->produk->proddesc }}</td>
-                                                        <td>{{ $datavi->e102_c4 }}</td>
-                                                        <td>{{ $datavi->e102_c5 }}</td>
-                                                        <td>{{ $datavi->e102_c6 }}</td>
-                                                        <td>{{  number_format($datavi->e102_c7 ??  0,2) }}</td>
-                                                        <td>{{  number_format($datavi->e102_c8 ??  0,2) }}</td>
-                                                        <td>{{ $datavi->e102_c9 }}</td>
-                                                        <td>{{ $datavi->negara->namanegara }}</td>
-                                                    </tr>
-                                                    @endforeach --}}
                                                 </tbody>
                                             </table>
                                         </div><br>
