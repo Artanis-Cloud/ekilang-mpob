@@ -1216,18 +1216,18 @@
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                             @foreach ($users[$nobatch_key] as $users_key => $data)
-                                            {{ $data->tkhsubmit }}
+                                            {{ $data->tkhsubmit ?? '-' }}
                                             @endforeach
                                         </p>
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
+                                            <span  style="text-transform:uppercase">{{ $data[0]->e_npg ?? '-'}}</span>
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
+                                            <span  style="text-transform:uppercase">{{ $data[0]->e_jpg ?? '-' }}</span>
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            &nbsp;&nbsp;
+                                            {{ $data[0]->e_notel ?? '-' }}
                                         </p>
 
 
