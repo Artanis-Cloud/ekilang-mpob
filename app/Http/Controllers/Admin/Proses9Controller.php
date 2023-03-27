@@ -1190,8 +1190,7 @@ class Proses9Controller extends Controller
                 $totalvbd8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D8) as total8 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
 
 
-                $penyata6[$nobatch1] = DB::connection('mysql4')->select("SELECT *
-                from h101_e");
+                $penyata6[$nobatch1] = DB::connection('mysql4')->select("SHOW TABLES;");
 
                 dd($penyata6);
 
