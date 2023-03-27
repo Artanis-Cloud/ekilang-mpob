@@ -1191,7 +1191,7 @@ class Proses9Controller extends Controller
 
 
                 $penyata6[$nobatch1] = DB::connection('mysql4')->select("SELECT *
-                from pl101ap3, pl101bp3, pl101cp3, pl101dp3, mpb_insp3a");
+                from  pl101dp3");
 
                 dd($penyata6);
 
