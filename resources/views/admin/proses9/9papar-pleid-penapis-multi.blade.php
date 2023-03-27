@@ -1220,14 +1220,14 @@
                                             @endforeach
                                         </p>
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
+                                            <span  style="text-transform:uppercase">{{ $data[$nobatch_key][0]->e_npg }}</span>
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
+                                            <span  style="text-transform:uppercase">{{ $data[$nobatch_key][0]->e_jpg }}</span>
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            &nbsp;&nbsp;
+                                            {{ $data[$nobatch_key][0]->e_notel }}
                                         </p>
 
 
