@@ -1191,8 +1191,7 @@ class Proses9Controller extends Controller
 
 
                 $penyata6[$nobatch1] = DB::connection('mysql4')->select("SELECT *
-                from pl101ep3 e, codedb.commodity_l p
-                where e.F101E2 = '$nobatch1' and e.F101E3 = '1' and e.F101E4 = p.comm_code_l");
+                from h101_e");
 
                 dd($penyata6);
 
