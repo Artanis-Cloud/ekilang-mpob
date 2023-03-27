@@ -1190,9 +1190,9 @@ class Proses9Controller extends Controller
                 $totalvbd8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D8) as total8 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
 
 
-                $penyata6[$nobatch1] = DB::connection('mysql5')->select("SHOW TABLES");
+                // $penyata6[$nobatch1] = DB::connection('mysql5')->select("SHOW TABLES");
 
-                dd($penyata6);
+                // dd($penyata6);
 
                 // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
                 // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
