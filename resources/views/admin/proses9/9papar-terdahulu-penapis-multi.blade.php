@@ -1042,76 +1042,75 @@
                                                                     <font size="2.7">Destinasi Negara</font>
                                                                 </b></td>
                                                         </tr>
+                                                        @foreach ($vii[$key]   as $datavii)
                                                         <tr>
-                                                            @foreach ($vii[$key]   as $datavii)
-                                                            <tr>
-                                                                <td align="left">
-                                                                    <font size="2.7">{{ $datavii->produk->proddesc ?? '-' }}</font>
-                                                                </td>
-                                                                <td style="text-align: center; vertical-align:middle">
-                                                                    <font size="2.7">{{ $datavii->e101_e4 ?? '-' }}</font>
-                                                                </td>
-                                                                <td align="left">
-                                                                    <font size="2.7">{{ $datavii->e101_e5 ?? '-' }}</font>
-                                                                </td>
-                                                                @php
-                                                                    $myDateTimevii= strtotime($datavii->e101_e6);
-                                                                    if ($myDateTimevii) {
-                                                                        $myDateTimevii= DateTime::createFromFormat('Y-m-d', $datavii->e101_e6);
-                                                                        $formatteddatevii= $myDateTimevii->format('d-m-Y');
+                                                            <td align="left">
+                                                                <font size="2.7">{{ $datavii->produk->proddesc ?? '-' }}</font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2.7">{{ $datavii->e101_e4 ?? '-' }}</font>
+                                                            </td>
+                                                            <td align="left">
+                                                                <font size="2.7">{{ $datavii->e101_e5 ?? '-' }}</font>
+                                                            </td>
+                                                            @php
+                                                                $myDateTimevii= strtotime($datavii->e101_e6);
+                                                                if ($myDateTimevii) {
+                                                                    $myDateTimevii= DateTime::createFromFormat('Y-m-d', $datavii->e101_e6);
+                                                                    $formatteddatevii= $myDateTimevii->format('d-m-Y');
 
-                                                                    }else {
-                                                                        $formatteddatevii=$datavii->e101_e6;
-                                                                    }
-                                                                @endphp
-                                                                <td align="left">
-                                                                    <font size="2.7">
-                                                                        {{ $formatteddatevii ?? '-' }}</font>
-                                                                </td>
-                                                                {{-- <td align="left">
-                                                                    <font size="2.7">
-                                                                        {{ $datavii->e101_e6 ?? '-' }}</font>
-                                                                </td> --}}
-                                                                <td align="right">
-                                                                    <font size="2.7">{{ number_format($datavii->e101_e7 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2.7">{{ number_format($datavii->e101_e8 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="center">
-                                                                    <font size="2.7">{{ $datavii->e101_e9 ??  '-' }}</font>
-                                                                </td>
-                                                                <td align="left">
-                                                                    <font size="2.7">{{ $datavii->negara->namanegara ??  '-' }}</font>
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                            <tr>
-                                                                <td style="text-align: center; vertical-align:middle">
-                                                                    <font size="2.7"><b>JUMLAH</b></font>
-                                                                </td>
-                                                                <td style="text-align: center; vertical-align:middle">
-                                                                    <font size="2"><b>-</b></font>
-                                                                </td>
-                                                                <td align="center">
-                                                                    <font size="2"><b>-</b></font>
-                                                                </td>
-                                                                <td align="center">
-                                                                    <font size="2"><b>-</b></font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2"><b>{{number_format ($totalviie7[$key]  ??  0,2) ?? '' }}</b></font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2"><b>{{number_format ($totalviie8[$key] ??  0,2) ?? '' }}</b></font>
-                                                                </td>
-                                                                <td align="center">
-                                                                    <font size="2"><b>-</b></font>
-                                                                </td>
-                                                                <td align="center">
-                                                                    <font size="2"><b>-</b></font>
-                                                                </td>
-                                                            </tr>
+                                                                }else {
+                                                                    $formatteddatevii=$datavii->e101_e6;
+                                                                }
+                                                            @endphp
+                                                            <td align="left">
+                                                                <font size="2.7">
+                                                                    {{ $formatteddatevii ?? '-' }}</font>
+                                                            </td>
+                                                            {{-- <td align="left">
+                                                                <font size="2.7">
+                                                                    {{ $datavii->e101_e6 ?? '-' }}</font>
+                                                            </td> --}}
+                                                            <td align="right">
+                                                                <font size="2.7">{{ number_format($datavii->e101_e7 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2.7">{{ number_format($datavii->e101_e8 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2.7">{{ $datavii->e101_e9 ??  '-' }}</font>
+                                                            </td>
+                                                            <td align="left">
+                                                                <font size="2.7">{{ $datavii->negara->namanegara ??  '-' }}</font>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                        <tr>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2.7"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{number_format ($totalviie7[$key]  ??  0,2) ?? '' }}</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{number_format ($totalviie8[$key] ??  0,2) ?? '' }}</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div><br>

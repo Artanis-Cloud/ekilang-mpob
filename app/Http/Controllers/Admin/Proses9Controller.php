@@ -1194,6 +1194,10 @@ class Proses9Controller extends Controller
                 $totalvie7[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '1')->sum('e101_e7');
                 $totalvie8[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '1')->sum('e101_e8');
 
+                $vii[$nobatch1]   = H101E::with('h101init', 'produk', 'negara')->where('e101_nobatch', $nobatch1)->where('e101_e3', '2')->orderBy('e101_e4')->get();
+                $totalviie7[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '2')->sum('e101_e7');
+                $totalviie8[$nobatch1]   = DB::table("h101_e")->where('e101_nobatch', $nobatch1)->where('e101_e3', '2')->sum('e101_e8');
+
                 // $penyata6[$nobatch1] = DB::connection('mysql5')->select("SHOW TABLES");
 
                 // dd($vi);
@@ -1220,6 +1224,9 @@ class Proses9Controller extends Controller
                 'vi',
                 'totalvie7',
                 'totalvie8',
+                'vii',
+                'totalviie7',
+                'totalviie8',
                 'pelesens',
                 'penyata1',
                 'penyata2',
