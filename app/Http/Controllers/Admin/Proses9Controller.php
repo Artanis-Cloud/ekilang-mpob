@@ -1191,8 +1191,8 @@ class Proses9Controller extends Controller
 
 
                 $penyata6[$nobatch1] = DB::connection('mysql4')->select("SELECT *
-                from pl101dp3 e,
-                where e.F101D2 = '$nobatch1' ");
+                from pl101dp3 e, prod_cat p
+                where e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
 
                 dd($penyata6);
 
