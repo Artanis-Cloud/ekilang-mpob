@@ -12,6 +12,7 @@ use App\Models\Init;
 use App\Models\User;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Routing\UrlGenerator as RoutingUrlGenerator;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,13 +32,21 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    // public function boot()
     public function boot(RoutingUrlGenerator $url)
     {
 
-
-        if (env('APP_ENV') !== 'production') {
-                $url->forceScheme('https');
+        
+        if (strstr(URL::current(),env('SERVER_IP_PRIVATE'))){
+            $url->forceScheme('http');
+       }
+       else
+       {
+            $url->forceScheme('https');
         }
+        // if (env('APP_ENV') !== 'production') {
+        //         $url->forceScheme('https');
+        // }
         // compose all the views....
         view()->composer('*', function ($view) {
 
