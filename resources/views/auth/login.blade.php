@@ -426,7 +426,7 @@ footer a {
         }
     }
 </script>
-<script>
+{{-- <script>
     $('#modal-content').on('shown.bs.modal', function () {
     $("#txtname").focus();
 });
@@ -442,7 +442,7 @@ $('#openBtn').click(function () {
         show: true
     });
 });
-</script>
+</script> --}}
 <style>
     /* Hide page by default */
     html { display : none; }
