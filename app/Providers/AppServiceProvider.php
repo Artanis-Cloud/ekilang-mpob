@@ -10,6 +10,8 @@ use App\Models\E91Init;
 use App\Models\EBioInit;
 use App\Models\Init;
 use App\Models\User;
+use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Routing\UrlGenerator as RoutingUrlGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,10 +31,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(RoutingUrlGenerator $url)
     {
 
 
+        if (env('APP_ENV') !== 'local') {
+                $url->forceScheme('https');
+        }
         // compose all the views....
         view()->composer('*', function ($view) {
 
