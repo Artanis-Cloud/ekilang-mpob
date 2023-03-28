@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-<link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet"> --}}
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -326,6 +326,17 @@ footer a {
               </div>
 
               <div class="col-lg-4 mb-1 mb-lg-0">
+                <div class="card mb-4" style=" border-radius:10px">
+                    <div class="card-header" style="background: linear-gradient(to bottom, #3fd2c7 10%, #00458b 200%); color:white; font-size:11px" >
+                        PENGUMUMAN
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text" style="font-size: 11px">Untuk penyata Mingguan e-Kilang, sila layari:
+                        <a href="https://eweekly.mpob.gov.my/ekilang_main/ ">https://eweekly.mpob.gov.my/ekilang_main/<a>
+                      </p>
+                    </div>
+                </div>
+
                 <div class="card" style=" box-shadow: 1px 4px 22px -8px #0004;">
                   <div class="card-body py-5 px-md-5">
                     <form method="POST" action="{{ route('login') }}">
@@ -365,7 +376,7 @@ footer a {
                     </form>
                   </div>
                 </div>
-                <div class="card" style="padding: 90px; background:none; border:none">
+                {{-- <div class="card" style="padding: 90px; background:none; border:none"> --}}
 
                 </div>
               </div>
@@ -384,12 +395,12 @@ footer a {
         Google Chrome 6+, Mozilla Firefox 4+, Safari 3+, dan Opera 9+.
     </p>
 </footer>
-<script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+{{-- <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script> --}}
 
 {{-- <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script> --}}
 
-<script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
-<script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
+{{-- <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script> --}}
 
 <script>
     @if (Session::get('success'))
