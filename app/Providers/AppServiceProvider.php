@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
     // public function boot()
     public function boot(RoutingUrlGenerator $url)
     {
+
         if (strstr(URL::current(),env('SERVER_IP_PRIVATE'))){
             $url->forceScheme('http');
        }
