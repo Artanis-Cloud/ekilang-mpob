@@ -32,8 +32,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    // public function boot()
-    public function boot(RoutingUrlGenerator $url)
+    public function boot($url)
+    // public function boot(RoutingUrlGenerator $url)
     {
 
         if (strstr(URL::current(),env("SERVER_IP_PRIVATE"))){
