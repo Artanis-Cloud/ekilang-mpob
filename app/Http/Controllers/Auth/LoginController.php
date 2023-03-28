@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\URL;
 
 class LoginController extends Controller
 {
@@ -52,7 +53,7 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-
+        // echo URL::current();
         $status = auth()->user()->status;
         if ($status == '1') {
             # code...
