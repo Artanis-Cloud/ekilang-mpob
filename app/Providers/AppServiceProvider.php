@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         // if (env('APP_ENV') !== 'production') {
         //         $url->forceScheme('https');
         // }
-        // compose all the views....
+        // compose all the views.....
         view()->composer('*', function ($view) {
 
             $layoutpenyata = null;
