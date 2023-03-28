@@ -31,13 +31,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(RoutingUrlGenerator $url)
+    public function boot()
     {
 
 
-        if (env('APP_ENV') !== 'production') {
-                $url->forceScheme('https');
-        }
+        // if (env('APP_ENV') !== 'production') {
+        //         $url->forceScheme('https');
+        // }
         // compose all the views....
         view()->composer('*', function ($view) {
 
