@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
     //         $url->forceScheme('https');
     //     }
 
-        if (strstr(URL::current(),config('myconfig.server_ipprivate'))){
+        if (strstr(URL::current(),config('app.server_ipprivate'))){
             $url->forceScheme('http');
        }
        else
