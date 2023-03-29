@@ -2902,11 +2902,11 @@ class Proses9Controller extends Controller
                     $a[$key] = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->orderBy('e07bt_produk')->get();
                     $total[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokawal');
                     $total2[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_terima');
-                    $total3[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
-                    $total4[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
-                    $total5[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
-                    $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
-                    $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
+                    $total3[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_import');
+                    $total4[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
+                    $total5[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_eksport');
+                    $total6[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
+                    $total7[$key] = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
 
                     $b[$key] = H07Transhipment::with('h07init', 'produk')->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->orderBy('e07t_produk')->get();
                     $totalb[$key] = DB::table("h07_transhipment")->where('e07t_nobatch', $penyata[$key]->e07_nobatch)->sum('e07t_stokawal');
