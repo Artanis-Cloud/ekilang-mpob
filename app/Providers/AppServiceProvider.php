@@ -37,7 +37,15 @@ class AppServiceProvider extends ServiceProvider
     {
         // if (strstr(URL::current(),'10.0.2.173')){
 
-        if (strstr(URL::current(),env("SERVER_IP_PRIVATE"))){
+    //     if (strstr(URL::current(),env("SERVER_IP_PRIVATE"))){
+    //         $url->forceScheme('http');
+    //    }
+    //    else
+    //    {
+    //         $url->forceScheme('https');
+    //     }
+
+        if (strstr(URL::current(),config('myconfig.server_ipprivate'))){
             $url->forceScheme('http');
        }
        else
