@@ -44,7 +44,7 @@ class RegPelesen extends Authenticatable
 
     public static function getPelesenBuah()
     {
-        $pelesen = DB::table('reg_pelesen')->select('e_nl','e_np','e_email','e_notel','kodpgw','nosiri','e_status','e_stock','directory');
+        $pelesen = DB::table('reg_pelesen')->select('e_nl','e_np','e_email','e_notel','kodpgw','nosiri','e_status','e_stock','directory',);
         // if ($pelesen->e_status == 1) return 'Aktif';
 
         // if ($pelesen->e_status == 2) return 'Tidak Aktif';

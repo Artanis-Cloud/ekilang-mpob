@@ -746,14 +746,19 @@ class PusatSimpananController extends Controller
     {
 
         $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
+            // dd($pelesen->pelesen);
 
-        $year = $pelesen->pelesen->e_year;
-        // dd($year);
-        if($year){
-            $tahun = $year;
-        }else{
-            $tahun = 2003;
-        }
+        // if($pelesen){
+            $year = $pelesen;
+            // $year = $pelesen->pelesen->e_year;
+        //     // dd($year);
+        //     if($year){
+        //         $tahun = $year;
+        //     }else{
+        //         $tahun = 2003;
+        //     }
+
+        // }
 
         $breadcrumbs    = [
             ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
@@ -770,7 +775,7 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-penyata-dahulu', compact('returnArr', 'layout','pelesen','tahun','year'));
+        return view('users.PusatSimpanan.pusatsimpan-penyata-dahulu', compact('returnArr', 'layout','pelesen','year'));
     }
 
     protected function validation_terdahulu(array $data)

@@ -1447,13 +1447,14 @@ class KilangIsirungController extends Controller
 
         $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
 
-        $year = $pelesen->pelesen->e_year;
+        // $year = $pelesen->pelesen->e_year;
+        $year = $pelesen;
         // dd($year);
-        if($year){
-            $tahun = $year;
-        }else{
-            $tahun = 2003;
-        }
+        // if($year){
+        //     $tahun = $year;
+        // }else{
+        //     $tahun = 2003;
+        // }
         // dd($tahun);
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
@@ -1470,7 +1471,7 @@ class KilangIsirungController extends Controller
 
 
 
-        return view('users.KilangIsirung.isirung-penyata-dahulu', compact('returnArr', 'layout','pelesen','year','tahun'));
+        return view('users.KilangIsirung.isirung-penyata-dahulu', compact('returnArr', 'layout','pelesen','year'));
     }
 
     protected function validation_terdahulu(array $data)

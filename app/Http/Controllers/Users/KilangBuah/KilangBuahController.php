@@ -1787,13 +1787,14 @@ class KilangBuahController extends Controller
     {
         $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
         // $try = oer();
-        $year = $pelesen->pelesen->e_year;
+        // $year = $pelesen->pelesen->e_year;
+        $year = $pelesen;
         // dd($year);
-        if ($year) {
-            $tahun = $year;
-        } else {
-            $tahun = 2003;
-        }
+        // if ($year) {
+        //     $tahun = $year;
+        // } else {
+        //     $tahun = 2003;
+        // }
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('buah.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
@@ -1810,7 +1811,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout', 'pelesen', 'year', 'tahun'));
+        return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout', 'pelesen', 'year'));
     }
 
     protected function validation_terdahulu(array $data)
