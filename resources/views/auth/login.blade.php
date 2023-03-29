@@ -236,7 +236,7 @@ footer a {
                     mengumpul dan memproses penyata bulanan bagi kategori Kilang Buah Kelapa Sawit,
                     Kilang Penapis, Kilang  Pelumat Isirong Sawit, Kilang Oleokimia Sawit, Kilang Biodiesel dan
                     Kemudahan Simpanan Pukal mengikut Akta Lembaga Minyak Sawit Malaysia 1998,
-                    Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005.
+                    Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005..
                 </h1><hr>
                 <p style="text-align: left; margin-left: 5%; font-size:12px; margin-bottom:0%; margin-top:-2% ">
                     Sebarang pertanyaan sila hubungi :
