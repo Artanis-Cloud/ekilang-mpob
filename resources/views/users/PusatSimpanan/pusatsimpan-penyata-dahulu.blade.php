@@ -65,9 +65,9 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="tahun" name="tahun" oninput="valid_tahun()" required>
                                             <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                            @for ($i = $tahun; $i <= date('Y'); $i++)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
+                                            @for ($i = 2004; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
 
                                         </select>
                                         <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat pilihan

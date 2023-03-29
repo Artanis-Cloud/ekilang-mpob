@@ -1720,12 +1720,13 @@ class KilangBiodieselController extends Controller
         $pelesen = User::with('pelesen')->where('username', auth()->user()->username)->first();
         // dd($pelesen);
 
-        $year = $pelesen->pelesen->e_year;
-        if($year){
-            $tahun = $year;
-        }else{
-            $tahun = 2003;
-        }
+        $year = $pelesen;
+        // $year = $pelesen->pelesen->e_year;
+        // if($year){
+        //     $tahun = $year;
+        // }else{
+        //     $tahun = 2003;
+        // }
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('bio.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
@@ -1742,7 +1743,7 @@ class KilangBiodieselController extends Controller
 
 
 
-        return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout','pelesen', 'year', 'tahun'));
+        return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout','pelesen', 'year'));
     }
 
     protected function validation_terdahulu(array $data)
