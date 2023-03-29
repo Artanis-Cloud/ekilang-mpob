@@ -64,9 +64,13 @@
                                         <select class="form-control" id="tahun" name="tahun" required oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
                                         oninput="this.setCustomValidity(''); valid_tahun()">
                                             <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                            @for ($i = $tahun; $i <= date('Y'); $i++)
-                                                <option value="{{ $i }}">{{ $i }}</option>
+
+                                            @for ($i = 2011; $i <= date('Y'); $i++)
+                                                <option>{{ $i }}</option>
                                             @endfor
+                                            {{-- @for ($i = $tahun; $i <= date('Y'); $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor --}}
 
                                         </select>
                                         <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat pilihan

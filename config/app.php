@@ -12,6 +12,8 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    'server_ipprivate' => env('SERVER_IP_PRIVATE','localhost'),
+    // 'localhost' is default if server_ipprivate is missing in .env
 
     'name' => env('APP_NAME', 'Laravel'),
 
