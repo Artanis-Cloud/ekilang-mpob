@@ -1563,15 +1563,18 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_penyatadahulu()
     {
-        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
 
-        $year = $pelesen->pelesen->e_year;
-        // dd($year);
-        if ($year) {
-            $tahun = $year;
-        } else {
-            $tahun = 2003;
-        }
+        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+        // if ($pelesen){
+            $year = $pelesen;
+        //     // dd($year);
+        //     if ($year) {
+        //         $tahun = $year;
+        //     } else {
+        //         $tahun = 2003;
+        //     }
+        // }
         // dd($pelesen);
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
@@ -1588,7 +1591,7 @@ class KilangOleokimiaController extends Controller
 
 
 
-        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout', 'pelesen', 'year', 'tahun'));
+        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout', 'pelesen', 'year'));
     }
 
     protected function validation_terdahulu(array $data)
