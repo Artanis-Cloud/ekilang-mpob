@@ -13,7 +13,7 @@ return [
     |
     */
     'server_ipprivate' => env('SERVER_IP_PRIVATE','localhost'),
-    // 'localhost' is default if server_ipprivate is missing in .env
+    // 'localhost' is default if server_ipprivate is missing in .env..
 
     'name' => env('APP_NAME', 'Laravel'),
 
