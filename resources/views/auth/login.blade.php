@@ -347,8 +347,8 @@ footer a {
                                 style="height:100px; width:100px; margin-left:30% " alt="logo">
                         </div> --}}
                         <div class="container">
-                            <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:60px; width:150px;  " alt="logo">
+                            <img src="{{ asset('theme/images/background/logo7.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:60px; width:180px;  " alt="logo">
                         </div><br>
                         <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
                             oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
