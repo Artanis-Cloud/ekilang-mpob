@@ -63,22 +63,22 @@ class KilangBuahController extends Controller
     }
 
 
-    public function buah_update_maklumat_asas_pelesencuba(Request $request)
-    {
-        //  dd($request->all());
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
-        // dd( $pelesen);
+    // public function buah_update_maklumat_asas_pelesencuba(Request $request)
+    // {
+    //     //  dd($request->all());
+    //     $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+    //     // dd( $pelesen);
 
-        $this->validation_daftar_pelesen($request->all())->validate();
+    //     $this->validation_daftar_pelesen($request->all())->validate();
 
-        if ($pelesen) {
-            $this->buah_update_maklumat_asas_pelesen($request);
-        } else {
-            //     dd($request->all());
-            $this->store_pelesen($request->all());
-        }
+    //     if ($pelesen) {
+    //             // dd($request->all());
+    //         $this->buah_update_maklumat_asas_pelesen($request);
+    //     } else {
+    //         $this->store_pelesen($request->all());
+    //     }
 
-    }
+    // }
 
     protected function validation_daftar_pelesen(array $data)
     {
@@ -144,7 +144,7 @@ class KilangBuahController extends Controller
             // 'e_kawasan' => $data['e_kawasan'],
             'e_syktinduk' => $data['e_syktinduk'],
             'e_group' => $data['e_group'],
-            // 'e_poma' => $data['e_poma'],
+            'e_poma' => $data['e_poma'],
             // 'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],
@@ -169,11 +169,12 @@ class KilangBuahController extends Controller
     // }
 
 
-    public function buah_update_maklumat_asas_pelesen(Request $request)
+    public function buah_update_maklumat_asas_pelesen(Request $request, $id)
     {
         // dd($id);
         if (isset($request['alamat_sama'])) {
-            $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+            $penyata = Pelesen::findOrFail($id);
+
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
             $penyata->e_ap3 = $request->e_ap3;
@@ -200,7 +201,8 @@ class KilangBuahController extends Controller
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
             $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
         } else {
-            $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+            $penyata = Pelesen::findOrFail($id);
+
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
             $penyata->e_ap3 = $request->e_ap3;
@@ -227,15 +229,17 @@ class KilangBuahController extends Controller
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
             $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
         }
+        // dd($penyata);
         $penyata->save();
 
         $map = User::where('username', $penyata->e_nl)->where('category', $penyata->e_kat)->first();
         $map->email = $request->e_email;
         $map->map_flg = '1';
         $map->map_sdate = now();
+        // dd($map);
         $map->save();
 
-        // dd($map);
+        // dd('tt');
 
 
 

@@ -60,7 +60,7 @@
                 @endif --}}
                 <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red">
                     *</b><i>'</i>
-                <form action="{{ route('buah.update.maklumat.asas.pelesen.cuba') }}" method="post" id="myform" class="sub-form"
+                <form action="{{ route('buah.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" id="myform" class="sub-form"
                     novalidate>
                     @csrf
                     <div class="container center" style="padding: 0%">
@@ -1401,65 +1401,65 @@
             }
             });
 
-            $("#bil_tangki_ppo").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#bil_tangki_ppo").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#kap_tangki_ppo").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#kap_tangki_ppo").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#bil_tangki_cpko").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#bil_tangki_cpko").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#kap_tangki_cpko").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#kap_tangki_cpko").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#bil_tangki_ppko").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#bil_tangki_ppko").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#kap_tangki_ppko").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#kap_tangki_ppko").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#bil_tangki_oleo").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#bil_tangki_oleo").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#kap_tangki_oleo").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#kap_tangki_oleo").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#bil_tangki_others").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#bil_tangki_others").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
 
-            $("#kap_tangki_others").keypress(function(event) {
-            if ( event.which == 45 ) {
-                event.preventDefault();
-            }
-            });
+            // $("#kap_tangki_others").keypress(function(event) {
+            // if ( event.which == 45 ) {
+            //     event.preventDefault();
+            // }
+            // });
         </script>
             <script>
             function ableInput() {
