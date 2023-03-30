@@ -38,8 +38,9 @@ class DataMigrationController extends Controller
     public function transfer_pelesen_to_users()
     {
         // $users = DB::delete("DELETE FROM users");
+        // $reg_pelesens = RegPelesen::where('e_nl', 621564004000 )->get();
         $reg_pelesens = RegPelesen::get();
-
+        // dd($reg_pelesens);
         foreach ($reg_pelesens as $reg_pelesen) {
             $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
 
