@@ -431,7 +431,7 @@ Route::middleware('auth')->group(function () {
         Route::get('buah/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'buah_dashboard'])->name('buah.dashboard');
 
         Route::get('buah/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_maklumatasaspelesen'])->name('buah.maklumatasaspelesen');
-        Route::post('buah/updatmaklumat-asas-pelesen/', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen'])->name('buah.update.maklumat.asas.pelesen');
+        Route::post('buah/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen'])->name('buah.update.maklumat.asas.pelesen');
         Route::post('buah/updatmaklumat-asas-pelesen/', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesencuba'])->name('buah.update.maklumat.asas.pelesen.cuba');
         Route::post('buah/updatmaklumat-asas-pelesen-2/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen2'])->name('buah.update.maklumat.asas.pelesen2');
 
