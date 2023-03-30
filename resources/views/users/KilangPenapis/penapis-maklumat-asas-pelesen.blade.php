@@ -437,12 +437,12 @@
                                                     butiran di
                                                     bahagian ini!</i></p>
                                         </td>
-                                        <td> <input type="text" class="form-control" name='kap_tangki_others' min=0
+                                        <td> <input type="text" class="form-control" name='kap_tangki_others'
                                                 style="width:100%" oninput="this.setCustomValidity(''); valid_others();FormatCurrency(this)"
                                                 id="kap_tangki_others" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}" oninput="validation_jumlah2()"
+                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}" onchange="validation_jumlah2()"
                                                 required>
                                                 <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -846,8 +846,7 @@
                     var jumlah_input = 0;
 
                     jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
-                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(
-                            kothers));
+                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(kothers));
 
                     document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }

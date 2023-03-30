@@ -73,7 +73,7 @@
                         <p>Perkara di atas adalah dirujuk.</p>
                         <p align=justify>
                             Sebagaimana yang telah disyaratkan, pemegang lesen MPOB hendaklah mengemukakan penyata bulanan pada tiap-tiap bulan selewat-lewatnya pada 7hb pada bulan yang berikutnya. Ini selaras dengan peruntukan Peraturan 21, Peraturan-peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005, Akta Lembaga Minyak Sawit Malaysia 1998 (Akta 582).</p>
-                        <p align=justify>Sehubungan dengan itu, tuan/puan telah didaftarkan ke sistem tersebut dan boleh diakses melalui pautan <a href="http://www.ekilang.com.my"><u>www.ekilang.com.my</u></a> menggunakan butir-butir seperti berikut:</p>
+                        <p align=justify>Sehubungan dengan itu, tuan/puan telah didaftarkan ke sistem tersebut dan boleh diakses melalui pautan <a href="https://e-kilang.mpob.gov.my/"><u>www.ekilang.com.my</u></a> menggunakan butir-butir seperti berikut:</p>
                         <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:
                         collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
                             <tr>
@@ -188,7 +188,7 @@
                         <br>
 
                         {{-- <p>&nbsp;</p> --}}
-                        <p>NIK ABDULLAH NIK IDRIS<br>
+                        <p>JOHARI MINAL<br>
                         b/p Ketua Pengarah MPOB</p>
                         <p>Surat ini adalah cetakan komputer. Tandatangan tidak diperlukan.</p>
 
