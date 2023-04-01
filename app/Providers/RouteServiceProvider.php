@@ -17,7 +17,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/buah/dashboard';
+    public const HOME = '/admin/dashboard';
+    public const PL91 = '/buah/dashboard';
+    public const PL101 = '/penapis/dashboard';
+    public const PL102 = '/isirung/dashboard';
+    public const PL104 = '/oleokimia/dashboard';
+    public const PL111 = '/pusatsimpan/dashboard';
+    public const PLBIO = '/biodiesel/dashboard';
 
     /**
      * The controller namespace for the application.
