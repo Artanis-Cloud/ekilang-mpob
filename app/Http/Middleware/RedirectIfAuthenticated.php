@@ -23,7 +23,34 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // dd(Auth::user()->category);
+                if(Auth::user()->category=='admin'){
+
+                    return redirect(RouteServiceProvider::HOME);
+
+                }elseif(Auth::user()->category=='PL91'){
+
+                    return redirect(RouteServiceProvider::PL91);
+
+                }elseif(Auth::user()->category=='PL101'){
+
+                    return redirect(RouteServiceProvider::PL101);
+
+                }elseif(Auth::user()->category=='PL102'){
+
+                    return redirect(RouteServiceProvider::PL102);
+
+                }elseif(Auth::user()->category=='PL104'){
+
+                    return redirect(RouteServiceProvider::PL104);
+
+                }elseif(Auth::user()->category=='PL111'){
+
+                    return redirect(RouteServiceProvider::PL111);
+
+                }else{
+                    return redirect(RouteServiceProvider::PLBIO);
+                }
             }
         }
 
