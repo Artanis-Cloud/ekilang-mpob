@@ -530,9 +530,7 @@ class Proses4Controller extends Controller
 
             // insert data to pldb pl101
             $insertpl101 = DB::connection('mysql4')->insert("INSERT into pl101ap3 (F101A1,F101A2,F101A3,F101A4,F101A5,F101A6,F101A7,F101A8,F101A9,F101AA1,F101AA1_date)
-                    values ('$nolesen','$tarikh','$tarikh',
-                    '$nobatch','$bulan',
-                    '$tahun',$a1,$a2,$a3,NULL,NULL)");
+                    values ('$nolesen','$tarikh','$tarikh','$nobatch','$bulan', '$tahun',$a1,$a2,$a3,NULL,NULL)");
 
                     // dd($insertpl91);
 

@@ -46,14 +46,14 @@
         <div class="container-fluid">
             <div class="tab" style=" margin-left:2%">
                 <a href="{{ route('admin.6penyatapaparcetakbio') }}"
-                    style="color:black; border-radius:unset; font-size:14px;" class="btn btn-work tablinks"
+                    style="color:black; border-radius:unset; font-size:12px;" class="btn btn-work tablinks"
                     onclick="openInit(event, 'All')">Penyata Bulanan
                     Telah Dihantar</a>
-                <a style="color:black;; border-radius:unset; font-size:14px; margin-left:-1%; background-color:rgb(255, 255, 255)"
+                <a style="color:black;; border-radius:unset; font-size:12px; margin-left:-1%; background-color:rgb(255, 255, 255)"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')" id="defaultOpen">Penyata Bulanan
                     Belum Hantar</a>
                 <a href="{{ route('admin.5penyatakemaskinibio') }}"
-                style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                style="color:black; border-radius:unset; font-size:12px; margin-left:-0.315rem;"
                 class="btn btn-work tablinks" onclick="openInit(event, 'BioTab')">Kemaskini Penyata Biodiesel</a>
 
             </div>

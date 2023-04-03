@@ -48,16 +48,16 @@
                 {{-- <button class="tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                 Terkini</button> --}}
                 <a href="{{ route('admin.6penyatapaparcetakbio') }}"
-                style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                style="color:black; border-radius:unset; font-size:12px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
                     Telah Dihantar</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
                 <a href="{{ route('admin.5penyatabelumhantarbio') }}"
-                    style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                    style="color:black; border-radius:unset; font-size:12px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                 {{-- </button> --}}
-                <a style="color:black; border-radius:unset; font-size:14px; background-color:rgb(255, 255, 255)"
-                style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                <a style="color:black; border-radius:unset; font-size:12px; background-color:rgb(255, 255, 255)"
+                style="color:black; border-radius:unset; margin-left:-0.315rem;"
                 class="btn btn-work tablinks" onclick="openInit(event, 'BioTab')" id="defaultOpen">Kemaskini Penyata Biodiesel</a>
 
             </div>
