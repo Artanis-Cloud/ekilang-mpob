@@ -223,11 +223,15 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
+
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
+
                 $e_nl = $reg_pelesens->e_nl;
                 $query = E91Init::create([
                     'e91_reg' => $key + 1,
                     'e91_nl' => $e_nl,
-                    'e91_bln' => now()->format('m') - 1,
+                    'e91_bln' => $bulan_init,
                     'e91_thn' => $tahun1,
                     'e91_flg' => '1',
                     'e91_sdate' => NULL,
@@ -336,11 +340,14 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
+
                 $e_nl = $reg_pelesens->e_nl;
                 $query = E101Init::create([
                     'e101_reg' => $key + 1,
                     'e101_nl' => $e_nl,
-                    'e101_bln' => now()->format('m') - 1,
+                    'e101_bln' => $bulan_init,
                     'e101_thn' => $tahun1,
                     'e101_flg' => '1',
                     'e101_sdate' => NULL,
@@ -426,11 +433,15 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
+
+
                 $e_nl = $reg_pelesens->e_nl;
                 $query = E102Init::create([
                     'e102_reg' => $key + 1,
                     'e102_nl' => $e_nl,
-                    'e102_bln' => now()->format('m') - 1,
+                    'e102_bln' => $bulan_init,
                     'e102_thn' => $tahun1,
                     'e102_flg' => '1',
                     'e102_sdate' => NULL,
@@ -515,11 +526,14 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
+
                 $e_nl = $reg_pelesens->e_nl;
                 $query = E104Init::create([
                     'e104_reg' => $key + 1,
                     'e104_nl' => $e_nl,
-                    'e104_bln' => now()->format('m') - 1,
+                    'e104_bln' => $bulan_init,
                     'e104_thn' => $tahun1,
                     'e104_flg' => '1',
                     'e104_sdate' => NULL,
@@ -568,11 +582,14 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
+
                 $e_nl = $reg_pelesens->e_nl;
                 $query = E07Init::create([
                     'e07_reg' => $key + 1,
                     'e07_nl' => $e_nl,
-                    'e07_bln' => now()->format('m') - 1,
+                    'e07_bln' => $bulan_init,
                     'e07_thn' => $tahun1,
                     'e07_flg' => '1',
                     'e07_sdate' => NULL,
@@ -636,11 +653,15 @@ class InitializeUpdate extends Command
 
         } else {
             foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
+
+
                 $e_nl = $reg_pelesens->username;
                 $query = EBioInit::create([
                     'ebio_reg' => $key + 1,
                     'ebio_nl' => $e_nl,
-                    'ebio_bln' => now()->format('m') - 1,
+                    'ebio_bln' => $bulan_init,
                     'ebio_thn' =>$tahun1,
                     'ebio_flg' => '1',
                     'ebio_sdate' => NULL,
@@ -658,7 +679,7 @@ class InitializeUpdate extends Command
                 $query = Hari::create([
                     'id' => $key + 1,
                     'lesen' => $e_nl,
-                    'bulanbhg2' => now()->format('m') - 1,
+                    'bulanbhg2' => $bulan_init,
                     'tahunbhg2' => $tahun1,
                     'hari_operasi' => NULL,
                     'kapasiti' => NULL,
