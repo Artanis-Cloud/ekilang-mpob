@@ -104,12 +104,13 @@ class Proses4Controller extends Controller
     public function admin_porting(Request $request)
     {
         // dd($request->e_tahun);
-        $this->porting_pelesen($request->all());
-        $this->porting_pl91($request->all());
-        $this->porting_pl101($request->all());
-        $this->porting_pl102($request->all());
+
+        // $this->porting_pelesen($request->all());
+        // $this->porting_pl91($request->all());
+        // $this->porting_pl101($request->all());
+        // $this->porting_pl102($request->all());
         $this->porting_pl104($request->all());
-        $this->porting_pl111($request->all());
+        // $this->porting_pl111($request->all());
 
         //log audit trail admin
         Auth::user()->log(" PORT PENYATA KE SISTEM PLEID" );
