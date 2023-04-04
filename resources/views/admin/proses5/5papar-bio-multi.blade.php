@@ -875,14 +875,14 @@
                                                 </tr>
                                                 @if ($penyataiii[$key] && !$penyataiii[$key]->isEmpty())
                                                     @php
-                                                        $total_col_ebio_c4[$key] = 0;
-                                                        $total_col_ebio_c5[$key] = 0;
-                                                        $total_col_ebio_c6[$key] = 0;
-                                                        $total_col_ebio_c7[$key] = 0;
-                                                        $total_col_ebio_c8[$key] = 0;
-                                                        $total_col_ebio_c9[$key] = 0;
-                                                        $total_col_ebio_c10[$key] = 0;
-                                                        $total_dipremis4[$key] = 0;
+                                                        $total_col_ebio_c4 = 0;
+                                                        $total_col_ebio_c5 = 0;
+                                                        $total_col_ebio_c6 = 0;
+                                                        $total_col_ebio_c7 = 0;
+                                                        $total_col_ebio_c8 = 0;
+                                                        $total_col_ebio_c9 = 0;
+                                                        $total_col_ebio_c10 = 0;
+                                                        $total_dipremis4 = 0;
                                                     @endphp
                                                     @foreach ($penyataiii[$key] as $dataiii)
                                                         <tr>
@@ -927,45 +927,57 @@
                                                                     {{ number_format($dataiii->ebio_c10 ?? 0, 2) }}</font>
                                                             </td>
                                                             @php
-                                                                $total_col_ebio_c4[$key] += $dataiii->ebio_c4 ?? 0;
-                                                                $total_col_ebio_c5[$key] += $dataiii->ebio_c5 ?? 0;
-                                                                $total_col_ebio_c6[$key] += $dataiii->ebio_c6 ?? 0;
-                                                                $total_col_ebio_c7[$key] += $dataiii->ebio_c7 ?? 0;
-                                                                $total_col_ebio_c8[$key] += $dataiii->ebio_c8 ?? 0;
-                                                                $total_col_ebio_c9[$key] += $dataiii->ebio_c9 ?? 0;
-                                                                $total_col_ebio_c10[$key] += $dataiii->ebio_c10 ?? 0;
+                                                                $total_col_ebio_c4 += $dataiii->ebio_c4 ?? 0;
+                                                                $total_col_ebio_c5 += $dataiii->ebio_c5 ?? 0;
+                                                                $total_col_ebio_c6 += $dataiii->ebio_c6 ?? 0;
+                                                                $total_col_ebio_c7 += $dataiii->ebio_c7 ?? 0;
+                                                                $total_col_ebio_c8 += $dataiii->ebio_c8 ?? 0;
+                                                                $total_col_ebio_c9 += $dataiii->ebio_c9 ?? 0;
+                                                                $total_col_ebio_c10 += $dataiii->ebio_c10 ?? 0;
                                                                 $total_dipremis4 += $dipremis4 ?? 0;
                                                             @endphp
                                                         </tr>
                                                     @endforeach
+
+
+                                                    <tr>
+                                                        <td align="center" colspan="2">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c4 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c5 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c6 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c7 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c8 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c9 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_dipremis4 ?? 0, 2) }}</b></td>
+                                                        <td class="text-right">
+                                                            <b>{{ number_format($total_col_ebio_c10 ?? 0, 2) }}</b></td>
+
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
+                                                    <tr>
+                                                        <td align="center" colspan="2">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+
+                                                    </tr>
                                                 @endif
-
-                                                <tr>
-                                                    <td align="center" colspan="2">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c4[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c5[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c6[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c7[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c8[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c9[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_dipremis4[$key] ?? 0, 2) }}</b></td>
-                                                    <td class="text-right">
-                                                        <b>{{ number_format($total_col_ebio_c10[$key] ?? 0, 2) }}</b></td>
-
-                                                </tr>
                                             </tbody>
                                         </table>
 
