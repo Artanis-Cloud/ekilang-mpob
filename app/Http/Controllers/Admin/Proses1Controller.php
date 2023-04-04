@@ -1603,7 +1603,7 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenbio()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->WHERE('e_status', '1')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->orderBy('e_status', 'asc')->get();
         // dd($users);
 
 
