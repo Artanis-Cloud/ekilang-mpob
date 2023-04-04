@@ -232,9 +232,18 @@
 
             <script>
                 var quill = new Quill('#editor', {
-                    theme: 'snow'
-                });
 
+                    placeholder: 'Enter text here...',
+                    theme: 'snow',
+                });
+                var maxLength = 100;
+
+                quill.on('text-change', function(delta, oldDelta, source) {
+                    var text = quill.getText();
+                    if (text.length > maxLength) {
+                        quill.deleteText(maxLength, text.length);
+                    }
+                    });
                 function add_message() {
                     // var content = document.querySelector("#snow").innerHTML;
                     // alert(quill.getContents());
