@@ -570,6 +570,31 @@
         @endsection
         @section('scripts')
         <script>
+            $(document).ready(function() {
+              // Get references to the input elements
+              var $a = $('#e07bt_stokakhir');
+              var $b = $('#e07bt_stokawal');
+              var $c = $('#e07bt_terima');
+              var $d = $('#e07bt_edaran');
+              var $e = $('#e07bt_pelarasan');
+
+        // Attach an event handler to the input elements
+            $('.form-control').on('input', function() {
+                // Parse the input values as floating point numbers
+                var a = parseFloat($a.val().replace(/,/g, ''), 10) || 0;
+                var b = parseFloat($b.val().replace(/,/g, ''), 10) || 0;
+                var c = parseFloat($c.val().replace(/,/g, ''), 10) || 0;
+                var d = parseFloat($d.val().replace(/,/g, ''), 10) || 0;
+
+                // Calculate the value of e
+                var e = a - (b + c - d);
+
+                // Format the value of e with commas and two decimal places
+                $e.val(e.toLocaleString('en-US', {maximumFractionDigits: 2}));
+                });
+            });
+        </script>
+        {{-- <script>
             function pelarasan() {
                 var stokawal = $("#e07bt_stokawal").val();
                 var penerimaan = $("#e07bt_terima").val();
@@ -610,7 +635,7 @@
                     // console.log(document.getElementById('e07bt_pelarasan').value);
 
             }
-        </script>
+        </script> --}}
         <script>
             function editpelarasan(key) {
                 var estokawal = $("#e07b2" + key).val();
