@@ -110,7 +110,7 @@ class Proses4Controller extends Controller
         // $this->porting_pl101($request->all());
         $this->porting_pl102($request->all());
         $this->porting_pl104($request->all());
-        // $this->porting_pl111($request->all());
+        $this->porting_pl111($request->all());
 
         //log audit trail admin
         Auth::user()->log(" PORT PENYATA KE SISTEM PLEID" );
