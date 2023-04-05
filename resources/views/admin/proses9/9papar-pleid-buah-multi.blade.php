@@ -73,17 +73,24 @@
                                             {{-- <p align="left">
                                                     PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                            <div align="right">
-                                                <table border="0" width="25%">
-                                                    <tbody>
+
+                                            <div align="">
+                                                <table border="0" width="100%">
+                                                    <tbody style=" width:10rem; margin-right: -10px">
                                                         <tr>
-                                                            <td>
+                                                            <td width="87%" >
+                                                                <p align=""><b>{{ $data[0]->kodpgw }}{{ $data[0]->nosiri }}</b></p>
+                                                            </td>
+                                                            <td width="13%" >
                                                                 <p align="left"><b>MPOB(EL) MF 4</b></p>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                            <td width="80%" >
+                                                                <p align=""><b></b></p>
+                                                            </td>
+                                                            <td width="20%" >
+                                                                <p align="left" style="margin-top: -15px;"><b>MPOB(EL) PX 4-M </b></p>
                                                             </td>
                                                         </tr>
 
