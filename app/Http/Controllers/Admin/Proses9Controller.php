@@ -582,7 +582,7 @@ class Proses9Controller extends Controller
 
                 $query[$e91_nobatch] = DB::select("SELECT r.kodpgw, r.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
                 p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                FROM h91_init e, h_pelesen p
+                FROM h91_init e, h_pelesen p, reg_pelesen r
                 WHERE p.e_nl = e.e91_nl
                 AND r.e_nl = p.e_nl
                 AND e.e91_nobatch = '$e91_nobatch'
@@ -657,7 +657,7 @@ class Proses9Controller extends Controller
 
                             $query[$e91_nobatch] = DB::select("SELECT r.kodpgw, r.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                            FROM h91_init e, h_pelesen p
+                            FROM h91_init e, h_pelesen p, reg_pelesen r
                             WHERE p.e_nl = e.e91_nl
                             AND r.e_nl = p.e_nl
                             AND e.e91_nobatch = '$e91_nobatch'
