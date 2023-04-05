@@ -678,13 +678,23 @@ class KilangIsirungController extends Controller
 
         $jumlah = floatval($request->jumlah);
 
-        if ($total3 != $request->jumlah) {
-            return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        } else {
+        // dd($total3 === $jumlah);
+
+        if($total3 === $jumlah){
             return redirect()->route('isirung.bahagianv')
-                ->with('success', 'Maklumat telah disimpan');
+            ->with('success', 'Maklumat telah disimpan');
+        }else{
+            return redirect()->back()->withInput()
+            ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
         }
+
+        // if ($total3 != $request->jumlah) {
+        //     return redirect()->back()->withInput()
+        //         ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        // } else {
+        //     return redirect()->route('isirung.bahagianv')
+        //         ->with('success', 'Maklumat telah disimpan');
+        // }
     }
 
     public function isirung_edit_bahagian_iv(Request $request, $id)
@@ -750,12 +760,12 @@ class KilangIsirungController extends Controller
         $total3_bhg4 = $total_bhg4 + $total2_bhg4;
         // dd($total3_bhg4);
 
-        if ($total3_bhg3 != $user->e102_ac1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        }
-        if ($total3_bhg4 != $user->e102_ag2) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        }
+        // if ($total3_bhg3 != $user->e102_ac1) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        // }
+        // if ($total3_bhg4 != $user->e102_ag2) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        // }
 
 
         $breadcrumbs    = [
@@ -936,15 +946,15 @@ class KilangIsirungController extends Controller
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
         // dd($user);
 
-        if ($total3_bhg3 != $user->e102_ac1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        }
-        if ($total3_bhg4 != $user->e102_ag2) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        }
-        if ($total3_bhg5 != $user->e102_ag3) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
-        }
+        // if ($total3_bhg3 != $user->e102_ac1) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        // }
+        // if ($total3_bhg4 != $user->e102_ag2) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        // }
+        // if ($total3_bhg5 != $user->e102_ag3) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        // }
         $bulan = date("m") - 1;
         $tahun = date("Y");
         $breadcrumbs    = [
@@ -1009,15 +1019,15 @@ class KilangIsirungController extends Controller
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
         // dd($user);
 
-        if ($total3_bhg3 != $user->e102_ac1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        }
-        if ($total3_bhg4 != $user->e102_ag2) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        }
-        if ($total3_bhg5 != $user->e102_ag3) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
-        }
+        // if ($total3_bhg3 != $user->e102_ac1) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        // }
+        // if ($total3_bhg4 != $user->e102_ag2) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        // }
+        // if ($total3_bhg5 != $user->e102_ag3) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        // }
         $bulan = date("m") - 1;
         $tahun = date("Y");
         $breadcrumbs    = [
@@ -1157,15 +1167,15 @@ class KilangIsirungController extends Controller
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
         // dd($user);
 
-        if ($total3_bhg3 != $user->e102_ac1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        }
-        if ($total3_bhg4 != $user->e102_ag2) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        }
-        if ($total3_bhg5 != $user->e102_ag3) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
-        }
+        // if ($total3_bhg3 != $user->e102_ac1) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        // }
+        // if ($total3_bhg4 != $user->e102_ag2) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        // }
+        // if ($total3_bhg5 != $user->e102_ag3) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        // }
 
 
         $breadcrumbs    = [
