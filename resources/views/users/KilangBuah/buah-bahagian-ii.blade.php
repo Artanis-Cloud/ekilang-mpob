@@ -148,9 +148,9 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
-                                        oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc();" maxlength="7" onchange="FormatCurrency(this)"
+                                        oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc();" maxlength="7" onchange="ah1();FormatCurrency(this)"
                                         style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required  onClick="this.select();"
-                                        title="Sila isikan butiran ini." value="{{ $penyata->e91_ah1 }}">
+                                        title="Sila isikan butiran ini." value="{{number_format($penyata->e91_ah1 ?? 0,2) }}">
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <span class="">ii.
@@ -692,6 +692,19 @@
             }
             var y = parseFloat(x).toFixed(2);
             document.querySelector("#e91_ah2").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function ah1() {
+
+            // let decimal = ".00"
+            var x = parseFloat(document.getElementById("e91_ah1").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e91_ah1").value = y;
             console.log(y);
         }
     </script>
