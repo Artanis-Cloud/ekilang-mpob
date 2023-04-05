@@ -105,7 +105,7 @@ class Proses4Controller extends Controller
     {
         // dd($request->e_tahun);
 
-        // $this->porting_pelesen($request->all());
+        $this->porting_pelesen($request->all());
         $this->porting_pl91($request->all());
         $this->porting_pl101($request->all());
         $this->porting_pl102($request->all());
