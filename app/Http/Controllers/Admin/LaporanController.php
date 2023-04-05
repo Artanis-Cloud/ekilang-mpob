@@ -3323,7 +3323,7 @@ class LaporanController extends Controller
             AND b.ebio_b4 = '01'
             GROUP by p.e_nl");
 
-        dd($cpo_sem);
+        // dd($cpo_sem);
 
         $totala_cposem = 0;
         $totalb_cposem = 0;
