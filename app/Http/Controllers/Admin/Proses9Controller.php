@@ -1084,10 +1084,11 @@ class Proses9Controller extends Controller
                 $pelesens[$nobatch1] = (object)[];
 
 
-                $query[$nobatch1] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
+                $query[$nobatch1] = DB::select("SELECT r.kodpgw, r.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
                 p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                FROM h101_init e, h_pelesen p
+                FROM h101_init e, h_pelesen p, reg_pelesen r
                 WHERE p.e_nl = e.e101_nl
+                AND r.e_nl = p.e_nl
                 AND e.e101_nobatch = '$nobatch1'
                 AND e.e101_thn = '$tahun'
                 AND p.e_thn = '2022'
@@ -1314,10 +1315,11 @@ class Proses9Controller extends Controller
                         $pelesens[$nobatch1] = (object)[];
                         $bln = ltrim($bulan, "0");
 
-                        $query[$nobatch1] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_kat, p.e_ap1, p.e_ap2, e.e101_nobatch,
+                        $query[$nobatch1] = DB::select("SELECT r.kodpgw, r.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_kat, p.e_ap1, p.e_ap2, e.e101_nobatch,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                            FROM h101_init e, h_pelesen p
+                            FROM h101_init e, h_pelesen p, reg_pelesen r
                             WHERE p.e_nl = e.e101_nl
+                            AND r.e_nl = p.e_nl
                             AND e.e101_nobatch = '$nobatch1'
                             AND e.e101_thn = '$tahun'
                             AND p.e_kat = 'PL101'
@@ -1544,11 +1546,12 @@ class Proses9Controller extends Controller
                 // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
                 $pelesens[$e102_nobatch] = (object)[];
 
-                $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+                $query[$e102_nobatch] = DB::select("SELECT r.kodpgw, r.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email,
                      p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg, e.e102_nobatch
-                    FROM h102_init e, h_pelesen p
+                    FROM h102_init e, h_pelesen p, reg_pelesen r
                     WHERE p.e_nl = e.e102_nl
+                    AND r.e_nl = p.e_nl
                     AND e.e102_nobatch = '$e102_nobatch'
                     -- AND p.e_nl = '$nolesen'
                     AND p.e_thn = '2022'
@@ -1673,11 +1676,12 @@ class Proses9Controller extends Controller
                         $bln = ltrim($bulan, "0");
 
 
-                        $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+                        $query[$e102_nobatch] = DB::select("SELECT r.kodpgw, r.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax,
                             p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg, e.e102_nobatch
-                            FROM h_pelesen p, h102_init e
+                            FROM h_pelesen p, h102_init e, reg_pelesen r
                             WHERE p.e_nl = e.e102_nl
+                            AND r.e_nl = p.e_nl
                             AND e.e102_nobatch = '$e102_nobatch'
                             AND p.e_kat = 'PL102'
                             AND p.e_thn = '$tahun'
@@ -2354,10 +2358,11 @@ class Proses9Controller extends Controller
 
 
 
-                $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
+                $query[$e104_nobatch] = DB::select("SELECT r.kodpgw, r.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-            FROM h104_init e, h_pelesen p
+            FROM h104_init e, h_pelesen p, reg_pelesen r
             WHERE p.e_nl = e.e104_nl
+            AND r.e_nl = p.e_nl
             AND e.e104_nobatch = '$e104_nobatch'
             AND e.e104_thn = '$tahun'
             AND p.e_thn = '2022'
@@ -2582,10 +2587,11 @@ class Proses9Controller extends Controller
                         $users[$e104_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F104A2, '%d-%m-%Y') tkhsubmit
                             from pl104ap1 e where e.F104A4 = '$e104_nobatch'");
 
-                        $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
+                        $query[$e104_nobatch] = DB::select("SELECT r.kodpgw, r.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                    FROM h104_init e, h_pelesen p
+                    FROM h104_init e, h_pelesen p, reg_pelesen r
                     WHERE p.e_nl = e.e104_nl
+                    AND r.e_nl = p.e_nl
                     AND e.e104_nobatch = '$e104_nobatch'
                     AND e.e104_thn = '$tahun'
                     AND p.e_kat = 'PL104'
@@ -2989,10 +2995,11 @@ class Proses9Controller extends Controller
                     from mpb_insp3a e, licensedb.license p where e.INS_IA = '$e07_nl' AND  e.INS_IC = '$tahun' and e.INS_IB = '$bulan' and
                     e.INS_IA = p.F201A");
 
-                $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+                $query[$e07_nl] = DB::select("SELECT r.kodpgw, r.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                    FROM  h_pelesen p
+                    FROM  h_pelesen p, reg_pelesen r
                     WHERE p.e_nl = '$e07_nl'
+                    AND r.e_nl = p.e_nl
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
                 // dd($query);
@@ -3119,10 +3126,11 @@ class Proses9Controller extends Controller
                         from mpb_insp3a e, licensedb.license p where e.INS_IA = '$e07_nl' AND  e.INS_IC = '$tahun' and e.INS_IB = '$bulan' and
                         e.INS_IA = p.F201A");
 
-                        $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+                        $query[$e07_nl] = DB::select("SELECT r.kodpgw, r.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                         p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                        FROM  h_pelesen p
+                        FROM  h_pelesen p, reg_pelesen r
                         WHERE p.e_nl = '$e07_nl'
+                        AND r.e_nl = p.e_nl
                         AND p.e_kat = 'PL111'
                         AND p.e_thn = '$tahun'
                         AND p.e_bln = '$bln'");
