@@ -51,7 +51,7 @@ class E101Init extends Model
     public function regpelesen()
     {
 
-        return $this->hasOne(RegPelesen::class, 'e_nl', 'e101_nl');
+        return $this->hasOne(RegPelesen::class, 'e_nl', 'e101_nl')->where('e_kat', 'PL101');;
     }
 
 
