@@ -645,11 +645,14 @@ class Proses3Controller extends Controller
                 ]);
             }
           else {
+
+            $test2 = now()->format('m') - 1;
+            $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
             $query = E91Init::create([
                 'e91_reg' => $count + 1,
                 'e91_nl' => $request->e_initlesen,
-                'e91_bln' => now()->format('m') - 1,
-                    'e91_thn' => $tahun1,
+                'e91_bln' => $bulan_init,
+                'e91_thn' => $tahun1,
                 'e91_flg' => '1',
                 'e91_sdate' => NULL,
                 'e91_ddate' => $request->e_ddate,
@@ -752,10 +755,13 @@ class Proses3Controller extends Controller
                 ]);
             }
          else {
+
+            $test2 = now()->format('m') - 1;
+            $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
             $query = E101Init::create([
                 'e101_reg' => $count + 1,
                 'e101_nl' => $request->e_initlesen,
-                'e101_bln' => now()->format('m') - 1,
+                'e101_bln' => $bulan_init,
                 'e101_thn' => $tahun1,
                 'e101_flg' => '1',
                 'e101_sdate' => NULL,
@@ -826,10 +832,13 @@ class Proses3Controller extends Controller
                 ]);
             }
             else {
+
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
                 $query = E102Init::create([
                     'e102_reg' => $count + 1,
                     'e102_nl' => $request->e_initlesen,
-                    'e102_bln' => now()->format('m') - 1,
+                    'e102_bln' => $bulan_init,
                     'e102_thn' => $tahun1,
                     'e102_flg' => '1',
                     'e102_sdate' => NULL,
@@ -898,10 +907,13 @@ class Proses3Controller extends Controller
                     'e104_flagcetak' => NULL,
                 ]);
             } else {
+
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
                 $query = E104Init::create([
                     'e104_reg' => $count + 1,
                     'e104_nl' => $request->e_initlesen,
-                    'e104_bln' => now()->format('m') - 1,
+                    'e104_bln' => $bulan_init,
                     'e104_thn' => $tahun1,
                     'e104_flg' => '1',
                     'e104_sdate' => NULL,
@@ -936,10 +948,13 @@ class Proses3Controller extends Controller
                     'e07_flagcetak' => NULL,
                 ]);
             } else {
+
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
                 $query = E07Init::create([
                     'e07_reg' => $count + 1,
                     'e07_nl' => $request->e_initlesen,
-                    'e07_bln' => now()->format('m') - 1,
+                    'e07_bln' => $bulan_init,
                     'e07_thn' => $tahun1,
                     'e07_flg' => '1',
                     'e07_sdate' => NULL,
@@ -989,6 +1004,9 @@ class Proses3Controller extends Controller
                     'updated_at' => NULL,
                 ]);
             } else {
+
+                $test2 = now()->format('m') - 1;
+                $bulan_init = str_pad($test2, 2, '0', STR_PAD_LEFT);
                 $query = EBioInit::create([
                     'ebio_reg' => $count + 1,
                     'ebio_nl' => $request->e_initlesen,
