@@ -108,22 +108,22 @@
                         </div>
 
                         <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-3 form-group" style="margin: 0px"></div>
-                            <div class="col-md-7">
+                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                <label for="fname" class="control-label col-form-label required">
+                                    Alamat Surat Menyurat</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-md-7 mt-2">
                                 <input onchange="alamat();" type="checkbox" class="custom-control-input" id="alamat_sama"
                                     name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="alamat_sama">Alamat sama seperti di
                                     atas</label>
-
                             </div>
                         </div>
 
-
-
-                        <div class="row justify-content-center" style="margin:20px 0px">
+                        <div class="row justify-content-center" style="margin:0px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname" class="control-label col-form-label required">
-                                    Alamat Surat Menyurat</label>
+                                <label for="fname" class="control-label col-form-label">
+                                    </label>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_as1" class="form-control" maxlength=60 required
@@ -267,13 +267,15 @@
                                     Alamat Emel Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pg" maxlength=100 class="form-control"
+                                <input type="email" id="e_email_pg" maxlength=50 class="form-control"
                                     placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    oninput="invokeFunc13();setCustomValidity(''); valid_emailpg()"
+                                    oninput="invokeFunc13();setCustomValidity(''); valid_emailpg(); ValidateEmailpg()"
                                     value="{{ $pelesen->e_email_pg }}" required multiple>
                                 <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
+                                <p type="hidden" id="err_email_pg" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
 
                             </div>
                         </div>
@@ -315,14 +317,16 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pengurus" maxlength=100 class="form-control"
+                                <input type="email" id="e_email_pengurus" maxlength=50 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    oninput="invokeFunc16();setCustomValidity(''); valid_emailpengurus()"
+                                    oninput="invokeFunc16();setCustomValidity(''); valid_emailpengurus(); ValidateEmailpen()"
                                     placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
                                     value="{{ $pelesen->e_email_pengurus }}" required multiple>
 
                                 <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
+                                <p type="hidden" id="err_email_pen" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
 
                             </div>
                         </div>
@@ -1702,7 +1706,57 @@
                     }
                 }
                 }
-                </script>
+            </script>
+            <script>
+                function ValidateEmailpg()
+                {
+                var inputText = document.getElementById('e_email_pg');
+                console.log(inputText.value);
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(inputText.value.match(mailformat))
+                {
+                // alert("Valid email address!");
+                // document.myform.e_email.focus();
+                document.getElementById('err_email_pg').style.display = "none";
+
+                return true;
+                }
+                else
+                {
+                    if(inputText.value != ''){
+                    // alert("You have entered an invalid email address!");
+                    $('#e_email_pg').css('border-color', 'red');
+                    document.getElementById('err_email_pg').style.display = "block";
+                    return false;
+                    }
+                }
+                }
+            </script>
+            <script>
+                function ValidateEmailpen()
+                {
+                var inputText = document.getElementById('e_email_pengurus');
+                console.log(inputText.value);
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(inputText.value.match(mailformat))
+                {
+                // alert("Valid email address!");
+                // document.myform.e_email.focus();
+                document.getElementById('err_email_pen').style.display = "none";
+
+                return true;
+                }
+                else
+                {
+                    if(inputText.value != ''){
+                    // alert("You have entered an invalid email address!");
+                    $('#e_email_pengurus').css('border-color', 'red');
+                    document.getElementById('err_email_pen').style.display = "block";
+                    return false;
+                    }
+                }
+                }
+            </script>
             <script>
                 function alamat() {
                     var x = $("#alamat_sama").is(":checked");
