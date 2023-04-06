@@ -81,11 +81,12 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin-left:10px">
-                            <div class="col-sm-3 " style="margin: 0px">
-                                <label for="fname" class="control-label col-form-label"></i></label>
+                        <div class="row justify-content-center" style="margin:20px 0px">
+                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                <label for="fname" class="control-label col-form-label required">
+                                    Alamat Surat Menyurat</label>
                             </div>
-                            <div class="custom-control custom-checkbox col-md-7">
+                            <div class="custom-control custom-checkbox col-md-7 mt-2">
                                 <input onchange="alamat();" type="checkbox" class="custom-control-input" id="alamat_sama"
                                     name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="alamat_sama">Alamat sama seperti di
@@ -93,10 +94,10 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:20px 0px">
+                        <div class="row justify-content-center" style="margin:0px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname" class="control-label col-form-label required">
-                                    Alamat Surat Menyurat</label>
+                                <label for="fname" class="control-label col-form-label">
+                                    </label>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_as1" class="form-control" maxlength=60
@@ -158,8 +159,8 @@
                                     oninput="this.setCustomValidity(''); invokeFunc9(); valid_email(); ValidateEmail()">
                                     <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
-                                        <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
-                                            alamat emel yang betul!</i></p>
+                                    <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
                             </div>
                         </div>
 
@@ -217,13 +218,15 @@
                                     Alamat Emel Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_email_pg" maxlength=100 class="form-control"
+                                <input type="text" id="e_email_pg" maxlength=50 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg"
-                                    oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg(); ValidateEmail()"
+                                    oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg(); ValidateEmailpg()"
                                     value="{{ $pelesen->e_email_pg }}" required multiple>
                                     <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
+                                    <p type="hidden" id="err_email_pg" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
                             </div>
                         </div>
 
@@ -266,13 +269,15 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pengurus" class="form-control" maxlength=100
+                                <input type="email" id="e_email_pengurus" class="form-control" maxlength=50
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
-                                    oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus()"
+                                    oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus(); ValidateEmailpen()"
                                     value="{{ $pelesen->e_email_pengurus }}" required multiple>
                                     <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
+                                    <p type="hidden" id="err_email_pen" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
                             </div>
                         </div>
 
@@ -1623,6 +1628,48 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                             // alert("You have entered an invalid email address!");
                             $('#e_email').css('border-color', 'red');
                             document.getElementById('err_email2').style.display = "block";
+                            return false;
+                        }
+                    }
+                }
+            </script>
+            <script>
+                function ValidateEmailpg() {
+                    var inputText = document.getElementById('e_email_pg');
+                    console.log(inputText.value);
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (inputText.value.match(mailformat)) {
+                        // alert("Valid email address!");
+                        // document.myform.e_email.focus();
+                        document.getElementById('err_email_pg').style.display = "none";
+
+                        return true;
+                    } else {
+                        if (inputText.value != '') {
+                            // alert("You have entered an invalid email address!");
+                            $('#e_emaipg').css('border-color', 'red');
+                            document.getElementById('err_email_pg').style.display = "block";
+                            return false;
+                        }
+                    }
+                }
+            </script>
+            <script>
+                function ValidateEmailpen() {
+                    var inputText = document.getElementById('e_email_pengurus');
+                    console.log(inputText.value);
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (inputText.value.match(mailformat)) {
+                        // alert("Valid email address!");
+                        // document.myform.e_email.focus();
+                        document.getElementById('err_email_pen').style.display = "none";
+
+                        return true;
+                    } else {
+                        if (inputText.value != '') {
+                            // alert("You have entered an invalid email address!");
+                            $('#e_email_pengurus').css('border-color', 'red');
+                            document.getElementById('err_email_pen').style.display = "block";
                             return false;
                         }
                     }
