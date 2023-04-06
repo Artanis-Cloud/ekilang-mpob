@@ -17,6 +17,10 @@
 	}
 </style>
 
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
 @section('content')
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -195,7 +199,7 @@
                                 <div class="col-md-2 mt-3">
                                     <span class="currency-code" &nbsp;>RM</span>
                                     <input type="text" class="form-control text-currency" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
+                                    oninput="setCustomValidity(''); invokeFunc4()"
                                         style="  text-align:right; margin-left:-3%; width:99%" onkeypress="return isNumberKey(event)" maxlength="5"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"  onClick="this.select();"
                                         required title="Sila isikan butiran ini."
@@ -544,6 +548,23 @@
 
 
     @section('scripts')
+
+    <script>
+        // Add event listener to currency input
+        const currencyInput = document.getElementById('e91_ah4');
+        currencyInput.addEventListener('input', function(e) {
+          // Get input value and remove all non-numeric characters
+          let value = e.target.value.replace(/[^0-9]/g, '');
+
+          // Add decimal point if necessary
+          if (value.length >= 3) {
+            value = value.slice(0, -2) + '.' + value.slice(-2);
+          }
+
+          // Set formatted value back to input
+          e.target.value = value;
+        });
+      </script>
     <script>
         function check() {
             // (B1) INIT

@@ -718,16 +718,6 @@ class Proses3Controller extends Controller
                 'e91_ah17' => NULL,
                 'e91_ah18' => NULL,
             ]);
-            $query2 = E91b::create([
-                'e91_b1' => $count2 + 1,
-                'e91_b2' => $query->e91_reg,
-                'e91_b6' => 0,
-                'e91_b7' => 0,
-                'e91_b8' => NULL,
-                'e91_b9' => 0,
-                'e91_b10' => 0,
-                'e91_b11' => NULL,
-            ]);
          }
             }
         }
