@@ -244,7 +244,7 @@
                                     No. Telefon Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_notel_pg" maxlength=40 class="form-control"
+                                <input type="text" id="e_notel_pg" class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     onkeypress="return isNumberKey(event)"
                                     oninput="invokeFunc12();setCustomValidity(''); valid_notelpg()"
@@ -267,7 +267,7 @@
                                     Alamat Emel Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pg" maxlength=50 class="form-control"
+                                <input type="email" id="e_email_pg" class="form-control"
                                     placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     oninput="invokeFunc13();setCustomValidity(''); valid_emailpg(); ValidateEmailpg()"
@@ -317,7 +317,7 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pengurus" maxlength=50 class="form-control"
+                                <input type="email" id="e_email_pengurus" maxlength=40 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     oninput="invokeFunc16();setCustomValidity(''); valid_emailpengurus(); ValidateEmailpen()"
                                     placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
@@ -686,6 +686,15 @@
         @endsection
 
         @section('scripts')
+
+        <script>
+            var maxLength = 40;
+            document.getElementById("e_email_pg").addEventListener("input", function() {
+                if (this.value.length > maxLength) {
+                    this.value = this.value.slice(0, maxLength);
+                }
+            });
+            </script>
         <script>
             $(document).ready(function() {
                 // console.log('ready');
@@ -1441,7 +1450,15 @@
 
             document.getElementById('myform').addEventListener('submit', validateForm);
         </script> --}}
+        {{-- <script>
+            const emailInput = document.getElementById('e_email_pg');
 
+            emailInput.addEventListener('input', function() {
+            if (emailInput.value.length > 50) {
+                emailInput.value = emailInput.value.slice(0, 50);
+            }
+            });
+        </script> --}}
 
             <script>
                 function check() {

@@ -199,7 +199,7 @@
                                         Alamat Emel Kilang</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"
+                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="40"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc9(); valid_email(); ValidateEmail()"
                                         name="e_email" value="{{ $pelesen->e_email }}" required>
                                         <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran di
@@ -278,7 +278,7 @@
                                         Alamat Emel Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_email_pg" class="form-control" maxlength="50"
+                                    <input type="text" id="e_email_pg" class="form-control" maxlength="40"
                                             placeholder="Alamat Emel Pegawai Melapor"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                             oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg(); ValidateEmailpg()"
                                             name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required >
@@ -338,7 +338,7 @@
                                         Alamat Emel Pengurus</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="e_email_pengurus" class="form-control" maxlength="50"
+                                    <input type="email" id="e_email_pengurus" class="form-control" maxlength="40"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus(); ValidateEmailpen()"
                                         value="{{ $pelesen->e_email_pengurus  }}" required multiple>
