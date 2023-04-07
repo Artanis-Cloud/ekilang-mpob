@@ -165,7 +165,7 @@
                                     Alamat Emel Kilang</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email" class="form-control" maxlength=40
+                                <input type="email" id="e_email" class="form-control" maxlength=50
                                     oninput="invokeFunc9();setCustomValidity(''); valid_email(); ValidateEmail()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" placeholder="ALAMAT EMEL KILANG"
                                     name="e_email" value="{{ $pelesen->e_email ?? '' }}">
@@ -248,7 +248,7 @@
                                     Alamat Emel Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pg" maxlength=40 class="form-control"
+                                <input type="email" id="e_email_pg" maxlength=50 class="form-control"
                                     placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     oninput="invokeFunc13();setCustomValidity(''); valid_emailpg(); ValidateEmailpg()"
@@ -298,7 +298,7 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pengurus" maxlength=40 class="form-control"
+                                <input type="email" id="e_email_pengurus" maxlength=50 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     oninput="invokeFunc16();setCustomValidity(''); valid_emailpengurus(); ValidateEmailpen()"
                                     placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"

@@ -65,7 +65,7 @@ class Proses5Controller extends Controller
                     return redirect()->route('admin.5penyatabelumhantarbio');
                 } else {
 
-                    $users = DB::select("SELECT p.e_nl, p.e_np, p.e_email,  r.kodpgw, r.nosiri, e.e91_flg, e.e91_reg
+                    $users = DB::select("SELECT p.e_nl, p.e_np, p.e_email,  r.kodpgw, r.nosiri, e.e91_flg, e.e91_reg, p.e_notel
                         FROM pelesen p, e91_init e, reg_pelesen r
                         WHERE p.e_nl = e.e91_nl
                         and p.e_nl = r.e_nl
@@ -92,7 +92,7 @@ class Proses5Controller extends Controller
                 }
             }
         } else {
-            $users = DB::select("SELECT p.e_nl, p.e_np, p.e_email,  r.kodpgw, r.nosiri, e.e91_flg, e.e91_reg
+            $users = DB::select("SELECT p.e_nl, p.e_np, p.e_email,  r.kodpgw, r.nosiri, e.e91_flg, e.e91_reg, p.e_notel
             FROM pelesen p, e91_init e, reg_pelesen r
             WHERE p.e_nl = e.e91_nl
             and p.e_nl = r.e_nl
@@ -167,6 +167,7 @@ class Proses5Controller extends Controller
         WHERE   p.e_nl = e.e101_nl
         and p.e_nl = r.e_nl
         and r.e_kat = 'PL101'
+        and p.e_kat = 'PL101'
         and e.e101_flg = '1'
         order by p.e_nl");
 

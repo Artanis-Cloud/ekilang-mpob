@@ -153,7 +153,7 @@
                                     Alamat Emel Kilang</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email" class="form-control" maxlength=40
+                                <input type="email" id="e_email" class="form-control" maxlength=50
                                     placeholder="Alamat Emel"
                                     oninvalid="setCustomValidity('Sila isi Alamat Emel Kilang dengan betul')"
                                     name="e_email" value="{{ $pelesen->e_email }}" required
@@ -220,7 +220,7 @@
                                     Alamat Emel Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_email_pg" maxlength=40 class="form-control"
+                                <input type="text" id="e_email_pg" maxlength=50 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
                                     oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg(); ValidateEmail_pg()"
@@ -272,7 +272,7 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_email_pengurus" class="form-control" maxlength=40
+                                <input type="text" id="e_email_pengurus" class="form-control" maxlength=50
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                     oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus(); ValidateEmail_pen()"
