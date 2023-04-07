@@ -1557,8 +1557,15 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenoleokimia()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->orderBy('e_status', 'asc')
-            ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+        // $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->orderBy('e_status', 'asc')
+        //     ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $users = DB::select("SELECT *
+        FROM pelesen p, reg_pelesen r
+        WHERE p.e_nl = r.e_nl
+        and p.e_kat = 'PL104'
+        and r.e_kat = 'PL104'
+        order by r.kodpgw, r.nosiri");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
