@@ -1368,7 +1368,7 @@ class Proses1Controller extends Controller
 
         // dd($penyata);
 
-        $penyata2 = RegPelesen::where('e_nl', $request->e_nl)->first();
+        $penyata2 = RegPelesen::where('e_nl', $request->e_nl)->where('e_kat',$penyata->e_kat )->first();
         // dd($penyata2);
         $penyata2->e_nl = $request->e_nl;
         // $penyata2->e_kat = $request->e_kat;
@@ -1379,7 +1379,7 @@ class Proses1Controller extends Controller
         $penyata2->directory = $request->directory;
         $penyata2->save();
 
-        $map = User::where('username', $penyata->e_nl)->first();
+        $map = User::where('username', $penyata->e_nl)->where('category',$penyata->e_kat )->first();
         $map->email = $request->e_email;
         $map->no_siri = $request->nosiri;
         $map->kod_pegawai = $request->kodpgw;
@@ -1557,16 +1557,17 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenoleokimia()
     {
-        // $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->orderBy('e_status', 'asc')
-        //     ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->orderBy('e_status', 'asc')
+            ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
 
-        $users = DB::select("SELECT *
-        FROM pelesen p, reg_pelesen r
-        WHERE p.e_nl = r.e_nl
-        and p.e_kat = 'PL104'
-        and r.e_kat = 'PL104'
-        order by r.kodpgw, r.nosiri");
+        // $users = DB::select("SELECT *
+        // FROM pelesen p, reg_pelesen r
+        // WHERE p.e_nl = r.e_nl
+        // and p.e_kat = 'PL104'
+        // and r.e_kat = 'PL104'
+        // order by r.kodpgw, r.nosiri");
 
+        // dd($users);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen"],

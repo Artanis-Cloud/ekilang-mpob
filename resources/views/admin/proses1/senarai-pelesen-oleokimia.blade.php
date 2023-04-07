@@ -279,9 +279,9 @@
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
                                             @foreach ($users as $data)
-                                            {{-- @if ($data->pelesen)
+                                            @if ($data->pelesen)
                                             @foreach ($data->pelesen as $dtpl)
-                                            @if ($dtpl->e_kat == 'PL104') --}}
+                                            @if ($dtpl->e_kat == 'PL104')
 
                                                 <tr class="text-left">
                                                     <td class="count"></td>
@@ -289,9 +289,9 @@
                                                         <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                 {{ $data->e_nl }}</u></a>
                                                     </td>
-                                                    <td  style="text-transform:uppercase" >{{ $data->e_np ?? '-' }}</td>
-                                                    <td>{{ $data->e_email ?? '-' }}</td>
-                                                    <td>{{ $data->e_notel ?? '-' }}</td>
+                                                    <td  style="text-transform:uppercase" >{{ $dtpl->e_np ?? '-' }}</td>
+                                                    <td>{{ $dtpl->e_email ?? '-' }}</td>
+                                                    <td>{{ $dtpl->e_notel ?? '-' }}</td>
                                                     <td style="text-align: center">{{ $data->kodpgw }}</td>
                                                     <td style="text-align: center">{{ $data->nosiri }}</td>
                                                     @if ($data->e_status == 1)
@@ -315,29 +315,29 @@
                                                     @else
                                                         <td style="text-align: center">-</td>
                                                     @endif
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_ap1 ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_ap2 ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_ap3 ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_as1 ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_as2 ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_as3 ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_nofax ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_email ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_npg ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_jpg ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_notel_pg ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_email_pg ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_npgtg ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_jpgtg ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_email_pengurus ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->kod_negeri ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->kod_daerah ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->kod_region ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_syktinduk ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_year ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->e_group ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->kap_proses ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->bil_tangki_cpo ?? 0  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_ap1 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_ap2 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_ap3 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_as1 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_as2 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_as3 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_nofax ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_email ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_npg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_jpg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_notel_pg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_email_pg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_npgtg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_jpgtg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_email_pengurus ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kod_negeri ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kod_daerah ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kod_region ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_syktinduk ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_year ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_group ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kap_proses ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->bil_tangki_cpo ?? 0  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kap_tangki_cpo ?? 0  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->bil_tangki_ppo ?? 0  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kap_tangki_ppo ?? 0  }}</td>
@@ -351,9 +351,9 @@
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kap_tangki_others ?? 0  }}</td>
 
                                                 </tr>
-                                                {{-- @endif
+                                                @endif
                                                 @endforeach
-                                                @endif --}}
+                                                @endif
                                             @endforeach
 
                                         </tbody>
