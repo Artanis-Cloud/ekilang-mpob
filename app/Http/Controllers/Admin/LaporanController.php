@@ -4140,6 +4140,7 @@ class LaporanController extends Controller
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND p.e_kat = 'PLBIO'
         AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
@@ -4155,6 +4156,7 @@ class LaporanController extends Controller
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND p.e_kat = 'PLBIO'
         AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
@@ -4168,6 +4170,7 @@ class LaporanController extends Controller
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND p.e_kat = 'PLBIO'
         AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '2'
@@ -4181,6 +4184,7 @@ class LaporanController extends Controller
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND p.e_kat = 'PLBIO'
         AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '2'
