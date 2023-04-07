@@ -3006,6 +3006,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '1'
@@ -3020,6 +3021,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '1'
@@ -3033,6 +3035,7 @@ class LaporanController extends Controller
                 FROM h_bio_b_s b, h_bio_inits h, pelesen p
                 WHERE h.ebio_thn = '$tahun'
                 AND h.ebio_bln = '$bulan'
+                AND p.e_kat = 'PLBIO
                 AND p.e_nl = h.ebio_nl
                 AND h.ebio_nobatch = b.ebio_nobatch
                 AND b.ebio_b3 = '2'
@@ -3045,6 +3048,7 @@ class LaporanController extends Controller
                 FROM h_bio_b_s b, h_bio_inits h, pelesen p
                 WHERE h.ebio_thn = '$tahun'
                 AND h.ebio_bln = '$bulan'
+                AND p.e_kat = 'PLBIO
                 AND p.e_nl = h.ebio_nl
                 AND h.ebio_nobatch = b.ebio_nobatch
                 AND b.ebio_b3 = '2'
@@ -3056,6 +3060,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '1'
@@ -3070,6 +3075,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '1'
@@ -3083,6 +3089,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '2'
@@ -3095,6 +3102,7 @@ class LaporanController extends Controller
                 FROM h_bio_b_s b, h_bio_inits h, pelesen p
                 WHERE h.ebio_thn = '$tahun'
                 AND h.ebio_bln = '$bulan'
+                AND p.e_kat = 'PLBIO
                 AND p.e_nl = h.ebio_nl
                 AND h.ebio_nobatch = b.ebio_nobatch
                 AND b.ebio_b3 = '2'
@@ -3108,6 +3116,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '1'
@@ -3120,6 +3129,7 @@ class LaporanController extends Controller
                 FROM h_bio_b_s b, h_bio_inits h, pelesen p
                 WHERE h.ebio_thn = '$tahun'
                 AND h.ebio_bln = '$bulan'
+                AND p.e_kat = 'PLBIO
                 AND p.e_nl = h.ebio_nl
                 AND h.ebio_nobatch = b.ebio_nobatch
                 AND b.ebio_b3 = '1'
@@ -3132,6 +3142,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '2'
@@ -3142,6 +3153,7 @@ class LaporanController extends Controller
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
                     WHERE h.ebio_thn = '$tahun'
                     AND h.ebio_bln = '$bulan'
+                    AND p.e_kat = 'PLBIO
                     AND p.e_nl = h.ebio_nl
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '2'
