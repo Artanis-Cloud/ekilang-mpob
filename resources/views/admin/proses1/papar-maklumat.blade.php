@@ -302,6 +302,8 @@
                                                             value="SA">SA</option>
                                                         <option {{ $pelesen->kodpgw == 'SS' ? 'selected' : '' }}
                                                             value="SS">SS</option>
+                                                        <option {{ $pelesen->kodpgw == 'SW' ? 'selected' : '' }}
+                                                            value="SS">SW</option>
                                                         <option {{ $pelesen->kodpgw == 'WP' ? 'selected' : '' }}
                                                             value="WP">WP</option>
                                                     @endif
@@ -349,6 +351,7 @@
                                                         <option value="PP">PP</option>
                                                         <option value="SA">SA</option>
                                                         <option value="SS">SS</option>
+                                                        <option value="SS">SW</option>
                                                         <option value="WP">WP</option>
                                                     @endif
                                                 @endif
