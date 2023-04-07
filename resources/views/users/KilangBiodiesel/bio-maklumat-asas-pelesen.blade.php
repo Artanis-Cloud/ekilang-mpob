@@ -184,7 +184,7 @@
                                     Alamat Emel Kilang</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email" class="form-control" maxlength=40
+                                <input type="email" id="e_email" class="form-control" maxlength=50
                                     oninput="invokeFunc9();setCustomValidity(''); valid_email(); ValidateEmail()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" placeholder="ALAMAT EMEL KILANG"
                                     name="e_email" value="{{ $pelesen->e_email }}">
@@ -317,7 +317,7 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email_pengurus" maxlength=40 class="form-control"
+                                <input type="email" id="e_email_pengurus" maxlength=50 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     oninput="invokeFunc16();setCustomValidity(''); valid_emailpengurus(); ValidateEmailpen()"
                                     placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
@@ -688,7 +688,7 @@
         @section('scripts')
 
         <script>
-            var maxLength = 40;
+            var maxLength = 50;
             document.getElementById("e_email_pg").addEventListener("input", function() {
                 if (this.value.length > maxLength) {
                     this.value = this.value.slice(0, maxLength);
