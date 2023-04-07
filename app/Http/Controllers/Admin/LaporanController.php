@@ -1456,13 +1456,22 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+
+        $users2 = DB::select("SELECT r.e_nl, p.e_np
+        FROM pelesen p, reg_pelesen r
+        WHERE p.e_nl = r.e_nl
+        AND r.e_kat = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
+        ORDER BY p.e_nl");
+
+
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = KumpProduk::get();
         $produk = Produk::get();
         $pembeli = SyarikatPembeli::orderBy('pembeli')->get();
 
-
+        // dd($users2);
 
         $layout = 'layouts.admin';
 
@@ -3316,6 +3325,7 @@ class LaporanController extends Controller
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri not in ('13','14')
+            AND p.e_kat = 'PLBIO'
             AND h.ebio_nl = p.e_nl
             AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
@@ -3401,6 +3411,7 @@ class LaporanController extends Controller
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri not in ('13','14')
+            AND p.e_kat = 'PLBIO'
             AND h.ebio_nl = p.e_nl
             AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
