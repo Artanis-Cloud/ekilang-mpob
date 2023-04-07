@@ -70,6 +70,7 @@ class Proses5Controller extends Controller
                         WHERE p.e_nl = e.e91_nl
                         and p.e_nl = r.e_nl
                         and r.e_kat = 'PL91'
+                        and p.e_kat = 'PL91'
                         and e.e91_flg = '1'
                         order by p.e_nl");
 
@@ -97,6 +98,7 @@ class Proses5Controller extends Controller
             WHERE p.e_nl = e.e91_nl
             and p.e_nl = r.e_nl
             and r.e_kat = 'PL91'
+            and p.e_kat = 'PL91'
             and e.e91_flg = '1'
             order by p.e_nl");
 
@@ -425,6 +427,7 @@ class Proses5Controller extends Controller
         WHERE   p.e_nl = e.e102_nl
         and p.e_nl = r.e_nl
         and r.e_kat = 'PL102'
+        and p.e_kat = 'PL102'
         and e.e102_flg = '1'
         order by p.e_nl");
 
@@ -522,6 +525,7 @@ class Proses5Controller extends Controller
         WHERE   p.e_nl = e.e104_nl
         and p.e_nl = r.e_nl
         and r.e_kat = 'PL104'
+        and p.e_kat = 'PL104'
         and e.e104_flg = '1'
         order by p.e_nl");
 
@@ -734,6 +738,7 @@ class Proses5Controller extends Controller
         WHERE   p.e_nl = e.e07_nl
         and p.e_nl = r.e_nl
         and r.e_kat = 'PL111'
+        and p.e_kat = 'PL111'
         and e.e07_flg = '1'
         order by p.e_nl");
 
