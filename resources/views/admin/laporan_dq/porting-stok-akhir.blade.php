@@ -57,7 +57,7 @@
                             <h3 style="color: rgb(39, 80, 71); margin-top:-1%; margin-bottom:1%">Porting Stok Akhir
                             </h3>
                             <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses ini akan memindahkan data ini ke
-                                dalam SYBASE.</h5>
+                                dalam PLEID.</h5>
                         </div>
                         <hr>
 
