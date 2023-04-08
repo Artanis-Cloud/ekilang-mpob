@@ -1519,6 +1519,12 @@ class LaporanController extends Controller
         $end_month = $request->end_month;
         $equal_month = $request->start;
         $bulan = $request->bulan;
+
+
+        $equal_month = intval($equal_month);
+
+        $start_month = intval($start_month);
+        $end_month = intval($end_month);
         //    dd($syk);
         //RINGKASAN URUSNIAGA()
         foreach ($syk as $cc) {
