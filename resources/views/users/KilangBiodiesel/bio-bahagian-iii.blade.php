@@ -1012,6 +1012,12 @@
                     var new_syarikat = document.getElementById("new_syarikat").value;
                     var new_jumlah = document.getElementById("new_jumlah[]").value;
 
+                      // Check that the required fields are filled out
+                    if (new_syarikat == "0" || new_jumlah == "") {
+                        toastr.error("Sila Pastikan maklumat diisi dengan lengkap");
+                        return;
+                    }
+
                     var nama_syarikat = document.getElementById("new_syarikat").options[document.getElementById("new_syarikat")
                         .selectedIndex].text;
 
