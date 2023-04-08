@@ -1223,8 +1223,8 @@ class Proses4Controller extends Controller
 
           }
 
-        //   $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
-        //     ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
+            //   $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
+            //     ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
 
                 $totalplbio = $totalplbio + 1;
 
@@ -1402,7 +1402,7 @@ class Proses4Controller extends Controller
                     set ebio_flg = '3'
                     WHERE ebio_nl = '$nolesen'");
 
-                }
+        }
 
                 //log audit trail admin
 

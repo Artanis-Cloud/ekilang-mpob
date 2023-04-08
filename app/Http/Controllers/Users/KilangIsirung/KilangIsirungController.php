@@ -1167,15 +1167,15 @@ class KilangIsirungController extends Controller
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
         // dd($user);
 
-        // if ($total3_bhg3 != $user->e102_ac1) {
-        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        // }
-        // if ($total3_bhg4 != $user->e102_ag2) {
-        //     return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        // }
-        // if ($total3_bhg5 != $user->e102_ag3) {
-        //     return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
-        // }
+        if ($total3_bhg3 != $user->e102_ac1) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
+        if ($total3_bhg4 != $user->e102_ag2) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        }
+        if ($total3_bhg5 != $user->e102_ag3) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        }
 
 
         $breadcrumbs    = [
