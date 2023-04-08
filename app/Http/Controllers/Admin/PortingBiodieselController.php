@@ -249,7 +249,7 @@ class PortingBiodieselController extends Controller
             $negeri = $ppko->negeri;
             $totstokakhir_ppko = $ppko->ebio_b11;
 
-            if ($cpko->ebio_b11 <> 0) {
+            if ($ppko->ebio_b11 <> 0) {
 
                 $qinsPPKO = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir_detail (no_lesen, nama, negeri, tahun,bulan,produk, stok_akhir)
                 values ('$lesen','$kilang', '$negeri', $tahun,$bulan,'PPKO' ,$totstokakhir_ppko)");
@@ -400,7 +400,7 @@ class PortingBiodieselController extends Controller
                     }
 
                     $hari = HHari::where('lesen', $nolesen)->where('tahunbhg2', $tahun)->where('bulanbhg2', $bulan)->get();
-                    
+
                     $qdelplbiohari = DB::connection('mysql4')->delete("DELETE from h_hari where lesen = '$nolesen' and tahunbhg2 = '$tahun' and bulanbhg2 = '$bulan'");
 
 
