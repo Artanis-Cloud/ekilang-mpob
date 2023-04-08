@@ -100,54 +100,54 @@
                                         <div class="col-md-4">
 
                                             <select class="form-control" name="bulan" id="bulan1" >
-                                                @if ($stokakhir->bulan == '1')
-                                                    <option {{ $stokakhir->bulan == '1' ? 'selected' : '' }}
+                                                @if ($stokakhir->bulan == '01')
+                                                    <option {{ $stokakhir->bulan == '01' ? 'selected' : '' }}
                                                         value="1">
                                                         JANUARI</option>
-                                                @elseif ($stokakhir->bulan == '2')
-                                                    <option {{ $stokakhir->bulan == '2' ? 'selected' : '' }}
-                                                        value="2">
+                                                @elseif ($stokakhir->bulan == '02')
+                                                    <option {{ $stokakhir->bulan == '02' ? 'selected' : '' }}
+                                                        value="02">
                                                         FEBRUARI</option>
 
                                                     {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
-                                                @elseif ($stokakhir->bulan == '3')
-                                                    <option {{ $stokakhir->bulan == '3' ? 'selected' : '' }}
-                                                        value="3">MAC
+                                                @elseif ($stokakhir->bulan == '03')
+                                                    <option {{ $stokakhir->bulan == '03' ? 'selected' : '' }}
+                                                        value="03">MAC
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="03">MAC</option> --}}
-                                                @elseif ($stokakhir->bulan == '4')
-                                                    <option {{ $stokakhir->bulan == '4' ? 'selected' : '' }}
-                                                        value="1">APRIL
+                                                @elseif ($stokakhir->bulan == '04')
+                                                    <option {{ $stokakhir->bulan == '04' ? 'selected' : '' }}
+                                                        value="01">APRIL
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="04">APRIL</option> --}}
-                                                @elseif ($stokakhir->bulan == '5')
-                                                    <option {{ $stokakhir->bulan == '5' ? 'selected' : '' }}
-                                                        value="5">MEI
+                                                @elseif ($stokakhir->bulan == '05')
+                                                    <option {{ $stokakhir->bulan == '05' ? 'selected' : '' }}
+                                                        value="05">MEI
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="05">MEI</option> --}}
-                                                @elseif ($stokakhir->bulan == '6')
-                                                    <option {{ $stokakhir->bulan == '6' ? 'selected' : '' }}
-                                                        value="6">JUN
+                                                @elseif ($stokakhir->bulan == '06')
+                                                    <option {{ $stokakhir->bulan == '06' ? 'selected' : '' }}
+                                                        value="06">JUN
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="06">JUN</option> --}}
-                                                @elseif ($stokakhir->bulan == '7')
-                                                    <option {{ $stokakhir->bulan == '7' ? 'selected' : '' }}
-                                                        value="7">JULAI
+                                                @elseif ($stokakhir->bulan == '07')
+                                                    <option {{ $stokakhir->bulan == '07' ? 'selected' : '' }}
+                                                        value="07">JULAI
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="07">JULAI</option> --}}
-                                                @elseif ($stokakhir->bulan == '8')
-                                                    <option {{ $stokakhir->bulan == '8' ? 'selected' : '' }}
-                                                        value="8">OGOS
+                                                @elseif ($stokakhir->bulan == '08')
+                                                    <option {{ $stokakhir->bulan == '08' ? 'selected' : '' }}
+                                                        value="08">OGOS
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="08">OGOS</option> --}}
-                                                @elseif ($stokakhir->bulan == '9')
-                                                    <option {{ $stokakhir->bulan == '9' ? 'selected' : '' }}
+                                                @elseif ($stokakhir->bulan == '09')
+                                                    <option {{ $stokakhir->bulan == '09' ? 'selected' : '' }}
                                                         value="9">
                                                         SEPTEMBER</option>
 
