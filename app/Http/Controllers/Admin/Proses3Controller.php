@@ -1000,7 +1000,7 @@ class Proses3Controller extends Controller
                 $query = EBioInit::create([
                     'ebio_reg' => $count + 1,
                     'ebio_nl' => $request->e_initlesen,
-                    'ebio_bln' => now()->format('m') - 1,
+                    'ebio_bln' => $bulan_init,
                     'ebio_thn' =>$tahun1,
                     'ebio_flg' => '1',
                     'ebio_sdate' => NULL,
@@ -1018,7 +1018,7 @@ class Proses3Controller extends Controller
                 $query = Hari::create([
                     'id' => $count2 + 1,
                     'lesen' => $request->e_initlesen,
-                    'bulanbhg2' => now()->format('m') - 1,
+                    'bulanbhg2' => $bulan_init,
                     'tahunbhg2' => $tahun1,
                     'hari_operasi' => NULL,
                     'kapasiti' => NULL,
