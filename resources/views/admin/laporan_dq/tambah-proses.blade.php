@@ -83,15 +83,15 @@
                                         </label>
                                         <div class="col-md-4">
                                             <select class="form-control" name="bulan" id="bulan1">
-                                                <option value="1">JANUARI</option>
-                                                <option value="2">FEBRUARI</option>
-                                                <option value="3">MAC</option>
-                                                <option value="4">APRIL</option>
-                                                <option value="5">MEI</option>
-                                                <option value="6">JUN</option>
-                                                <option value="7">JULAI</option>
-                                                <option value="8">OGOS</option>
-                                                <option value="9">SEPTEMBER</option>
+                                                <option value="01">JANUARI</option>
+                                                <option value="02">FEBRUARI</option>
+                                                <option value="03">MAC</option>
+                                                <option value="04">APRIL</option>
+                                                <option value="05">MEI</option>
+                                                <option value="06">JUN</option>
+                                                <option value="07">JULAI</option>
+                                                <option value="08">OGOS</option>
+                                                <option value="09">SEPTEMBER</option>
                                                 <option value="10">OKTOBER</option>
                                                 <option value="11">NOVEMBER</option>
                                                 <option value="12">DISEMBER</option>
@@ -206,15 +206,15 @@
                                                                     name="bulan">
                                                                     <option selected hidden disabled value="">Sila
                                                                         Pilih Bulan</option>
-                                                                    <option value="1">Januari</option>
-                                                                    <option value="2">Februari</option>
-                                                                    <option value="3">Mac</option>
-                                                                    <option value="4">April</option>
-                                                                    <option value="5">Mei</option>
-                                                                    <option value="6">Jun</option>
-                                                                    <option value="7">Julai</option>
-                                                                    <option value="8">Ogos</option>
-                                                                    <option value="9">September</option>
+                                                                    <option value="01">Januari</option>
+                                                                    <option value="02">Februari</option>
+                                                                    <option value="03">Mac</option>
+                                                                    <option value="04">April</option>
+                                                                    <option value="05">Mei</option>
+                                                                    <option value="06">Jun</option>
+                                                                    <option value="07">Julai</option>
+                                                                    <option value="08">Ogos</option>
+                                                                    <option value="09">September</option>
                                                                     <option value="10">Oktober</option>
                                                                     <option value="11">November</option>
                                                                     <option value="12">Disember</option>

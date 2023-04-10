@@ -102,7 +102,7 @@
                                             <select class="form-control" name="bulan" id="bulan1" >
                                                 @if ($stokakhir->bulan == '01')
                                                     <option {{ $stokakhir->bulan == '01' ? 'selected' : '' }}
-                                                        value="1">
+                                                        value="01">
                                                         JANUARI</option>
                                                 @elseif ($stokakhir->bulan == '02')
                                                     <option {{ $stokakhir->bulan == '02' ? 'selected' : '' }}
@@ -118,7 +118,7 @@
                                                     {{-- <option selected hidden disabled value="03">MAC</option> --}}
                                                 @elseif ($stokakhir->bulan == '04')
                                                     <option {{ $stokakhir->bulan == '04' ? 'selected' : '' }}
-                                                        value="01">APRIL
+                                                        value="04">APRIL
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="04">APRIL</option> --}}
@@ -148,7 +148,7 @@
                                                     {{-- <option selected hidden disabled value="08">OGOS</option> --}}
                                                 @elseif ($stokakhir->bulan == '09')
                                                     <option {{ $stokakhir->bulan == '09' ? 'selected' : '' }}
-                                                        value="9">
+                                                        value="09">
                                                         SEPTEMBER</option>
 
                                                     {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
