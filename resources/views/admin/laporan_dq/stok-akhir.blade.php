@@ -126,23 +126,23 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $data->tahun }}</td>
-                                                            @if ($data->bulan == 01)
+                                                            @if ($data->bulan == 1)
                                                                 <td>Januari</td>
-                                                            @elseif ($data->bulan == 02)
+                                                            @elseif ($data->bulan == 2)
                                                                 <td>Februari</td>
-                                                            @elseif ($data->bulan == 03)
+                                                            @elseif ($data->bulan == 3)
                                                                 <td>Mac</td>
-                                                            @elseif ($data->bulan == 04)
+                                                            @elseif ($data->bulan == 4)
                                                                 <td>April</td>
-                                                            @elseif ($data->bulan == 05)
+                                                            @elseif ($data->bulan == 5)
                                                                 <td>Mei</td>
-                                                            @elseif ($data->bulan == 06)
+                                                            @elseif ($data->bulan == 6)
                                                                 <td>Jun</td>
-                                                            @elseif ($data->bulan == 07)
+                                                            @elseif ($data->bulan == 7)
                                                                 <td>Julai</td>
-                                                            @elseif ($data->bulan == 08)
+                                                            @elseif ($data->bulan == 8)
                                                                 <td>Ogos</td>
-                                                            @elseif ($data->bulan == 09)
+                                                            @elseif ($data->bulan == 9)
                                                                 <td>September</td>
                                                             @elseif ($data->bulan == 10)
                                                                 <td>Oktober</td>
