@@ -363,7 +363,7 @@ class LaporanController extends Controller
         endforeach;
         }
         if (isset($data_bulanan_ebio_c7)) {
-        foreach ($data_bulanan_ebio_b7 as $key => $v) :
+        foreach ($data_bulanan_ebio_c7 as $key => $v) :
 
             $totalc7[$key] = array_sum($v);
 
