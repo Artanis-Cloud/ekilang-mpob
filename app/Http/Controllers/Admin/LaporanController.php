@@ -245,13 +245,13 @@ class LaporanController extends Controller
 
             // dd($hbiob_b);
             // $new_bulan = $no_batch->ebio_bln - 1;
-            $data_bulanan_ebio_b5 = [];
-            $data_bulanan_ebio_b6 = [];
-            $data_bulanan_ebio_b7 = [];
-            $data_bulanan_ebio_b8 = [];
-            $data_bulanan_ebio_b9 = [];
-            $data_bulanan_ebio_b10 = [];
-            $data_bulanan_ebio_b11 = [];
+            // $data_bulanan_ebio_b5 = [];
+            // $data_bulanan_ebio_b6 = [];
+            // $data_bulanan_ebio_b7 = [];
+            // $data_bulanan_ebio_b8 = [];
+            // $data_bulanan_ebio_b9 = [];
+            // $data_bulanan_ebio_b10 = [];
+            // $data_bulanan_ebio_b11 = [];
 
             for ($i = 1; $i <= 12; $i++) {
                 // if($new_bulan == 0){
