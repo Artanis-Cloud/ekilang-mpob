@@ -40,7 +40,7 @@ class Kapasiti extends Model
     public function pelesen()
     {
 
-        return $this->hasOne (Pelesen::class, 'e_nl', 'e_nl')->where('e_kat','PLBIO');
+        return $this->hasMany (Pelesen::class, 'e_nl', 'e_nl')->where('e_kat','PLBIO');
     }
 
 
