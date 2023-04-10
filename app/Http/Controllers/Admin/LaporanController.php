@@ -245,7 +245,8 @@ class LaporanController extends Controller
 
             // dd($hbiob_b);
             // $new_bulan = $no_batch->ebio_bln - 1;
-
+            $data_bulanan_ebio_b5 = [];
+            
             for ($i = 1; $i <= 12; $i++) {
                 // if($new_bulan == 0){
                 //     $new_bulan = 12;
