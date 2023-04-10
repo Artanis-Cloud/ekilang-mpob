@@ -290,41 +290,56 @@ class LaporanController extends Controller
             }
         }
         // dd($proddesc);
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b5 as $key => $v) :
 
             $total5[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b6 as $key => $v) :
 
             $total6[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b7 as $key => $v) :
 
             $total7[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b8 as $key => $v) :
 
             $total8[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b9 as $key => $v) :
 
             $total9[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b10 as $key => $v) :
 
             $total10[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b11 as $key => $v) :
 
             $total11[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
 
 
         foreach ($data_bulanan_ebio_c4 as $key => $v) :
@@ -332,37 +347,49 @@ class LaporanController extends Controller
             $totalc4[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_c5 as $key => $v) :
 
             $totalc5[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_c6 as $key => $v) :
 
             $totalc6[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_b7 as $key => $v) :
 
             $totalc7[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_c8 as $key => $v) :
 
             $totalc8[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_c9 as $key => $v) :
 
             $totalc9[$key] = array_sum($v);
 
         endforeach;
+        }
+        if (isset($data_bulanan_ebio_b5)) {
         foreach ($data_bulanan_ebio_c10 as $key => $v) :
 
             $totalc10[$key] = array_sum($v);
 
         endforeach;
-
+        }
 
 
         //loop untuk dapatkan tarikh by format
