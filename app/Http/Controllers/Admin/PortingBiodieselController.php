@@ -154,6 +154,7 @@ class PortingBiodieselController extends Controller
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
+        AND p.e_kat = 'PLBIO'
         AND p.e_nl = h.ebio_nl
         AND p.e_negeri = n.kod_negeri
         AND h.ebio_nobatch = b.ebio_nobatch
@@ -181,6 +182,7 @@ class PortingBiodieselController extends Controller
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
+            AND p.e_kat = 'PLBIO'
             AND p.e_nl = h.ebio_nl
             AND p.e_negeri = n.kod_negeri
             AND h.ebio_nobatch = b.ebio_nobatch
@@ -208,6 +210,7 @@ class PortingBiodieselController extends Controller
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
+            AND p.e_kat = 'PLBIO'
             AND p.e_nl = h.ebio_nl
             AND p.e_negeri = n.kod_negeri
             AND h.ebio_nobatch = b.ebio_nobatch
@@ -235,6 +238,7 @@ class PortingBiodieselController extends Controller
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
+            AND p.e_kat = 'PLBIO'
             AND p.e_nl = h.ebio_nl
             AND p.e_negeri = n.kod_negeri
             AND h.ebio_nobatch = b.ebio_nobatch
