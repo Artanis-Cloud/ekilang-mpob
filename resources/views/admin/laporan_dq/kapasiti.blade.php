@@ -412,7 +412,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -423,7 +423,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -434,7 +434,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -445,7 +445,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -456,7 +456,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -467,7 +467,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -478,7 +478,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -489,7 +489,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -500,7 +500,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -511,7 +511,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -522,7 +522,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -533,7 +533,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -544,7 +544,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -555,7 +555,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -679,7 +679,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -690,7 +690,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -701,7 +701,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -712,7 +712,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -723,7 +723,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -734,7 +734,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -745,7 +745,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -756,7 +756,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -767,7 +767,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -778,7 +778,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -789,7 +789,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -800,7 +800,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -811,7 +811,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -822,7 +822,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -946,7 +946,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -957,7 +957,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -968,7 +968,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -979,7 +979,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -990,7 +990,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1001,7 +1001,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1012,7 +1012,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1023,7 +1023,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1034,7 +1034,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1045,7 +1045,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1056,7 +1056,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1067,7 +1067,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1078,7 +1078,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1089,7 +1089,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1213,7 +1213,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1224,7 +1224,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1235,7 +1235,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1246,7 +1246,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1257,7 +1257,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1268,7 +1268,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1279,7 +1279,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1290,7 +1290,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1301,7 +1301,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1312,7 +1312,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1323,7 +1323,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1334,7 +1334,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1345,7 +1345,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1356,7 +1356,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1480,7 +1480,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1491,7 +1491,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1502,7 +1502,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1513,7 +1513,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1524,7 +1524,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1535,7 +1535,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1546,7 +1546,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1557,7 +1557,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1568,7 +1568,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1579,7 +1579,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1590,7 +1590,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1601,7 +1601,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1612,7 +1612,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1623,7 +1623,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1747,7 +1747,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1758,7 +1758,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1769,7 +1769,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1780,7 +1780,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1791,7 +1791,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1802,7 +1802,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1813,7 +1813,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1824,7 +1824,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1835,7 +1835,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1846,7 +1846,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1857,7 +1857,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1868,7 +1868,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1879,7 +1879,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -1890,7 +1890,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2015,7 +2015,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2026,7 +2026,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2037,7 +2037,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2048,7 +2048,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2059,7 +2059,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2070,7 +2070,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2081,7 +2081,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2092,7 +2092,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2103,7 +2103,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2114,7 +2114,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2125,7 +2125,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2136,7 +2136,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2147,7 +2147,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2158,7 +2158,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2283,7 +2283,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2294,7 +2294,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2305,7 +2305,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2316,7 +2316,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2327,7 +2327,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2338,7 +2338,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2349,7 +2349,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2360,7 +2360,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2371,7 +2371,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2382,7 +2382,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2393,7 +2393,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2404,7 +2404,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2415,7 +2415,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2426,7 +2426,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2551,7 +2551,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2562,7 +2562,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2573,7 +2573,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2584,7 +2584,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2595,7 +2595,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2606,7 +2606,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2617,7 +2617,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2628,7 +2628,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2639,7 +2639,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2650,7 +2650,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2661,7 +2661,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2672,7 +2672,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2683,7 +2683,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2694,7 +2694,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2819,7 +2819,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2830,7 +2830,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2841,7 +2841,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2852,7 +2852,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2863,7 +2863,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2874,7 +2874,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2885,7 +2885,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2896,7 +2896,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2907,7 +2907,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2918,7 +2918,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2929,7 +2929,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2940,7 +2940,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2951,7 +2951,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -2962,7 +2962,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3087,7 +3087,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3098,7 +3098,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3109,7 +3109,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3120,7 +3120,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3131,7 +3131,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3142,7 +3142,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3153,7 +3153,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3164,7 +3164,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3175,7 +3175,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3186,7 +3186,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3197,7 +3197,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3208,7 +3208,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3219,7 +3219,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3230,7 +3230,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3355,7 +3355,7 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        @if ($data->pelesen->e_negeri ?? '' == '01')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3366,7 +3366,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '02')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3377,7 +3377,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '03')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3388,7 +3388,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '04')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3399,7 +3399,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '05')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3410,7 +3410,7 @@
                                                                                     value="NEGERI SEMBILAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '06')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3421,7 +3421,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '07')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3432,7 +3432,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '08')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3443,7 +3443,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '09')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3454,7 +3454,7 @@
                                                                                     value="PULAU PINANG" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '10')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3465,7 +3465,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '11')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3476,7 +3476,7 @@
                                                                                     value="TERENGGANU" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '12')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3487,7 +3487,7 @@
                                                                                     value="WILAYAH PERSEKUTUAN" readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '13')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
@@ -3498,7 +3498,7 @@
                                                                                     readonly>
                                                                             </div>
                                                                         </div>
-                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        @elseif ($data->pelesen->e_negeri ?? '' == '14')
                                                                         <div class="row mt-2 ml-auto">
                                                                             <label
                                                                                 class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
