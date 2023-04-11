@@ -252,7 +252,15 @@ class LaporanController extends Controller
             $data_bulanan_ebio_b9 = [];
             $data_bulanan_ebio_b10 = [];
             $data_bulanan_ebio_b11 = [];
+            $data_bulanan_ebio_c4 = [];
+            $data_bulanan_ebio_c5 = [];
+            $data_bulanan_ebio_c6 = [];
+            $data_bulanan_ebio_c7 = [];
+            $data_bulanan_ebio_c8 = [];
+            $data_bulanan_ebio_c9 = [];
+            $data_bulanan_ebio_c10 = [];
             $data3 = [];
+            $data4 = [];
 
             for ($i = 1; $i <= 12; $i++) {
                 // if($new_bulan == 0){
