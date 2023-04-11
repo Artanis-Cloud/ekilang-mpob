@@ -271,6 +271,10 @@
                                                     @endfor
 
                                                     @foreach ($data_bulanan_ebio_b6 as $keyProduk => $data_ebio_b6)
+
+                                                    @php
+                                                        $total_row_b6 = 0;
+                                                    @endphp
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
                                                             <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
@@ -279,14 +283,19 @@
 
                                                                 @php
                                                                     $total_col_bulan_b6[$i] += $data_bulanan_ebio_b6[$keyProduk][$i] ?? 0 ;
+                                                                    $total_row_b6 += $data_bulanan_ebio_b6[$keyProduk][$i] ?? 0 ;
                                                                 @endphp
 
                                                             @endfor
-                                                            <td class="font-weight-bold text-center">{{ number_format($total6[$keyProduk] ?? 0,2) }}</td>
+                                                            <td class="font-weight-bold text-center">{{ number_format($total_row_b6 ?? 0,2) }}</td>
                                                         </tr>
                                                     @endforeach
 
                                                     @foreach ($data_bulanan_ebio_c5 as $keyProduk => $data_ebio_c5)
+
+                                                    @php
+                                                        $total_row_c5 = 0;
+                                                    @endphp
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
                                                             <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
@@ -295,10 +304,11 @@
 
                                                                 @php
                                                                     $total_col_bulan_c5[$i] += $data_bulanan_ebio_c5[$keyProduk][$i] ?? 0 ;
+                                                                    $total_row_c5 += $data_bulanan_ebio_c5[$keyProduk][$i] ?? 0 ;
                                                                 @endphp
 
                                                             @endfor
-                                                            <td class="font-weight-bold text-center">{{ number_format($totalc5[$keyProduk] ?? 0,2) }}</td>
+                                                            <td class="font-weight-bold text-center">{{ number_format($total_row_c5 ?? 0,2) }}</td>
                                                         </tr>
                                                     @endforeach
 
@@ -355,6 +365,10 @@
                                                     @endfor
 
                                                     @foreach ($data_bulanan_ebio_b7 as $keyProduk => $data_ebio_b7)
+
+                                                    @php
+                                                        $total_row_b7 = 0;
+                                                    @endphp
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
                                                             <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
@@ -364,14 +378,19 @@
 
                                                                 @php
                                                                     $total_col_bulan_b7[$i] += $data_bulanan_ebio_b7[$keyProduk][$i] ?? 0 ;
+                                                                    $total_row_b7 += $data_bulanan_ebio_b7[$keyProduk][$i] ?? 0 ;
                                                                 @endphp
 
                                                             @endfor
-                                                            <td class="font-weight-bold text-center">{{number_format( $total7[$keyProduk] ?? 0,2) }}</td>
+                                                            <td class="font-weight-bold text-center">{{number_format( $total_row_b7 ?? 0,2) }}</td>
                                                         </tr>
                                                     @endforeach
 
                                                     @foreach ($data_bulanan_ebio_c6 as $keyProduk => $data_ebio_c6)
+
+                                                    @php
+                                                        $total_row_c6 = 0;
+                                                    @endphp
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
                                                             <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
@@ -381,10 +400,11 @@
 
                                                                 @php
                                                                     $total_col_bulan_c6[$i] += $data_bulanan_ebio_c6[$keyProduk][$i] ?? 0 ;
+                                                                    $total_row_c6 += $data_bulanan_ebio_c6[$keyProduk][$i] ?? 0 ;
                                                                 @endphp
 
                                                             @endfor
-                                                            <td class="font-weight-bold text-center">{{number_format( $totalc6[$keyProduk] ?? 0,2) }}</td>
+                                                            <td class="font-weight-bold text-center">{{number_format( $total_row_c6 ?? 0,2) }}</td>
                                                         </tr>
                                                     @endforeach
 
@@ -440,6 +460,10 @@
 
                                                     @foreach ($data_bulanan_ebio_b8 as $keyProduk => $data_ebio_b8)
 
+                                                    @php
+                                                        $total_row_b8 = 0;
+                                                    @endphp
+
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
@@ -449,13 +473,18 @@
 
                                                             @php
                                                                 $total_col_bulan_b8[$i] += $data_bulanan_ebio_b8[$keyProduk][$i] ?? 0 ;
+                                                                $total_row_b8 += $data_bulanan_ebio_b8[$keyProduk][$i] ?? 0 ;
                                                             @endphp
                                                         @endfor
-                                                        <td class="font-weight-bold text-center">{{number_format( $total8[$keyProduk] ?? 0,2) }}</td>
+                                                        <td class="font-weight-bold text-center">{{number_format( $total_row_b8 ?? 0,2) }}</td>
                                                     </tr>
                                                     @endforeach
 
                                                     @foreach ($data_bulanan_ebio_c7 as $keyProduk => $data_ebio_c7)
+
+                                                    @php
+                                                        $total_row_c7 = 0;
+                                                    @endphp
 
 
                                                     <tr>
@@ -466,9 +495,10 @@
 
                                                             @php
                                                                 $total_col_bulan_c7[$i] += $data_bulanan_ebio_c7[$keyProduk][$i] ?? 0 ;
+                                                                $total_row_c7 += $data_bulanan_ebio_c7[$keyProduk][$i] ?? 0 ;
                                                             @endphp
                                                         @endfor
-                                                        <td class="font-weight-bold text-center">{{number_format( $totalc7[$keyProduk] ?? 0,2) }}</td>
+                                                        <td class="font-weight-bold text-center">{{number_format( $total_row_c7?? 0,2) }}</td>
                                                     </tr>
                                                     @endforeach
 
@@ -526,6 +556,10 @@
 
                                                     @foreach ($data_bulanan_ebio_b9 as $keyProduk => $data_ebio_b9)
 
+                                                    @php
+                                                        $total_row_b9 = 0;
+                                                    @endphp
+
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
@@ -535,13 +569,18 @@
 
                                                             @php
                                                                 $total_col_bulan_b9[$i] += $data_bulanan_ebio_b9[$keyProduk][$i] ?? 0 ;
+                                                                $total_row_b9 += $data_bulanan_ebio_b9[$keyProduk][$i] ?? 0 ;
                                                             @endphp
                                                         @endfor
-                                                        <td class="font-weight-bold text-center">{{ number_format( $total9[$keyProduk] ?? 0,2) }}</td>
+                                                        <td class="font-weight-bold text-center">{{ number_format( $total_row_b9[$keyProduk] ?? 0,2) }}</td>
                                                     </tr>
                                                     @endforeach
 
                                                     @foreach ($data_bulanan_ebio_c8 as $keyProduk => $data_ebio_c8)
+
+                                                    @php
+                                                        $total_row_c8 = 0;
+                                                    @endphp
 
 
                                                     <tr>
@@ -552,9 +591,10 @@
 
                                                             @php
                                                                 $total_col_bulan_c8[$i] += $data_bulanan_ebio_c8[$keyProduk][$i] ?? 0 ;
+                                                                $total_row_c8 += $data_bulanan_ebio_c8[$keyProduk][$i] ?? 0 ;
                                                             @endphp
                                                         @endfor
-                                                        <td class="font-weight-bold text-center">{{ number_format( $totalc8[$keyProduk] ?? 0,2) }}</td>
+                                                        <td class="font-weight-bold text-center">{{ number_format( $total_row_c8 ?? 0,2) }}</td>
                                                     </tr>
                                                     @endforeach
 
@@ -612,6 +652,10 @@
 
                                                     @foreach ($data_bulanan_ebio_b10 as $keyProduk => $data_ebio_b10)
 
+                                                    @php
+                                                        $total_row_b10 = 0;
+                                                    @endphp
+
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
@@ -621,14 +665,18 @@
 
                                                             @php
                                                                 $total_col_bulan_b10[$i] += $data_bulanan_ebio_b10[$keyProduk][$i] ?? 0 ;
+                                                                $total_row_b10 += $data_bulanan_ebio_b10[$keyProduk][$i] ?? 0 ;
                                                             @endphp
                                                         @endfor
-                                                        <td class="font-weight-bold text-center">{{ number_format( $total10[$keyProduk] ?? 0,2) }}</td>
+                                                        <td class="font-weight-bold text-center">{{ number_format( $total_row_b10 ?? 0,2) }}</td>
                                                     </tr>
                                                     @endforeach
 
                                                     @foreach ($data_bulanan_ebio_c9 as $keyProduk => $data_ebio_c9)
 
+                                                    @php
+                                                        $total_row_c9 = 0;
+                                                    @endphp
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
@@ -638,9 +686,10 @@
 
                                                             @php
                                                                 $total_col_bulan_c9[$i] += $data_bulanan_ebio_c9[$keyProduk][$i] ?? 0 ;
+                                                                $total_row_c9 += $data_bulanan_ebio_c9[$keyProduk][$i] ?? 0 ;
                                                             @endphp
                                                         @endfor
-                                                        <td class="font-weight-bold text-center">{{ number_format( $totalc9[$keyProduk] ?? 0,2) }}</td>
+                                                        <td class="font-weight-bold text-center">{{ number_format( $total_row_c9 ?? 0,2) }}</td>
                                                     </tr>
                                                     @endforeach
 
