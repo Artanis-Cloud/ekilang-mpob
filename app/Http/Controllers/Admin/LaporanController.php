@@ -259,6 +259,7 @@ class LaporanController extends Controller
             $data_bulanan_ebio_c8 = [];
             $data_bulanan_ebio_c9 = [];
             $data_bulanan_ebio_c10 = [];
+            $proddesc = [];
             $data3 = [];
             $data4 = [];
 
