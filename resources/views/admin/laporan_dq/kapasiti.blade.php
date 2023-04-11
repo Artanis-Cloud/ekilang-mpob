@@ -3698,7 +3698,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
                         exportOptions: {
-                            columns: [1,2,3,4]
+                            columns: [0,1,2,3,4]
                         },
 
                         filename: 'Kapasiti Kilang Biodiesel',
@@ -3713,7 +3713,7 @@
                         className: "prodpdf",
 
                            exportOptions: {
-                                columns: [1,2,3,4]
+                                columns: [0,1,2,3,4]
                             },
                             title: function(doc) {
                                     return $('#title').text()
