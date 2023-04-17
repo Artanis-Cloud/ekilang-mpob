@@ -10,6 +10,8 @@ use App\Models\Negeri;
 use App\Models\P101;
 use App\Models\P101D;
 use App\Models\P101Master;
+use App\Models\P101MonthlyState;
+use App\Models\P104MonthlyState;
 use App\Models\P102;
 use App\Models\P1022;
 use App\Models\P104;
@@ -799,13 +801,22 @@ class Proses10Controller extends Controller
     // $updatep101w = DB::update("UPDATE p101_master set refutilrateppko = 0
     //     where tahun = '$tahun' and bulan = '$bulan' and refutilrateppko is NULL");
 
+    $maxid_mth = P101MonthlyState::max('id_mth');
 
-	$mthstatep101 = DB::insert("INSERT INTO p101_monthly_state (
+    if ($maxid_mth)
+        {
+         $maxid = $maxid_mth + 1;
+        }
+    else
+         $maxid = 1;
+
+
+	$mthstatep101 = DB::insert("INSERT INTO p101_monthly_state ( id_mth,
         tahun, bulan, negeri, prodid, produk_kump, prodcat,
         stkawal_premis, stkawal_ps, belian, import,
         pengeluaran, guna_proses, jual_edar, eksport,
         stkakhir_premis, stkakhir_ps)
-    SELECT 	p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri),
+    SELECT '$maxid', p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri),
         p.prodid, p.produk_kump, p.prodcat,
         sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian),
         sum(p.import), sum(p.pengeluaran),
@@ -819,7 +830,7 @@ class Proses10Controller extends Controller
     GROUP BY p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri),
         p.prodid, p.produk_kump, p.prodcat
     UNION
-    SELECT 	p.tahun, p.bulan, '121 SEMENANJUNG MALAYSIA', p.prodid, p.produk_kump, p.prodcat,
+    SELECT '$maxid', p.tahun, p.bulan, '121 SEMENANJUNG MALAYSIA', p.prodid, p.produk_kump, p.prodcat,
         sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian),
         sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
         sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
@@ -829,7 +840,7 @@ class Proses10Controller extends Controller
             l.e_negeri in ('01','02','03','04','05','06','07','08','09','10','11','12')
     GROUP BY  p.tahun, p.bulan, '121 SEMENANJUNG MALAYSIA', p.prodid, p.produk_kump, p.prodcat
     union
-    SELECT  p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri),
+    SELECT '$maxid',  p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri),
         p.prodid, p.produk_kump, p.prodcat,
         sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian),
         sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
@@ -842,7 +853,7 @@ class Proses10Controller extends Controller
     GROUP BY  p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri),
         p.prodid, p.produk_kump, p.prodcat
     union
-    SELECT  p.tahun, p.bulan, '141 SABAH/SARAWAK', p.prodid, p.produk_kump, p.prodcat,
+    SELECT '$maxid',  p.tahun, p.bulan, '141 SABAH/SARAWAK', p.prodid, p.produk_kump, p.prodcat,
         sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian),
         sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
         sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
@@ -852,7 +863,7 @@ class Proses10Controller extends Controller
             l.e_negeri in ('13','14')
     GROUP BY  p.tahun, p.bulan, '141 SABAH/SARAWAK', p.prodid, p.produk_kump, p.prodcat
     union
-    SELECT  p.tahun, p.bulan, '151 MALAYSIA', p.prodid, p.produk_kump, p.prodcat,
+    SELECT '$maxid',  p.tahun, p.bulan, '151 MALAYSIA', p.prodid, p.produk_kump, p.prodcat,
         sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian),
         sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
         sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
@@ -2903,14 +2914,22 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     $updatep104w =DB::update("UPDATE p104_master set oleoutilrateppko = 0
     where tahun = '$tahun' and bulan = '$bulan' and oleoutilrateppko is NULL");
 
+    $maxid_mth_104 = P104MonthlyState::max('id_mth');
+
+    if ($maxid_mth_104)
+        {
+        $maxid_104 = $maxid_mth_104 + 1;
+        }
+    else
+        $maxid_104 = 1;
 
     $mthstatep104 = DB::insert(
-    "INSERT into p104_monthly_state (
+    "INSERT into p104_monthly_state ( id_mth,
     tahun, bulan, negeri, prodid, produk_kump, prodcat, prodsubcat,
     stkawal_premis, stkawal_ps, belian, import,
     pengeluaran, guna_proses, jual_edar, eksport,
     stkakhir_premis, stkakhir_ps)
-    SELECT p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri), p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
+    SELECT '$maxid_104', p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri), p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
     sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian), sum(p.import), sum(p.pengeluaran),
     sum(p.guna_proses),sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
     FROM p104 p, pelesen l, negeri n
@@ -2919,7 +2938,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     l.e_negeri = n.kod_negeri
     GROUP BY p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri), p.prodid, p.produk_kump, p.prodcat, p.prodsubcat
     union
-    SELECT p.tahun, p.bulan, '121 SEMENANJUNG MALAYSIA', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
+    SELECT '$maxid_104', p.tahun, p.bulan, '121 SEMENANJUNG MALAYSIA', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
     sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian), sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
     sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
     FROM
@@ -2929,7 +2948,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     l.e_negeri in ('01','02','03','04','05','06','07','08','09','10','11','12')
     GROUP BY  p.tahun, p.bulan, '121 SEMENANJUNG MALAYSIA', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat
     union
-    SELECT  p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri), p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
+    SELECT '$maxid_104',  p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri), p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
     sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian), sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
     sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
     FROM
@@ -2940,7 +2959,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     l.e_negeri = n.kod_negeri
     GROUP BY  p.tahun, p.bulan, concat(l.e_negeri,' - ',n.nama_negeri), p.prodid, p.produk_kump, p.prodcat, p.prodsubcat
     union
-    SELECT  p.tahun, p.bulan, '141 SABAH/SARAWAK', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
+    SELECT '$maxid_104',  p.tahun, p.bulan, '141 SABAH/SARAWAK', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
     sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian), sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
     sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
     FROM
@@ -2950,7 +2969,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     l.e_negeri in ('13','14')
     GROUP BY  p.tahun, p.bulan, '141 SABAH/SARAWAK', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat
     union
-    SELECT  p.tahun, p.bulan, '151 MALAYSIA', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
+    SELECT '$maxid_104',  p.tahun, p.bulan, '151 MALAYSIA', p.prodid, p.produk_kump, p.prodcat, p.prodsubcat,
     sum(p.stkawal_premis), sum(p.stkawal_ps), sum(p.belian), sum(p.import), sum(p.pengeluaran), sum(p.guna_proses),
     sum(p.jual_edar), sum(p.eksport), sum(p.stkakhir_premis), sum(p.stkakhir_ps)
     FROM
