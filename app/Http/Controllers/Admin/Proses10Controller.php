@@ -663,43 +663,70 @@ class Proses10Controller extends Controller
         and tahun = '$tahun' and bulan = '$bulan' ");
 
 
-    $updatep101f = DB::update("UPDATE p101_master set cpo_proc =
-    (select sum(guna_proses) from p101
-    where
-    p101.nolesen= p101_master.nolesen and
-    p101.tahun = p101_master.tahun and
-    p101.bulan = p101_master.bulan and
-    p101.prodid = '01'
-    group by p101.tahun, p101.bulan, p101.nolesen) ");
+    // $updatep101f = DB::update("UPDATE p101_master set cpo_proc =
+    // (select sum(guna_proses) from p101
+    // where
+    // p101.nolesen= p101_master.nolesen and
+    // p101.tahun = p101_master.tahun and
+    // p101.bulan = p101_master.bulan and
+    // p101.prodid = '01'
+    // group by p101.tahun, p101.bulan, p101.nolesen) ");
+
+    // $updatep101g = DB::update("UPDATE p101_master set cpko_proc =
+    // (select sum(guna_proses) from p101
+    // where
+    // p101.nolesen= p101_master.nolesen and
+    // p101.tahun = p101_master.tahun and
+    // p101.bulan = p101_master.bulan and
+    // p101.prodid = '04'
+    // group by p101.tahun, p101.bulan, p101.nolesen) ");
+
+    // $updatep101h = DB::update("UPDATE p101_master set ppo_proc =
+    // (select sum(guna_proses) from p101
+    // where
+    // p101.nolesen= p101_master.nolesen and
+    // p101.tahun = p101_master.tahun and
+    // p101.bulan = p101_master.bulan and
+    // p101.prodid != '01' and
+    // p101.prodcat = '01'
+    // group by p101.tahun, p101.bulan, p101.nolesen) ");
+
+    // $updatep101i = DB::update("UPDATE p101_master set ppko_proc =
+    // (select sum(guna_proses) from p101
+    // where
+    // p101.nolesen= p101_master.nolesen and
+    // p101.tahun = p101_master.tahun and
+    // p101.bulan = p101_master.bulan and
+    // p101.prodid != '04' and
+    // p101.prodcat = '02'
+    // group by p101.tahun, p101.bulan, p101.nolesen) ");
+
+    $updatep101f = DB::update("UPDATE p101_master set cpo_proc =    (select sum(guna_proses) from p101
+    where    p101.nolesen= p101_master.nolesen and
+    p101.tahun = p101_master.tahun and    p101.bulan = p101_master.bulan and
+    p101.tahun = '$tahun' and    p101.bulan = '$bulan' and
+    p101.prodid = '01'    group by p101.tahun, p101.bulan, p101.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
     $updatep101g = DB::update("UPDATE p101_master set cpko_proc =
-    (select sum(guna_proses) from p101
-    where
-    p101.nolesen= p101_master.nolesen and
-    p101.tahun = p101_master.tahun and
-    p101.bulan = p101_master.bulan and
-    p101.prodid = '04'
-    group by p101.tahun, p101.bulan, p101.nolesen) ");
+    (select sum(guna_proses) from p101    where
+    p101.nolesen= p101_master.nolesen and    p101.tahun = p101_master.tahun and
+    p101.bulan = p101_master.bulan and p101.tahun = '$tahun' and
+    p101.bulan = '$bulan' and    p101.prodid = '04'
+    group by p101.tahun, p101.bulan, p101.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
-    $updatep101h = DB::update("UPDATE p101_master set ppo_proc =
-    (select sum(guna_proses) from p101
-    where
-    p101.nolesen= p101_master.nolesen and
-    p101.tahun = p101_master.tahun and
-    p101.bulan = p101_master.bulan and
-    p101.prodid != '01' and
-    p101.prodcat = '01'
-    group by p101.tahun, p101.bulan, p101.nolesen) ");
+    $updatep101h = DB::update("UPDATE p101_master set ppo_proc =    (select sum(guna_proses) from p101
+    where    p101.nolesen= p101_master.nolesen and
+    p101.tahun = p101_master.tahun and    p101.bulan = p101_master.bulan and
+    p101.tahun = '$tahun' and    p101.bulan = '$bulan' and
+    p101.prodid != '01' and    p101.prodcat = '01'
+    group by p101.tahun, p101.bulan, p101.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
-    $updatep101i = DB::update("UPDATE p101_master set ppko_proc =
-    (select sum(guna_proses) from p101
-    where
-    p101.nolesen= p101_master.nolesen and
-    p101.tahun = p101_master.tahun and
-    p101.bulan = p101_master.bulan and
-    p101.prodid != '04' and
-    p101.prodcat = '02'
-    group by p101.tahun, p101.bulan, p101.nolesen) ");
+    $updatep101i = DB::update("UPDATE p101_master set ppko_proc =    (select sum(guna_proses) from p101
+    where    p101.nolesen= p101_master.nolesen and
+    p101.tahun = p101_master.tahun and    p101.bulan = p101_master.bulan and
+    p101.tahun = '$tahun' and    p101.bulan = '$bulan' and
+    p101.prodid != '04' and    p101.prodcat = '02'
+    group by p101.tahun, p101.bulan, p101.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
 
 	$updatep101j = DB::update("UPDATE p101_master set cpo_proc = 0
@@ -811,7 +838,7 @@ class Proses10Controller extends Controller
     //      $maxid = 1;
 
 
-	$mthstatep101 = DB::insert("INSERT INTO p101_monthly_state ( 
+	$mthstatep101 = DB::insert("INSERT INTO p101_monthly_state (
         tahun, bulan, negeri, prodid, produk_kump, prodcat,
         stkawal_premis, stkawal_ps, belian, import,
         pengeluaran, guna_proses, jual_edar, eksport,
