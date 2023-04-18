@@ -2797,43 +2797,70 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     $updatep104b =DB::update("UPDATE p104 set prodsubcat = (select sub_group from produk where prodid = p104.prodid)
         where tahun = '$tahun' and bulan = '$bulan' ");
 
-    $updatep104f =DB::update("UPDATE p104_master set cpo_proc = (select sum(guna_proses)
-    from p104
-    where
-    p104.nolesen= p104_master.nolesen and
-    p104.tahun = p104_master.tahun and
-    p104.bulan = p104_master.bulan and
-    p104.prodid = '01'
-    group by p104.tahun, p104.bulan, p104.nolesen)");
+    // $updatep104f =DB::update("UPDATE p104_master set cpo_proc = (select sum(guna_proses)
+    // from p104
+    // where
+    // p104.nolesen= p104_master.nolesen and
+    // p104.tahun = p104_master.tahun and
+    // p104.bulan = p104_master.bulan and
+    // p104.prodid = '01'
+    // group by p104.tahun, p104.bulan, p104.nolesen)");
+
+    // $updatep104g =DB::update("UPDATE p104_master set cpko_proc = (select sum(guna_proses)
+    // from p104
+    // where
+    // p104.nolesen= p104_master.nolesen and
+    // p104.tahun = p104_master.tahun and
+    // p104.bulan = p104_master.bulan and
+    // p104.prodid = '04'
+    // group by p104.tahun, p104.bulan, p104.nolesen)");
+
+    // $updatep104h =DB::update("UPDATE p104_master set ppo_proc = (select sum(guna_proses)
+    // from p104
+    // where
+    // p104.nolesen= p104_master.nolesen and
+    // p104.tahun = p104_master.tahun and
+    // p104.bulan = p104_master.bulan and
+    // p104.prodid != '01' and
+    // p104.prodcat = '01'
+    // group by p104.tahun, p104.bulan, p104.nolesen)");
+
+    // $updatep104i =DB::update("UPDATE p104_master set ppko_proc = (select sum(guna_proses)
+    // from p104
+    // where
+    // p104.nolesen= p104_master.nolesen and
+    // p104.tahun = p104_master.tahun and
+    // p104.bulan = p104_master.bulan and
+    // p104.prodid != '04' and
+    // p104.prodcat = '02'
+    // group by p104.tahun, p104.bulan, p104.nolesen)");
+
+    $updatep104f =DB::update("UPDATE p104_master set cpo_proc = (select sum(guna_proses)    from p104
+    where    p104.nolesen= p104_master.nolesen and
+    p104.tahun = p104_master.tahun and    p104.bulan = p104_master.bulan and
+    p104.tahun = '$tahun' and     p104.bulan = '$bulan' and
+    p104.prodid = '01'    group by p104.tahun, p104.bulan, p104.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
     $updatep104g =DB::update("UPDATE p104_master set cpko_proc = (select sum(guna_proses)
-    from p104
-    where
-    p104.nolesen= p104_master.nolesen and
-    p104.tahun = p104_master.tahun and
-    p104.bulan = p104_master.bulan and
-    p104.prodid = '04'
-    group by p104.tahun, p104.bulan, p104.nolesen)");
+    from p104    where
+    p104.nolesen= p104_master.nolesen and    p104.tahun = p104_master.tahun and
+    p104.bulan = p104_master.bulan and p104.tahun = '$tahun' and
+    p104.bulan = '$bulan' and p104.prodid = '04'
+    group by p104.tahun, p104.bulan, p104.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
-    $updatep104h =DB::update("UPDATE p104_master set ppo_proc = (select sum(guna_proses)
-    from p104
-    where
-    p104.nolesen= p104_master.nolesen and
-    p104.tahun = p104_master.tahun and
-    p104.bulan = p104_master.bulan and
-    p104.prodid != '01' and
-    p104.prodcat = '01'
-    group by p104.tahun, p104.bulan, p104.nolesen)");
+    $updatep104h =DB::update("UPDATE p104_master set ppo_proc = (select sum(guna_proses)    from p104
+    where    p104.nolesen= p104_master.nolesen and
+    p104.tahun = p104_master.tahun and    p104.bulan = p104_master.bulan and
+    p104.tahun = '$tahun' and     p104.bulan = '$bulan' and
+    p104.prodid != '01' and    p104.prodcat = '01'
+    group by p104.tahun, p104.bulan, p104.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
-    $updatep104i =DB::update("UPDATE p104_master set ppko_proc = (select sum(guna_proses)
-    from p104
-    where
-    p104.nolesen= p104_master.nolesen and
-    p104.tahun = p104_master.tahun and
-    p104.bulan = p104_master.bulan and
-    p104.prodid != '04' and
-    p104.prodcat = '02'
-    group by p104.tahun, p104.bulan, p104.nolesen)");
+    $updatep104i =DB::update("UPDATE p104_master set ppko_proc = (select sum(guna_proses)    from p104
+    where    p104.nolesen= p104_master.nolesen and
+    p104.tahun = p104_master.tahun and    p104.bulan = p104_master.bulan and
+    p104.tahun = '$tahun' and     p104.bulan = '$bulan' and
+    p104.prodid != '04' and    p104.prodcat = '02'
+    group by p104.tahun, p104.bulan, p104.nolesen) where tahun='$tahun' and bulan='$bulan'");
 
     $updatep104j =DB::update("UPDATE p104_master set cpo_proc = 0
     where tahun = '$tahun' and bulan = '$bulan' and cpo_proc is NULL");
