@@ -49,6 +49,9 @@ class Proses10Controller extends Controller
 
     public function admin_portingdata(Request $request)
     {
+
+        ini_set('max_execution_time', 300);
+
         $this->porting_data($request->tahun, $request->bulan);
         Auth::user()->log(" PORT DATA DARIPADA DYNAMIC QUERY" );
 
