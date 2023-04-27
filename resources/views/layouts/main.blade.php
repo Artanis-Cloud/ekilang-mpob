@@ -2313,8 +2313,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        Pemegang lesen tidak perlu melengkapkan maklumat di bahagian ini. Sila tekan butang 'Simpan
-                        & Seterusnya' untuk ke bahagian seterusnya.
+                        Maklumat di bahagian ini hanya perlu dilapor di sistem e-QC <a href="http://eqc.mpob.gov.my">eqc.mpob.gov.my<a> sekiranya pemegang lesen mempunyai aktiviti eksport pada lesen. Sila tekan butang 'Simpan & Seterusnya' untuk ke bahagian seterusnya.
                     </p>
                 </div>
                 <div class="modal-footer">
