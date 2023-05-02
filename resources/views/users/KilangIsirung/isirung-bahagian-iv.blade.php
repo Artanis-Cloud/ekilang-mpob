@@ -205,7 +205,7 @@
                             </div>
 
                         </div>
-<br>
+                        <br>
                         <div class="row justify-content-center form-group" >
                                 <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                         </div>
