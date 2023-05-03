@@ -100,585 +100,588 @@
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.add.bahagian.v') }}" method="post" class="sub-form" novalidate>
-                @csrf
-                <div class="card-body" style="padding: 2%">
+            <div class="card-body" style="padding: 2%">
+                <form action="{{ route('penapis.add.bahagian.v') }}" method="post" class="sub-form" novalidate>
+                    @csrf
                     <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 5 (a) & (b)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Belian/Terimaan Bekalan Produk Sawit (Sendiri dan Luar)</h5>
                             {{-- <p>Maklumat Kilang</p> --}}
-                        </div>
-                        <hr>
-                        <div class="mb-2 col-8" style="text-align: left">
-                            <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
-                        </div>
-                        <div class="container center mt-4">
+                    </div>
+                    <hr>
+                    <div class="mb-2 col-8" style="text-align: left">
+                        <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                    </div>
+                    <div class="container center mt-4">
 
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
-                                    <span class="">Sendiri/Luar</span>
+                        <div class="row">
+                            <div class="col-md-3 mt-3">
+                                <span class="">Sendiri/Luar</span>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <div id="border_sl">
+                                <select class="form-control" id="e101_d3" name="e101_d3" style="width: 70%" required oninput="this.setCustomValidity(''); valid_sl()"
+                                oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                    <option value="1"> SENDIRI </option>
+                                    <option value="2"> LUAR </option>
+                                </select>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <div id="border_sl">
-                                    <select class="form-control" id="e101_d3" name="e101_d3" style="width: 70%" required oninput="this.setCustomValidity(''); valid_sl()"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
-                                        <option selected hidden disabled value="">Sila Pilih</option>
-                                        <option value="1"> SENDIRI </option>
-                                        <option value="2"> LUAR </option>
-                                    </select>
+                                <p type="hidden" id="err_sl" style="color: red; display:none"><i>Sila buat pilihan
+                                    di bahagian ini!</i></p>
+                                @error('e101_d3')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila buat pilihan di bahagian ini</strong>
                                     </div>
-                                    <p type="hidden" id="err_sl" style="color: red; display:none"><i>Sila buat pilihan
-                                        di bahagian ini!</i></p>
-                                    @error('e101_d3')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila buat pilihan di bahagian ini</strong>
-                                        </div>
-                                    @enderror
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <span class="">Belian/Terimaan Dari</span>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <div id="border_bt">
+                                <select class="form-control" id="e101_d4" style="width:70%" name="e101_d4" required oninput="this.setCustomValidity(''); valid_bt()"
+                                oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                    <option value="1">KILANG BUAH</option>
+                                    <option value="2">KILANG PENAPIS</option>
+                                    <option value="3">KILANG ISIRUNG</option>
+                                    <option value="4">KILANG OLEOKIMIA</option>
+                                    <option value="5">PUSAT SIMPANAN</option>
+                                    <option value="6">PENIAGA</option>
+                                    <option value="9">LAIN-LAIN</option>
+                                </select>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <span class="">Belian/Terimaan Dari</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <div id="border_bt">
-                                    <select class="form-control" id="e101_d4" style="width:70%" name="e101_d4" required oninput="this.setCustomValidity(''); valid_bt()"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
-                                        <option selected hidden disabled value="">Sila Pilih</option>
-                                        <option value="1">KILANG BUAH</option>
-                                        <option value="2">KILANG PENAPIS</option>
-                                        <option value="3">KILANG ISIRUNG</option>
-                                        <option value="4">KILANG OLEOKIMIA</option>
-                                        <option value="5">PUSAT SIMPANAN</option>
-                                        <option value="6">PENIAGA</option>
-                                        <option value="9">LAIN-LAIN</option>
-                                    </select>
+                                <p type="hidden" id="err_bt" style="color: red; display:none"><i>Sila buat pilihan
+                                    di bahagian ini!</i></p>
+                                @error('e101_d4')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila buat pilihan di bahagian ini</strong>
                                     </div>
-                                    <p type="hidden" id="err_bt" style="color: red; display:none"><i>Sila buat pilihan
-                                        di bahagian ini!</i></p>
-                                    @error('e101_d4')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila buat pilihan di bahagian ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-
+                                @enderror
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
-                                    <span class="">CPO</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e101_d5' style="width: 70%" id="e101_d5"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity(''); invoke_d5()" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')">
-                                    @error('e101_d5')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <span class="">PPO</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e101_d6' style="width: 70%" id="e101_d6"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity(''); invoke_d6()" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')">
-                                    @error('e101_d6')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 mt-3">
+                                <span class="">CPO</span>
                             </div>
-
-
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
-                                    <span class="">CPKO</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e101_d7' style="width: 70%" id="e101_d7"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity(''); invoke_d7()" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')">
-                                    @error('e101_d7')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <span class="">PPKO</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e101_d8' style="width: 70%" id="e101_d8"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity(''); invoke_d8()" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')">
-                                    @error('e101_d8')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-
+                            <div class="col-md-3 mt-3">
+                                <input type="text" class="form-control" name='e101_d5' style="width: 70%" id="e101_d5"
+                                    required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                    oninput="this.setCustomValidity(''); invoke_d5()" onchange="autodecimal(this); FormatCurrency(this)"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                @error('e101_d5')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila isi butiran ini</strong>
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <span class="">PPO</span>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <input type="text" class="form-control" name='e101_d6' style="width: 70%" id="e101_d6"
+                                    required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                    oninput="this.setCustomValidity(''); invoke_d6()" onchange="autodecimal(this); FormatCurrency(this)"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                @error('e101_d6')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila isi butiran ini</strong>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
-                        <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                            <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
+
+                        <div class="row">
+                            <div class="col-md-3 mt-3">
+                                <span class="">CPKO</span>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <input type="text" class="form-control" name='e101_d7' style="width: 70%" id="e101_d7"
+                                    required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                    oninput="this.setCustomValidity(''); invoke_d7()" onchange="autodecimal(this); FormatCurrency(this)"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                @error('e101_d7')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila isi butiran ini</strong>
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <span class="">PPKO</span>
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <input type="text" class="form-control" name='e101_d8' style="width: 70%" id="e101_d8"
+                                    required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                    oninput="this.setCustomValidity(''); invoke_d8()" onchange="autodecimal(this); FormatCurrency(this)"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                @error('e101_d8')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila isi butiran ini</strong>
+                                    </div>
+                                @enderror
+                            </div>
+
                         </div>
+                    </div>
+
+                    <div class="row justify-content-center form-group" style="margin-top: 2%; ">
+                        <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
+                    </div>
 
 
-            </form>
-            <hr>
-            <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:3%">Senarai Belian/Terimaan
-                Bekalan Produk Sawit (Sendiri dan Luar)
-            </h5>
+                </form>
+                <hr>
+                <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:3%">Senarai Belian/Terimaan
+                    Bekalan Produk Sawit (Sendiri dan Luar)
+                </h5>
 
-            <section class="section">
-                <div class="card">
+                <section class="section">
+                    <div class="card">
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered mb-0" style="font-size: 13px">
-                            <thead>
-                                <tr style="text-align: center; background-color: #d3d3d34d">
-                                    <th>Sendiri/Luar</th>
-                                    <th>Belian/Terimaan dari</th>
-                                    <th>CPO</th>
-                                    <th>PPO</th>
-                                    <th>CPKO</th>
-                                    <th>PPKO</th>
-                                    <th>Kemaskini</th>
-                                    <th>Hapus?</th>
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0" style="font-size: 13px">
+                                <thead>
+                                    <tr style="text-align: center; background-color: #d3d3d34d">
+                                        <th>Sendiri/Luar</th>
+                                        <th>Belian/Terimaan dari</th>
+                                        <th>CPO</th>
+                                        <th>PPO</th>
+                                        <th>CPKO</th>
+                                        <th>PPKO</th>
+                                        <th>Kemaskini</th>
+                                        <th>Hapus?</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if($penyata && !$penyata->isEmpty())
-                                @foreach ($penyata as $data)
-                                    <tr style="text-align: right">
-
-                                        <td style="text-align: left">{{ $data->kodsl->catname }}</td>
-                                        <td style="text-align: left">{{ $data->prodcat->catname }}</td>
-                                        <td>{{ number_format($data->e101_d5 ?? 0, 2) }}</td>
-                                        <td>{{ number_format($data->e101_d6 ?? 0, 2) }}</td>
-                                        <td>{{ number_format($data->e101_d7 ?? 0, 2) }}</td>
-                                        <td>{{ number_format($data->e101_d8 ?? 0, 2) }}</td>
-                                        <td>
-                                            <div class="icon" style="text-align: center">
-                                                <a href="#" type="button" data-toggle="modal"
-                                                    data-target="#modal{{ $data->e101_d1 }}">
-                                                    <i class="fas fa-edit fa-lg" style="color: #ffc107">
-                                                    </i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="icon" style="text-align: center">
-                                                <a href="#" type="button" data-toggle="modal"
-                                                    data-target="#next2{{ $data->e101_d1 }}">
-                                                    <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
-                                                </a>
-                                            </div>
-                                        </td>
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    @if($penyata && !$penyata->isEmpty())
+                                    @foreach ($penyata as $data)
+                                        <tr style="text-align: right">
 
-                                    <div class="col-md-6 col-12">
+                                            <td style="text-align: left">{{ $data->kodsl->catname }}</td>
+                                            <td style="text-align: left">{{ $data->prodcat->catname }}</td>
+                                            <td>{{ number_format($data->e101_d5 ?? 0, 2) }}</td>
+                                            <td>{{ number_format($data->e101_d6 ?? 0, 2) }}</td>
+                                            <td>{{ number_format($data->e101_d7 ?? 0, 2) }}</td>
+                                            <td>{{ number_format($data->e101_d8 ?? 0, 2) }}</td>
+                                            <td>
+                                                <div class="icon" style="text-align: center">
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#modal{{ $data->e101_d1 }}">
+                                                        <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="icon" style="text-align: center">
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#next2{{ $data->e101_d1 }}">
+                                                        <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
 
-                                        <!--scrolling content Modal -->
-                                        <div class="modal fade" id="modal{{ $data->e101_d1 }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="col-md-6 col-12">
+
+                                            <!--scrolling content Modal -->
+                                            <div class="modal fade" id="modal{{ $data->e101_d1 }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                Kemaskini Maklumat Produk</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form
+                                                                action="{{ route('penapis.edit.bahagian.v', [$data->e101_d1]) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <div class="modal-body">
+                                                                    <label class="required">Sendiri/Luar </label>
+                                                                    <div class="form-group">
+                                                                        <fieldset class="form-group">
+                                                                            <select class="form-control" id="e101_d3"
+                                                                                name="e101_d3" oninput="enableKemaskini({{ $data->e101_d1 }})">
+                                                                                <option hidden value="{{ $data->e101_d3 }}">
+                                                                                    {{ $data->kodsl->catname }}</option>
+                                                                                <option value="1"> SENDIRI</option>
+                                                                                <option value="2"> LUAR </option>
+
+                                                                            </select>
+                                                                        </fieldset>
+                                                                        {{-- <input type="text" name='e101_d3'
+                                                                                        class="form-control"
+                                                                                        value="{{ $data->kodsl[0]->catname }}"
+                                                                                        readonly> --}}
+
+                                                                    </div>
+                                                                    <label class="required">Belian/Terimaan dari </label>
+                                                                    <div class="form-group">
+                                                                        <fieldset class="form-group">
+                                                                            <select class="form-control" id="e101_d4"
+                                                                                name="e101_d4" oninput="enableKemaskini({{ $data->e101_d1 }})">
+                                                                                <option hidden value="{{ $data->e101_d4 }}">
+                                                                                    {{ $data->prodcat->catname }}</option>
+                                                                                <option value="1">KILANG BUAH</option>
+                                                                                <option value="2">KILANG PENAPIS</option>
+                                                                                <option value="3">KILANG ISIRUNG</option>
+                                                                                <option value="4">KILANG OLEOKIMIA</option>
+                                                                                <option value="5">PUSAT SIMPANAN</option>
+                                                                                <option value="6">PENIAGA</option>
+                                                                                <option value="9">LAIN-LAIN</option>
+                                                                            </select>
+                                                                        </fieldset>
+
+                                                                    </div>
+                                                                    <label class="required">CPO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d5' id="e101_sd5{{ $data->e101_d1 }}"
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd5({{ $data->e101_d1 }}) "
+                                                                            value="{{ number_format($data->e101_d5 ,2) }}" required>
+                                                                    </div>
+                                                                    <label class="required">PPO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d6' id="e101_sd6{{ $data->e101_d1 }}"
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd6({{ $data->e101_d1 }}) "
+                                                                            value="{{ number_format($data->e101_d6 ,2) }}" required>
+                                                                    </div>
+                                                                    <label class="required">CPKO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d7' id="e101_sd7{{ $data->e101_d1 }}"
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd7({{ $data->e101_d1 }}) "
+                                                                            value="{{ number_format($data->e101_d7 ,2) }}" required>
+                                                                    </div>
+                                                                    <label class="required">PPKO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d8' id="e101_sd8{{ $data->e101_d1 }}"
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd8({{ $data->e101_d1 }}) "
+                                                                            value="{{ number_format($data->e101_d8 ,2) }}" required>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                                data-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Batal</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e101_d1 }}">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Kemaskini</span>
+                                                            </button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="modal fade" id="next2{{ $data->e101_d1 }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                            Kemaskini Maklumat Produk</h5>
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form
-                                                            action="{{ route('penapis.edit.bahagian.v', [$data->e101_d1]) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            <div class="modal-body">
-                                                                <label class="required">Sendiri/Luar </label>
-                                                                <div class="form-group">
-                                                                    <fieldset class="form-group">
-                                                                        <select class="form-control" id="e101_d3"
-                                                                            name="e101_d3" oninput="enableKemaskini({{ $data->e101_d1 }})">
-                                                                            <option hidden value="{{ $data->e101_d3 }}">
-                                                                                {{ $data->kodsl->catname }}</option>
-                                                                            <option value="1"> SENDIRI</option>
-                                                                            <option value="2"> LUAR </option>
-
-                                                                        </select>
-                                                                    </fieldset>
-                                                                    {{-- <input type="text" name='e101_d3'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->kodsl[0]->catname }}"
-                                                                                    readonly> --}}
-
-                                                                </div>
-                                                                <label class="required">Belian/Terimaan dari </label>
-                                                                <div class="form-group">
-                                                                    <fieldset class="form-group">
-                                                                        <select class="form-control" id="e101_d4"
-                                                                            name="e101_d4" oninput="enableKemaskini({{ $data->e101_d1 }})">
-                                                                            <option hidden value="{{ $data->e101_d4 }}">
-                                                                                {{ $data->prodcat->catname }}</option>
-                                                                            <option value="1">KILANG BUAH</option>
-                                                                            <option value="2">KILANG PENAPIS</option>
-                                                                            <option value="3">KILANG ISIRUNG</option>
-                                                                            <option value="4">KILANG OLEOKIMIA</option>
-                                                                            <option value="5">PUSAT SIMPANAN</option>
-                                                                            <option value="6">PENIAGA</option>
-                                                                            <option value="9">LAIN-LAIN</option>
-                                                                        </select>
-                                                                    </fieldset>
-
-                                                                </div>
-                                                                <label class="required">CPO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d5' id="e101_sd5{{ $data->e101_d1 }}"
-                                                                        onkeypress="return isNumberKey(event)"
-                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd5({{ $data->e101_d1 }}) "
-                                                                        value="{{ number_format($data->e101_d5 ,2) }}" required>
-                                                                </div>
-                                                                <label class="required">PPO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d6' id="e101_sd6{{ $data->e101_d1 }}"
-                                                                        onkeypress="return isNumberKey(event)"
-                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd6({{ $data->e101_d1 }}) "
-                                                                        value="{{ number_format($data->e101_d6 ,2) }}" required>
-                                                                </div>
-                                                                <label class="required">CPKO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d7' id="e101_sd7{{ $data->e101_d1 }}"
-                                                                        onkeypress="return isNumberKey(event)"
-                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd7({{ $data->e101_d1 }}) "
-                                                                        value="{{ number_format($data->e101_d7 ,2) }}" required>
-                                                                </div>
-                                                                <label class="required">PPKO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d8' id="e101_sd8{{ $data->e101_d1 }}"
-                                                                        onkeypress="return isNumberKey(event)"
-                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd8({{ $data->e101_d1 }}) "
-                                                                        value="{{ number_format($data->e101_d8 ,2) }}" required>
-                                                                </div>
-                                                            </div>
+                                                        <p>
+                                                            Anda pasti mahu menghapus maklumat ini?
+                                                        </p>
                                                     </div>
-
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary"
                                                             data-dismiss="modal">
                                                             <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Batal</span>
+                                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e101_d1 }}">
+                                                        <a href="{{ route('penapis.delete.bahagianv', [$data->e101_d1]) }}"
+                                                            type="button" class="btn btn-primary ml-1">
+
                                                             <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Kemaskini</span>
-                                                        </button>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </a>
                                                     </div>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
-
-                                    <div class="modal fade" id="next2{{ $data->e101_d1 }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menghapus maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <a href="{{ route('penapis.delete.bahagianv', [$data->e101_d1]) }}"
-                                                        type="button" class="btn btn-primary ml-1">
-
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                                @else
+                                    @endforeach
+                                    @else
+                                        <tr>
+                                        <td colspan="8" class="text-center" style="height:40px">Tiada Rekod</td>
+                                        </tr>
+                                    @endif
                                     <tr>
-                                    <td colspan="8" class="text-center" style="height:40px">Tiada Rekod</td>
+
+                                        <td colspan="2"><b>JUMLAH (SENDIRI)</b></td>
+                                        {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                        <td style="text-align: right"><b>{{ number_format($totala ?? 0, 2) }}</b></td>
+                                        <td style="text-align: right"><b>{{ number_format($totala2 ?? 0, 2) }}</b></td>
+                                        <td style="text-align: right"><b>{{ number_format($totala3 ?? 0, 2) }}</b></td>
+                                        <td style="text-align: right"><b>{{ number_format($totala4 ?? 0, 2) }}</b></td>
+
+                                        <td colspan="2"></td>
+                                        {{-- <td></td> --}}
+
                                     </tr>
-                                @endif
-                                <tr>
+                                    {{-- <td><br></td> --}}
+                                    {{-- belian/terimaan luar --}}
+                                    @foreach ($penyata2 as $data)
+                                        <tr style="text-align: right">
 
-                                    <td colspan="2"><b>JUMLAH (SENDIRI)</b></td>
-                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                    <td style="text-align: right"><b>{{ number_format($totala ?? 0, 2) }}</b></td>
-                                    <td style="text-align: right"><b>{{ number_format($totala2 ?? 0, 2) }}</b></td>
-                                    <td style="text-align: right"><b>{{ number_format($totala3 ?? 0, 2) }}</b></td>
-                                    <td style="text-align: right"><b>{{ number_format($totala4 ?? 0, 2) }}</b></td>
+                                            <td style="text-align: left">{{ $data->kodsl->catname }}</td>
+                                            <td style="text-align: left">{{ $data->prodcat->catname }}</td>
+                                            <td>{{ number_format($data->e101_d5 ?? 0, 2) }}</td>
+                                            <td>{{ number_format($data->e101_d6 ?? 0, 2) }}</td>
+                                            <td>{{ number_format($data->e101_d7 ?? 0, 2) }}</td>
+                                            <td>{{ number_format($data->e101_d8 ?? 0, 2) }}</td>
+                                            <td>
+                                                <div class="icon" style="text-align: center">
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#modal{{ $data->e101_d1 }}">
+                                                        <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="icon" style="text-align: center">
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#next2{{ $data->e101_d1 }}">
+                                                        <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
 
-                                    <td colspan="2"></td>
-                                    {{-- <td></td> --}}
+                                        <div class="col-md-6 col-12">
 
-                                </tr>
-                                {{-- <td><br></td> --}}
-                                {{-- belian/terimaan luar --}}
-                                @foreach ($penyata2 as $data)
-                                    <tr style="text-align: right">
+                                            <!--scrolling content Modal -->
+                                            <div class="modal fade" id="modal{{ $data->e101_d1 }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                Kemaskini Maklumat Produk</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form
+                                                                action="{{ route('penapis.edit.bahagian.v', [$data->e101_d1]) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <div class="modal-body">
+                                                                    <label class="required">Sendiri/Luar </label>
+                                                                    <div class="form-group">
+                                                                        <fieldset class="form-group">
+                                                                            <select class="form-control" id="e101_d3"
+                                                                                name="e101_d3" oninput="enableKemaskini({{ $data->e101_d1 }})">
+                                                                                <option hidden value="{{ $data->e101_d3 }}">
+                                                                                    {{ $data->kodsl->catname }}</option>
+                                                                                <option value="1"> SENDIRI</option>
+                                                                                <option value="2"> LUAR </option>
 
-                                        <td style="text-align: left">{{ $data->kodsl->catname }}</td>
-                                        <td style="text-align: left">{{ $data->prodcat->catname }}</td>
-                                        <td>{{ number_format($data->e101_d5 ?? 0, 2) }}</td>
-                                        <td>{{ number_format($data->e101_d6 ?? 0, 2) }}</td>
-                                        <td>{{ number_format($data->e101_d7 ?? 0, 2) }}</td>
-                                        <td>{{ number_format($data->e101_d8 ?? 0, 2) }}</td>
-                                        <td>
-                                            <div class="icon" style="text-align: center">
-                                                <a href="#" type="button" data-toggle="modal"
-                                                    data-target="#modal{{ $data->e101_d1 }}">
-                                                    <i class="fas fa-edit fa-lg" style="color: #ffc107">
-                                                    </i>
-                                                </a>
+                                                                            </select>
+                                                                        </fieldset>
+                                                                    </div>
+                                                                    <label class="required">Belian/Terimaan dari </label>
+                                                                    <div class="form-group">
+                                                                        <fieldset class="form-group">
+                                                                            <select class="form-control" id="e101_d4"
+                                                                                name="e101_d4" oninput="enableKemaskini({{ $data->e101_d1 }})">
+                                                                                <option hidden value="{{ $data->e101_d4 }}">
+                                                                                    {{ $data->prodcat->catname }}</option>
+                                                                                <option value="1">KILANG BUAH</option>
+                                                                                <option value="2">KILANG PENAPIS</option>
+                                                                                <option value="3">KILANG ISIRUNG</option>
+                                                                                <option value="4">KILANG OLEOKIMIA</option>
+                                                                                <option value="5">PUSAT SIMPANAN</option>
+                                                                                <option value="6">PENIAGA</option>
+                                                                                <option value="9">LAIN-LAIN</option>
+                                                                            </select>
+                                                                        </fieldset>
+
+                                                                    </div>
+                                                                    <label class="required">CPO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d5' id="e101_ed5{{ $data->e101_d1 }}"
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed5({{ $data->e101_d1 }})"
+                                                                            value="{{ number_format($data->e101_d5 ,2) }}">
+                                                                    </div>
+                                                                    <label class="required">PPO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d6' id="e101_ed6{{ $data->e101_d1 }}"
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed6({{ $data->e101_d1 }})"
+                                                                            value="{{ number_format($data->e101_d6 ,2) }}">
+                                                                    </div>
+                                                                    <label class="required">CPKO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d7' id="e101_ed7{{ $data->e101_d1 }}"
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed7({{ $data->e101_d1 }})"
+                                                                            value="{{ number_format($data->e101_d7 ,2) }}">
+                                                                    </div>
+                                                                    <label class="required">PPKO </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e101_d8' id="e101_ed8{{ $data->e101_d1 }}"
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed8({{ $data->e101_d1 }})"
+                                                                            value="{{ number_format($data->e101_d8 ,2)}}">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                                data-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Batal</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e101_d1 }}">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Kemaskini</span>
+                                                            </button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <div class="icon" style="text-align: center">
-                                                <a href="#" type="button" data-toggle="modal"
-                                                    data-target="#next2{{ $data->e101_d1 }}">
-                                                    <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
 
-                                    <div class="col-md-6 col-12">
+                                        </div>
 
-                                        <!--scrolling content Modal -->
-                                        <div class="modal fade" id="modal{{ $data->e101_d1 }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal fade" id="next2{{ $data->e101_d1 }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                            Kemaskini Maklumat Produk</h5>
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form
-                                                            action="{{ route('penapis.edit.bahagian.v', [$data->e101_d1]) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            <div class="modal-body">
-                                                                <label class="required">Sendiri/Luar </label>
-                                                                <div class="form-group">
-                                                                    <fieldset class="form-group">
-                                                                        <select class="form-control" id="e101_d3"
-                                                                            name="e101_d3" oninput="enableKemaskini({{ $data->e101_d1 }})">
-                                                                            <option hidden value="{{ $data->e101_d3 }}">
-                                                                                {{ $data->kodsl->catname }}</option>
-                                                                            <option value="1"> SENDIRI</option>
-                                                                            <option value="2"> LUAR </option>
-
-                                                                        </select>
-                                                                    </fieldset>
-                                                                </div>
-                                                                <label class="required">Belian/Terimaan dari </label>
-                                                                <div class="form-group">
-                                                                    <fieldset class="form-group">
-                                                                        <select class="form-control" id="e101_d4"
-                                                                            name="e101_d4" oninput="enableKemaskini({{ $data->e101_d1 }})">
-                                                                            <option hidden value="{{ $data->e101_d4 }}">
-                                                                                {{ $data->prodcat->catname }}</option>
-                                                                            <option value="1">KILANG BUAH</option>
-                                                                            <option value="2">KILANG PENAPIS</option>
-                                                                            <option value="3">KILANG ISIRUNG</option>
-                                                                            <option value="4">KILANG OLEOKIMIA</option>
-                                                                            <option value="5">PUSAT SIMPANAN</option>
-                                                                            <option value="6">PENIAGA</option>
-                                                                            <option value="9">LAIN-LAIN</option>
-                                                                        </select>
-                                                                    </fieldset>
-
-                                                                </div>
-                                                                <label class="required">CPO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d5' id="e101_ed5{{ $data->e101_d1 }}"
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed5({{ $data->e101_d1 }})"
-                                                                        value="{{ number_format($data->e101_d5 ,2) }}">
-                                                                </div>
-                                                                <label class="required">PPO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d6' id="e101_ed6{{ $data->e101_d1 }}"
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed6({{ $data->e101_d1 }})"
-                                                                        value="{{ number_format($data->e101_d6 ,2) }}">
-                                                                </div>
-                                                                <label class="required">CPKO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d7' id="e101_ed7{{ $data->e101_d1 }}"
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed7({{ $data->e101_d1 }})"
-                                                                        value="{{ number_format($data->e101_d7 ,2) }}">
-                                                                </div>
-                                                                <label class="required">PPKO </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='e101_d8' id="e101_ed8{{ $data->e101_d1 }}"
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed8({{ $data->e101_d1 }})"
-                                                                        value="{{ number_format($data->e101_d8 ,2)}}">
-                                                                </div>
-                                                            </div>
+                                                        <p>
+                                                            Anda pasti mahu menghapus maklumat ini?
+                                                        </p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
+                                                        <button type="button" class="btn btn-primary ml-1"
                                                             data-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Batal</span>
-                                                        </button>
-                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e101_d1 }}">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Kemaskini</span>
+                                                            <span class="d-none d-sm-block">Tidak</span>
                                                         </button>
+                                                        <a href="{{ route('penapis.delete.bahagianv', [$data->e101_d1]) }}"
+                                                            type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+
+                                                            <i class="bx bx-x d-block d-sm-none" ></i>
+                                                            <span class="d-none d-sm-block" >Ya</span>
+                                                        </a>
                                                     </div>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
+                                    @endforeach
+                                    <tr>
 
-                                    </div>
+                                        <td colspan="2"><b>JUMLAH (LUAR)</b></td>
+                                        {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                        <td style="text-align: right"><b>{{ number_format($totalb ?? 0, 2) }}</b></td>
+                                        <td style="text-align: right"><b>{{ number_format($totalb2 ?? 0, 2) }}</b></td>
+                                        <td style="text-align: right"><b>{{ number_format($totalb3 ?? 0, 2) }}</b></td>
+                                        <td style="text-align: right"><b>{{ number_format($totalb4 ?? 0, 2) }}</b></td>
 
-                                    <div class="modal fade" id="next2{{ $data->e101_d1 }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menghapus maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Tidak</span>
-                                                    </button>
-                                                    <a href="{{ route('penapis.delete.bahagianv', [$data->e101_d1]) }}"
-                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+                                        <td colspan="2"></td>
+                                        {{-- <td></td> --}}
 
-                                                        <i class="bx bx-x d-block d-sm-none" ></i>
-                                                        <span class="d-none d-sm-block" >Ya</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                                <tr>
-
-                                    <td colspan="2"><b>JUMLAH (LUAR)</b></td>
-                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                    <td style="text-align: right"><b>{{ number_format($totalb ?? 0, 2) }}</b></td>
-                                    <td style="text-align: right"><b>{{ number_format($totalb2 ?? 0, 2) }}</b></td>
-                                    <td style="text-align: right"><b>{{ number_format($totalb3 ?? 0, 2) }}</b></td>
-                                    <td style="text-align: right"><b>{{ number_format($totalb4 ?? 0, 2) }}</b></td>
-
-                                    <td colspan="2"></td>
-                                    {{-- <td></td> --}}
-
-                                </tr>
+                                    </tr>
 
 
-                            </tbody>
+                                </tbody>
 
-                        </table>
+                            </table>
 
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group" style="padding:10px">
-                    <a href="{{ route('penapis.bahagianivb') }}" class="btn btn-primary"
-                        style="float: left">Sebelumnya</a>
-                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                            data-target="#next">Simpan & Seterusnya</button>
-                </div>
+                    <div class="form-group" style="padding:10px">
+                        <a href="{{ route('penapis.bahagianivb') }}" class="btn btn-primary"
+                            style="float: left">Sebelumnya</a>
+                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                                data-target="#next">Simpan & Seterusnya</button>
+                    </div>
 
-                <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    PENGESAHAN</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Anda pasti mahu menyimpan maklumat ini?
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                </button>
-                                <a href="{{ route('penapis.bahagianvi') }}" type="button"
-                                    class="btn btn-primary ml-1">
+                    <!-- Vertically Centered modal Modal -->
+                    <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                        PENGESAHAN</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Anda pasti mahu menyimpan maklumat ini?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                    </button>
+                                    <a href="{{ route('penapis.bahagianvi') }}" type="button"
+                                        class="btn btn-primary ml-1">
 
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Ya</span>
-                                </a>
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Ya</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-        </div>
+                </section>
+            </div>
+        </div><br>
+    </div><br>
 
 
 
