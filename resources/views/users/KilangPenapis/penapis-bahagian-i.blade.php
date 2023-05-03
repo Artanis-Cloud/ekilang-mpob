@@ -320,6 +320,7 @@
                                 <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                             </div>
                             <input type="hidden" name="hidDelete" id="hidDelete" value="" />
+                        </div>
 
                 </form>
 
@@ -681,10 +682,10 @@
                     </div>
                 </section>
             </div>
-        </div>
+        </div><br>
         {{-- </form> --}}
 
-    </div><br>
+    </div>
 @endsection
 @section('scripts')
 <script>
