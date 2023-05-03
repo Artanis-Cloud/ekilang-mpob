@@ -555,8 +555,6 @@
                             </i>
                         </div>
 
-                    </div>
-
 
                     <div class="row justify-content-center form-group" style="margin-top: 2%; ">
                         <button type="button" class="btn btn-primary"
@@ -595,7 +593,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br>
     </div>
 
             {{-- @endsection
