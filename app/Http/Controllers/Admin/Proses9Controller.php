@@ -321,6 +321,8 @@ class Proses9Controller extends Controller
                 and p.e_nl = e.ebio_nl
                 and e.ebio_flg = '3'
                 and p.e_nl = k.e_nl
+                and p.e_thn = '$request->tahun'
+                and p.e_bln = '$request->bulan2'
                 and p.e_kat = 'PLBIO'
                 and k.e_kat = 'PLBIO'
                 ");
