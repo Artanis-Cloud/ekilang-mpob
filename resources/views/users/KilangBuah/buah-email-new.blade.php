@@ -142,7 +142,7 @@
                                     <input type="text" class="form-control" name='Subject' id="subject" required oninput="setCustomValidity(''); valid_subject()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini.">
 
-                                    <p type="hidden" id="err_subject" style="color: red; display:none"><i>Sila isi butiran disini!</i></p>
+                                    <p type="hidden" id="err_subject" style="color: red; display:none; whitespace:nowrap"><i>Sila isi butiran disini!</i></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-bottom: 5%">

@@ -69,7 +69,7 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-                                    <div class="table-responsive">
+                                    <div class="">
                                         <table class="table table-bordered mb-0">
 
                                             <tr>
@@ -103,8 +103,10 @@
                                                 <td>{{ $emel->Subject }}</td>
                                             </tr>
                                             <tr>
-                                                <th>Mesej</th>
-                                                <td>{!! $emel->Message !!}
+                                                <th style=" width:200px ">Mesej</th>
+                                                <td style="max-width: 800px;">
+                                                    <div id="editor" ></div>
+
 
                                                 </td>
                                             </tr>
@@ -150,6 +152,16 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
+<script>
+    var editor = new Quill('#editor', {
+
+      readOnly: true // Set readOnly to true to prevent editing of the content.
+    });
+    console.log(editor);
+    editor.root.innerHTML = {!! json_encode( $mess ) !!};
+  </script>
 <script>
     function myPrint(myfrm) {
     var restorepage = $('body').html();
