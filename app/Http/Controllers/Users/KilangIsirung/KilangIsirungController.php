@@ -565,9 +565,10 @@ class KilangIsirungController extends Controller
 
         $ac1 = floatval($user->e102_ac1);
         $total3 =  floatval($total + $total2);
-        // dd($user->e102_ac1);
+        // dd($total3);
+        $epsilon = 0.0001;
 
-        if ($total3 != $ac1) {
+        if (abs($total3 - $ac1) > $epsilon) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         }
 

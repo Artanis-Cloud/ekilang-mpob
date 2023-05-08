@@ -477,46 +477,48 @@
                                 </i>
                             </div>
                         </div>
-                </div>
 
 
-                <div class="row justify-content-center form-group" style="margin-top: 2%">
-                    <button type="button" class="btn btn-primary"  onclick="check()">Simpan</button>
+                        <div class="row justify-content-center form-group" style="margin-top: 2%">
+                            <button type="button" class="btn btn-primary"  onclick="check()">Simpan</button>
+                        </div>
+
+                        <div class="modal fade hide" id="next" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                            PENGESAHAN</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Anda pasti mahu menyimpan maklumat ini?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1" data="modal" id="checkBtn">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Ya</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
             </div>
-
-            <div class="modal fade hide" id="next" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                    role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                PENGESAHAN</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <i data-feather="x"></i>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Anda pasti mahu menyimpan maklumat ini?
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                <i class="bx bx-x d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                            </button>
-                            <button type="submit" class="btn btn-primary ml-1" data="modal" id="checkBtn">
-                                <i class="bx bx-check d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Ya</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </form>
+        </div><br>
+    </div>
 
 
             {{-- </div> --}}
