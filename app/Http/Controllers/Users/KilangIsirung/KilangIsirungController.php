@@ -563,11 +563,11 @@ class KilangIsirungController extends Controller
         $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
         $total2 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
 
-
+        $ac1 = floatval($user->e102_ac1);
         $total3 =  floatval($total + $total2);
         // dd($user->e102_ac1);
 
-        if ($total3 != $user->e102_ac1) {
+        if ($total3 != $ac1) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         }
 
