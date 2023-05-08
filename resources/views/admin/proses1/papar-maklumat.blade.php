@@ -344,7 +344,7 @@
                                                         <option value="PP">PP</option>
                                                         <option value="SA">SA</option>
                                                         <option value="SS">SS</option>
-                                                        <option value="SS">SW</option>
+                                                        <option value="SW">SW</option>
                                                         <option value="WP">WP</option>
                                                     @endif
                                                 @endif
