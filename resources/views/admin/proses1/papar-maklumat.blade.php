@@ -296,7 +296,7 @@
                                                         <option {{ $pelesen->kodpgw == 'SS' ? 'selected' : '' }}
                                                             value="SS">SS</option>
                                                         <option {{ $pelesen->kodpgw == 'SW' ? 'selected' : '' }}
-                                                            value="SS">SW</option>
+                                                            value="SW">SW</option>
                                                         <option {{ $pelesen->kodpgw == 'WP' ? 'selected' : '' }}
                                                             value="WP">WP</option>
                                                     @endif
