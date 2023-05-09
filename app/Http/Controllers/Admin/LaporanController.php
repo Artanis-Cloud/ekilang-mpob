@@ -243,32 +243,31 @@ class LaporanController extends Controller
             // and c.ebio_c4 = p.prodid
             // order by b.ebio_b4");
 
-            // dd($hbiob_b);
+            // dd($no_batch);
             // $new_bulan = $no_batch->ebio_bln - 1;
-            $data_bulanan_ebio_b5 = [];
-            $data_bulanan_ebio_b6 = [];
-            $data_bulanan_ebio_b7 = [];
-            $data_bulanan_ebio_b8 = [];
-            $data_bulanan_ebio_b9 = [];
-            $data_bulanan_ebio_b10 = [];
-            $data_bulanan_ebio_b11 = [];
-            $data_bulanan_ebio_c4 = [];
-            $data_bulanan_ebio_c5 = [];
-            $data_bulanan_ebio_c6 = [];
-            $data_bulanan_ebio_c7 = [];
-            $data_bulanan_ebio_c8 = [];
-            $data_bulanan_ebio_c9 = [];
-            $data_bulanan_ebio_c10 = [];
-            $proddesc = [];
-            $data3 = [];
-            $data4 = [];
+            // $data_bulanan_ebio_b5 = [];
+            // $data_bulanan_ebio_b6 = [];
+            // $data_bulanan_ebio_b7 = [];
+            // $data_bulanan_ebio_b8 = [];
+            // $data_bulanan_ebio_b9 = [];
+            // $data_bulanan_ebio_b10 = [];
+            // $data_bulanan_ebio_b11 = [];
+            // $data_bulanan_ebio_c4 = [];
+            // $data_bulanan_ebio_c5 = [];
+            // $data_bulanan_ebio_c6 = [];
+            // $data_bulanan_ebio_c7 = [];
+            // $data_bulanan_ebio_c8 = [];
+            // $data_bulanan_ebio_c9 = [];
+            // $data_bulanan_ebio_c10 = [];
+            // $proddesc = [];
+            // $data3 = [];
+            // $data4 = [];
 
             for ($i = 1; $i <= 12; $i++) {
-                $bulan = ltrim($no_batch->ebio_bln, '0');
                 // if($new_bulan == 0){
                 //     $new_bulan = 12;
                 // }
-                if ($i ==  $bulan)
+                if ($i ==  $no_batch->ebio_bln)
 
                     foreach ($hbiob as  $data3) {
 
@@ -284,9 +283,9 @@ class LaporanController extends Controller
 
             }
 
+
             for ($i2 = 1; $i2 <= 12; $i2++) {
-                $bulan = ltrim($no_batch->ebio_bln, '0');
-                if ($i2 ==  $bulan)
+                if ($i2 ==  $no_batch->ebio_bln)
 
                     foreach ($hbiob_b as  $data4) {
 
@@ -309,6 +308,7 @@ class LaporanController extends Controller
 
         // endforeach;
         // }
+        // dd($data_bulanan_ebio_b5);
 
 
 
