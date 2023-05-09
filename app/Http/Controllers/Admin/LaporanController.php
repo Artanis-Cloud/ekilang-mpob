@@ -272,14 +272,14 @@ class LaporanController extends Controller
 
                     foreach ($hbiob as  $data3) {
 
-                        $data_bulanan_ebio_b5[$data3->ebio_b4][$i] = $data3->ebio_b5 ?? 0;
+                        $data_bulanan_ebio_b5[$data3->ebio_b4][$i] = $data3->ebio_b5 ?? [];
 
-                        $data_bulanan_ebio_b6[$data3->ebio_b4][$i] = $data3->ebio_b6 ?? 0;
-                        $data_bulanan_ebio_b7[$data3->ebio_b4][$i] = $data3->ebio_b7 ?? 0;
-                        $data_bulanan_ebio_b8[$data3->ebio_b4][$i] = $data3->ebio_b8 ?? 0;
-                        $data_bulanan_ebio_b9[$data3->ebio_b4][$i] = $data3->ebio_b9 ?? 0;
-                        $data_bulanan_ebio_b10[$data3->ebio_b4][$i] = $data3->ebio_b10 ?? 0;
-                        $data_bulanan_ebio_b11[$data3->ebio_b4][$i] = $data3->ebio_b11 ?? 0;
+                        $data_bulanan_ebio_b6[$data3->ebio_b4][$i] = $data3->ebio_b6 ?? [];
+                        $data_bulanan_ebio_b7[$data3->ebio_b4][$i] = $data3->ebio_b7 ?? [];
+                        $data_bulanan_ebio_b8[$data3->ebio_b4][$i] = $data3->ebio_b8 ?? [];
+                        $data_bulanan_ebio_b9[$data3->ebio_b4][$i] = $data3->ebio_b9 ?? [];
+                        $data_bulanan_ebio_b10[$data3->ebio_b4][$i] = $data3->ebio_b10 ?? [];
+                        $data_bulanan_ebio_b11[$data3->ebio_b4][$i] = $data3->ebio_b11 ?? [];
                         $proddesc[$data3->ebio_b4] = $data3->proddesc ?? 0;
                     }
                 }
