@@ -245,7 +245,23 @@ class LaporanController extends Controller
 
             // dd($no_batch);
             // $new_bulan = $no_batch->ebio_bln - 1;
-
+            $data_bulanan_ebio_b5 = [];
+            $data_bulanan_ebio_b6 = [];
+            $data_bulanan_ebio_b7 = [];
+            $data_bulanan_ebio_b8 = [];
+            $data_bulanan_ebio_b9 = [];
+            $data_bulanan_ebio_b10 = [];
+            $data_bulanan_ebio_b11 = [];
+            $data_bulanan_ebio_c4 = [];
+            $data_bulanan_ebio_c5 = [];
+            $data_bulanan_ebio_c6 = [];
+            $data_bulanan_ebio_c7 = [];
+            $data_bulanan_ebio_c8 = [];
+            $data_bulanan_ebio_c9 = [];
+            $data_bulanan_ebio_c10 = [];
+            $proddesc = [];
+            $data3 = [];
+            $data4 = [];
 
             for ($i = 1; $i <= 12; $i++) {
                 // if($new_bulan == 0){
@@ -254,14 +270,6 @@ class LaporanController extends Controller
                 if ($i ==  $no_batch->ebio_bln)
 
                     foreach ($hbiob as  $data3) {
-
-                        $data_bulanan_ebio_b5[$data3->ebio_b4][$i] = [];
-                        $data_bulanan_ebio_b6[$data3->ebio_b4][$i] = [];
-                        $data_bulanan_ebio_b7[$data3->ebio_b4][$i] = [];
-                        $data_bulanan_ebio_b8[$data3->ebio_b4][$i] = [];
-                        $data_bulanan_ebio_b9[$data3->ebio_b4][$i] = [];
-                        $data_bulanan_ebio_b10[$data3->ebio_b4][$i] = [];
-                        $data_bulanan_ebio_b11[$data3->ebio_b4][$i] = [];
 
                         $data_bulanan_ebio_b5[$data3->ebio_b4][$i] = $data3->ebio_b5 ?? 0;
                         $data_bulanan_ebio_b6[$data3->ebio_b4][$i] = $data3->ebio_b6 ?? 0;
@@ -280,14 +288,6 @@ class LaporanController extends Controller
                 if ($i2 ==  $no_batch->ebio_bln)
 
                     foreach ($hbiob_b as  $data4) {
-
-                        $data_bulanan_ebio_c4[$data4->ebio_c3][$i2] = [];
-                        $data_bulanan_ebio_c5[$data4->ebio_c3][$i2] = [];
-                        $data_bulanan_ebio_c6[$data4->ebio_c3][$i2] = [];
-                        $data_bulanan_ebio_c7[$data4->ebio_c3][$i2] = [];
-                        $data_bulanan_ebio_c8[$data4->ebio_c3][$i2] = [];
-                        $data_bulanan_ebio_c9[$data4->ebio_c3][$i2] = [];
-                        $data_bulanan_ebio_c10[$data4->ebio_c3][$i2] = [];
 
                         $data_bulanan_ebio_c4[$data4->ebio_c3][$i2] = $data4->ebio_c4 ?? 0;
                         $data_bulanan_ebio_c5[$data4->ebio_c3][$i2] = $data4->ebio_c5 ?? 0;
