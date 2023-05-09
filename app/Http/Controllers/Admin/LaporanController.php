@@ -291,13 +291,13 @@ class LaporanController extends Controller
 
                     foreach ($hbiob_b as  $data4) {
 
-                        $data_bulanan_ebio_c4[$data4->ebio_c3][$i2] = $data4->ebio_c4 ?? 0;
-                        $data_bulanan_ebio_c5[$data4->ebio_c3][$i2] = $data4->ebio_c5 ?? 0;
-                        $data_bulanan_ebio_c6[$data4->ebio_c3][$i2] = $data4->ebio_c6 ?? 0;
-                        $data_bulanan_ebio_c7[$data4->ebio_c3][$i2] = $data4->ebio_c7 ?? 0;
-                        $data_bulanan_ebio_c8[$data4->ebio_c3][$i2] = $data4->ebio_c8 ?? 0;
-                        $data_bulanan_ebio_c9[$data4->ebio_c3][$i2] = $data4->ebio_c9 ?? 0;
-                        $data_bulanan_ebio_c10[$data4->ebio_c3][$i2] = $data4->ebio_c10 ?? 0;
+                        $data_bulanan_ebio_c4[$data4->ebio_c3][$i2] = $data4->ebio_c4 ?? [];
+                        $data_bulanan_ebio_c5[$data4->ebio_c3][$i2] = $data4->ebio_c5 ?? [];
+                        $data_bulanan_ebio_c6[$data4->ebio_c3][$i2] = $data4->ebio_c6 ?? [];
+                        $data_bulanan_ebio_c7[$data4->ebio_c3][$i2] = $data4->ebio_c7 ?? [];
+                        $data_bulanan_ebio_c8[$data4->ebio_c3][$i2] = $data4->ebio_c8 ?? [];
+                        $data_bulanan_ebio_c9[$data4->ebio_c3][$i2] = $data4->ebio_c9 ?? [];
+                        $data_bulanan_ebio_c10[$data4->ebio_c3][$i2] = $data4->ebio_c10 ?? [];
                         $proddesc[$data4->ebio_c3] = $data4->proddesc ?? 0;
                     }
                 }
@@ -325,7 +325,7 @@ class LaporanController extends Controller
                     foreach ($date as $hbiob) {
                         $myDateTime = DateTime::createFromFormat('Y-m-d', $hbiob->ebio_sdate);
                         $formatteddate = $myDateTime->format('d-m-Y');
-                        $ebio_sdate[$i] = $formatteddate ?? 0;
+                        $ebio_sdate[$i] = $formatteddate ?? [];
                     }
                 }
             }
