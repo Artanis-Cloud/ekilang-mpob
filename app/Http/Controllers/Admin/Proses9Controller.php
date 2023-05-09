@@ -218,7 +218,7 @@ class Proses9Controller extends Controller
             $bulan1 = $request->bulan;
         }
 
-        // dd($bulans);
+        // dd($sektor);
 
         $tahun1 = $request->tahun;
 
@@ -231,6 +231,8 @@ class Proses9Controller extends Controller
                                 and p.e_nl = e.e91_nl
                                 and e.e91_flg = '3'
                                 and p.e_nl = k.e_nl
+                                -- and p.e_thn = '$request->tahun'
+                                -- and p.e_bln = '$request->bulan'
                                 and p.e_kat = 'PL91'
                                 and k.e_kat = 'PL91'
                                 order by k.kodpgw, k.nosiri");
@@ -249,6 +251,8 @@ class Proses9Controller extends Controller
                                 and e.e101_flg = '3'
                                 and p.e_nl = e.e101_nl
                                 and p.e_nl = k.e_nl
+                                -- and p.e_thn = '$request->tahun'
+                                -- and p.e_bln = '$request->bulan'
                                 and p.e_kat = 'PL101'
                                 and k.e_kat = 'PL101'
                                 order by k.kodpgw, k.nosiri");
@@ -267,6 +271,8 @@ class Proses9Controller extends Controller
                                 and p.e_nl = e.e102_nl
                                 and e.e102_flg = '3'
                                 and p.e_nl = k.e_nl
+                                -- and p.e_thn = '$request->tahun'
+                                -- and p.e_bln = '$request->bulan'
                                 and p.e_kat = 'PL102'
                                 and k.e_kat = 'PL102'
                                 order by k.kodpgw, k.nosiri");
@@ -285,6 +291,8 @@ class Proses9Controller extends Controller
                                 and p.e_nl = e.e104_nl
                                 and e.e104_flg = '3'
                                 and p.e_nl = k.e_nl
+                                -- and p.e_thn = '$request->tahun'
+                                -- and p.e_bln = '$request->bulan'
                                 and p.e_kat = 'PL104'
                                 and k.e_kat = 'PL104'
                                 order by k.kodpgw, k.nosiri");
@@ -303,6 +311,8 @@ class Proses9Controller extends Controller
                 and p.e_nl = e.e07_nl
                 and e.e07_flg = '3'
                 and p.e_nl = k.e_nl
+                -- and p.e_thn = '$request->tahun'
+                -- and p.e_bln = '$request->bulan'
                 and p.e_kat = 'PL111'
                 and k.e_kat = 'PL111'
                 order by k.kodpgw, k.nosiri");
@@ -321,11 +331,13 @@ class Proses9Controller extends Controller
                 and p.e_nl = e.ebio_nl
                 and e.ebio_flg = '3'
                 and p.e_nl = k.e_nl
-                and p.e_thn = '$request->tahun'
-                and p.e_bln = '$request->bulan2'
+                -- and p.e_thn = '$request->tahun'
+                -- and p.e_bln = '$request->bulan2'
                 and p.e_kat = 'PLBIO'
                 and k.e_kat = 'PLBIO'
                 ");
+
+                // dd($users);
 
                 if (!$users) {
                     return redirect()->back()
@@ -422,6 +434,7 @@ class Proses9Controller extends Controller
             'kembali'     => $kembali,
         ];
 
+        // dd($users);
         // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
         return view('admin.proses9.9paparsenarai', compact('returnArr', 'sektor', 'users', 'tahun1', 'bulan1', 'sumber'));
     }
