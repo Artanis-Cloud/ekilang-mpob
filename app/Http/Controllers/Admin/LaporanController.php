@@ -264,10 +264,11 @@ class LaporanController extends Controller
             $data4 = [];
 
             for ($i = 1; $i <= 12; $i++) {
+                $bulan = ltrim($no_batch->ebio_bln, '0');
                 // if($new_bulan == 0){
                 //     $new_bulan = 12;
                 // }
-                if ($i ==  $no_batch->ebio_bln)
+                if ($i ==  $bulan)
 
                     foreach ($hbiob as  $data3) {
 
@@ -284,7 +285,8 @@ class LaporanController extends Controller
             }
 
             for ($i2 = 1; $i2 <= 12; $i2++) {
-                if ($i2 ==  $no_batch->ebio_bln)
+                $bulan = ltrim($no_batch->ebio_bln, '0');
+                if ($i2 ==  $bulan)
 
                     foreach ($hbiob_b as  $data4) {
 
