@@ -245,7 +245,6 @@ class LaporanController extends Controller
 
             // dd($no_batch);
             // $new_bulan = $no_batch->ebio_bln - 1;
-            $data_bulanan_ebio_b5 = [];
             $data_bulanan_ebio_b6 = [];
             $data_bulanan_ebio_b7 = [];
             $data_bulanan_ebio_b8 = [];
@@ -259,8 +258,6 @@ class LaporanController extends Controller
             $data_bulanan_ebio_c8 = [];
             $data_bulanan_ebio_c9 = [];
             $data_bulanan_ebio_c10 = [];
-            $proddesc = [];
-            $data3 = [];
             $data4 = [];
 
             for ($i = 1; $i <= 12; $i++) {
@@ -270,6 +267,8 @@ class LaporanController extends Controller
                 if ($i ==  $no_batch->ebio_bln)
 
                     foreach ($hbiob as  $data3) {
+
+                            $data_bulanan_ebio_b5[$i] = [];
 
                         $data_bulanan_ebio_b5[$data3->ebio_b4][$i] = $data3->ebio_b5 ?? 0;
                         $data_bulanan_ebio_b6[$data3->ebio_b4][$i] = $data3->ebio_b6 ?? 0;
