@@ -239,6 +239,7 @@ class LaporanController extends Controller
             $data_bulanan_ebio_c8 = [];
             $data_bulanan_ebio_c9 = [];
             $data_bulanan_ebio_c10 = [];
+            $ebio_sdate = [];
             $proddesc = [];
             $data3 = [];
             $data4 = [];
@@ -303,7 +304,7 @@ class LaporanController extends Controller
                         }
                     }
                 }
-          
+
 
 
             for ($i2 = 1; $i2 <= 12; $i2++) {
