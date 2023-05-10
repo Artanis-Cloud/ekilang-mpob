@@ -241,315 +241,315 @@
                                                                 <div class="modal-dialog modal-dialog-scrollable"
                                                                     role="document" >
                                                                     <div class="modal-content" id="myfrm">
-                                                                        <div class="modal-header">
-                                                                            <h4 class="modal-title"
-                                                                                id="exampleModalScrollableTitle">
-                                                                                <b>Hebahan 10hb - Stok Akhir</b><br>Kemaskini Maklumat Produk </h4>
-                                                                            <h5></h5>
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="modal" aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body" style="margin-top: -4%">
-                                                                            <form
-                                                                                action="{{ route('admin.edit.stok.akhir', [$data->id]) }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                <div class="modal-body">
-                                                                                    <div class=" col-3 mb-2" style="background-color:lightgrey; text-align:center; float:right"><b>BDST01</b></div>
-                                                                                    <br class="noPrint">
-                                                                                    <label class="required">Tahun</label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='tahun'
-                                                                                            class="form-control"
-                                                                                            id="cpo_sm"
-                                                                                            value="{{ old('tahun') ?? $data->tahun }}"
-                                                                                            readonly>
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title"
+                                                                                    id="exampleModalScrollableTitle">
+                                                                                    <b>Hebahan 10hb - Stok Akhir</b><br>Kemaskini Maklumat Produk </h4>
+                                                                                <h5></h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-dismiss="modal" aria-label="Close">
+                                                                                    <i data-feather="x"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body" style="margin-top: -4%">
+                                                                                <form
+                                                                                    action="{{ route('admin.edit.stok.akhir', [$data->id]) }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    <div class="modal-body">
+                                                                                        <div class=" col-3 mb-2" style="background-color:lightgrey; text-align:center; float:right"><b>BDST01</b></div>
+                                                                                        <br class="noPrint">
+                                                                                        <label class="required">Tahun</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='tahun'
+                                                                                                class="form-control"
+                                                                                                id="cpo_sm"
+                                                                                                value="{{ old('tahun') ?? $data->tahun }}"
+                                                                                                readonly>
+                                                                                                        {{-- <fieldset class="form-group">
+                                                                                                <select class="form-control" id="tahun" name="tahun1" required
+                                                                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                                                                oninput="setCustomValidity('')">
+                                                                                                    <option selected hidden disabled value="">Sila Pilih
+                                                                                                        Tahun</option>
+                                                                                                    @for ($i = 2011; $i <= date('Y'); $i++)
+                                                                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                                                                    @endfor
+
+                                                                                                </select>
+                                                                                            </fieldset> --}}
+
+                                                                                        </div>
+                                                                                        <label class="required">Bulan </label>
+                                                                                        <div class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                id="bulan" name="bulan">
+                                                                                                <option selected hidden disabled
+                                                                                                    value="">Sila Pilih Bulan
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '01' ? 'selected' : '' }}
+                                                                                                    value="01">Januari</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '02' ? 'selected' : '' }}
+                                                                                                    value="02">Februari
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '03' ? 'selected' : '' }}
+                                                                                                    value="03">Mac</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '04' ? 'selected' : '' }}
+                                                                                                    value="04">April</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '05' ? 'selected' : '' }}
+                                                                                                    value="05">Mei</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '06' ? 'selected' : '' }}
+                                                                                                    value="06">Jun</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '07' ? 'selected' : '' }}
+                                                                                                    value="07">Julai</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '08' ? 'selected' : '' }}
+                                                                                                    value="08">Ogos</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '09' ? 'selected' : '' }}
+                                                                                                    value="09">September
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '10' ? 'selected' : '' }}
+                                                                                                    value="10">Oktober</option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '11' ? 'selected' : '' }}
+                                                                                                    value="11">November
+                                                                                                </option>
+                                                                                                <option
+                                                                                                    {{ $data->bulan == '12' ? 'selected' : '' }}
+                                                                                                    value="12">Disember
+                                                                                                </option>
+                                                                                            </select>
+                                                                                            </fieldset>
+
                                                                                                     {{-- <fieldset class="form-group">
-                                                                                            <select class="form-control" id="tahun" name="tahun1" required
+                                                                                            <select class="form-control" id="bulan" name="bulan1" required
                                                                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                                                             oninput="setCustomValidity('')">
                                                                                                 <option selected hidden disabled value="">Sila Pilih
-                                                                                                    Tahun</option>
-                                                                                                @for ($i = 2011; $i <= date('Y'); $i++)
-                                                                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                                                                @endfor
-
+                                                                                                    Bulan</option>
+                                                                                                <option value="01">Januari</option>
+                                                                                                <option value="02">Februari</option>
+                                                                                                <option value="03">Mac</option>
+                                                                                                <option value="04">April</option>
+                                                                                                <option value="05">Mei</option>
+                                                                                                <option value="06">Jun</option>
+                                                                                                <option value="07">Julai</option>
+                                                                                                <option value="08">Ogos</option>
+                                                                                                <option value="09">September</option>
+                                                                                                <option value="10">Oktober</option>
+                                                                                                <option value="11">November</option>
+                                                                                                <option value="12">Disember</option>
                                                                                             </select>
-                                                                                        </fieldset> --}}
+                                                                                            </fieldset> --}}
+
+                                                                                        </div>
 
                                                                                     </div>
-                                                                                    <label class="required">Bulan </label>
-                                                                                    <div class="form-group">
-                                                                                        <select class="form-control"
-                                                                                            id="bulan" name="bulan">
-                                                                                            <option selected hidden disabled
-                                                                                                value="">Sila Pilih Bulan
-                                                                                            </option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '01' ? 'selected' : '' }}
-                                                                                                value="01">Januari</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '02' ? 'selected' : '' }}
-                                                                                                value="02">Februari
-                                                                                            </option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '03' ? 'selected' : '' }}
-                                                                                                value="03">Mac</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '04' ? 'selected' : '' }}
-                                                                                                value="04">April</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '05' ? 'selected' : '' }}
-                                                                                                value="05">Mei</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '06' ? 'selected' : '' }}
-                                                                                                value="06">Jun</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '07' ? 'selected' : '' }}
-                                                                                                value="07">Julai</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '08' ? 'selected' : '' }}
-                                                                                                value="08">Ogos</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '09' ? 'selected' : '' }}
-                                                                                                value="09">September
-                                                                                            </option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '10' ? 'selected' : '' }}
-                                                                                                value="10">Oktober</option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '11' ? 'selected' : '' }}
-                                                                                                value="11">November
-                                                                                            </option>
-                                                                                            <option
-                                                                                                {{ $data->bulan == '12' ? 'selected' : '' }}
-                                                                                                value="12">Disember
-                                                                                            </option>
-                                                                                        </select>
-                                                                                        </fieldset>
+                                                                                    {{-- <div class="mb-4"></div> --}}
 
-                                                                                                {{-- <fieldset class="form-group">
-                                                                                        <select class="form-control" id="bulan" name="bulan1" required
-                                                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                                                        oninput="setCustomValidity('')">
-                                                                                            <option selected hidden disabled value="">Sila Pilih
-                                                                                                Bulan</option>
-                                                                                            <option value="01">Januari</option>
-                                                                                            <option value="02">Februari</option>
-                                                                                            <option value="03">Mac</option>
-                                                                                            <option value="04">April</option>
-                                                                                            <option value="05">Mei</option>
-                                                                                            <option value="06">Jun</option>
-                                                                                            <option value="07">Julai</option>
-                                                                                            <option value="08">Ogos</option>
-                                                                                            <option value="09">September</option>
-                                                                                            <option value="10">Oktober</option>
-                                                                                            <option value="11">November</option>
-                                                                                            <option value="12">Disember</option>
-                                                                                        </select>
-                                                                                        </fieldset> --}}
+                                                                                    {{-- <hr> --}}
+                                                                                    <div class="col-12  mb-2"
+                                                                                        style="background-color:lightgrey">
+                                                                                        <b>SEMENANJUNG MALAYSIA</b>
+                                                                                    </div>
+                                                                                    <br class="noPrint">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>CPO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='cpo_sm'
+                                                                                                    class="form-control"
+                                                                                                    id="cpo_sm"
+                                                                                                    value="{{ old('cpo_sm') ?? number_format($data->cpo_sm, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6">
+                                                                                            <label>PPO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='ppo_sm'
+                                                                                                    class="form-control"
+                                                                                                    id="ppo_sm"
+                                                                                                    value="{{ old('ppo_sm') ?? number_format($data->ppo_sm, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
 
                                                                                     </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>CPKO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='cpko_sm'
+                                                                                                    class="form-control"
+                                                                                                    id="cpko_sm"
+                                                                                                    value="{{ old('cpko_sm') ?? number_format($data->cpko_sm, 2) }}">
+                                                                                            </div>
 
-                                                                                </div>
-                                                                                {{-- <div class="mb-4"></div> --}}
+                                                                                        </div>
 
-                                                                                <hr>
-                                                                                <div class="col-12 mt-2 mb-2"
-                                                                                    style="background-color:lightgrey">
-                                                                                    <b>SEMENANJUNG MALAYSIA</b>
-                                                                                </div>
-                                                                                <br class="noPrint">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <label>CPO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='cpo_sm'
-                                                                                                class="form-control"
-                                                                                                id="cpo_sm"
-                                                                                                value="{{ old('cpo_sm') ?? number_format($data->cpo_sm, 2) }}">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>PPKO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='ppko_sm'
+                                                                                                    class="form-control"
+                                                                                                    id="ppko_sm"
+                                                                                                    value="{{ old('ppko_sm') ?? number_format($data->ppko_sm, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12 mt-2 mb-2"
+                                                                                        style="background-color:lightgrey">
+                                                                                        <b>SABAH</b>
+                                                                                    </div>
+                                                                                    <br class="noPrint">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>CPO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='cpo_sbh'
+                                                                                                    class="form-control"
+                                                                                                    id="cpo_sbh"
+                                                                                                    value="{{ old('cpo_sbh') ?? number_format($data->cpo_sbh, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6">
+                                                                                            <label>PPO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='ppo_sbh'
+                                                                                                    class="form-control"
+                                                                                                    id="ppo_sbh"
+                                                                                                    value="{{ old('ppo_sbh') ?? number_format($data->ppo_sbh, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>CPKO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='cpko_sbh'
+                                                                                                    class="form-control"
+                                                                                                    id="cpko_sbh"
+                                                                                                    value="{{ old('cpko_sbh') ?? number_format($data->cpko_sbh, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6">
+                                                                                            <label>PPKO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='ppko_sbh'
+                                                                                                    class="form-control"
+                                                                                                    id="ppko_sbh"
+                                                                                                    value="{{ old('ppko_sbh') ?? number_format($data->ppko_sbh, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-12 mt-2 mb-2"
+                                                                                        style="background-color:lightgrey">
+                                                                                        <b>SARAWAK</b>
+                                                                                    </div>
+                                                                                    <br class="noPrint">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>CPO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='cpo_srwk'
+                                                                                                    class="form-control"
+                                                                                                    id="cpo_srwk"
+                                                                                                    value="{{ old('cpo_srwk') ?? number_format($data->cpo_srwk, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6">
+                                                                                            <label>PPO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='ppo_srwk'
+                                                                                                    class="form-control"
+                                                                                                    id="ppo_srwk"
+                                                                                                    value="{{ old('ppo_srwk') ?? number_format($data->ppo_srwk, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label>CPKO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='cpko_srwk'
+                                                                                                    class="form-control"
+                                                                                                    id="cpko_srwk"
+                                                                                                    value="{{ old('cpko_srwk') ?? number_format($data->cpko_srwk, 2) }}">
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6">
+                                                                                            <label>PPKO: </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text"
+                                                                                                    name='ppko_srwk'
+                                                                                                    class="form-control"
+                                                                                                    id="ppko_srwk"
+                                                                                                    value="{{ old('ppko_srwk') ?? number_format($data->ppko_srwk, 2) }}">
+                                                                                            </div>
+
                                                                                         </div>
 
                                                                                     </div>
 
-                                                                                    <div class="col-md-6">
-                                                                                        <label>PPO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ppo_sm'
-                                                                                                class="form-control"
-                                                                                                id="ppo_sm"
-                                                                                                value="{{ old('ppo_sm') ?? number_format($data->ppo_sm, 2) }}">
+                                                                                    <div class="modal-footer noPrint ">
+                                                                                        <div class="container-fluid">
+
+                                                                                            <button type="button"  class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
+                                                                                            style="background-color:white; color: #f90a0a; " >
+                                                                                            <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                                                        </button>
                                                                                         </div>
-
+                                                                                        <button type="button"
+                                                                                            class="btn btn-light-secondary"
+                                                                                            data-dismiss="modal">
+                                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                            <span class="d-none d-sm-block">Batal</span>
+                                                                                        </button>
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-primary ml-1">
+                                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                            <span
+                                                                                                class="d-none d-sm-block">Kemaskini</span>
+                                                                                        </button>
                                                                                     </div>
-
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <label>CPKO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='cpko_sm'
-                                                                                                class="form-control"
-                                                                                                id="cpko_sm"
-                                                                                                value="{{ old('cpko_sm') ?? number_format($data->cpko_sm, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                    <div class="col-md-6">
-                                                                                        <label>PPKO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ppko_sm'
-                                                                                                class="form-control"
-                                                                                                id="ppko_sm"
-                                                                                                value="{{ old('ppko_sm') ?? number_format($data->ppko_sm, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-12 mt-2 mb-2"
-                                                                                    style="background-color:lightgrey">
-                                                                                    <b>SABAH</b>
-                                                                                </div>
-                                                                                <br class="noPrint">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <label>CPO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='cpo_sbh'
-                                                                                                class="form-control"
-                                                                                                id="cpo_sbh"
-                                                                                                value="{{ old('cpo_sbh') ?? number_format($data->cpo_sbh, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                    <div class="col-md-6">
-                                                                                        <label>PPO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ppo_sbh'
-                                                                                                class="form-control"
-                                                                                                id="ppo_sbh"
-                                                                                                value="{{ old('ppo_sbh') ?? number_format($data->ppo_sbh, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <label>CPKO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='cpko_sbh'
-                                                                                                class="form-control"
-                                                                                                id="cpko_sbh"
-                                                                                                value="{{ old('cpko_sbh') ?? number_format($data->cpko_sbh, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                    <div class="col-md-6">
-                                                                                        <label>PPKO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ppko_sbh'
-                                                                                                class="form-control"
-                                                                                                id="ppko_sbh"
-                                                                                                value="{{ old('ppko_sbh') ?? number_format($data->ppko_sbh, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-12 mt-2 mb-2"
-                                                                                    style="background-color:lightgrey">
-                                                                                    <b>SARAWAK</b>
-                                                                                </div>
-                                                                                <br class="noPrint">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <label>CPO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='cpo_srwk'
-                                                                                                class="form-control"
-                                                                                                id="cpo_srwk"
-                                                                                                value="{{ old('cpo_srwk') ?? number_format($data->cpo_srwk, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                    <div class="col-md-6">
-                                                                                        <label>PPO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ppo_srwk'
-                                                                                                class="form-control"
-                                                                                                id="ppo_srwk"
-                                                                                                value="{{ old('ppo_srwk') ?? number_format($data->ppo_srwk, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <label>CPKO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='cpko_srwk'
-                                                                                                class="form-control"
-                                                                                                id="cpko_srwk"
-                                                                                                value="{{ old('cpko_srwk') ?? number_format($data->cpko_srwk, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                    <div class="col-md-6">
-                                                                                        <label>PPKO: </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ppko_srwk'
-                                                                                                class="form-control"
-                                                                                                id="ppko_srwk"
-                                                                                                value="{{ old('ppko_srwk') ?? number_format($data->ppko_srwk, 2) }}">
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                </div>
-
-                                                                                <div class="modal-footer noPrint ">
-                                                                                    <div class="container-fluid">
-
-                                                                                        <button type="button"  class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
-                                                                                        style="background-color:white; color: #f90a0a; " >
-                                                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                                                    </button>
-                                                                                    </div>
-                                                                                    <button type="button"
-                                                                                        class="btn btn-light-secondary"
-                                                                                        data-dismiss="modal">
-                                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                        <span class="d-none d-sm-block">Batal</span>
-                                                                                    </button>
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary ml-1">
-                                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Kemaskini</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
+                                                                                </form>
+                                                                            </div>
 
                                                                     </div>
                                                                 </div>
@@ -619,34 +619,15 @@ link.dispatchEvent(new MouseEvent('click'));
     </script>
 
 
-    <script>
-        function myPrint(myfrm) {
-            var hashid = "#"+ myfrm;
-            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
-            var attributes = "";
-            var attrs = document.getElementById(myfrm).attributes;
-              $.each(attrs,function(i,elem){
-                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
-              })
-            var divToPrint= $(hashid).html() ;
-            var head = "<html><head>"+ $("head").html() + "</head>" ;
-            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
-            var newWin=window.open('','Print-Window');
-            newWin.document.open();
-            newWin.document.write(allcontent);
-            newWin.document.close();
-           setTimeout(function(){newWin.close();},10);
-        }
-
-        // function myPrint(myfrm)  {
-        //     var divElements = $('.c3 .nicEdit-main').html();
-        //     var divToPrint = document.getElementById('myfrm');
-        //     var popupWin = window.open('', '_blank', 'width=800,height=500');
-        //     popupWin.document.open();
-        //     popupWin.document.write('<html><body onload="window.print()">' + divElements + '</html>');
-        //     popupWin.document.close();
-        // }
-    </script>
+<script>
+    function myPrint(myfrm) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
 
     <script>
 
