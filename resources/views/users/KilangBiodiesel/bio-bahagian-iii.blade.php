@@ -129,6 +129,22 @@
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
 
+                        <script>
+                           $(document).ready(function() {
+                                // Disable other input fields initially
+                                $("#ebio_c4, #ebio_c5, #ebio_c6, #ebio_c7, #ebio_c8, #ebio_c9, #ebio_c10").prop("disabled", true);
+
+                                // Enable/disable input fields based on the selected option
+                                $("#produk").on("change", function() {
+                                    var selectedOption = $(this).val();
+                                    if (selectedOption !== "") {
+                                    $("#ebio_c4, #ebio_c5, #ebio_c6, #ebio_c7, #ebio_c8, #ebio_c9, #ebio_c10").prop("disabled", false);
+                                    } else {
+                                    $("#ebio_c4, #ebio_c5, #ebio_c6, #ebio_c7, #ebio_c8, #ebio_c9, #ebio_c10").prop("disabled", true);
+                                    }
+                                });
+                                });
+                          </script>
 
             <div class="card-body">
                 <div class="">
@@ -148,8 +164,12 @@
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Nama Produk dan Kod</span>
+                                    <span class="">Nama Produk dan Kod</span><br> <i  title="Pengisian maklumat jualan"
+                                    style="font-size:11px; color:red; font:rubik" type="button"
+                                    > (Sila pilih Nama Produk dan Kod
+                                    dahulu) </i>
                                 </div>
+
                                 <div class="col-md-7 mt-3">
                                     <div id="border_produk">
 
