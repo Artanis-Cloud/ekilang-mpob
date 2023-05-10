@@ -208,7 +208,7 @@
                                                 <!--scrolling content Modal -->
                                                 <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                    <div id="myfrm">
+                                                    <div id="myfrm{{ $data->id }}">
                                                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                             <div class="modal-content" id="tb_Logbook">
                                                                 <div class="modal-header">
@@ -300,7 +300,7 @@
 
                                                                 <div class="modal-footer noPrint" style="justify-content: normal">
                                                                     <div class="" style="margin-right: auto">
-                                                                    <div class="dt-button buttons-excel buttons-html5"    onclick=" myPrint('myfrm')"
+                                                                    <div class="dt-button buttons-excel buttons-html5"    onclick=" myPrint('myfrm{{ $data->id }}')"
                                                                         style="background-color:white; color: #f90a0a; float: left; ">
                                                                         <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
                                                                     </div>

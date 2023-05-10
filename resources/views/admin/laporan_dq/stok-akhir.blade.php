@@ -240,7 +240,7 @@
                                                             <div>
                                                                 <div class="modal-dialog modal-dialog-scrollable"
                                                                     role="document" >
-                                                                    <div class="modal-content" id="myfrm">
+                                                                    <div class="modal-content" id="myfrm{{ $key }}">
                                                                             <div class="modal-header">
                                                                                 <h4 class="modal-title"
                                                                                     id="exampleModalScrollableTitle">
@@ -530,7 +530,7 @@
                                                                                     <div class="modal-footer noPrint ">
                                                                                         <div class="container-fluid">
 
-                                                                                            <button type="button"  class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
+                                                                                            <button type="button"  class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm{{ $key }}')"
                                                                                             style="background-color:white; color: #f90a0a; " >
                                                                                             <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
                                                                                         </button>
