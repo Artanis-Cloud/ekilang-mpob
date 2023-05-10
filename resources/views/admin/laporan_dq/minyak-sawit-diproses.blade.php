@@ -213,7 +213,7 @@
                                                             <div class="modal-content" id="tb_Logbook">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                                        Kemaskini Biodiesel diproses </h5>
+                                                                        <b>Hebahan 10hb - Minyak Diproses</b><br>Kemaskini Biodiesel diproses </h5>
                                                                     <button type="button" class="close" data-dismiss="modal"
                                                                         aria-label="Close">
                                                                         <i data-feather="x"></i>
@@ -345,24 +345,25 @@
 
 @section('scripts')
 
+
 <script>
-    function myPrint(myfrm) {
-        var hashid = "#"+ myfrm;
-            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
-            var attributes = "";
-            var attrs = document.getElementById(myfrm).attributes;
-              $.each(attrs,function(i,elem){
-                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
-              })
-            var divToPrint= $(hashid).html() ;
-            var head = "<html><head>"+ $("head").html() + "</head>" ;
-            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
-            var newWin=window.open('','Print-Window');
-            newWin.document.open();
-            newWin.document.write(allcontent);
-            newWin.document.close();
-           setTimeout(function(){newWin.close();},10);
-    }
+    // function myPrint(myfrm) {
+    //     var hashid = "#"+ myfrm;
+    //         var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+    //         var attributes = "";
+    //         var attrs = document.getElementById(myfrm).attributes;
+    //           $.each(attrs,function(i,elem){
+    //             attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+    //           })
+    //         var divToPrint= $(hashid).html() ;
+    //         var head = "<html><head>"+ $("head").html() + "</head>" ;
+    //         var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+    //         var newWin=window.open('','Print-Window');
+    //         newWin.document.open();
+    //         newWin.document.write(allcontent);
+    //         newWin.document.close();
+    //        setTimeout(function(){newWin.close();},10);
+    // }
 
     // function myPrint(myfrm)  {
     //     var divElements = $('.c3 .nicEdit-main').html();
@@ -372,6 +373,15 @@
     //     popupWin.document.write('<html><body onload="window.print()">' + divElements + '</html>');
     //     popupWin.document.close();
     // }
+
+    function myPrint(myfrm) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+
 </script>
 
 

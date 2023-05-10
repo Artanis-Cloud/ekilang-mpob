@@ -52,6 +52,11 @@ class Proses8Controller extends Controller
         $destinasi = $request->destinasi;
         // $bulan = $request->bulan;
         // dd($maklumat);
+
+
+
+        // ini_set('max_execution_time', 300);
+
         if ($destinasi == 'admin') {
             $this->porting_admin($request->tahun, $request->bulan);
             Auth::user()->log(" PORT DATA KE STAT ADMIN" );
