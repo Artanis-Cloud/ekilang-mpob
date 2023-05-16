@@ -342,7 +342,7 @@ class LaporanController extends Controller
             $date = DB::table('h_bio_inits')->where('ebio_nobatch', $list_result->ebio_nobatch)->get();
             for ($i = 1; $i <= 12; $i++) {
 
-                if ($i ==  $no_batch->ebio_bln){
+                if ($i ==  $list_result->ebio_bln){
                     foreach ($date as $hbiob) {
                         $myDateTime = DateTime::createFromFormat('Y-m-d', $hbiob->ebio_sdate);
                         $formatteddate = $myDateTime->format('d-m-Y');
@@ -352,6 +352,7 @@ class LaporanController extends Controller
             }
         }
 
+        // dd($ebio_sdate);
 
         $data2 = HBioInit::find($ebio_nl);
         $data = Pelesen::where('e_nl', $ebio_nl)->first();
