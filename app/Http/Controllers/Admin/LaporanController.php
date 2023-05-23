@@ -2060,6 +2060,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '01'");
             // dd($kapasiti_kedah);
 
@@ -2069,6 +2070,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '02'");
             // dd($kapasiti_kedah);
 
@@ -2086,6 +2088,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '03'");
             // dd($kapasiti_kedah);
 
@@ -2095,6 +2098,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '04'");
             // dd($kapasiti_kedah);
 
@@ -2104,6 +2108,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '05'");
             // dd($kapasiti_kedah);
 
@@ -2113,6 +2118,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '06'");
             // dd($kapasiti_kedah);
 
@@ -2122,6 +2128,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '07'");
             // dd($kapasiti_perak);
 
@@ -2131,6 +2138,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '08'");
             // dd($kapasiti_kedah);
 
@@ -2140,6 +2148,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '09'");
             // dd($kapasiti_kedah);
 
@@ -2149,6 +2158,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '10'");
             // dd($kapasiti_kedah);
 
@@ -2158,6 +2168,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '11'");
             // dd($kapasiti_kedah);
 
@@ -2167,6 +2178,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '12'");
             // dd($kapasiti_kedah);
 
@@ -2176,6 +2188,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '13'");
             // dd($kapasiti_kedah);
 
@@ -2185,6 +2198,7 @@ class LaporanController extends Controller
         AND k.e_nl = p.e_nl
         AND p.e_nl = u.username
         AND u.category = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
         AND p.e_negeri = '14'");
             // dd($kapasiti_kedah);
 
