@@ -1755,7 +1755,8 @@ class LaporanController extends Controller
         FROM e_bio_inits e
         LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
         LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
-        WHERE e.ebio_sdate BETWEEN '$sdate' AND '$edate'");
+        WHERE e.ebio_sdate BETWEEN '$sdate' AND '$edate'
+        AND p.e_kat = 'PLBIO'");
 
         // if ($kategori == "tepat") {
         //     $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
