@@ -84,7 +84,7 @@
 
                             <!--JOHOR -->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 11px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl1">
                                         <thead>
