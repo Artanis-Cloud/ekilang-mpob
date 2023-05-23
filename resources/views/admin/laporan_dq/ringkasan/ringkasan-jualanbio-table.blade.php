@@ -255,7 +255,9 @@
                                                 onchange="ajax_daerah(this)" >
                                                     <option selected  value="">Sila Pilih Negeri</option>
                                                     @foreach ($negeri as $data)
-                                                        <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}>
+                                                        {{-- <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}> --}}
+                                                        <option value="{{ $data->kod_negeri }}" >
+
                                                             {{ $data->nama_negeri }}
                                                         </option>
                                                     @endforeach
@@ -281,14 +283,14 @@
                                                 <select class="form-control select2" name="e_nl" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
-                                                    @if ($data->pelesen)
-                                                        @foreach ($data->pelesen as $pelesen)
+                                                    {{-- @if ($data->pelesen) --}}
+                                                        {{-- @foreach ($data->pelesen as $pelesen) --}}
                                                         <option value="{{ $data->e_nl }}">
-                                                            {{ $data->e_nl }} - {{ $pelesen->e_np }}
+                                                            {{ $data->e_nl }} - {{ $data->e_np }}
                                                         </option>
-                                                        @endforeach
+                                                        {{-- @endforeach --}}
 
-                                                        @endif
+                                                    {{-- @endif --}}
 
                                                     @endforeach
                                                 </select>
@@ -296,9 +298,11 @@
                                             <div class="form-group">
                                                 <label>Pembeli</label>
                                                 <select class="form-control select2" name="pembeli" style="width: 10%">
-                                                    <option selected\ value="">Sila Pilih</option>
+                                                    <option selected value="">Sila Pilih</option>
                                                     @foreach ($pembeli as $data)
-                                                        <option value="{{ $data->id }}" {{(old('id', $pemb_req) == $data->id ? 'selected' : '')}}>
+                                                        {{-- <option value="{{ $data->id }}" {{(old('id', $pemb_req) == $data->id ? 'selected' : '')}}> --}}
+                                                        <option value="{{ $data->id }}" >
+
                                                             {{ $data->pembeli }}
                                                         </option>
                                                     @endforeach
@@ -527,7 +531,7 @@
                                                                         <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
 
                                                                         <td style="text-align: left; mso-number-format:'#,##0.00'">
-                                                                        {{ $syk_bio[$data->e_nl][$kodProduk]}}
+                                                                        {{ $syk_bio[$data->e_nl][$kodProduk] ?? '-'}}
                                                                             {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}
                                                                         </td>
 
@@ -536,7 +540,6 @@
                                                                             $total_all_bulan_c4 = 0;
                                                                         @endphp
                                                                         @for ($i=1; $i<=12;$i++)
-
 
                                                                             <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
                                                                                 <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk][$i]  ?? 0,2) }}</b>

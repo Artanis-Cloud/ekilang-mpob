@@ -796,7 +796,7 @@ class LaporanController extends Controller
                     }
                 }
             }
-            // dd($hbiob_s);
+            // dd($ebio_b5_bhg1);
 
 
             // dd($no_batches);
@@ -1472,7 +1472,13 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $users2 = DB::select("SELECT r.e_nl, p.e_np
+        FROM pelesen p, reg_pelesen r
+        WHERE p.e_nl = r.e_nl
+        AND r.e_kat = 'PLBIO'
+        AND p.e_kat = 'PLBIO'
+        ORDER BY p.e_nl");
+
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = KumpProduk::get();
         $produk = Produk::get();
@@ -1490,8 +1496,8 @@ class LaporanController extends Controller
 
         $equal_month = intval($equal_month);
 
-        $start_month = intval($start_month);
-        $end_month = intval($end_month);
+        // $start_month = intval($start_month);
+        // $end_month = intval($end_month);
         //    dd($syk);
         //RINGKASAN URUSNIAGA()
         foreach ($syk as $cc) {
@@ -1530,6 +1536,7 @@ class LaporanController extends Controller
                 ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
                 ->where('ebio_thn', $tahun)->whereBetween('ebio_bln', [$start_month . '%', $end_month . '%'])->groupBy('ebio_nl')->get();
         }
+        // dd($result);
 
         if ($request->e_nl) {
             $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
@@ -1539,8 +1546,9 @@ class LaporanController extends Controller
         if ($request->pembeli) {
             $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
                 ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
-                ->where('ebio_thn', $tahun)->where('ebio_cc3', 'LIKE', '%' . $request->pembeli . '%')->groupBy('ebio_nl')->get();
+                ->where('ebio_thn', $tahun)->where('ebio_cc3', $request->pembeli )->groupBy('ebio_nl')->get();
         }
+        // dd($result);
 
         if ($request->bulan == 'equal' && $request->e_nl) {
             $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
@@ -1580,11 +1588,12 @@ class LaporanController extends Controller
                 ->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('ebio_nl')->get();
         }
 
+        // dd($result);
 
-        //    dd($result);
         if (!$result->isEmpty()) {
             foreach ($result as $key => $list_result) {
-                $no_batches = DB::table('h_bio_inits')->where('ebio_nobatch', $list_result->ebio_nobatch)->where('ebio_thn', $tahun)->get();
+                $no_batches = DB::table('h_bio_inits')->where('ebio_nl', $list_result->ebio_nl)->where('ebio_thn', $tahun)->get();
+
                 $data_daerah[$key] = Daerah::where('kod_negeri', $list_result->kod_negeri)->where('kod_daerah', $list_result->e_daerah)->first();
 
                 // dd($no_batches);
@@ -1603,44 +1612,22 @@ class LaporanController extends Controller
 
                         $hb = SyarikatPembeli::where('id', $hbiob->ebio_cc3)->get();
 
-                        // $jualan_bio[$list_result->ebio_nl][$hbiob->ebio_cc4] = $hbiob->ebio_cc4 ?? 0;
-
                         foreach ($hb as  $test) {
 
-                            $syk_bio[$list_result->ebio_nl][$hbiob->ebio_cc4] = $test->pembeli ?? 0;
+                            $syk_bio[$list_result->ebio_nl][$hbiob->ebio_cc3] = $test->pembeli ?? 0;
                         }
-                        // foreach ($syk_bio as  $s) {
-                        //     $test = SyarikatPembeli::find($s);
-                        //     foreach ($test as  $new_test) {
-
-                        //         $new_syk[$list_result->ebio_nl][$hbiob->ebio_cc4]  = $new_test->pembeli ?? 0;
-
-                        //     }
-
-                        // }
-
 
                         for ($i = 1; $i <= 12; $i++) {
-                            // $new_bulan = $no_batch->ebio_bln - 1;
-                            // if($new_bulan == 0){
-                            //     $new_bulan = 12;
-                            // }
 
                             if ($i == $no_batch->ebio_bln) {
 
-                                // foreach ($hb as  $sya) {
-
-                                // dd($hbiob);
-
-                                // $syk_bio[$list_result->ebio_nl][$hbiob->ebio_cc3][$i] =  $sya->pembeli  ?? 0;
-                                $jualan_bio[$list_result->ebio_nl][$hbiob->ebio_cc4][$i] =  $hbiob->ebio_cc4  ?? 0;
-
-                                // }
+                                $jualan_bio[$list_result->ebio_nl][$hbiob->ebio_cc3][$i] =  $hbiob->ebio_cc4  ?? 0;
                             }
                         }
                     }
                 }
             }
+
             //   dd($jualan_bio);
 
             $array = [
