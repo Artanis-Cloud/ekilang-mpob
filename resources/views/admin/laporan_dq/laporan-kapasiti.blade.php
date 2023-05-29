@@ -290,7 +290,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KELANTAN</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl3">
+                                    <table class="table table-bordered" id="tbl3" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -392,7 +392,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>MELAKA</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl4">
+                                    <table class="table table-bordered" id="tbl4" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -494,7 +494,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>NEGERI SEMBILAN</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl5">
+                                    <table class="table table-bordered" id="tbl5" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -596,7 +596,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PAHANG</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl6">
+                                    <table class="table table-bordered" id="tbl6" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -698,7 +698,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERAK</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl7">
+                                    <table class="table table-bordered" id="tbl7" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -800,7 +800,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERLIS</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl8">
+                                    <table class="table table-bordered" id="tbl8" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -903,7 +903,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PULAU PINANG</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl9">
+                                    <table class="table table-bordered" id="tbl9" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1006,7 +1006,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SELANGOR</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl10">
+                                    <table class="table table-bordered" id="tbl10" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1109,7 +1109,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>TERENGGANU</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl11">
+                                    <table class="table table-bordered" id="tbl11" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1212,7 +1212,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>WILAYAH PERSEKUTUAN</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl12">
+                                    <table class="table table-bordered" id="tbl12" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1315,7 +1315,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SABAH</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl13">
+                                    <table class="table table-bordered" id="tbl13" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1418,7 +1418,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SARAWAK</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl14">
+                                    <table class="table table-bordered" id="tbl14" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
