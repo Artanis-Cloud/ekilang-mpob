@@ -148,7 +148,7 @@
                                     <input type="text" class="form-control" name='e104_b5'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b5" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc()" onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninput="this.setCustomValidity(''); invokeFunc(); validateInput(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b5')
                                         <div class="alert alert-danger">
@@ -164,7 +164,7 @@
                                     <input type="text" class="form-control" name='e104_b6'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b6" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc2()" onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninput="this.setCustomValidity(''); invokeFunc2(); validateInput(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b6')
                                         <div class="alert alert-danger">
@@ -184,7 +184,7 @@
                                     <input type="text" class="form-control" name='e104_b7'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b7" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc3(); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e104_b7')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -198,7 +198,7 @@
                                     <input type="text" class="form-control" name='e104_b9'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b9" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="this.setCustomValidity(''); invokeFunc4()" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc4(); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e104_b9')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -216,7 +216,7 @@
                                     <input type="text" class="form-control" name='e104_b10'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="this.setCustomValidity(''); invokeFunc5()" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc5(); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e104_b10')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -230,7 +230,7 @@
                                     <input type="text" class="form-control" name='e104_b11'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b11" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="this.setCustomValidity(''); invokeFunc6()" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc6(); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e104_b11')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -248,7 +248,7 @@
                                     <input type="text" class="form-control" name='e104_b12'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b12" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="this.setCustomValidity(''); invokeFunc7()" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc7(); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e104_b12')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -270,7 +270,7 @@
                                     <input type="text" class="form-control" name='e104_b13'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b13"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="this.setCustomValidity(''); invokeFunc8()" required title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc8(); validateInput(event)" required title="Sila isikan butiran ini.">
                                     @error('e104_b13')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -1280,6 +1280,12 @@
                     return true;
 
             });
+            </script>
+            <script>
+                function validateInput(event) {
+                var input = event.target.value;
+                event.target.value = input.replace(/-/g, "");
+                }
             </script>
 
             </body>

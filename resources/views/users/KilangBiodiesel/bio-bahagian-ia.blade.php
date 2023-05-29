@@ -151,7 +151,7 @@
                                 <input type="text" class="form-control" name='ebio_b5'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                     onchange="autodecimal(this); FormatCurrency(this)"
-                                    oninput="this.setCustomValidity(''); invokeFunc()" style="width:100%" id="ebio_b5"
+                                    oninput="this.setCustomValidity(''); invokeFunc(); validateInput(event)" style="width:100%" id="ebio_b5"
                                     onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                 @error('ebio_b5')
                                     <div class="alert alert-danger">
@@ -168,7 +168,7 @@
                                 <input type="text" class="form-control" name='ebio_b6'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                     onchange="autodecimal(this); FormatCurrency(this)"
-                                    oninput="this.setCustomValidity(''); invokeFunc1()" style="width:100%" id="ebio_b6"
+                                    oninput="this.setCustomValidity(''); invokeFunc1(); validateInput(event)" style="width:100%" id="ebio_b6"
                                     onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
 
                                 @error('ebio_b6')
@@ -188,7 +188,7 @@
                                 <input type="text" class="form-control" name='ebio_b7'
                                     onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity(''); invokeFunc2()" style="width:100%" id="ebio_b7"
+                                    oninput="this.setCustomValidity(''); invokeFunc2(); validateInput(event)" style="width:100%" id="ebio_b7"
                                     onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
 
                                 @error('ebio_b7')
@@ -204,7 +204,7 @@
                                 <input type="text" class="form-control" name='ebio_b8'
                                     onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity(''); invokeFunc3()" style="width:100%" id="ebio_b8"
+                                    oninput="this.setCustomValidity(''); invokeFunc3(); validateInput(event)" style="width:100%" id="ebio_b8"
                                     onkeypress="return isNumberKey(event)">
 
                                 @error('ebio_b8')
@@ -223,7 +223,7 @@
                                 <input type="text" class="form-control" name='ebio_b9'
                                     onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity(''); invokeFunc4()" style="width:100%" id="ebio_b9"
+                                    oninput="this.setCustomValidity(''); invokeFunc4(); validateInput(event)" style="width:100%" id="ebio_b9"
                                     onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
 
                                 @error('ebio_b9')
@@ -239,7 +239,7 @@
                                 <input type="text" class="form-control" name='ebio_b10'
                                     onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity(''); invokeFunc5()" style="width:100%" id="ebio_b10"
+                                    oninput="this.setCustomValidity(''); invokeFunc5(); validateInput(event)" style="width:100%" id="ebio_b10"
                                     onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
 
                                 @error('ebio_b10')
@@ -259,7 +259,7 @@
                                 <input type="text" class="form-control" name='ebio_b11'
                                     onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity(''); invokeFunc6()" style="width:100%" id="ebio_b11"
+                                    oninput="this.setCustomValidity(''); invokeFunc6(); validateInput(event)" style="width:100%" id="ebio_b11"
                                     onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                 @error('ebio_b11')
                                     <div class="alert alert-danger">
@@ -989,6 +989,12 @@
                 function checkKey(evt) {
                     console.log(evt.which);
                     return evt.which;
+                }
+            </script>
+            <script>
+                function validateInput(event) {
+                var input = event.target.value;
+                event.target.value = input.replace(/-/g, "");
                 }
             </script>
         @endsection

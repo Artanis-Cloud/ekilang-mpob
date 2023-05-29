@@ -333,7 +333,7 @@ class PusatSimpananController extends Controller
         ];
         $layout = 'layouts.psimpan';
 
-        $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
+        $user = E07Init::where('e07_nl', auth()->user()->username)->first();
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
@@ -348,21 +348,26 @@ class PusatSimpananController extends Controller
             $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
             $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_pelarasan');
             $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
+            if($user->e07_flg == 1){
 
-            return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact(
-                'returnArr',
-                'layout',
-                'user',
-                'penyata',
-                'produks',
-                'total',
-                'total2',
-                'total3',
-                'total4',
-                'total5',
-                'bulan',
-                'tahun',
-            ));
+                return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact(
+                    'returnArr',
+                    'layout',
+                    'user',
+                    'penyata',
+                    'produks',
+                    'total',
+                    'total2',
+                    'total3',
+                    'total4',
+                    'total5',
+                    'bulan',
+                    'tahun',
+                ));
+            } else {
+                return redirect()->back()
+                    ->with('error', 'Sila hubungi pegawai MPOB');
+            }
         } else {
             return redirect()->back()
                 ->with('error', 'Sila hubungi pegawai MPOB');
@@ -477,6 +482,7 @@ class PusatSimpananController extends Controller
     {
         $bulan = date("m") - 1;
         $tahun = date("Y");
+        $user = E07Init::where('e07_nl', auth()->user()->username)->first();
 
         $breadcrumbs    = [
             ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
@@ -492,8 +498,13 @@ class PusatSimpananController extends Controller
         $layout = 'layouts.psimpan';
 
 
+        if($user->e07_flg == 1){
 
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-b', compact('returnArr', 'layout', 'bulan', 'tahun'));
+            return view('users.PusatSimpanan.pusatsimpan-bahagian-b', compact('returnArr', 'layout', 'bulan', 'tahun'));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -535,7 +546,7 @@ class PusatSimpananController extends Controller
         $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
 
 
-
+        if($user->e07_flg == 1){
         return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact(
             'layout',
             'returnArr',
@@ -550,6 +561,10 @@ class PusatSimpananController extends Controller
             'total4',
             'total5'
         ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Sila hubungi pegawai MPOB');
+        }
     }
 
     public function pusatsimpan_update_papar_penyata(Request $request, $id)
