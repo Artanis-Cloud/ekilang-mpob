@@ -160,7 +160,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c5' style="width:100%" id="e101_c5"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                         oninput="this.setCustomValidity(''); invoke_c5()"  onchange="autodecimal(this); FormatCurrency(this)"
+                                         oninput="this.setCustomValidity(''); invoke_c5()"  onchange="autodecimal(this); FormatCurrency(this); validateInput(event)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c5')
                                         <div class="alert alert-danger">
@@ -175,7 +175,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c6' style="width:100%" id="e101_c6"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                         oninput="this.setCustomValidity(''); invoke_c6()" onchange="autodecimal(this); FormatCurrency(this)"
+                                         oninput="this.setCustomValidity(''); invoke_c6()" onchange="autodecimal(this); FormatCurrency(this); validateInput(event)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c6')
                                         <div class="alert alert-danger">
@@ -192,7 +192,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c7' style="width:100%" id="e101_c7"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity(''); invoke_c7()" onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninput="this.setCustomValidity(''); invoke_c7()" onchange="autodecimal(this); FormatCurrency(this); validateInput(event)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c7')
                                         <div class="alert alert-danger">
@@ -206,7 +206,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c8' style="width:100%" id="e101_c8"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                         oninput="this.setCustomValidity(''); invoke_c8()" onchange="autodecimal(this); FormatCurrency(this)"
+                                         oninput="this.setCustomValidity(''); invoke_c8()" onchange="autodecimal(this); FormatCurrency(this); validateInput(event)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c8')
                                         <div class="alert alert-danger">
@@ -224,7 +224,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c9' style="width:100%" id="e101_c9"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                         oninput="this.setCustomValidity(''); invoke_c9()" onchange="autodecimal(this); FormatCurrency(this)"
+                                         oninput="this.setCustomValidity(''); invoke_c9()" onchange="autodecimal(this); FormatCurrency(this); validateInput(event)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c9')
                                         <div class="alert alert-danger">
@@ -240,7 +240,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c10' style="width:100%"
                                         id="e101_c10" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invoke_c10()"
+                                        title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invoke_c10(); validateInput(event)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('e101_c10')
@@ -863,6 +863,12 @@
     function checkKey(evt) {
         console.log(evt.which);
         return evt.which;
+    }
+</script>
+<script>
+  function validateInput(event) {
+    var input = event.target.value;
+    event.target.value = input.replace(/-/g, "");
     }
 </script>
 @endsection

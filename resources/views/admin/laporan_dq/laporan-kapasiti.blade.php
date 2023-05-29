@@ -86,7 +86,7 @@
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div>
                             <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl1">
+                                    <table class="table table-bordered" id="tbl1" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
