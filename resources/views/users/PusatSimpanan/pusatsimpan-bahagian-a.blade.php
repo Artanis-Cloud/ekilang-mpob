@@ -156,7 +156,7 @@
                                         onkeypress="return isNumberKey(event)" id="e07bt_stokawal" required
                                         onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"  onClick="this.select();"
-                                        oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity('');invokeFunc(); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -173,7 +173,7 @@
                                         onkeypress="return isNumberKey(event)" id="e07bt_terima" required  onClick="this.select();"
                                         onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc2()"
+                                        oninput="this.setCustomValidity(''); invokeFunc2(); validateInput(event)"
                                         title="Sila isikan butiran ini.">
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
@@ -207,7 +207,7 @@
                                         onkeypress="return isNumberKey(event)" id="e07bt_edaran" required  onClick="this.select();"
                                         onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc3()"
+                                        oninput="this.setCustomValidity(''); invokeFunc3(); validateInput(event)"
                                         title="Sila isikan butiran ini.">
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">
@@ -254,7 +254,7 @@
                                         style="width: 100%" onkeypress="return isNumberKey(event)" id="e07bt_stokakhir"
                                         required  onchange="autodecimal(this); pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"  onClick="this.select();"
-                                        oninput="this.setCustomValidity('')" title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); validateInput(event)" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -1051,6 +1051,12 @@
                     return true;
 
                 });
+            </script>
+            <script>
+                function validateInput(event) {
+                var input = event.target.value;
+                event.target.value = input.replace(/-/g, "");
+                }
             </script>
 
             </body>
