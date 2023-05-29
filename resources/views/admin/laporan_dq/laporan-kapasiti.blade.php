@@ -84,7 +84,7 @@
 
                             <!--JOHOR -->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div>
-                            <div class="row" style="font-size: 11px">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl1">
                                         <thead>
@@ -126,9 +126,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_johor as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -186,13 +186,13 @@
 
                             <!--KEDAH-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KEDAH</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                    <table class="table table-bordered" id="tbl2">
+                                    <table class="table table-bordered" id="tbl2"  style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
-                                                <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle; word-wrap: break-word; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Feb</th>
@@ -228,9 +228,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_kedah as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -288,7 +288,7 @@
 
                             <!--KELANTAN-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KELANTAN</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl3">
                                         <thead>
@@ -330,9 +330,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_kelantan as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -390,7 +390,7 @@
 
                             <!--MELAKA-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>MELAKA</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl4">
                                         <thead>
@@ -432,9 +432,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_melaka as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -492,7 +492,7 @@
 
                             <!--N9-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>NEGERI SEMBILAN</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl5">
                                         <thead>
@@ -534,9 +534,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_n9 as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -594,7 +594,7 @@
 
                             <!--PAHANG-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PAHANG</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl6">
                                         <thead>
@@ -636,9 +636,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_pahang as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -696,7 +696,7 @@
 
                             <!--PERAK-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERAK</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl7">
                                         <thead>
@@ -738,9 +738,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_perak as $data)
                                                     <tr class="text-right" style="font-size: 9pt">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -798,7 +798,7 @@
 
                             <!--PERLIS-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERLIS</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl8">
                                         <thead>
@@ -840,9 +840,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_perlis as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -901,7 +901,7 @@
 
                             <!--PENANG-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PULAU PINANG</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl9">
                                         <thead>
@@ -943,9 +943,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_penang as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -1004,7 +1004,7 @@
 
                             <!--SELANGOR-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SELANGOR</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl10">
                                         <thead>
@@ -1046,9 +1046,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_selangor as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -1107,7 +1107,7 @@
 
                             <!--TERENGGANU-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>TERENGGANU</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl11">
                                         <thead>
@@ -1149,9 +1149,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_terengganu as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -1210,7 +1210,7 @@
 
                             <!--wp-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>WILAYAH PERSEKUTUAN</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl12">
                                         <thead>
@@ -1252,9 +1252,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_wp as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -1313,7 +1313,7 @@
 
                             <!--SABAH-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SABAH</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl13">
                                         <thead>
@@ -1355,9 +1355,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_sabah as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -1416,7 +1416,7 @@
 
                             <!--SARAWAK-->
                             <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SARAWAK</b></div>
-                            <div class="row">
+                            <div class="row" style="font-size: 10px">
                                 <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
                                     <table class="table table-bordered" id="tbl14">
                                         <thead>
@@ -1458,9 +1458,9 @@
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_sarawak as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
+                                                        <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
+                                                        <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
                                                         <td>{{ number_format($data->jan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->feb ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->mac ?? 0, 2) }}</td>
@@ -1557,6 +1557,18 @@
     }
 </script>
 
+
+{{-- <link rel="stylesheet" href="print.css" type="text/css" media="print" />
+
+    <script>
+        function myPrint(myfrm) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+        }
+    </script> --}}
 
 <script>
   var ExportToExcel = (function() {

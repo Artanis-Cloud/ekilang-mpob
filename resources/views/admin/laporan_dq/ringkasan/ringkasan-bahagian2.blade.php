@@ -257,7 +257,7 @@
                                                     @foreach ($users2 as $data)
                                                     @if ($data->pelesen)
                                                         @foreach ($data->pelesen as $pelesen)
-                                                        <option value="{{ $data->e_nl }}">
+                                                        <option value="">
                                                             {{ $data->e_nl }} - {{ $pelesen->e_np }}
                                                         </option>
                                                         @endforeach
