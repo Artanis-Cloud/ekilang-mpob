@@ -318,7 +318,7 @@ class KilangBuahController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $kilang = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $kilang = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '1' )->first();
         // $kilang = E91Init::where('e91_nl', '500028104000')->first();
         // dd($kilang);
         if ($kilang) {
@@ -382,55 +382,56 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
-        // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
-        if ($penyata->e91_ac1 != NULL || $penyata->e91_ac1 != 0) {
-            $oer = ($penyata->e91_ad1 / $penyata->e91_ac1) * 100;
-            $ker = ($penyata->e91_ad2 / $penyata->e91_ac1) * 100 ;
-        } else {
-            $oer = 0;
-            $ker = 0;
-        }
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '1' )->first();
+        if ($penyata) {
 
-        // dd($penyata);
-        // if ($penyata->e91_ah5 ||
-        //     $penyata->e91_ah6 ||
-        //     $penyata->e91_ah7 ||
-        //     $penyata->e91_ah8 ||
-        //     $penyata->e91_ah9 ||
-        //     $penyata->e91_ah10){
-        //     $status_prestasi = "Meningkat";
-        // }else{
-        //     $status_prestasi = "Menurun";
-        // }
-        if (
-            $penyata->e91_ah5 ||
-            $penyata->e91_ah6 ||
-            $penyata->e91_ah7 ||
-            $penyata->e91_ah8 ||
-            $penyata->e91_ah9 ||
-            $penyata->e91_ah10
-        ) {
-            $status_prestasi = "Meningkat";
-        } elseif (
-            $penyata->e91_ah11 ||
-            $penyata->e91_ah12 ||
-            $penyata->e91_ah13 ||
-            $penyata->e91_ah14 ||
-            $penyata->e91_ah15 ||
-            $penyata->e91_ah16 ||
-            $penyata->e91_ah17
-        ) {
-            $status_prestasi = "Menurun";
-        } else {
-            $status_prestasi = "Sila Pilih Prestasi OER";
-        }
+         // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
+            if ($penyata->e91_ac1 != NULL || $penyata->e91_ac1 != 0) {
+                $oer = ($penyata->e91_ad1 / $penyata->e91_ac1) * 100;
+                $ker = ($penyata->e91_ad2 / $penyata->e91_ac1) * 100 ;
+            } else {
+                $oer = 0;
+                $ker = 0;
+            }
+
+            // dd($penyata);
+            // if ($penyata->e91_ah5 ||
+            //     $penyata->e91_ah6 ||
+            //     $penyata->e91_ah7 ||
+            //     $penyata->e91_ah8 ||
+            //     $penyata->e91_ah9 ||
+            //     $penyata->e91_ah10){
+            //     $status_prestasi = "Meningkat";
+            // }else{
+            //     $status_prestasi = "Menurun";
+            // }
+            if (
+                $penyata->e91_ah5 ||
+                $penyata->e91_ah6 ||
+                $penyata->e91_ah7 ||
+                $penyata->e91_ah8 ||
+                $penyata->e91_ah9 ||
+                $penyata->e91_ah10
+            ) {
+                $status_prestasi = "Meningkat";
+            } elseif (
+                $penyata->e91_ah11 ||
+                $penyata->e91_ah12 ||
+                $penyata->e91_ah13 ||
+                $penyata->e91_ah14 ||
+                $penyata->e91_ah15 ||
+                $penyata->e91_ah16 ||
+                $penyata->e91_ah17
+            ) {
+                $status_prestasi = "Menurun";
+            } else {
+                $status_prestasi = "Sila Pilih Prestasi OER";
+            }
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
 
-        if ($penyata) {
             return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker', 'status_prestasi'));
         } else {
             return redirect()->back()
@@ -487,7 +488,7 @@ class KilangBuahController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '1' )->first();
         // dd($penyata);
         $jumlah = ($penyata->e91_ai1 ?? 0) +
             ($penyata->e91_ai2 ?? 0) +
@@ -534,52 +535,53 @@ class KilangBuahController extends Controller
     public function buah_bahagianiv()
     {
         //semak jumlah bahagian iii
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '1' )->first();
         // dd($penyata);
-        $jumlah = (floatval($penyata->e91_ai1 ?? 0)) +
-            (floatval($penyata->e91_ai2 ?? 0)) +
-            (floatval($penyata->e91_ai3 ?? 0)) +
-            (floatval($penyata->e91_ai4 ?? 0)) +
-            (floatval($penyata->e91_ai5 ?? 0)) +
-            (floatval($penyata->e91_ai6 ?? 0));
-            // dd($penyata->e91_ab1);
-            $jumlah2 = $penyata->e91_ab1;
-            // dd($jumlah2);
-
-        //
-        // dd($jumlah == $jumlah2);
-
-        if (round($jumlah) != round($penyata->e91_ab1)) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
-        }
-
-            $breadcrumbs    = [
-                ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('buah.bahagianiv'), 'name' => "Bahagian 4"],
-            ];
-
-            $kembali = route('buah.bahagianiii');
-
-            $returnArr = [
-                'breadcrumbs' => $breadcrumbs,
-                'kembali'     => $kembali,
-            ];
-            $layout = 'layouts.kbuah';
-
-            $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
-
-            $bulan = date("m") - 1;
-            $tahun = date("Y");
-
-            $jumlah3 = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
-                ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
-        // } else {
-
-        // }
-        //end of semak jumlah bahagian iii
-
-
         if ($penyata) {
+
+            $jumlah = (floatval($penyata->e91_ai1 ?? 0)) +
+                (floatval($penyata->e91_ai2 ?? 0)) +
+                (floatval($penyata->e91_ai3 ?? 0)) +
+                (floatval($penyata->e91_ai4 ?? 0)) +
+                (floatval($penyata->e91_ai5 ?? 0)) +
+                (floatval($penyata->e91_ai6 ?? 0));
+                // dd($penyata->e91_ab1);
+                $jumlah2 = $penyata->e91_ab1;
+                // dd($jumlah2);
+
+            //
+            // dd($jumlah == $jumlah2);
+
+            if (round($jumlah) != round($penyata->e91_ab1)) {
+                return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
+            }
+
+                $breadcrumbs    = [
+                    ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+                    ['link' => route('buah.bahagianiv'), 'name' => "Bahagian 4"],
+                ];
+
+                $kembali = route('buah.bahagianiii');
+
+                $returnArr = [
+                    'breadcrumbs' => $breadcrumbs,
+                    'kembali'     => $kembali,
+                ];
+                $layout = 'layouts.kbuah';
+
+                $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+
+                $bulan = date("m") - 1;
+                $tahun = date("Y");
+
+                $jumlah3 = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
+                    ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
+            // } else {
+
+            // }
+            //end of semak jumlah bahagian iii
+
+
             return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah3', 'bulan', 'tahun','jumlah','jumlah2'));
         } else {
             return redirect()->back()
@@ -627,8 +629,10 @@ class KilangBuahController extends Controller
     {
 
         //semak jumlah bahagian iv
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '1' )->first();
         // dd($penyata);
+        if ($penyata) {
+
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
@@ -657,7 +661,6 @@ class KilangBuahController extends Controller
 
         $jumlah = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
 
-        if ($penyata) {
             return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
@@ -716,7 +719,10 @@ class KilangBuahController extends Controller
     {
         //semak jumlah bahagian v
         // $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '1' )->first();
+
+        if ($penyata) {
+
         $penyata2 = $penyata->e91_ab1;
 
         $jumlah_3 = ((floatval($penyata->e91_ai1 ?? 0)) +  (floatval($penyata->e91_ai2 ?? 0)) + (floatval($penyata->e91_ai3 ?? 0)) + (floatval($penyata->e91_ai4 ?? 0)) + (floatval($penyata->e91_ai5 ?? 0)) + (floatval($penyata->e91_ai6 ?? 0)));
@@ -761,13 +767,12 @@ class KilangBuahController extends Controller
             $totaliii = DB::table("e91_init")
                 ->where('e91_nl', auth()->user()->username)
                 ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
+        }
 
-                if ($penyata) {
-                    return view('users.KilangBuah.buah-papar-penyata', compact('returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun','jumlah_3', 'jumlah_4','jumlah_5','penyata2'));
-                } else {
-                    return redirect()->back()
-                        ->with('error', 'Sila hubungi pegawai MPOB');
-                }
+            return view('users.KilangBuah.buah-papar-penyata', compact('returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun','jumlah_3', 'jumlah_4','jumlah_5','penyata2'));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
 
         // dd($penyata->e91_ai1);

@@ -294,7 +294,7 @@ class KilangPenapisController extends Controller
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
-        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $user = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first('e101_reg');
         // dd($user);
 
 
@@ -376,7 +376,7 @@ class KilangPenapisController extends Controller
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
-        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $user = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first('e101_reg');
         // dd($user);
 
 
@@ -595,7 +595,7 @@ class KilangPenapisController extends Controller
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         // $penyatas = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
         // $b = E101B::with(['e101init'],['produk'])->get();
-        $user = E101Init::where('e101_nl', auth()->user()->username)->first();
+        $user = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first();
         // dd($user);
         // $b = E101B::with('e101init')->where('e101_reg', $user->e101_reg)->get();
         // $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
@@ -795,7 +795,7 @@ class KilangPenapisController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->first();
+        $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first();
         $cpo = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4', '01')->first('e101_b10');
         $cpko = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4', '04')->first('e101_b10');
         // $produk2 = $penyata->e101b->e101_b4;
@@ -849,7 +849,7 @@ class KilangPenapisController extends Controller
 
         $produk = Produk::where('prodcat', 04)->orderBy('prodname')->get();
         // dd($produk);
-        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $user = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first('e101_reg');
 
         if ($user) {
             $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->orderBy('e101_c4')->get();
@@ -1013,7 +1013,7 @@ class KilangPenapisController extends Controller
 
         $produk = Produk::where('prodcat', 04)->orderBy('prodname')->get();
 
-        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $user = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first('e101_reg');
 
         if ($user) {
             $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->orderBy('e101_c4')->get();
@@ -1174,7 +1174,7 @@ class KilangPenapisController extends Controller
 
         // $produk = ProdCat::where('prodcat', 04)->orderBy('prodname')->get();
 
-        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $user = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first('e101_reg');
 
         if ($user) {
             // $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
@@ -1479,7 +1479,7 @@ class KilangPenapisController extends Controller
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
-        $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '1' )->first('e101_reg');
 
         if ($pelesen2) {
             $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {

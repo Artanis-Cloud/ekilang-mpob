@@ -213,7 +213,7 @@ class KilangIsirungController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kisirung';
-        $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
+        $penyata = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first();
         // dd($penyata);
 
         $bulan = date("m") - 1;
@@ -289,21 +289,22 @@ class KilangIsirungController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kisirung';
-        $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
-
-        if ($penyata->e102_ae1 != NULL || $penyata->e102_ae1 != 0) {
-            $cpko = ($penyata->e102_af2 / $penyata->e102_ae1) * 100;
-            $pkc = ($penyata->e102_af3 / $penyata->e102_ae1) * 100;
-        } else {
-            $cpko = 0;
-            $pkc = 0;
-        }
-        // dd($cpko);
-
-        $bulan = date("m") - 1;
-        $tahun = date("Y");
-
+        $penyata = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first();
+        
         if ($penyata) {
+
+            if ($penyata->e102_ae1 != NULL || $penyata->e102_ae1 != 0) {
+                $cpko = ($penyata->e102_af2 / $penyata->e102_ae1) * 100;
+                $pkc = ($penyata->e102_af3 / $penyata->e102_ae1) * 100;
+            } else {
+                $cpko = 0;
+                $pkc = 0;
+            }
+            // dd($cpko);
+
+            $bulan = date("m") - 1;
+            $tahun = date("Y");
+
             return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun','cpko','pkc'));
         } else {
             return redirect()->back()
@@ -390,7 +391,7 @@ class KilangIsirungController extends Controller
         // dd($produk);
         $produk = Prodcat2::select('catid', 'catname')->where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        $user = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first('e102_reg');
         // dd($user);
 
         if ($user) {
@@ -589,7 +590,7 @@ class KilangIsirungController extends Controller
         $tahun = date("Y");
 
         $prodcat = KodSl::get();
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        $user = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first('e102_reg');
         // dd($user);
 
         if ($user) {
@@ -793,7 +794,7 @@ class KilangIsirungController extends Controller
         // dd($produk);
 
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        $user = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first('e102_reg');
         // dd($user);
 
 
@@ -1208,7 +1209,7 @@ class KilangIsirungController extends Controller
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
-        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
+        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first();
         // dd($penyatai);
 
         if  ($penyatai){

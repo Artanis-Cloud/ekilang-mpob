@@ -300,7 +300,7 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '1' )->first('ebio_reg');
         // $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
 
 
@@ -477,7 +477,7 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '1' )->first('ebio_reg');
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
@@ -655,7 +655,7 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '1' )->first('ebio_reg');
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
@@ -825,7 +825,7 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '1' )->first('ebio_reg');
         if ($user) {
 
             $penyata = Hari::where('lesen', auth()->user()->username)->first();
@@ -921,7 +921,7 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '1' )->first('ebio_reg');
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
@@ -1350,7 +1350,7 @@ class KilangBiodieselController extends Controller
 
         $pelesen2 = ProfileBulanan::where('no_lesen', $pelesen->e_nl)->where('bulan', '8')->where('tahun', '2012')->first();
 
-        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first();
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '1' )->first();
         // dd($user);
 
         if ($user) {
