@@ -307,6 +307,7 @@
                                                             </b></td>
                                                         <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font><b></b>
+                                                            </b></td>
                                                         <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font><b></b>
                                                             </b></td>
@@ -315,6 +316,9 @@
                                                             </b></td>
                                                         <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font><b></b>
+                                                            </b></td>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Dipremis</font><b></b>
                                                             </b></td>
                                                         <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font><b></b>
@@ -328,6 +332,7 @@
                                                         $total_col_ebio_b9 = 0;
                                                         $total_col_ebio_b10 = 0;
                                                         $total_col_ebio_b11 = 0;
+                                                        $total_dipremis = 0;
                                                     @endphp
                                                     @foreach ($ia[$nobatch] as $dataia)
                                                     {{-- {{ dd($dataia) }} --}}
@@ -358,6 +363,9 @@
                                                                 <font size="2">{{ number_format( $dataia->ebio_b10 ??  0,2)  }}</font>
                                                             </td>
                                                             <td align="right">
+                                                                <font size="2"> {{ number_format($dipremis = $dataia->ebio_b5 + $dataia->ebio_b6 + $dataia->ebio_b7 - ($dataia->ebio_b8 + $dataia->ebio_b9 + $dataia->ebio_b10) ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
                                                                 <font size="2">{{ number_format( $dataia->ebio_b11 ??  0,2)  }}</font>
                                                             </td>
                                                             @php
@@ -368,6 +376,8 @@
                                                                 $total_col_ebio_b9 += $dataia->ebio_b9 ?? 0  ;
                                                                 $total_col_ebio_b10 += $dataia->ebio_b10 ?? 0  ;
                                                                 $total_col_ebio_b11 += $dataia->ebio_b11 ?? 0  ;
+                                                                $total_dipremis += $dataia->ebio_b5 + $dataia->ebio_b6 + $dataia->ebio_b7 - ($dataia->ebio_b8 + $dataia->ebio_b9 + $dataia->ebio_b10) ?? 0;
+
 
                                                             @endphp
                                                         </tr>
@@ -383,6 +393,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis ?? 0, 2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
 
                                                     </tr>
@@ -425,6 +436,9 @@
                                                                 <font size="2">Eksport</font><b></b>
                                                             </b></td>
                                                         <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Dipremis</font><b></b>
+                                                            </b></td>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font><b></b>
                                                             </b></td>
                                                     </tr>
@@ -436,6 +450,7 @@
                                                         $total_col_ebio_b9 = 0;
                                                         $total_col_ebio_b10 = 0;
                                                         $total_col_ebio_b11 = 0;
+                                                        $total_dipremis2 = 0;
                                                     @endphp
 
                                                     @foreach ($ib[$nobatch] as $dataib)
@@ -467,6 +482,9 @@
                                                                 <font size="2">{{ number_format( $dataib->ebio_b10 ??  0,2)  }}</font>
                                                             </td>
                                                             <td align="right">
+                                                                <font size="2"> {{ number_format($dipremis2 = $dataib->ebio_b5 + $dataib->ebio_b6 + $dataib->ebio_b7 - ($dataib->ebio_b8 + $dataib->ebio_b9 + $dataib->ebio_b10) ?? 0, 2) }}</font>
+                                                            </td>
+                                                            <td align="right">
                                                                 <font size="2">{{ number_format( $dataib->ebio_b11 ??  0,2)  }}</font>
                                                             </td>
                                                             @php
@@ -477,6 +495,7 @@
                                                                 $total_col_ebio_b9 += $dataib->ebio_b9 ?? 0  ;
                                                                 $total_col_ebio_b10 += $dataib->ebio_b10 ?? 0  ;
                                                                 $total_col_ebio_b11 += $dataib->ebio_b11 ?? 0  ;
+                                                                $total_dipremis2 += $dipremis2 ?? 0;
 
                                                             @endphp
                                                         </tr>
@@ -492,6 +511,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
 
                                                     </tr>
@@ -534,6 +554,9 @@
                                                                 <font size="2">Eksport</font><b></b>
                                                             </b></td>
                                                         <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Dipremis</font><b></b>
+                                                            </b></td>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font><b></b>
                                                             </b></td>
                                                     </tr>
@@ -545,6 +568,7 @@
                                                         $total_col_ebio_b9 = 0;
                                                         $total_col_ebio_b10 = 0;
                                                         $total_col_ebio_b11 = 0;
+                                                        $total_dipremis3 = 0;
                                                     @endphp
                                                     @foreach ($ic[$nobatch] as $dataic)
                                                     <tr>
@@ -573,6 +597,9 @@
                                                             <font size="2">{{ number_format($dataic->ebio_b10 ??  0,2)}}</font>
                                                         </td>
                                                         <td align="right">
+                                                            <font size="2"> {{ number_format($dipremis3 = $dataic->ebio_b5 + $dataic->ebio_b6 + $dataic->ebio_b7 - ($dataic->ebio_b8 + $dataic->ebio_b9 + $dataic->ebio_b10) ?? 0, 2) }}</font>
+                                                        </td>
+                                                        <td align="right">
                                                             <font size="2">{{ number_format($dataic->ebio_b11 ??  0,2)}}</font>
                                                         </td>
                                                         @php
@@ -583,6 +610,7 @@
                                                             $total_col_ebio_b9 += $dataic->ebio_b9 ?? 0  ;
                                                             $total_col_ebio_b10 += $dataic->ebio_b10 ?? 0  ;
                                                             $total_col_ebio_b11 += $dataic->ebio_b11 ?? 0  ;
+                                                            $total_dipremis3 += $dipremis3 ?? 0;
                                                         @endphp
                                                     </tr>
                                                     @endforeach
@@ -597,6 +625,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
 
                                                     </tr>
@@ -661,6 +690,9 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Stok Akhir Dipremis</font>
+                                                            </b></td>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
@@ -672,6 +704,7 @@
                                                         $total_col_ebio_c8 = 0;
                                                         $total_col_ebio_c9 = 0;
                                                         $total_col_ebio_c10 = 0;
+                                                        $total_dipremis4 = 0;
                                                     @endphp
 
                                                     @foreach ($iii[$nobatch] as $dataiii)
@@ -701,6 +734,9 @@
                                                             <font size="2">{{ number_format($dataiii->ebio_c9 ??  0,2)}}</font>
                                                         </td>
                                                         <td align="right">
+                                                            <font size="2"> {{ number_format($dipremis4 = $dataiii->ebio_c4 + $dataiii->ebio_c5 + $dataiii->ebio_c6 - ($dataiii->ebio_c7 + $dataiii->ebio_c8 + $dataiii->ebio_c9) ?? 0, 2) }}</font>
+                                                        </td>
+                                                        <td align="right">
                                                             <font size="2">{{ number_format($dataiii->ebio_c10 ??  0,2)}}</font>
                                                         </td>
                                                         @php
@@ -711,6 +747,7 @@
                                                             $total_col_ebio_c8 += $dataiii->ebio_c8 ?? 0  ;
                                                             $total_col_ebio_c9 += $dataiii->ebio_c9 ?? 0  ;
                                                             $total_col_ebio_c10 += $dataiii->ebio_c10 ?? 0  ;
+                                                            $total_dipremis4 += $dipremis4 ?? 0;
 
                                                         @endphp
                                                     </tr>
@@ -726,6 +763,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c7 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c9 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis4 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c10 ?? 0,2) }}</b></td>
 
                                                     </tr>
