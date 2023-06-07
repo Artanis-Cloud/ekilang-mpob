@@ -1222,7 +1222,7 @@
                                     @if ($penyataii)
                                         <tbody>
                                             <form
-                                                action="{{ route('admin.kemaskini.maklumat.bio.ii.dahulu', [$penyataii->lesen]) }}"
+                                                action="{{ route('admin.kemaskini.maklumat.bio.ii.dahulu', [$penyataii->id]) }}"
                                                 class="sub-form" method="post" id="formii">
                                                 @csrf
                                                 <tr>
