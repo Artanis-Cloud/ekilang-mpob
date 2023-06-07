@@ -1081,7 +1081,7 @@ class Proses5Controller extends Controller
                 return $query->whereIn('prodcat', ['03', '06', '08']);
             })->get();
 
-            $penyataii = Hari::where('lesen',  $penyata->ebio_nl)->first();
+            $penyataii = Hari::where('lesen',  $penyata->ebio_nl)->where('tahunbhg2', $penyata->ebio_thn)->where('bulanbhg2',$penyata->ebio_bln)->first();
 
 
             $penyataiii = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata->ebio_reg)->whereHas('produk', function ($query) {
@@ -1214,7 +1214,7 @@ class Proses5Controller extends Controller
                 return $query->whereIn('prodcat', ['03', '06', '08']);
             })->get();
 
-            $penyataii = HHari::where('lesen',  $penyata->ebio_nl)->first();
+            $penyataii = HHari::where('lesen',  $penyata->ebio_nl)->where('tahunbhg2', $penyata->ebio_thn)->where('bulanbhg2',$penyata->ebio_bln)->first();
 
             $penyataiii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch',  $penyata->ebio_nobatch)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
@@ -1334,13 +1334,13 @@ class Proses5Controller extends Controller
             $ebio_b9 = $request->get('ebio_b9');
             $ebio_b10 = $request->get('ebio_b10');
             $ebio_b11 = $request->get('ebio_b11');
-            $b5 = str_replace(',', '', $ebio_b5);
-            $b6 = str_replace(',', '', $ebio_b6);
-            $b7 = str_replace(',', '', $ebio_b7);
-            $b8 = str_replace(',', '', $ebio_b8);
-            $b9 = str_replace(',', '', $ebio_b9);
-            $b10 = str_replace(',', '', $ebio_b10);
-            $b11 = str_replace(',', '', $ebio_b11);
+            $b5 = $ebio_b5 !== null ? str_replace(',', '', $ebio_b5) : '0.00';
+            $b6 = $ebio_b6 !== null ? str_replace(',', '', $ebio_b6) : '0.00';
+            $b7 = $ebio_b7 !== null ? str_replace(',', '', $ebio_b7) : '0.00';
+            $b8 = $ebio_b8 !== null ? str_replace(',', '', $ebio_b8) : '0.00';
+            $b9 = $ebio_b9 !== null ? str_replace(',', '', $ebio_b9) : '0.00';
+            $b10 = $ebio_b10 !== null ? str_replace(',', '', $ebio_b10) : '0.00';
+            $b11 = $ebio_b11 !== null ? str_replace(',', '', $ebio_b11) : '0.00';
 
             $penyataia_save->ebio_b4 = $request->get('ebio_b4');
             $penyataia_save->ebio_b5 = $b5;
@@ -1383,8 +1383,8 @@ class Proses5Controller extends Controller
         // dd($penyataii_save);
 
         // foreach($penyataia as $penyataia_save ){
-            $penyataii_save->hari_operasi = $request->get('hari_operasi');
-            $penyataii_save->kapasiti = $request->get('kapasiti');
+            $penyataii_save->hari_operasi = $request->get('hari_operasi') ?? '0';
+            $penyataii_save->kapasiti = $request->get('kapasiti') ?? '0';
 
             $penyataii_save->save();
         // }
@@ -1454,13 +1454,13 @@ class Proses5Controller extends Controller
             $ebio_b9 = $request->get('ebio_b9');
             $ebio_b10 = $request->get('ebio_b10');
             $ebio_b11 = $request->get('ebio_b11');
-            $b5 = str_replace(',', '', $ebio_b5);
-            $b6 = str_replace(',', '', $ebio_b6);
-            $b7 = str_replace(',', '', $ebio_b7);
-            $b8 = str_replace(',', '', $ebio_b8);
-            $b9 = str_replace(',', '', $ebio_b9);
-            $b10 = str_replace(',', '', $ebio_b10);
-            $b11 = str_replace(',', '', $ebio_b11);
+            $b5 = $ebio_b5 !== null ? str_replace(',', '', $ebio_b5) : '0.00';
+            $b6 = $ebio_b6 !== null ? str_replace(',', '', $ebio_b6) : '0.00';
+            $b7 = $ebio_b7 !== null ? str_replace(',', '', $ebio_b7) : '0.00';
+            $b8 = $ebio_b8 !== null ? str_replace(',', '', $ebio_b8) : '0.00';
+            $b9 = $ebio_b9 !== null ? str_replace(',', '', $ebio_b9) : '0.00';
+            $b10 = $ebio_b10 !== null ? str_replace(',', '', $ebio_b10) : '0.00';
+            $b11 = $ebio_b11 !== null ? str_replace(',', '', $ebio_b11) : '0.00';
 
             $penyataib_save->ebio_b4 = $request->get('ebio_b4');
             $penyataib_save->ebio_b5 = $b5;
@@ -1608,13 +1608,13 @@ class Proses5Controller extends Controller
             $ebio_b9 = $request->get('ebio_b9');
             $ebio_b10 = $request->get('ebio_b10');
             $ebio_b11 = $request->get('ebio_b11');
-            $b5 = str_replace(',', '', $ebio_b5);
-            $b6 = str_replace(',', '', $ebio_b6);
-            $b7 = str_replace(',', '', $ebio_b7);
-            $b8 = str_replace(',', '', $ebio_b8);
-            $b9 = str_replace(',', '', $ebio_b9);
-            $b10 = str_replace(',', '', $ebio_b10);
-            $b11 = str_replace(',', '', $ebio_b11);
+            $b5 = $ebio_b5 !== null ? str_replace(',', '', $ebio_b5) : '0.00';
+            $b6 = $ebio_b6 !== null ? str_replace(',', '', $ebio_b6) : '0.00';
+            $b7 = $ebio_b7 !== null ? str_replace(',', '', $ebio_b7) : '0.00';
+            $b8 = $ebio_b8 !== null ? str_replace(',', '', $ebio_b8) : '0.00';
+            $b9 = $ebio_b9 !== null ? str_replace(',', '', $ebio_b9) : '0.00';
+            $b10 = $ebio_b10 !== null ? str_replace(',', '', $ebio_b10) : '0.00';
+            $b11 = $ebio_b11 !== null ? str_replace(',', '', $ebio_b11) : '0.00';
 
             $penyataic_save->ebio_b4 = $request->get('ebio_b4');
             $penyataic_save->ebio_b5 = $b5;
@@ -1712,13 +1712,13 @@ class Proses5Controller extends Controller
             $ebio_c10 = $request->get('ebio_c10');
 
 
-            $c4 = str_replace(',', '', $ebio_c4);
-            $c5 = str_replace(',', '', $ebio_c5);
-            $c6 = str_replace(',', '', $ebio_c6);
-            $c7 = str_replace(',', '', $ebio_c7);
-            $c8 = str_replace(',', '', $ebio_c8);
-            $c9 = str_replace(',', '', $ebio_c9);
-            $c10 = str_replace(',', '', $ebio_c10);
+            $c4 = $ebio_c4 !== null ? str_replace(',', '', $ebio_c4) : '0.00';
+            $c5 = $ebio_c5 !== null ? str_replace(',', '', $ebio_c5) : '0.00';
+            $c6 = $ebio_c6 !== null ? str_replace(',', '', $ebio_c6) : '0.00';
+            $c7 = $ebio_c7 !== null ? str_replace(',', '', $ebio_c7) : '0.00';
+            $c8 = $ebio_c8 !== null ? str_replace(',', '', $ebio_c8) : '0.00';
+            $c9 = $ebio_c9 !== null ? str_replace(',', '', $ebio_c9) : '0.00';
+            $c10 = $ebio_c10 !== null ? str_replace(',', '', $ebio_c10) : '0.00';
 
             $penyataiii_save->ebio_c3 = $request->get('ebio_c3');
             $penyataiii_save->ebio_c4 = $c4;
@@ -1984,13 +1984,13 @@ class Proses5Controller extends Controller
             $ebio_b9 = $request->get('ebio_b9');
             $ebio_b10 = $request->get('ebio_b10');
             $ebio_b11 = $request->get('ebio_b11');
-            $b5 = str_replace(',', '', $ebio_b5);
-            $b6 = str_replace(',', '', $ebio_b6);
-            $b7 = str_replace(',', '', $ebio_b7);
-            $b8 = str_replace(',', '', $ebio_b8);
-            $b9 = str_replace(',', '', $ebio_b9);
-            $b10 = str_replace(',', '', $ebio_b10);
-            $b11 = str_replace(',', '', $ebio_b11);
+            $b5 = $ebio_b5 !== null ? str_replace(',', '', $ebio_b5) : '0.00';
+            $b6 = $ebio_b6 !== null ? str_replace(',', '', $ebio_b6) : '0.00';
+            $b7 = $ebio_b7 !== null ? str_replace(',', '', $ebio_b7) : '0.00';
+            $b8 = $ebio_b8 !== null ? str_replace(',', '', $ebio_b8) : '0.00';
+            $b9 = $ebio_b9 !== null ? str_replace(',', '', $ebio_b9) : '0.00';
+            $b10 = $ebio_b10 !== null ? str_replace(',', '', $ebio_b10) : '0.00';
+            $b11 = $ebio_b11 !== null ? str_replace(',', '', $ebio_b11) : '0.00';
 
             $penyataia_save->ebio_b4 = $request->get('ebio_b4');
             $penyataia_save->ebio_b5 = $b5;
@@ -2014,7 +2014,7 @@ class Proses5Controller extends Controller
 
     public function admin_kemaskini_maklumat_ii_dahulu(Request $request, $id)
     {
-        // dd($lesen);
+        // dd($id);
 
 
         $breadcrumbs    = [
@@ -2033,8 +2033,8 @@ class Proses5Controller extends Controller
         // dd($penyataii_save);
 
         // foreach($penyataia as $penyataia_save ){
-            $penyataii_save->hari_operasi = $request->get('hari_operasi');
-            $penyataii_save->kapasiti = $request->get('kapasiti');
+            $penyataii_save->hari_operasi = $request->get('hari_operasi') ?? '0';
+            $penyataii_save->kapasiti = $request->get('kapasiti') ?? '0';
 
             $penyataii_save->save();
         // }
@@ -2074,13 +2074,13 @@ class Proses5Controller extends Controller
             $ebio_b9 = $request->get('ebio_b9');
             $ebio_b10 = $request->get('ebio_b10');
             $ebio_b11 = $request->get('ebio_b11');
-            $b5 = str_replace(',', '', $ebio_b5);
-            $b6 = str_replace(',', '', $ebio_b6);
-            $b7 = str_replace(',', '', $ebio_b7);
-            $b8 = str_replace(',', '', $ebio_b8);
-            $b9 = str_replace(',', '', $ebio_b9);
-            $b10 = str_replace(',', '', $ebio_b10);
-            $b11 = str_replace(',', '', $ebio_b11);
+            $b5 = $ebio_b5 !== null ? str_replace(',', '', $ebio_b5) : '0.00';
+            $b6 = $ebio_b6 !== null ? str_replace(',', '', $ebio_b6) : '0.00';
+            $b7 = $ebio_b7 !== null ? str_replace(',', '', $ebio_b7) : '0.00';
+            $b8 = $ebio_b8 !== null ? str_replace(',', '', $ebio_b8) : '0.00';
+            $b9 = $ebio_b9 !== null ? str_replace(',', '', $ebio_b9) : '0.00';
+            $b10 = $ebio_b10 !== null ? str_replace(',', '', $ebio_b10) : '0.00';
+            $b11 = $ebio_b11 !== null ? str_replace(',', '', $ebio_b11) : '0.00';
 
             $penyataib_save->ebio_b4 = $request->get('ebio_b4');
             $penyataib_save->ebio_b5 = $b5;
@@ -2228,13 +2228,13 @@ class Proses5Controller extends Controller
             $ebio_b9 = $request->get('ebio_b9');
             $ebio_b10 = $request->get('ebio_b10');
             $ebio_b11 = $request->get('ebio_b11');
-            $b5 = str_replace(',', '', $ebio_b5);
-            $b6 = str_replace(',', '', $ebio_b6);
-            $b7 = str_replace(',', '', $ebio_b7);
-            $b8 = str_replace(',', '', $ebio_b8);
-            $b9 = str_replace(',', '', $ebio_b9);
-            $b10 = str_replace(',', '', $ebio_b10);
-            $b11 = str_replace(',', '', $ebio_b11);
+            $b5 = $ebio_b5 !== null ? str_replace(',', '', $ebio_b5) : '0.00';
+            $b6 = $ebio_b6 !== null ? str_replace(',', '', $ebio_b6) : '0.00';
+            $b7 = $ebio_b7 !== null ? str_replace(',', '', $ebio_b7) : '0.00';
+            $b8 = $ebio_b8 !== null ? str_replace(',', '', $ebio_b8) : '0.00';
+            $b9 = $ebio_b9 !== null ? str_replace(',', '', $ebio_b9) : '0.00';
+            $b10 = $ebio_b10 !== null ? str_replace(',', '', $ebio_b10) : '0.00';
+            $b11 = $ebio_b11 !== null ? str_replace(',', '', $ebio_b11) : '0.00';
 
             $penyataic_save->ebio_b4 = $request->get('ebio_b4');
             $penyataic_save->ebio_b5 = $b5;
@@ -2329,13 +2329,14 @@ class Proses5Controller extends Controller
             $ebio_c8 = $request->get('ebio_c8');
             $ebio_c9 = $request->get('ebio_c9');
             $ebio_c10 = $request->get('ebio_c10');
-            $c4 = str_replace(',', '', $ebio_c4);
-            $c5 = str_replace(',', '', $ebio_c5);
-            $c6 = str_replace(',', '', $ebio_c6);
-            $c7 = str_replace(',', '', $ebio_c7);
-            $c8 = str_replace(',', '', $ebio_c8);
-            $c9 = str_replace(',', '', $ebio_c9);
-            $c10 = str_replace(',', '', $ebio_c10);
+            $c4 = $ebio_c4 !== null ? str_replace(',', '', $ebio_c4) : '0.00';
+            $c5 = $ebio_c5 !== null ? str_replace(',', '', $ebio_c5) : '0.00';
+            $c6 = $ebio_c6 !== null ? str_replace(',', '', $ebio_c6) : '0.00';
+            $c7 = $ebio_c7 !== null ? str_replace(',', '', $ebio_c7) : '0.00';
+            $c8 = $ebio_c8 !== null ? str_replace(',', '', $ebio_c8) : '0.00';
+            $c9 = $ebio_c9 !== null ? str_replace(',', '', $ebio_c9) : '0.00';
+            $c10 = $ebio_c10 !== null ? str_replace(',', '', $ebio_c10) : '0.00';
+
 
             $penyataiii_save->ebio_c3 = $request->get('ebio_c3');
             $penyataiii_save->ebio_c4 = $c4;

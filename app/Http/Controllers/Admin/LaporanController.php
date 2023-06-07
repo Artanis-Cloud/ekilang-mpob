@@ -4699,7 +4699,7 @@ class LaporanController extends Controller
 
     public function admin_bulanan_lesen_process(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $tahun = $request->tahun;
         $produk = $request->produk;
 
