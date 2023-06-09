@@ -290,7 +290,7 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
         $penyata = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '1' )->first();
-        
+
         if ($penyata) {
 
             if ($penyata->e102_ae1 != NULL || $penyata->e102_ae1 != 0) {
@@ -1169,25 +1169,25 @@ class KilangIsirungController extends Controller
 
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
 
-        // $total3_bhg3s = floatval($total3_bhg3);
-        // $e102_ac1 = floatval($user->e102_ac1);
+        $total3_bhg3s = floatval($total3_bhg3);
+        $e102_ac1 = floatval($user->e102_ac1);
 
-        // $total3_bhg4s = floatval($total3_bhg4);
-        // $e102_ag2 = floatval($user->e102_ag2);
+        $total3_bhg4s = floatval($total3_bhg4);
+        $e102_ag2 = floatval($user->e102_ag2);
 
-        // $total3_bhg5s = floatval($total3_bhg5);
-        // $e102_ag3 = floatval($user->e102_ag3);
-        // // dd($e102_ag2);
+        $total3_bhg5s = floatval($total3_bhg5);
+        $e102_ag3 = floatval($user->e102_ag3);
+        // dd($e102_ag2);
 
-        // if ($total3_bhg3s != $user->e102_ac1) {
-        //     return redirect()->route('isirung.bahagianiii')->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        // }
-        // if ($total3_bhg4s != $user->e102_ag2) {
-        //     return redirect()->route('isirung.bahagianiv')->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
-        // }
-        // if ($total3_bhg5s != $user->e102_ag3) {
-        //     return redirect()->route('isirung.bahagianv')->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
-        // }
+        if ($total3_bhg3s != $user->e102_ac1) {
+            return redirect()->route('isirung.bahagianiii')->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
+        if ($total3_bhg4s != $user->e102_ag2) {
+            return redirect()->route('isirung.bahagianiv')->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        }
+        if ($total3_bhg5s != $user->e102_ag3) {
+            return redirect()->route('isirung.bahagianv')->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        }
 
 
         $breadcrumbs    = [
