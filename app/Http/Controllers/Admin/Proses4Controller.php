@@ -1391,7 +1391,7 @@ class Proses4Controller extends Controller
                         // '$bulan','$hari_operasi','$kapasiti',null,null)");
 
 
-                        $deletehbiohari = DB::delete("DELETE from h_hari where lesen='$nolesen' and tahun='$tahun' and bulan='$bulan'");
+                        $deletehbiohari = DB::delete("DELETE from h_hari where lesen='$nolesen' and tahunbhg2='$tahun' and bulanbhg2='$bulan'");
 
 
                         $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
