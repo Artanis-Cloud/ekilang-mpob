@@ -64,9 +64,10 @@ class Proses6Controller extends Controller
                             and e.e91_flg in ('2','3')
                             and p.e_nl = k.e_nl
                             and k.e_kat = 'PL91'
+                            and p.e_kat = 'PL91'
                             order by k.kodpgw, k.nosiri");
 
-
+                    // dd($users);
 
                     $breadcrumbs    = [
                         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -94,6 +95,7 @@ class Proses6Controller extends Controller
             and e.e91_flg in ('2','3')
             and p.e_nl = k.e_nl
             and k.e_kat = 'PL91'
+            and p.e_kat = 'PL91'
             order by k.kodpgw, k.nosiri");
 
 
@@ -1034,7 +1036,7 @@ class Proses6Controller extends Controller
             })->orderBy('ebio_c3')->get();
 
 
-            
+
             // $wherestmt = "(";
             // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
             // $query = DB::select("update e_bio_inits set ebio_flagcetak = 'Y' where ebio_nl in $ebio_reg");
