@@ -3039,7 +3039,7 @@ class Proses9Controller extends Controller
                         where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
                 $totala9[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KI) as total9 from mpb_insp3b e, codedb.commodity_l p
                         where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
-                $totala10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KE - e.INS_KJ) as total10 from mpb_insp3b e, codedb.commodity_l p
+                $totala10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KJ - (e.INS_KE + e.INS_KF - e.INS_KH)) as total10 from mpb_insp3b e, codedb.commodity_l p
                         where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
                 $totala11[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KJ) as total11 from mpb_insp3b e, codedb.commodity_l p
                         where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
@@ -3171,7 +3171,7 @@ class Proses9Controller extends Controller
                             where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
                         $totala9[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KI) as total9 from mpb_insp3b e, codedb.commodity_l p
                             where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
-                        $totala10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KE - e.INS_KJ) as total10 from mpb_insp3b e, codedb.commodity_l p
+                        $totala10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KJ - (e.INS_KE + e.INS_KF - e.INS_KH)) as total10 from mpb_insp3b e, codedb.commodity_l p
                             where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
                         $totala11[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KJ) as total11 from mpb_insp3b e, codedb.commodity_l p
                             where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
