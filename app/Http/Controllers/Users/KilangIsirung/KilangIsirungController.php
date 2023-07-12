@@ -496,12 +496,10 @@ class KilangIsirungController extends Controller
 
     public function validation(Request $request)
     {
-        // dd($request->all());
 
         $total3 = floatval($request->total3);
 
         $jumlah = floatval($request->jumlah);
-        // dd($jumlah);
 
 
         if ($total3 == $jumlah) {
@@ -566,12 +564,12 @@ class KilangIsirungController extends Controller
 
         $ac1 = floatval($user->e102_ac1);
         $total3 =  floatval($total + $total2);
-        // dd($total3);
         $epsilon = 0.0001;
 
-        if (abs($total3 - $ac1) > $epsilon) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        }
+        // if (abs($total3 - $ac1) > $epsilon) {
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!.');
+        // }
+        // dd($total3);
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
