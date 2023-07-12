@@ -567,7 +567,7 @@ class KilangIsirungController extends Controller
         $epsilon = 0.0001;
 
         // if (abs($total3 - $ac1) > $epsilon) {
-        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!.');
+        //     return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!..');
         // }
         // dd($total3);
 
