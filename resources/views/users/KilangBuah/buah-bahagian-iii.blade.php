@@ -135,7 +135,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai1"
                                                             name='e91_ai1' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc(); validateInput(event)"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event);" onClick="this.select();"
                                                             onchange=" autodecimal(this); validation_jumlah();FormatCurrency(this)" required
@@ -154,7 +154,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai2"
                                                             name='e91_ai2' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2(); validateInput(event)"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" onClick="this.select();"
                                                             onchange=" autodecimal(this);validation_jumlah(); FormatCurrency(this)" required
@@ -173,7 +173,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai3'
                                                             name='e91_ai3' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3(); validateInput(event)"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai3') ?? (number_format($penyata->e91_ai3 ?? 0,2)) }}"
@@ -192,7 +192,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai4'
                                                             name='e91_ai4' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4(); validateInput(event)"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai4') ?? (number_format($penyata->e91_ai4 ?? 0,2)) }}"
@@ -211,7 +211,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai5'
                                                             id='e91_ai5' size="15" id="text1" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5(); validateInput(event)"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai5') ?? (number_format($penyata->e91_ai5 ?? 0,2)) }}"
@@ -230,7 +230,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai6'
                                                             id='e91_ai6' size="15" id="text2" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); validateInput(event)"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai6') ?? (number_format($penyata->e91_ai6 ?? 0,2)) }}"
@@ -663,5 +663,11 @@
                     }
 
                 });
+            </script>
+            <script>
+                function validateInput(event) {
+                var input = event.target.value;
+                event.target.value = input.replace(/-/g, "");
+                }
             </script>
         @endsection

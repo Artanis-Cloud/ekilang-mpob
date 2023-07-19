@@ -139,7 +139,7 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak1'
                                                                             class="calc" name='e91_ak1' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak1()"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak1(); validateInput(event)"
                                                                             value="{{ old('e91_ak1') ?? number_format($penyata->e91_ak1 ?? 0,2) }}" required onClick="this.select();"
                                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak1')
@@ -156,7 +156,7 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak2'
                                                                             class="calc" name='e91_ak2' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak2()"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak2(); validateInput(event)"
                                                                             value="{{ old('e91_ak2') ?? number_format($penyata->e91_ak2 ?? 0,2) }}" required onClick="this.select();"
                                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak2')
@@ -173,7 +173,7 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak3'
                                                                             class="calc" name='e91_ak3' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak3()"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); validateInput(event)"
                                                                             value="{{ old('e91_ak3') ?? number_format($penyata->e91_ak3 ?? 0,2) }}" required onClick="this.select();"
                                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak3')
@@ -409,6 +409,12 @@
                             }
 
                         });
+                    </script>
+                    <script>
+                        function validateInput(event) {
+                        var input = event.target.value;
+                        event.target.value = input.replace(/-/g, "");
+                        }
                     </script>
 
                   @endsection

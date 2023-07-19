@@ -130,7 +130,7 @@
                                                     <label class="required">Tahun</label>
                                                     <select class="form-control" name="tahun" required id="tahun_id" oninput="valid_tahun()">
                                                         <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                        @for ($i = 2011; $i <= date('Y'); $i++)
+                                                        @for ($i = 2023; $i <= date('Y'); $i++)
                                                             <option>{{ $i }}</option>
                                                         @endfor
                                                     </select>

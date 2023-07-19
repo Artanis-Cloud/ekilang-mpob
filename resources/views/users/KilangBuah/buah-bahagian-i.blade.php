@@ -201,7 +201,7 @@
                                                                 Belian/Terimaan &nbsp; <i class="fa fa-exclamation-circle"
                                                                     style="color: red; cursor: pointer;"
                                                                     title="Belian - Urusniaga yang melibatkan pembayaran.
-Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan)."></i>
+                                                            Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan)."></i>
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_ab1'
@@ -312,7 +312,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                 Pengeluaran &nbsp; <i class="fa fa-exclamation-circle"
                                                                     style="color: red; cursor: pointer;"
                                                                     title="Pengeluaran minyak sawit mentah (CPO), isirung kelapa sawit (PK) dan minyak keladak
-termasuk pengeluaran untuk 'Tol'."></i>
+                                                            termasuk pengeluaran untuk 'Tol'."></i>
                                                             </td>
                                                             <td style="text-align:center; background-color:#808080b8">
                                                                 {{-- <input type="text"size="10" style="text-align: center"

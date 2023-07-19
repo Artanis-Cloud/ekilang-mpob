@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
-                                        oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc();" maxlength="7" onchange="ah1();FormatCurrency(this)"
+                                        oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc(); validateInput(event)" maxlength="7" onchange="ah1();FormatCurrency(this)"
                                         style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required  onClick="this.select();"
                                         title="Sila isikan butiran ini." value="{{number_format($penyata->e91_ah1 ?? 0,2) }}">
                                 </div>
@@ -976,5 +976,11 @@
                 document.getElementById('lain_container').style.display = "none";
                 @endif
             });
+        </script>
+        <script>
+            function validateInput(event) {
+            var input = event.target.value;
+            event.target.value = input.replace(/-/g, "");
+            }
         </script>
     @endsection
