@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e102_b6' id="e102_b6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity(''); valid_kuantiti()"
+                                    oninput="this.setCustomValidity(''); valid_kuantiti(); validateInput(event)"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)">
                                         <p type="hidden" id="err_kuantiti" style="color: red; display:none"><i>Sila buat pilihan
                                             di
@@ -908,6 +908,12 @@
             return evt.which;
         }
     </script>
+        <script>
+            function validateInput(event) {
+            var input = event.target.value;
+            event.target.value = input.replace(/-/g, "");
+            }
+        </script>
     </body>
 
     </html>

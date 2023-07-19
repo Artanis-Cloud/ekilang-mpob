@@ -89,7 +89,7 @@
                                     <table class="table table-bordered" id="tbl1" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th  class="font-weight-bold text-center" scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center; font-weight:500">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -160,8 +160,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -191,7 +190,7 @@
                                     <table class="table table-bordered" id="tbl2"  style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; word-wrap: break-word; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -262,8 +261,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -293,7 +291,7 @@
                                     <table class="table table-bordered" id="tbl3" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -364,8 +362,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -395,7 +392,7 @@
                                     <table class="table table-bordered" id="tbl4" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -466,8 +463,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -497,7 +493,7 @@
                                     <table class="table table-bordered" id="tbl5" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -568,8 +564,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -599,7 +594,7 @@
                                     <table class="table table-bordered" id="tbl6" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -670,8 +665,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -701,7 +695,7 @@
                                     <table class="table table-bordered" id="tbl7" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -737,7 +731,7 @@
                                             @if ($kapasiti_perak)
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 @foreach ($kapasiti_perak as $data)
-                                                    <tr class="text-right" style="font-size: 9pt">
+                                                    <tr class="text-right" >
                                                         <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $loop->iteration }}</td>
                                                         <td scope="row" class="text-left" style=" word-wrap: break-word;">{{ $data->e_nl }}</td>
                                                         <td class="text-left" style=" word-wrap: break-word;">{{ $data->e_np }}</td>
@@ -771,10 +765,9 @@
                                                 @endforeach
                                             @endif
 
-                                            <tr style="background-color: #d3d3d34d; font-size: 9pt" class="font-weight-bold text-right">
+                                            <tr style="background-color: #d3d3d34d; " class="font-weight-bold text-right">
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
-                                                <th>-</th>
-                                                <th >Jumlah</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -803,7 +796,7 @@
                                     <table class="table table-bordered" id="tbl8" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -874,8 +867,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -906,7 +898,7 @@
                                     <table class="table table-bordered" id="tbl9" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -977,8 +969,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -1009,7 +1000,7 @@
                                     <table class="table table-bordered" id="tbl10" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -1080,8 +1071,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -1112,7 +1102,7 @@
                                     <table class="table table-bordered" id="tbl11" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -1183,8 +1173,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -1215,7 +1204,7 @@
                                     <table class="table table-bordered" id="tbl12" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -1286,8 +1275,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -1318,7 +1306,7 @@
                                     <table class="table table-bordered" id="tbl13" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -1389,8 +1377,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>
@@ -1421,7 +1408,7 @@
                                     <table class="table table-bordered" id="tbl14" style="width: 100%; overflow: auto; table-layout: fixed;">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
-                                                <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
+                                                <th scope="col" style="vertical-align: middle; text-align:center;  width: 20px; white-space: nowrap">Bil.</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
@@ -1492,8 +1479,7 @@
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th >Jumlah</th>
-                                                <th>-</th>
+                                                <th colspan="2">Jumlah</th>
                                                 <th >-</th>
                                                 <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_feb ?? 0, 2) }}</td>

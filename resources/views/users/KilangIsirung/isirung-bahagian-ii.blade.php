@@ -179,8 +179,8 @@
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al3' onClick="this.select();"
-                                    id="e102_al3" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc()"
+                                    id="e102_al3" onkeypress="return isNumberKey(event)" required onchange="autodecimal(this);FormatCurrency(this)"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc(); validateInput(event)"
                                     value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
                                 @error('e102_al3')
                                     <div class="alert alert-danger">
@@ -200,7 +200,7 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al4' onClick="this.select();"
                                     id="e102_al4" onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); valid_percent()"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); valid_percent(); validateInput(event)"
                                     value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
                                     <p type="hidden" id="err_al4" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -464,6 +464,12 @@
 
                 });
             </script>
+        <script>
+            function validateInput(event) {
+            var input = event.target.value;
+            event.target.value = input.replace(/-/g, "");
+            }
+        </script>
 {{--
             <script>
                 window.onload = function() {
