@@ -129,9 +129,9 @@
                                             <div class="col-md-4 ml-auto">
                                                 <div class="form-group">
                                                     <label class="required">Tahun</label>
-                                                    <select class="form-control" name="tahun" id="date-dropdown" required>
+                                                    <select class="form-control" name="tahun" id="" required>
                                                         <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                        @for ($i = 2011; $i <= date('Y'); $i++)
+                                                        @for ($i = 2022; $i <= date('Y'); $i++)
                                                             <option>{{ $i }}</option>
                                                         @endfor
                                                     </select>
@@ -169,10 +169,10 @@
                                                     <label>No. Pelesen</label>
                                                     <select class="form-control select2" name="e_nl">
 
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option selected hidden  value="">Sila Pilih</option>
                                                         @foreach ($users2 as $data)
                                                             <option value="{{ $data->e_nl }}">
-                                                                {{ $data->e_nl }} - {{ $data->name }}
+                                                                {{ $data->e_nl }} - {{ $data->pelesen[0]->e_np ?? '-' }}
                                                             </option>
                                                         @endforeach
                                                     </select>

@@ -644,8 +644,8 @@ class InitializeUpdate extends Command
                     'lesen' => $e_nl,
                     'bulanbhg2' => '12',
                     'tahunbhg2' => $tahun2,
-                    'hari_operasi' => NULL,
-                    'kapasiti' => NULL,
+                    'hari_operasi' => '0',
+                    'kapasiti' => '0',
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ]);
@@ -681,8 +681,8 @@ class InitializeUpdate extends Command
                     'lesen' => $e_nl,
                     'bulanbhg2' =>  $bulan_init,
                     'tahunbhg2' => $tahun1,
-                    'hari_operasi' => NULL,
-                    'kapasiti' => NULL,
+                    'hari_operasi' => '0',
+                    'kapasiti' => '0',
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ]);

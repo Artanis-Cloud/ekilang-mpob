@@ -81,9 +81,9 @@
                                         <div class="col-md-4 mr-auto">
                                             <div class="form-group">
                                                 <label>Tahun</label>
-                                                <select class="form-control" name="tahun" required id="date-dropdown" oninput="valid_tahun()">
+                                                <select class="form-control" name="tahun" required  oninput="valid_tahun()">
                                                     <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                    @for ($i = 2011; $i <= date('Y'); $i++)
+                                                    @for ($i = 2022; $i <= date('Y'); $i++)
                                                         <option>{{ $i }}</option>
                                                     @endfor
                                                 </select>

@@ -145,7 +145,7 @@
                                                         <input type="text" size="10" class="calc" name='e91_aj1'
                                                             id='e91_aj1' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj1()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj1(); validateInput(event)"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj1') ?? (number_format($penyata->e91_aj1 ?? 0,2)) }}"
                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
@@ -164,7 +164,7 @@
                                                         <input type="text" size="10" class="calc" name='e91_aj2'
                                                             id='e91_aj2' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj2()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj2(); validateInput(event)"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj2') ?? (number_format($penyata->e91_aj2 ?? 0,2)) }}"
                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
@@ -183,7 +183,7 @@
                                                         <input type="text" size="10" class="calc" name='e91_aj3'
                                                             id='e91_aj3' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj3()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj3(); validateInput(event)"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj3') ?? (number_format($penyata->e91_aj3 ?? 0,2)) }}"
                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
@@ -202,7 +202,7 @@
                                                         <input type="text" size="10" class="calc" name='e91_aj4'
                                                             id='e91_aj4' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj4()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj4(); validateInput(event)"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj4') ?? (number_format($penyata->e91_aj4 ?? 0,2)) }}"
                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
@@ -221,7 +221,7 @@
                                                         <input type="text" size="10" class="calc" name='e91_aj5'
                                                             id='e91_aj5' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj5()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj5(); validateInput(event)"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj5') ?? (number_format($penyata->e91_aj5 ?? 0,2)) }}"
                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
@@ -240,7 +240,7 @@
                                                         <input type="text" size="10" class="calc"
                                                             name='e91_aj8' id='e91_aj8' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); validateInput(event)"
                                                             onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj8') ?? (number_format($penyata->e91_aj8 ?? 0,2)) }}"
                                                             onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
@@ -680,6 +680,12 @@
                     }
 
                 });
+            </script>
+            <script>
+                function validateInput(event) {
+                var input = event.target.value;
+                event.target.value = input.replace(/-/g, "");
+                }
             </script>
             {{-- <script>
                                     function validation_jumlah() {
