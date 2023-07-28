@@ -122,6 +122,7 @@ class LaporanController extends Controller
         ];
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // dd($users2);
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = KumpProduk::get();
         $produk = Produk::get();
@@ -282,7 +283,6 @@ class LaporanController extends Controller
             // $data3 = [];
             // $data4 = [];
 
-            // dd($hbiob);
             // if (!empty($hbiob)) {
                 for ($i = 1; $i <= 12; $i++) {
                     // if($new_bulan == 0){
@@ -305,6 +305,7 @@ class LaporanController extends Controller
                     }
                 }
 
+            // dd($data_bulanan_ebio_b5);
 
 
             for ($i2 = 1; $i2 <= 12; $i2++) {
@@ -332,7 +333,7 @@ class LaporanController extends Controller
 
         // endforeach;
         // }
-        // dd($data_bulanan_ebio_b5);
+        // dd($no_batches);
 
 
 
@@ -2295,6 +2296,25 @@ class LaporanController extends Controller
 
             // dd($operasi);
 
+            foreach ($operasi as $k =>$op){
+
+                for ($i = 1; $i <= 12; $i++){
+                    if ($i == $op->ebio_bln){
+                    //     if ($i == $op->ebio_bln && $op->ebio_c6 != 0) {
+
+                        $kap[$op->e_nl][$i] = $op->ebio_c6 ?? 0;
+                        }
+                    // }
+                }
+                $lesen[$op->e_nl]= $op->e_np ?? 0;
+                $val_kap[$op->e_nl]= $op->kap_proses ?? 0;
+                $negeri[$op->e_nl]= $op->e_negeri ?? 0;
+
+
+            }
+            // dd($kap);
+
+
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
@@ -2320,6 +2340,10 @@ class LaporanController extends Controller
                 'end_month' => $end_month,
 
                 'operasi' => $operasi,
+                'kap' => $kap,
+                'val_kap' => $val_kap,
+                'lesen' => $lesen,
+                'negeri' => $negeri,
 
 
                 'breadcrumbs' => $breadcrumbs,
@@ -2346,10 +2370,10 @@ class LaporanController extends Controller
                 $bulan_sql = "";
             }
             $bulan = $request->bulan;
-            $bulan2 = $request->start;
+            $bulan2 = (int) $request->start;
             $tahun2 = $request->tahun;
-            $start_month = $request->start_month;
-            $end_month = $request->end_month;
+            $start_month = (int)$request->start_month;
+            $end_month = (int)$request->end_month;
 
 
             $pengeluaran =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
@@ -2361,6 +2385,26 @@ class LaporanController extends Controller
             AND  h.ebio_c3 = 'AW'");
 
             // dd($pengeluaran);
+
+
+            foreach ($pengeluaran as $k =>$op){
+
+                for ($i = 1; $i <= 12; $i++){
+                    if ($i == $op->ebio_bln){
+                    //     if ($i == $op->ebio_bln && $op->ebio_c6 != 0) {
+
+                        $kap[$op->e_nl][$i] = $op->ebio_c6 ?? 0;
+                        }
+                    // }
+                }
+                $lesen[$op->e_nl]= $op->e_np ?? 0;
+                $val_kap[$op->e_nl]= $op->kap_proses ?? 0;
+                $negeri[$op->e_nl]= $op->e_negeri ?? 0;
+
+
+            }
+            // dd($kap);
+
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2388,6 +2432,11 @@ class LaporanController extends Controller
 
                 'start_month' => $start_month,
                 'end_month' => $end_month,
+
+                'kap' => $kap,
+                'val_kap' => $val_kap,
+                'lesen' => $lesen,
+                'negeri' => $negeri,
 
 
                 // 'breadcrumbs' => $breadcrumbs,
@@ -2500,10 +2549,10 @@ class LaporanController extends Controller
                 $bulan_sql = "";
             }
             $bulan = $request->bulan;
-            $bulan2 = $request->start;
+            $bulan2 = (int)  $request->start;
             $tahun2 = $request->tahun;
-            $start_month = $request->start_month;
-            $end_month = $request->end_month;
+            $start_month = (int)  $request->start_month;
+            $end_month = (int)  $request->end_month;
 
             if ($start_month == '1') {
                 $start = 'Jan';
@@ -2567,6 +2616,24 @@ class LaporanController extends Controller
             GROUP by innit.ebio_bln, p.e_nl");
             // dd($proses);
 
+
+            foreach ($proses as $k =>$op){
+
+                for ($i = 1; $i <= 12; $i++){
+                    if ($i == $op->ebio_bln){
+                    //     if ($i == $op->ebio_bln && $op->ebio_c6 != 0) {
+
+                        $kap[$op->e_nl][$i] = $op->ebio_c6 ?? 0;
+                    }
+                    // }
+                }
+                $lesen[$op->e_nl]= $op->e_np ?? 0;
+                $val_kap[$op->e_nl]= $op->kap_proses ?? 0;
+                $negeri[$op->e_nl]= $op->e_negeri ?? 0;
+
+
+            }
+
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
@@ -2597,6 +2664,11 @@ class LaporanController extends Controller
                     'start_month' => $start_month,
                     'end_month' => $end_month,
 
+                    'kap' => $kap,
+                    'val_kap' => $val_kap,
+                    'lesen' => $lesen,
+                    'negeri' => $negeri,
+
                     'returnArr' => $returnArr,
                     'layout' => $layout,
 
@@ -2615,6 +2687,11 @@ class LaporanController extends Controller
 
                     'start_month' => $start_month,
                     'end_month' => $end_month,
+
+                    'kap' => $kap,
+                    'val_kap' => $val_kap,
+                    'lesen' => $lesen,
+                    'negeri' => $negeri,
 
                     'returnArr' => $returnArr,
                     'layout' => $layout,
