@@ -249,6 +249,12 @@
                                         @if ($proses)
 
                                             @if ($bulan == null)
+
+                                                @for ($i = 1; $i <= 13; $i++)
+                                                    @php
+                                                        $total_col_bulan_1[$i] = 0;
+                                                    @endphp
+                                                @endfor
                                                 @php
                                                     $total_kapasiti = 0;
                                                     $total_allproses = 0;
@@ -279,6 +285,7 @@
                                                     $total_proses_11 = 0;
                                                     $total_proses_12 = 0;
                                                     $total_kapproses = 0;
+                                                    $total_kap = 0;
                                                 @endphp
                                                 {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                                 {{-- @for ($i = $request->start_month; $i < $request->end_month; $i++)
@@ -288,348 +295,187 @@
                                                 @endif
                                                 @endforeach
                                             @endfor --}}
-                                                @foreach ($proses as $data)
-                                                    {{-- {{ dd($data) }} --}}
-                                                    @php
-                                                        $total_proses = 0;
+                                            @foreach ($kap as $key => $data)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $lesen[$key]}}</td>
+                                                @if ($negeri[$key] == '01')
+                                                    <td class="text-left">JOHOR</td>
+                                                @elseif ($negeri[$key] == '02')
+                                                    <td class="text-left">KEDAH</td>
+                                                @elseif ($negeri[$key] == '03')
+                                                    <td class="text-left">KELANTAN</td>
+                                                @elseif ($negeri[$key] == '04')
+                                                    <td class="text-left">MELAKA</td>
+                                                @elseif ($negeri[$key] == '05')
+                                                    <td class="text-left">NEGERI SEMBILAN</td>
+                                                @elseif ($negeri[$key] == '06')
+                                                    <td class="text-left">PAHANG</td>
+                                                @elseif ($negeri[$key] == '07')
+                                                    <td class="text-left">PERAK</td>
+                                                @elseif ($negeri[$key] == '08')
+                                                    <td class="text-left">PERLIS</td>
+                                                @elseif ($negeri[$key] == '09')
+                                                    <td class="text-left">PULAU PINANG</td>
+                                                @elseif ($negeri[$key] == '10')
+                                                    <td class="text-left">SELANGOR</td>
+                                                @elseif ($negeri[$key] == '11')
+                                                    <td class="text-left">TERENGGANU</td>
+                                                @elseif ($negeri[$key] == '12')
+                                                    <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                @elseif ($negeri[$key] == '13')
+                                                    <td class="text-left">SABAH</td>
+                                                @elseif ($negeri[$key] == '14')
+                                                    <td class="text-left">SARAWAK</td>
+                                                    @else
+                                                    <td>-</td>
+                                                @endif
+                                                <td class="text-right">{{ number_format($val_kap[$key] ?? 0,2)}}</td>
 
-                                                    @endphp
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_np }}</td>
-                                                        @if ($data->e_negeri == '01')
-                                                            <td class="text-left">JOHOR</td>
-                                                        @elseif ($data->e_negeri == '02')
-                                                            <td class="text-left">KEDAH</td>
-                                                        @elseif ($data->e_negeri == '03')
-                                                            <td class="text-left">KELANTAN</td>
-                                                        @elseif ($data->e_negeri == '04')
-                                                            <td class="text-left">MELAKA</td>
-                                                        @elseif ($data->e_negeri == '05')
-                                                            <td class="text-left">NEGERI SEMBILAN</td>
-                                                        @elseif ($data->e_negeri == '06')
-                                                            <td class="text-left">PAHANG</td>
-                                                        @elseif ($data->e_negeri == '07')
-                                                            <td class="text-left">PERAK</td>
-                                                        @elseif ($data->e_negeri == '08')
-                                                            <td class="text-left">PERLIS</td>
-                                                        @elseif ($data->e_negeri == '09')
-                                                            <td class="text-left">PULAU PINANG</td>
-                                                        @elseif ($data->e_negeri == '10')
-                                                            <td class="text-left">SELANGOR</td>
-                                                        @elseif ($data->e_negeri == '11')
-                                                            <td class="text-left">TERENGGANU</td>
-                                                        @elseif ($data->e_negeri == '12')
-                                                            <td class="text-left">WILAYAH PERSEKUTUAN</td>
-                                                        @elseif ($data->e_negeri == '13')
-                                                            <td class="text-left">SABAH</td>
-                                                        @elseif ($data->e_negeri == '14')
-                                                            <td class="text-left">SARAWAK</td>
-                                                        @else
-                                                            <td class="text-left">-</td>
-                                                        @endif
-                                                        @php
-                                                            $total_kapproses += $data->kap_proses;
-                                                        @endphp
-                                                        <td scope="row" class="text-right">
-                                                            {{ number_format($data->kap_proses ?? 0) }}</td>
+                                                @php
+                                                    $rowTotal[$key] = 0;
+                                                    $total_kap += $val_kap[$key] ?? 0;
+                                                @endphp
 
-                                                        {{-- @for ($i = $request->start_month; $i < $request->end_month; $i++)
-                                                        @foreach ($proses as $data)
-                                                            @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
-                                                                <td style="text-align: center">/</td>
-                                                            @endif
-                                                        @endforeach
-                                                    @endfor --}}
-                                                        @if ($data->ebio_bln == '1' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_1++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_1 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '2' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_2 += $data->ebio_c6;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_2 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
+                                                @for ($i=1; $i<=12;$i++)
+                                                    <td style="text-align: right">{{ number_format($kap[$key][$i] ?? 0,2)}} </td>
 
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '3' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_3++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_3 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
+                                                    {{-- <td class="text-center" style="width:auto">{{ isset($kap[$key][$i]) ? ($kap[$key][$i] ? '/' : '') : '' }}</td> --}}
 
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '4' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_4++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_4 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
+                                                    {{-- @php
 
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '5' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_5++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_5 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
+                                                        $total_col_bulan_c4[$i] += $kap[$key][$i] ?? 0 ;
 
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '6' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_6++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_6 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
+                                                    @endphp --}}
 
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '7' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_7++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_7 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '8' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_8++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_8 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '9' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_9++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_9 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '10' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_10++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_10 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '11' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_11++;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_11 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        @if ($data->ebio_bln == '12' && $data->ebio_c6 != 0)
-                                                            @php
-                                                                // $bulan_12 += $data->ebio_c6;
-                                                                //$total_bulan += $data->ebio_c6;
-                                                                $total_proses_12 += $data->ebio_c6;
-                                                                $total_proses += $data->ebio_c6;
-
-                                                            @endphp
-                                                            <td style="text-align: right">
-                                                                {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                        @else
-                                                            <td>0.00</td>
-                                                        @endif
-                                                        <td style="text-align: right">
-                                                            {{ number_format($total_proses ?? 0, 2) }}</td>
-
-                                                    </tr>
 
                                                     @php
-                                                        $total_allproses += $total_proses;
-                                                        // $total_feb += $data->feb;
-                                                        // $total_mac += $data->mac;
-                                                        // $total_apr += $data->apr;
-                                                        // $total_mei += $data->mei;
-                                                        // $total_jun += $data->jun;
-                                                        // $total_jul += $data->jul;
-                                                        // $total_ogs += $data->ogs;
-                                                        // $total_sept += $data->sept;
-                                                        // $total_okt += $data->okt;
-                                                        // $total_nov += $data->nov;
-                                                        // $total_dec += $data->dec;
+                                                        // Update the row total with each value
+                                                        $total_col_bulan_1[$i] += $kap[$key][$i] ?? 0 ;
+                                                        $rowTotal[$key] += $kap[$key][$i] ?? 0;
                                                     @endphp
-                                                    {{-- {{ dd($total_proses) }} --}}
-                                                @endforeach
 
 
-                                                <tr style="background-color: #d3d3d34d"
-                                                    class="font-weight-bold text-right">
-                                                    <th colspan="2"><b>JUMLAH</b></th>
-                                                    <td></td>
-                                                    <td>{{ number_format($total_kapproses ?? 0) }}</td>
-                                                    <td>{{ number_format($total_proses_1 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_2 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_3 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_4 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_5 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_6 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_7 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_8 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_9 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_10 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_11 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_proses_12 ?? 0, 2) }}</td>
-                                                    <td>{{ number_format($total_allproses ?? 0, 2) }}</td>
-                                                    {{-- <td></td> --}}
-                                                    {{-- <td></td> --}}
+                                                @endfor
+
+                                                 <td class="text-right">{{ number_format($rowTotal[$key] ?? 0,2)}}</td>
+
+
+
+                                            </tr>
+                                            @endforeach
+
+                                                <tr style="background-color: #d3d3d34d" >
+                                                    <th colspan="1"></th>
+                                                    <th colspan="1"></th>
+                                                    <th colspan="1">Jumlah</th>
+                                                    <td class="font-weight-bold text-right">{{ number_format( $total_kap ?? 0,2) }}</td>
+
+                                                    @for ($i = 1; $i <= 12; $i++)
+                                                    {{-- @php
+                                                        $total_col_bulan_b5[$i] += $data_bulanan_ebio_b5[$keyProduk][$i] ?? 0 ;
+                                                        $total_col_bulan_c4[$i] += $data_bulanan_ebio_c4[$keyProduk][$i] ?? 0 ;
+                                                    @endphp --}}
+
+                                                    <td class="font-weight-bold text-right">{{ number_format( $total_col_bulan_1[$i]?? 0,2) }}</td>
+
+                                                    @endfor
+                                                    <th colspan="1"></th>
+
                                                 </tr>
                                             @elseif ($bulan == 'between')
+
+                                                @for ($i = 1; $i <= 13; $i++)
+                                                    @php
+                                                        $total_col_bulan_1[$i] = 0;
+                                                    @endphp
+                                                @endfor
                                                 @php
                                                     $total_kapproses = 0;
                                                     $total_allproses = 0;
+                                                    $total_kap = 0;
 
                                                 @endphp
 
-                                                @foreach ($proses as $key => $data)
-                                                    @php
-                                                        $total_proses = 0;
-                                                        $total_bulan[$i] = 0;
-
-                                                    @endphp
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->e_np }}</td>
-
-                                                        @if ($data->e_negeri == '01')
-                                                            <td class="text-left">JOHOR</td>
-                                                        @elseif ($data->e_negeri == '02')
-                                                            <td class="text-left">KEDAH</td>
-                                                        @elseif ($data->e_negeri == '03')
-                                                            <td class="text-left">KELANTAN</td>
-                                                        @elseif ($data->e_negeri == '04')
-                                                            <td class="text-left">MELAKA</td>
-                                                        @elseif ($data->e_negeri == '05')
-                                                            <td class="text-left">NEGERI SEMBILAN</td>
-                                                        @elseif ($data->e_negeri == '06')
-                                                            <td class="text-left">PAHANG</td>
-                                                        @elseif ($data->e_negeri == '07')
-                                                            <td class="text-left">PERAK</td>
-                                                        @elseif ($data->e_negeri == '08')
-                                                            <td class="text-left">PERLIS</td>
-                                                        @elseif ($data->e_negeri == '09')
-                                                            <td class="text-left">PULAU PINANG</td>
-                                                        @elseif ($data->e_negeri == '10')
-                                                            <td class="text-left">SELANGOR</td>
-                                                        @elseif ($data->e_negeri == '11')
-                                                            <td class="text-left">TERENGGANU</td>
-                                                        @elseif ($data->e_negeri == '12')
-                                                            <td class="text-left">WILAYAH PERSEKUTUAN</td>
-                                                        @elseif ($data->e_negeri == '13')
-                                                            <td class="text-left">SABAH</td>
-                                                        @elseif ($data->e_negeri == '14')
-                                                            <td class="text-left">SARAWAK</td>
+                                                @foreach ($kap as $key => $data)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $lesen[$key]}}</td>
+                                                    @if ($negeri[$key] == '01')
+                                                        <td class="text-left">JOHOR</td>
+                                                    @elseif ($negeri[$key] == '02')
+                                                        <td class="text-left">KEDAH</td>
+                                                    @elseif ($negeri[$key] == '03')
+                                                        <td class="text-left">KELANTAN</td>
+                                                    @elseif ($negeri[$key] == '04')
+                                                        <td class="text-left">MELAKA</td>
+                                                    @elseif ($negeri[$key] == '05')
+                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                    @elseif ($negeri[$key] == '06')
+                                                        <td class="text-left">PAHANG</td>
+                                                    @elseif ($negeri[$key] == '07')
+                                                        <td class="text-left">PERAK</td>
+                                                    @elseif ($negeri[$key] == '08')
+                                                        <td class="text-left">PERLIS</td>
+                                                    @elseif ($negeri[$key] == '09')
+                                                        <td class="text-left">PULAU PINANG</td>
+                                                    @elseif ($negeri[$key] == '10')
+                                                        <td class="text-left">SELANGOR</td>
+                                                    @elseif ($negeri[$key] == '11')
+                                                        <td class="text-left">TERENGGANU</td>
+                                                    @elseif ($negeri[$key] == '12')
+                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                    @elseif ($negeri[$key] == '13')
+                                                        <td class="text-left">SABAH</td>
+                                                    @elseif ($negeri[$key] == '14')
+                                                        <td class="text-left">SARAWAK</td>
                                                         @else
-                                                            <td class="text-left">-</td>
-                                                        @endif
-                                                        @php
-                                                            $total_kapproses += $data->kap_proses;
-                                                        @endphp
-                                                        <td scope="row" class="text-right">
-                                                            {{ number_format($data->kap_proses ?? 0) }}</td>
+                                                        <td>-</td>
+                                                    @endif
+                                                    <td class="text-right">{{ number_format($val_kap[$key] ?? 0,2)}}</td>
 
-                                                        @for ($i = $start_month; $i <= $end_month; $i++)
-                                                            @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
-                                                                @php
-                                                                    $total_proses += $data->ebio_c6;
-                                                                    $total_bulan[$i] += $data->ebio_c6;
-
-                                                                @endphp
-                                                                <td class="text-right">
-                                                                    {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
-                                                            @else
-                                                                <td class="text-right">0.00</td>
-                                                            @endif
-                                                        @endfor
-                                                        {{-- {{ dd($total_proses) }} --}}
-                                                        {{-- @php
-                                                                $jumlah = $total_proses;
-                                                                // {{ dd( $jumlah); }}
-                                                        @endphp --}}
-                                                        <td style="text-align: right">
-                                                            {{ number_format($total_proses ?? 0, 2) }}</td>
-
-                                                    </tr>
                                                     @php
-                                                        $total_allproses += $total_proses;
-                                                @endphp
-                                                @endforeach
+                                                        $rowTotal[$key] = 0;
+                                                        $total_kap += $val_kap[$key] ?? 0;
+                                                    @endphp
 
+                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                        <td style="text-align: right">{{ number_format($kap[$key][$i] ?? 0,2)}} </td>
+
+                                                        {{-- <td class="text-center" style="width:auto">{{ isset($kap[$key][$i]) ? ($kap[$key][$i] ? '/' : '') : '' }}</td> --}}
+
+                                                        {{-- @php
+
+                                                            $total_col_bulan_c4[$i] += $kap[$key][$i] ?? 0 ;
+
+                                                        @endphp --}}
+
+
+                                                        @php
+                                                            // Update the row total with each value
+                                                            $total_col_bulan_1[$i] += $kap[$key][$i] ?? 0 ;
+                                                            $rowTotal[$key] += $kap[$key][$i] ?? 0;
+                                                        @endphp
+
+
+                                                    @endfor
+
+                                                    <td class="text-right">{{ number_format($rowTotal[$key] ?? 0,2)}}</td>
+
+
+
+                                                </tr>
+                                                @endforeach
                                                 <tr style="background-color: #d3d3d34d"
                                                     class="font-weight-bold text-right">
                                                     <th colspan="3"><b>JUMLAH</b></th>
-                                                    <td>{{ number_format($total_kapproses ?? 0) }}</td>
+                                                    <td>{{ number_format($total_kap ?? 0, 2) }}</td>
 
                                                     @for ($i = $start_month; $i <= $end_month; $i++)
-                                                        <td>{{ number_format($total_bulan[$i] ?? 0, 2) }}</td>
+                                                        <td>{{ number_format($total_col_bulan_1[$i] ?? 0, 2) }}</td>
                                                     @endfor
-                                                <td>{{ number_format($total_allproses ?? 0, 2) }}</td>
+                                                    <th colspan="1"></th>
 
                                                 </tr>
 

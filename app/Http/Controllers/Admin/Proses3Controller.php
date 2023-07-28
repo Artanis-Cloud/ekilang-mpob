@@ -209,11 +209,11 @@ class Proses3Controller extends Controller
     public function admin_initialize(Request $request)
     {
         // dd($request->e_tahun);
-        // $this->initialize_proses_pl91($request->e_ddate);
-        // $this->initialize_proses_pl101($request->e_ddate);
-        // $this->initialize_proses_pl102($request->e_ddate);
-        // $this->initialize_proses_pl104($request->e_ddate);
-        // $this->initialize_proses_pl111($request->e_ddate);
+        $this->initialize_proses_pl91($request->e_ddate);
+        $this->initialize_proses_pl101($request->e_ddate);
+        $this->initialize_proses_pl102($request->e_ddate);
+        $this->initialize_proses_pl104($request->e_ddate);
+        $this->initialize_proses_pl111($request->e_ddate);
         $this->initialize_proses_plbio($request->e_ddate);
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata telah diinitialize');
@@ -483,8 +483,8 @@ class Proses3Controller extends Controller
                     'lesen' => $e_nl,
                     'bulanbhg2' => '12',
                     'tahunbhg2' => $tahun2,
-                    'hari_operasi' => NULL,
-                    'kapasiti' => NULL,
+                    'hari_operasi' => '0',
+                    'kapasiti' => '0',
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ]);
@@ -516,8 +516,8 @@ class Proses3Controller extends Controller
                     'lesen' => $e_nl,
                     'bulanbhg2' => now()->format('m') - 1,
                     'tahunbhg2' => $tahun1,
-                    'hari_operasi' => NULL,
-                    'kapasiti' => NULL,
+                    'hari_operasi' => '0',
+                    'kapasiti' => '0',
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ]);
@@ -989,8 +989,8 @@ class Proses3Controller extends Controller
                     'bulanbhg2' => '12',
                     'tahunbhg2' => $tahun2,
                     'hari_operasi' => NULL,
-                    'kapasiti' => NULL,
-                    'created_at' => NULL,
+                    'hari_operasi' => '0',
+                    'kapasiti' => '0',
                     'updated_at' => NULL,
                 ]);
             } else {
@@ -1020,8 +1020,8 @@ class Proses3Controller extends Controller
                     'lesen' => $request->e_initlesen,
                     'bulanbhg2' => $bulan_init,
                     'tahunbhg2' => $tahun1,
-                    'hari_operasi' => NULL,
-                    'kapasiti' => NULL,
+                    'hari_operasi' => '0',
+                    'kapasiti' => '0',
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ]);
