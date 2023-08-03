@@ -1177,13 +1177,13 @@ class KilangIsirungController extends Controller
         $e102_ag3 = floatval($user->e102_ag3);
         // dd($e102_ag2);
 
-        if ($total3_bhg3s != $user->e102_ac1) {
+        if ($total3_bhg3s != $e102_ac1) {
             return redirect()->route('isirung.bahagianiii')->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         }
-        if ($total3_bhg4s != $user->e102_ag2) {
+        if ($total3_bhg4s != $e102_ag2) {
             return redirect()->route('isirung.bahagianiv')->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
         }
-        if ($total3_bhg5s != $user->e102_ag3) {
+        if ($total3_bhg5s != $e102_ag3) {
             return redirect()->route('isirung.bahagianv')->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
         }
 
