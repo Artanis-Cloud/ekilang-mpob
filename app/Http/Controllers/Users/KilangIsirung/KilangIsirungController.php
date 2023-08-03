@@ -1173,9 +1173,14 @@ class KilangIsirungController extends Controller
         $total3_bhg4s = floatval($total3_bhg4);
         $e102_ag2 = floatval($user->e102_ag2);
 
+        $decimalPrecision = 6;
         $total3_bhg5s = floatval($total3_bhg5);
         $e102_ag3 = floatval($user->e102_ag3);
-        // dd($e102_ag2);
+        // dd($total3_bhg5s);
+
+        // $decimalPrecision = 6;
+        // $total3_bhg5s = round($total3_bhg5, $decimalPrecision);
+        // $e102_ag3 = round($user->e102_ag3, $decimalPrecision);
 
         if ($total3_bhg3s != $e102_ac1) {
             return redirect()->route('isirung.bahagianiii')->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
@@ -1184,7 +1189,10 @@ class KilangIsirungController extends Controller
             return redirect()->route('isirung.bahagianiv')->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
         }
         if ($total3_bhg5s != $e102_ag3) {
-            return redirect()->route('isirung.bahagianv')->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+            $errorMessage = 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)! ';
+            $errorMessage .= 'Total Bahagian 5: ' . $total3_bhg5s . ', Total Bahagian 1 (PKC): ' . $e102_ag3;
+
+            return redirect()->route('isirung.bahagianv')->with('error', $errorMessage);
         }
 
 
