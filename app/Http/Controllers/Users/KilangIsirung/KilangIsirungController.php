@@ -1188,7 +1188,7 @@ class KilangIsirungController extends Controller
         if ($total3_bhg4s != $e102_ag2) {
             return redirect()->route('isirung.bahagianiv')->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
         }
-        if ($total3_bhg5s != $e102_ag3) {
+        if ($total3_bhg5s <> $e102_ag3) {
             $errorMessage = 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)! ';
             $errorMessage .= 'Total Bahagian 5: ' . $total3_bhg5s . ', Total Bahagian 1 (PKC): ' . $e102_ag3;
 
