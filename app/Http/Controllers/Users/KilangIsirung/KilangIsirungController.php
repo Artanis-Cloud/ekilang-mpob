@@ -1167,18 +1167,19 @@ class KilangIsirungController extends Controller
 
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
 
-        $total3_bhg3s = floatval($total3_bhg3);
-        $e102_ac1 = floatval($user->e102_ac1);
+        $decimalPrecision = 6;
 
-        $total3_bhg4s = floatval($total3_bhg4);
-        $e102_ag2 = floatval($user->e102_ag2);
+        $total3_bhg3s = round($total3_bhg3, $decimalPrecision);
+        $e102_ac1 = round($user->e102_ac1, $decimalPrecision);
+
+        $total3_bhg4s = round($total3_bhg4, $decimalPrecision);
+        $e102_ag2 = round($user->e102_ag2, $decimalPrecision);
 
         // $decimalPrecision = 6;
         // $total3_bhg5s = floatval($total3_bhg5);
         // $e102_ag3 = floatval($user->e102_ag3);
         // dd($total3_bhg5s);
 
-        $decimalPrecision = 6;
         $total3_bhg5s = round($total3_bhg5, $decimalPrecision);
         $e102_ag3 = round($user->e102_ag3, $decimalPrecision);
 
