@@ -65,7 +65,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Mesej</th>
-                                                    <td>{{ $emel->Message }}</td>
+                                                    <td>{!! $emel->Message !!}</td>
                                                 </tr>
 
                                                 <tr>
@@ -90,3 +90,15 @@
 
     </div>
 
+{{-- 
+    @section('scripts')
+    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+    <script>
+        var editor = new Quill('#editor', {
+
+          readOnly: true // Set readOnly to true to prevent editing of the content.
+        });
+        console.log(editor);
+        editor.root.innerHTML = {!! json_encode( $mess ) !!};
+      </script>
+@endsection --}}

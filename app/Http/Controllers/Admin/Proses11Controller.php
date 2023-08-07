@@ -90,10 +90,11 @@ class Proses11Controller extends Controller
 
         // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
         $emel = Ekmessage::find($MsgID);
+        $mess = $emel->Message;
         // $pengumuman = \DB::table('pengumuman')->get();
         // dd($emel);
 
-        return view('admin.proses11.11paparemel', compact('returnArr', 'layout', 'emel'));
+        return view('admin.proses11.11paparemel', compact('returnArr', 'layout', 'emel', 'mess'));
 
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
@@ -101,13 +102,34 @@ class Proses11Controller extends Controller
     public function admin_11papar_cetak($MsgID, Ekmessage $emel)
     {
         # code...
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
+            ['link' => route('admin.11emel'), 'name' => "Papar Emel"],
+
+        ];
+
+        $kembali = route('admin.11emel');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
         $emel = Ekmessage::find($MsgID);
+        $mess = $emel->Message;
 
         $array = [
-            'emel' => $emel
+            'breadcrumbs' => $breadcrumbs,
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+            'emel' => $emel,
+            'mess' => $mess,
+            'kembali' => $kembali
         ];
 
         $pdf = PDF::loadView('admin.proses11.11print', $array)->setPaper('a4', 'vertical');
+        $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'basePath' => public_path()]);
         // return $pdf->download('invoice.pdf');
         return $pdf->stream();
     }
