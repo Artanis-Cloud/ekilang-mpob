@@ -324,11 +324,13 @@ class Proses9Controller extends Controller
                 }
             } elseif ($sektor == 'PLBIO') {
 
+                $bulan2 = (int)  $request->bulan2;
+
                 $users = DB::select("SELECT DISTINCT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM h_pelesen p, h_bio_inits e, reg_pelesen k
                 WHERE e.ebio_thn = '$request->tahun'
                 and e.ebio_bln = '$request->bulan2'
-                and p.e_bln = '$request->bulan2'
+                and p.e_bln = '$bulan2'
                 and p.e_nl = e.ebio_nl
                 and e.ebio_flg = '3'
                 and p.e_nl = k.e_nl
