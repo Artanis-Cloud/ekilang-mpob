@@ -236,7 +236,7 @@ footer a {
                     mengumpul dan memproses penyata bulanan bagi kategori Kilang Buah Kelapa Sawit,
                     Kilang Penapis, Kilang  Pelumat Isirong Sawit, Kilang Oleokimia Sawit, Kilang Biodiesel dan
                     Kemudahan Simpanan Pukal mengikut Akta Lembaga Minyak Sawit Malaysia 1998,
-                    Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005..
+                    Peraturan-Peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005.
                 </h1><hr>
                 <p style="text-align: left; margin-left: 5%; font-size:12px; margin-bottom:0%; margin-top:-2% ">
                     Sebarang pertanyaan sila hubungi :
@@ -247,9 +247,9 @@ footer a {
                         Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
                     </p>
                     <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
-                        <div class="col-3">Pn. Nor Syaida : </div>
+                        <div class="col-3">Pn. Izzati : </div>
                         <div class="col-9">(Emel:
-                            nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)</div>
+                            izzati.khamarudin@mpob.gov.my atau Tel : 03-7802 2914)</div>
                     </div>
                     <div class="row text-left" style=" margin-left: 3%; font-size:10px" >
                         <div class="col-3">En. Rominizam : </div>
