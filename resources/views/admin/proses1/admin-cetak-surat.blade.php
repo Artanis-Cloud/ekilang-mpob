@@ -89,8 +89,8 @@
                             <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
                             bordercolor="#111111" width="100%" id="AutoNumber2">
                                 <tr>
-                                <td width="33%">1. Nor Syaida Abdul Halim</td>
-                                <td width="33%">03-78022914 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nor.syaida@mpob.gov.my</td>
+                                <td width="33%">1. Nur Izzati Khamarudin</td>
+                                <td width="33%">03-78022914 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;izzati.khamarudin@mpob.gov.my</td>
                                 </tr>
                                 <tr>
                                 <td width="33%">2. Rominizam Mustapa</td>
