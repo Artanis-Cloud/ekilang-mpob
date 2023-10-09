@@ -1378,8 +1378,10 @@ class Proses5Controller extends Controller
             'kembali'     => $kembali,
         ];
 
+        // dd($lesen);
+        // $lesen = 207;
 
-        $penyataii_save = Hari::findOrFail($lesen);
+        $penyataii_save = Hari::where('id' , $lesen)->first();
         // dd($penyataii_save);
 
         // foreach($penyataia as $penyataia_save ){
@@ -1389,7 +1391,7 @@ class Proses5Controller extends Controller
             $penyataii_save->save();
         // }
 
-        // dd($penyataia_save->ebio_b4);
+        // dd($penyataii_save);
 
 
         return redirect()->back()
