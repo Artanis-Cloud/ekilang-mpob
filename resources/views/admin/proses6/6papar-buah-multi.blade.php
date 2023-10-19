@@ -73,7 +73,7 @@
 
                     <div class="col-11 align-self-center" style="text-align: right">
                         <button type="button" class="btn btn-primary " style="margin: 1%"
-                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                            onclick="myPrint('myfrm'); updateStatus({{ $e91_reg }})" value="print">Cetak</button>
                     </div>
                     {{-- <div class="col-2 align-self-center">
                         <button type="button" class="btn btn-primary "
@@ -1260,6 +1260,32 @@
         //    setTimeout(function(){newWin.close();},10);
         }
     </script>
+
+<script>
+    function updateStatus(e91_reg) {
+        var token = "{{ csrf_token() }}";
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('update-status') }}', // Make sure this route exists in your web.php
+            data: {
+                "_token": token,
+                "e91_reg": e91_reg
+            },
+            // success: function(data) {
+            //     if (data.success) {
+            //         alert('Status updated successfully');
+            //     } else {
+            //         alert('Failed to update status');
+            //     }
+            // },
+            error: function() {
+                alert('An error occurred while updating status');
+            }
+        });
+    }
+</script>
+
     {{-- <script>
         $('#draw').on('click', 'p', function () {
         if($(this).hasClass("highlited")) {

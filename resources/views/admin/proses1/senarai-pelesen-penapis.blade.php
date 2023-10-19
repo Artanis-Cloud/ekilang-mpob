@@ -272,7 +272,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
-                                            @foreach ($users as $data)
+                                            @foreach ($users as $key => $data)
                                             @if ($data->pelesen)
                                             @foreach ($data->pelesen as $dtpl)
                                             @if ($dtpl->e_kat == 'PL101')
@@ -324,9 +324,9 @@
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_npgtg ?? '-'  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_jpgtg ?? '-'  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_email_pengurus ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kod_negeri ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kod_daerah ?? '-'  }}</td>
-                                                    <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->kod_region ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen"  style="text-align: center">{{ $dtpl->negeri->nama_negeri ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen"  style="text-align: center">{{ $data_daerah[$key]->nama_daerah ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen"  style="text-align: center">{{ $dtpl->negeri->nama_region ?? '-'  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_syktinduk ?? '-'  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_year ?? '-'  }}</td>
                                                     <td class="noScreenPelesen" style="text-align: center">{{ $dtpl->e_group ?? '-'  }}</td>

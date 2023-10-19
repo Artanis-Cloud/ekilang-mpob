@@ -148,9 +148,9 @@ class Proses6Controller extends Controller
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
-            $query = E91Init::findOrFail($e91_reg);
-            $query->e91_flagcetak = 'Y';
-            $query->save();
+            // $query = E91Init::findOrFail($e91_reg);
+            // $query->e91_flagcetak = 'Y';
+            // $query->save();
 
         }
         $layout = 'layouts.main';
@@ -159,8 +159,21 @@ class Proses6Controller extends Controller
         Auth::user()->log(" VIEW PENYATA {$penyata[$key]->e91_nl}" );
 
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses6.6papar-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata','myDateTime','formatteddate'));
+        return view('admin.proses6.6papar-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata','myDateTime','formatteddate', 'e91_reg'));
     }
+
+    public function updateStatus(Request $request)
+    {
+        $e91_reg = $request->input('e91_reg');
+        // dd($e91_reg);
+
+        $query = E91Init::findOrFail($e91_reg);
+        $query->e91_flagcetak = 'Y';
+        $query->save();
+
+        return response()->json(['success' => true]);
+    }
+
 
     // public function show_admin_6penyatapaparcetakbuah($e91_reg , E91Init $penyata )
     // {
@@ -390,9 +403,9 @@ class Proses6Controller extends Controller
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e101_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
-            $query = E101Init::findOrFail($e101_reg);
-            $query->e101_flagcetak = 'Y';
-            $query->save();
+            // $query = E101Init::findOrFail($e101_reg);
+            // $query->e101_flagcetak = 'Y';
+            // $query->save();
         }
 
 
@@ -464,7 +477,20 @@ class Proses6Controller extends Controller
             'totaliib13',
             'totalib14',
             'totaliib14',
+            'e101_reg',
         ));
+    }
+
+    public function updateStatus101(Request $request)
+    {
+        $e101_reg = $request->input('e101_reg');
+        // dd($e91_reg);
+
+        $query = E101Init::findOrFail($e101_reg);
+        $query->e101_flagcetak = 'Y';
+        $query->save();
+
+        return response()->json(['success' => true]);
     }
 
     // public function show_admin_6penyatapaparcetakpenapis($e101_reg , E101Init $penyata )
@@ -578,9 +604,9 @@ class Proses6Controller extends Controller
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e102_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
-            $query = E102Init::findOrFail($e102_reg);
-            $query->e102_flagcetak = 'Y';
-            $query->save();
+            // $query = E102Init::findOrFail($e102_reg);
+            // $query->e102_flagcetak = 'Y';
+            // $query->save();
         }
 
         $layout = 'layouts.main';
@@ -606,8 +632,21 @@ class Proses6Controller extends Controller
             'totalvii',
             'totalvii2',
             'penyatavi',
-            'penyatavii'
+            'penyatavii',
+            'e102_reg'
         ));
+    }
+
+    public function updateStatus102(Request $request)
+    {
+        $e102_reg = $request->input('e102_reg');
+        // dd($e91_reg);
+
+        $query = E102Init::findOrFail($e102_reg);
+        $query->e102_flagcetak = 'Y';
+        $query->save();
+
+        return response()->json(['success' => true]);
     }
 
     public function admin_6penyatapaparcetakoleo()
@@ -769,9 +808,9 @@ class Proses6Controller extends Controller
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e104_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
-            $query = E104Init::findOrFail($e104_reg);
-            $query->e104_flagcetak = 'Y';
-            $query->save();
+            // $query = E104Init::findOrFail($e104_reg);
+            // $query->e104_flagcetak = 'Y';
+            // $query->save();
         }
 
 
@@ -831,7 +870,20 @@ class Proses6Controller extends Controller
             'totaliv2',
             'totalv',
             'totalv2',
+            'e104_reg',
         ));
+    }
+
+    public function updateStatus104(Request $request)
+    {
+        $e104_reg = $request->input('e104_reg');
+        // dd($e91_reg);
+
+        $query = E104Init::findOrFail($e104_reg);
+        $query->e104_flagcetak = 'Y';
+        $query->save();
+
+        return response()->json(['success' => true]);
     }
 
     public function admin_6penyatapaparcetaksimpanan()
@@ -914,9 +966,9 @@ class Proses6Controller extends Controller
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
 
-            $query = E07Init::findOrFail($e07_reg);
-            $query->e07_flagcetak = 'Y';
-            $query->save();
+            // $query = E07Init::findOrFail($e07_reg);
+            // $query->e07_flagcetak = 'Y';
+            // $query->save();
         }
 
         $layout = 'layouts.main';
@@ -945,8 +997,21 @@ class Proses6Controller extends Controller
             'totalii3',
             'totalii4',
             'totalii5',
-            'totalii7'
+            'totalii7',
+            'e07_reg'
         ));
+    }
+
+    public function updateStatus07(Request $request)
+    {
+        $e07_reg = $request->input('e07_reg');
+        // dd($e91_reg);
+
+        $query = E07Init::findOrFail($e07_reg);
+        $query->e07_flagcetak = 'Y';
+        $query->save();
+
+        return response()->json(['success' => true]);
     }
 
     public function admin_6penyatapaparcetakbio()
@@ -1041,9 +1106,9 @@ class Proses6Controller extends Controller
             // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
             // $query = DB::select("update e_bio_inits set ebio_flagcetak = 'Y' where ebio_nl in $ebio_reg");
 
-            $query = EBioInit::findOrFail($ebio_reg);
-            $query->ebio_flagcetak = 'Y';
-            $query->save();
+            // $query = EBioInit::findOrFail($ebio_reg);
+            // $query->ebio_flagcetak = 'Y';
+            // $query->save();
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
             $formatteddate[$key] = $myDateTime->format('d-m-Y');
@@ -1068,7 +1133,20 @@ class Proses6Controller extends Controller
             'penyataic',
             'penyataii',
             'penyataiii',
+            'ebio_reg',
         ));
+    }
+
+    public function updateStatusbio(Request $request)
+    {
+        $ebio_reg = $request->input('ebio_reg');
+        // dd($e91_reg);
+
+        $query = EBioInit::findOrFail($ebio_reg);
+        $query->ebio_flagcetak = 'Y';
+        $query->save();
+
+        return response()->json(['success' => true]);
     }
 
     public function admin_6papar_buah()

@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="col-11 align-self-center" style="text-align: right">
-                        <button type="button" class="btn btn-primary " style="margin: 1%" onclick="myPrint('myfrm')"
+                        <button type="button" class="btn btn-primary " style="margin: 1%" onclick="myPrint('myfrm'); updateStatusbio({{ $ebio_reg }})"
                             value="print">Cetak</button>
                     </div>
                 </div>
@@ -1192,6 +1192,31 @@
             $('body').empty().html(printcontent);
             window.print();
             $('body').html(restorepage);
+        }
+    </script>
+
+    <script>
+        function updateStatus(ebio_reg) {
+            var token = "{{ csrf_token() }}";
+
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('update-status-bio') }}', // Make sure this route exists in your web.php
+                data: {
+                    "_token": token,
+                    "ebio_reg": ebio_reg
+                },
+                // success: function(data) {
+                //     if (data.success) {
+                //         alert('Status updated successfully');
+                //     } else {
+                //         alert('Failed to update status');
+                //     }
+                // },
+                error: function() {
+                    alert('An error occurred while updating status');
+                }
+            });
         }
     </script>
     {{-- <script>
