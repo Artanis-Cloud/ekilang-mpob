@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="col-11 align-self-center" style="text-align: right">
-                        <button type="button" class="btn btn-primary " style="margin: 1%" onclick="myPrint('myfrm')"
+                        <button type="button" class="btn btn-primary " style="margin: 1%" onclick="myPrint('myfrm'); updateStatus101({{ $e101_reg }})"
                             value="print">Cetak</button>
                     </div>
                 </div>
@@ -1379,6 +1379,31 @@
             $('body').empty().html(printcontent);
             window.print();
             $('body').html(restorepage);
+        }
+    </script>
+
+    <script>
+        function updateStatus101(e101_reg) {
+            var token = "{{ csrf_token() }}";
+
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('update-status-101') }}', // Make sure this route exists in your web.php
+                data: {
+                    "_token": token,
+                    "e101_reg": e101_reg
+                },
+                // success: function(data) {
+                //     if (data.success) {
+                //         alert('Status updated successfully');
+                //     } else {
+                //         alert('Failed to update status');
+                //     }
+                // },
+                error: function() {
+                    alert('An error occurred while updating status');
+                }
+            });
         }
     </script>
 

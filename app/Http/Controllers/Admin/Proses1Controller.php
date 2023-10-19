@@ -1455,6 +1455,21 @@ class Proses1Controller extends Controller
                     // dd($pelesen);
                     $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'asc')
                         ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+
+                    foreach ($users as $key => $data) {
+                        foreach ($data->pelesen as $res_daerah) {
+                        // dd($res_daerah);
+                        // $data[$key] = $res_daerah->pelesen;
+                        // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                            if($res_daerah->e_kat == 'PL91'){
+                            // $users = $res_daerah;
+                            $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                            }
+                        // }
+                    }
+                    }
                     // $users = RegPelesen::with('pelesen')->where('e_nl', '673209658329')->orderBy('e_status', 'asc')
                     // ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->first();
                     // dd($users);
@@ -1475,13 +1490,28 @@ class Proses1Controller extends Controller
                     ];
                     $layout = 'layouts.admin';
 
-                    return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+                    return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users', 'data_daerah'));
                 }
             }
         } else {
             # code...// dd($pelesen);
             $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'asc')
                 ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+
+            foreach ($users as $key => $data) {
+                foreach ($data->pelesen as $res_daerah) {
+                // dd($res_daerah);
+                // $data[$key] = $res_daerah->pelesen;
+                // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                    if($res_daerah->e_kat == 'PL91'){
+                    // $users = $res_daerah;
+                    $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                    }
+                // }
+            }
+            }
             // dd($users);
             // $pelesen = Pelesen::get();
 
@@ -1498,7 +1528,7 @@ class Proses1Controller extends Controller
             ];
             $layout = 'layouts.admin';
 
-            return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+            return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users', 'data_daerah'));
         }
     }
 
@@ -1512,6 +1542,21 @@ class Proses1Controller extends Controller
 
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->orderBy('e_status', 'asc')
             ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+
+            foreach ($users as $key => $data) {
+                foreach ($data->pelesen as $res_daerah) {
+                // dd($res_daerah);
+                // $data[$key] = $res_daerah->pelesen;
+                // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                    if($res_daerah->e_kat == 'PL101'){
+                    // $users = $res_daerah;
+                    $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                    }
+                // }
+            }
+            }
         // dd($users);
 
         $breadcrumbs    = [
@@ -1529,13 +1574,28 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-penapis', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses1.senarai-pelesen-penapis', compact('returnArr', 'layout', 'users', 'data_daerah'));
     }
 
     public function admin_senaraipelesenisirung()
     {
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL102')->orderBy('e_status', 'asc')
             ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+
+            foreach ($users as $key => $data) {
+                foreach ($data->pelesen as $res_daerah) {
+                // dd($res_daerah);
+                // $data[$key] = $res_daerah->pelesen;
+                // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                    if($res_daerah->e_kat == 'PL102'){
+                    // $users = $res_daerah;
+                    $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                    }
+                // }
+            }
+            }
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1552,7 +1612,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-isirung', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses1.senarai-pelesen-isirung', compact('returnArr', 'layout', 'users', 'data_daerah'));
     }
 
     public function admin_senaraipelesenoleokimia()
@@ -1560,6 +1620,20 @@ class Proses1Controller extends Controller
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->orderBy('e_status', 'asc')
             ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
 
+
+        foreach ($users as $key => $data) {
+            foreach ($data->pelesen as $res_daerah) {
+            // dd($res_daerah);
+            // $data[$key] = $res_daerah->pelesen;
+            // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                if($res_daerah->e_kat == 'PL104'){
+                // $users = $res_daerah;
+                $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                }
+            // }
+        }
+        }
         // $users = DB::select("SELECT *
         // FROM pelesen p, reg_pelesen r
         // WHERE p.e_nl = r.e_nl
@@ -1583,7 +1657,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-oleokimia', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses1.senarai-pelesen-oleokimia', compact('returnArr', 'layout', 'users', 'data_daerah'));
     }
 
     public function admin_senaraipelesensimpanan()
@@ -1591,6 +1665,19 @@ class Proses1Controller extends Controller
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->orderBy('e_status', 'asc')
             ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
 
+        foreach ($users as $key => $data) {
+            foreach ($data->pelesen as $res_daerah) {
+            // dd($res_daerah);
+            // $data[$key] = $res_daerah->pelesen;
+            // if ($res_daerah->pelesen->e_negeri && $res_daerah->pelesen->e_daerah) {
+                if($res_daerah->e_kat == 'PL111'){
+                // $users = $res_daerah;
+                $data_daerah[$key] = Daerah::where('kod_negeri', $res_daerah->e_negeri)->where('kod_daerah', $res_daerah->e_daerah)->first();
+
+                }
+            // }
+        }
+        }
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen"],
@@ -1606,7 +1693,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-simpanan', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses1.senarai-pelesen-simpanan', compact('returnArr', 'layout', 'users', 'data_daerah'));
     }
 
     public function admin_senaraipelesenbio()

@@ -240,9 +240,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c10' style="width:100%"
                                         id="e101_c10" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invoke_c10(); validateInput(event)"
+                                        title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invoke_c10()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    onchange="autodecimal(this); FormatCurrency(this)">
+                                    onchange="autodecimal(this); FormatCurrency(this); validateInput(event)">
                                     @error('e101_c10')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>

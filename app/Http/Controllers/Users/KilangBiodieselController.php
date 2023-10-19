@@ -304,7 +304,7 @@ class KilangBiodieselController extends Controller
         // $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
 
 
-        $produk = Produk::where('prodcat', '01')->orderBy('prodname')->get();
+        $produk = Produk::where('prodcat', '01')->where('prodid', '!=', '14')->orderBy('prodname')->get();
 
         if ($user) {
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
