@@ -364,7 +364,7 @@
                                                                             class="form-control"
                                                                             onchange="autodecimal(this); FormatCurrency(this)"
                                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec5({{ $data->e101_c1 }})"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec5({{ $data->e101_c1 }}); validateInput(event)"
                                                                             value="{{ number_format($data->e101_c5 ,2) }}" required>
                                                                     </div>
                                                                     <label class="required">Belian/Terimaan </label>
@@ -374,7 +374,7 @@
                                                                             class="form-control"
                                                                             onchange="autodecimal(this); FormatCurrency(this)"
                                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                            oninput="enableKemaskini({{ $data->e101_c1 }});validate_two_decimal(this); setCustomValidity(''); invoke_ec6({{ $data->e101_c1 }})"
+                                                                            oninput="enableKemaskini({{ $data->e101_c1 }});validate_two_decimal(this); setCustomValidity(''); invoke_ec6({{ $data->e101_c1 }}); validateInput(event)"
                                                                             value="{{ number_format($data->e101_c6 ,2) }}" required>
                                                                     </div>
                                                                     <label>Import </label>
@@ -389,7 +389,7 @@
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             onchange="autodecimal(this); FormatCurrency(this)"
-                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec7({{ $data->e101_c1 }})"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec7({{ $data->e101_c1 }}); validateInput(event)"
                                                                             value="{{ number_format($data->e101_c7 ,2) }}" required>
                                                                     </div>
                                                                     <label class="required">Jualan/Edaran Tempatan </label>
@@ -400,7 +400,7 @@
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             onchange="autodecimal(this); FormatCurrency(this)"
-                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec8({{ $data->e101_c1 }})"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec8({{ $data->e101_c1 }}); validateInput(event)"
                                                                             value="{{ number_format($data->e101_c8 ,2) }}" required>
                                                                     </div>
                                                                     <label class="required">Eksport </label>
@@ -411,7 +411,7 @@
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             onchange="autodecimal(this); FormatCurrency(this)"
-                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec9({{ $data->e101_c1 }})"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); setCustomValidity(''); invoke_ec9({{ $data->e101_c1 }}); validateInput(event)"
                                                                             value="{{ number_format($data->e101_c9 ,2) }}" required>
                                                                     </div>
                                                                     <label class="required">Stok Akhir </label>
@@ -422,7 +422,7 @@
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             onchange="autodecimal(this); FormatCurrency(this)"
-                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }});setCustomValidity('')"
+                                                                            oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }});setCustomValidity(''); validateInput(event)"
                                                                             value="{{ number_format($data->e101_c10 ,2) }}" required>
                                                                     </div>
                                                                 </div>
