@@ -346,13 +346,13 @@
                                                                     <input type="text" name='e101_c5' id="e101_ec5{{ $data->e101_c1 }}"
                                                                         onkeypress="  return isNumberKey(event)"
                                                                         class="form-control"  onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec5({{ $data->e101_c1 }}) "
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec5({{ $data->e101_c1 }}); validateInput(event) "
                                                                         value="{{ number_format($data->e101_c5 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c6' class="form-control" id="e101_ec6{{ $data->e101_c1 }}"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec6({{ $data->e101_c1 }})"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec6({{ $data->e101_c1 }}); validateInput(event)"
                                                                         value="{{ number_format($data->e101_c6 ,2) }}" onkeypress="  return isNumberKey(event)"
                                                                         onchange="autodecimal(this); FormatCurrency(this)">
                                                                 </div>
@@ -366,7 +366,7 @@
                                                                     <input type="text" name='e101_c7' id="e101_ec7{{ $data->e101_c1 }}"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec7({{ $data->e101_c1 }})"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec7({{ $data->e101_c1 }}); validateInput(event)"
                                                                         value="{{ number_format($data->e101_c7 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Jualan/Edaran Dalam Negeri
@@ -375,7 +375,7 @@
                                                                     <input type="text" name='e101_c8' id="e101_ec8{{ $data->e101_c1 }}"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec8({{ $data->e101_c1 }})"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec8({{ $data->e101_c1 }}); validateInput(event)"
                                                                         value="{{ number_format($data->e101_c8 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Eksport </label>
@@ -383,7 +383,7 @@
                                                                     <input type="text" name='e101_c9' id="e101_ec9{{ $data->e101_c1 }}"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec9({{ $data->e101_c1 }})"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); invoke_ec9({{ $data->e101_c1 }}); validateInput(event)"
                                                                         value="{{ number_format($data->e101_c9 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Stok Akhir </label>
@@ -391,7 +391,7 @@
                                                                     <input type="text" name='e101_c10'  id="e101_ec10{{ $data->e101_c1 }}"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }})"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_c1 }}); validateInput(event)"
                                                                         value="{{ number_format($data->e101_c10 ,2) }}">
                                                                 </div>
                                                             </div>
